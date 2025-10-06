@@ -1,60 +1,175 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { listProjects, createProject, deleteProject } from '../lib/api.js'
+import { Link, useNavigate } from 'react-router-dom'
+import {
+  listProjects,
+  createProject,
+  updateProject,
+  deleteProject
+} from '../lib/api.js'
+import logo from '../assets/brand/logo.png'
+import '../dashboard.css'
 
 export default function Dashboard() {
-  const [projects, setProjects] = useState([])
-  const [title, setTitle] = useState('')
-  const [desc, setDesc] = useState('')
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
+  const [projects, setProjects] = useState([])
+
+  const [newTitle, setNewTitle] = useState('')
+  const [creating, setCreating] = useState(false)
+
+  const [editingId, setEditingId] = useState(null)
+  const [editTitle, setEditTitle] = useState('')
+
   const navigate = useNavigate()
 
-  const load = async () => {
-    setLoading(true)
-    const data = await listProjects()
-    setProjects(data)
-    setLoading(false)
+  useEffect(() => {
+    (async () => {
+      setLoading(true); setError('')
+      try {
+        const data = await listProjects()
+        setProjects(data || [])
+      } catch (e) {
+        console.error(e); setError('Projekte konnten nicht geladen werden.')
+      } finally { setLoading(false) }
+    })()
+  }, [])
+
+  async function onCreate() {
+    const title = (newTitle || '').trim() || 'Neues Projekt'
+    setCreating(true)
+    try {
+      const p = await createProject({ title })
+      setProjects(prev => [p, ...prev])
+      setNewTitle('')
+    } catch { alert('Projekt konnte nicht angelegt werden.') }
+    finally { setCreating(false) }
   }
 
-  useEffect(() => { load() }, [])
-
-  const onCreate = async () => {
-    const p = await createProject({ title: title || 'Neues Projekt', description: desc })
-    setTitle(''); setDesc('')
-    navigate(`/project/${p.id}`)
+  async function onDelete(id) {
+    if (!confirm('Projekt wirklich löschen?')) return
+    try {
+      await deleteProject(id)
+      setProjects(prev => prev.filter(p => p.id !== id))
+    } catch { alert('Löschen fehlgeschlagen.') }
   }
+
+  function startEdit(p) {
+    setEditingId(p.id)
+    setEditTitle(p.title || '')
+  }
+
+  async function saveEdit(p) {
+    const title = (editTitle || '').trim()
+    setEditingId(null)
+    if (!title || title === p.title) return
+    try {
+      const upd = await updateProject(p.id, { title })
+      setProjects(prev => prev.map(x => x.id === p.id ? { ...x, ...upd } : x))
+    } catch { alert('Umbenennen fehlgeschlagen.') }
+  }
+
+  function fmt(dt) {
+    if (!dt) return '–'
+    const d = new Date(dt)
+    return d.toLocaleDateString() + ', ' + d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})
+  }
+
+  if (loading) return <main className="content"><p>Lade…</p></main>
 
   return (
-    <div className="content">
-      <div className="row" style={{justifyContent:'space-between', alignItems:'center'}}>
-        <h2>Projekte</h2>
-        <div className="row">
-          <input className="input" placeholder="Titel" style={{minWidth:220}} value={title} onChange={e=>setTitle(e.target.value)} />
-          <button className="btn primary" onClick={onCreate}>+ Neues Projekt</button>
-        </div>
-      </div>
+    <>
+      {/* TOP NAV nur mit Logo */}
+      <header className="topnav">
+        <div className="topnav-inner">
+          <div className="nav-left">
+            <Link
+              to="/"
+              className="brand"
+              aria-label="Roman"
+              style={{ display:'inline-flex', alignItems:'center', padding:0, borderRadius:0, marginRight:12 }}
+            >
+              <img src={logo} alt="Roman" style={{ height:22, width:'auto', display:'block', borderRadius:0 }} />
+            </Link>
+          </div>
 
-      <hr/>
-
-      {loading ? <p>Lade...</p> : (
-        <div>
-          {projects.length === 0 && <p>Noch keine Projekte. Erstelle dein erstes oben rechts.</p>}
-          <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(280px, 1fr))', gap:12}}>
-            {projects.map(p => (
-              <div key={p.id} className="card">
-                <h3 style={{marginTop:0}}>{p.title}</h3>
-                <p className="status">Zuletzt geändert: {new Date(p.updated_at).toLocaleString()}</p>
-                <div className="row">
-                  <button className="btn" onClick={()=>navigate(`/project/${p.id}`)}>Öffnen</button>
-                  <button className="btn" onClick={async ()=>{ 
-                    if (confirm('Projekt wirklich löschen?')) { await deleteProject(p.id); load(); }
-                  }}>Löschen</button>
-                </div>
-              </div>
-            ))}
+          <div className="nav-right">
+            <div className="nav-search">
+              <input
+                placeholder="Titel"
+                value={newTitle}
+                onChange={e=>setNewTitle(e.target.value)}
+              />
+              <button className="btn primary" style={{marginLeft:8}} onClick={onCreate} disabled={creating}>
+                {creating ? '…' : '➕ Neues Projekt'}
+              </button>
+            </div>
           </div>
         </div>
-      )}
-    </div>
+      </header>
+
+      {/* Dashboard */}
+      <main className="content dashboard">
+        <div className="page-head" style={{marginTop:8}}>
+          <div className="page-crumbs"><h2 style={{margin:'0 0 2px 0'}}>Projekte</h2></div>
+        </div>
+
+        {error && <p style={{color:'crimson'}}>{error}</p>}
+
+        <section className="proj-grid">
+          {projects.map((p) => (
+            <article key={p.id} className="proj-card">
+              {/* Cover – 2:3 und klickbar */}
+              <button
+                className="cover"
+                onClick={() => navigate(`/project/${p.id}`)}
+                title="Öffnen"
+              >
+                <div className="cover-inner">
+                  <span className="cover-mark">BUCH-COVER</span>
+                </div>
+              </button>
+
+              {/* Inhalt der Kachel */}
+              <div className="proj-meta">
+                <div className="proj-header">
+                  {editingId === p.id ? (
+                    <input
+                      className="title-input"
+                      value={editTitle}
+                      onChange={e=>setEditTitle(e.target.value)}
+                      onKeyDown={(e)=>{ if (e.key==='Enter') saveEdit(p); if (e.key==='Escape') setEditingId(null) }}
+                      onBlur={()=>saveEdit(p)}
+                      autoFocus
+                    />
+                  ) : (
+                    <h3
+                      className="proj-title"
+                      title={p.title || 'Unbenannt'}
+                      onDoubleClick={()=>startEdit(p)}
+                    >
+                      {p.title || 'Unbenannt'}
+                    </h3>
+                  )}
+                  <button className="icon-btn rename" title="Umbenennen" onClick={()=>startEdit(p)}>✎</button>
+                </div>
+
+                <div className="proj-sub">Zuletzt geändert: {fmt(p.updated_at)}</div>
+
+                <div className="proj-actions">
+                  <Link className="btn" to={`/project/${p.id}`}>Öffnen</Link>
+                  <button className="btn" onClick={()=>onDelete(p.id)}>Löschen</button>
+                </div>
+              </div>
+            </article>
+          ))}
+
+          {projects.length === 0 && (
+            <div className="empty-hint">
+              Noch keine Projekte – gib oben einen <em>Titel</em> ein und klicke <strong>„Neues Projekt“</strong>.
+            </div>
+          )}
+        </section>
+      </main>
+    </>
   )
 }

@@ -1,4 +1,4 @@
-/* ===== Zwei-Spalten-Layout f�r die Schreiben-Seite ===== */
+﻿/* ===== Zwei-Spalten-Layout für die Schreiben-Seite ===== */
 
 .pv-grid {
   display: grid;
@@ -16,12 +16,12 @@
   padding-right: 4px;
 }
 
-/* Rechte Spalte f�llt den Rest */
+/* Rechte Spalte füllt den Rest */
 .pv-main {
-  min-width: 0;                   /* verhindert Layoutspr�nge bei langen Zeilen */
+  min-width: 0;                   /* verhindert Layoutsprünge bei langen Zeilen */
 }
 
-/* --- Kapitel-/Szenen-Liste (�bernimmt deine vorhandenen Styles) --- */
+/* --- Kapitel-/Szenen-Liste (übernimmt deine vorhandenen Styles) --- */
 .klist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .kitem { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 6px; }
 .krow { display: flex; align-items: center; gap: 8px; padding: 4px 6px; border-radius: 6px; }
@@ -43,4 +43,442 @@
 @media (max-width: 980px) {
   .pv-grid { grid-template-columns: 1fr; }
   .pv-sidebar { position: static; max-height: none; overflow: visible; }
+
 }
+
+
+/* --- Seite Kopf über beiden Spalten --- */
+.page-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin:8px 0 12px 0;
+}
+.page-crumbs{ display:flex; align-items:center; gap:8px; }
+.page-crumbs .crumb{ font-weight:500; }
+.page-crumbs .crumb.strong{ font-weight:700; }
+.page-crumbs .sep{ opacity:.5; }
+.page-meta .chip{ margin-left:auto; }
+
+/* --- Gleich hohe Spalten --- */
+.two-col.equalize{
+  display:grid;
+  grid-template-columns: 360px 1fr;
+  gap:16px;
+  align-items:stretch; /* <- beide Spalten gleiche Höhe */
+  min-height: calc(100vh - 180px); /* optisch volle Höhe */
+}
+.two-col__sidebar, .two-col__main{ display:flex; flex-direction:column; }
+.panel.fill{ height:100%; display:flex; flex-direction:column; }
+.stack.fill{ min-height:100%; display:flex; flex-direction:column; gap:12px; }
+.panel.grow{ flex:1 1 auto; display:flex; flex-direction:column; }
+.editor{ flex:1 1 auto; min-height:280px; }
+
+/* 1) Seitenkopf & Toolbar sticky + Blur */
+.page-head {
+  position: sticky; top: 56px; /* unter deiner Topnav */
+  z-index: 5; backdrop-filter: saturate(120%) blur(6px);
+  background: color-mix(in srgb, var(--bg, #f6f8fb) 80%, white 20%);
+  border-bottom: 1px solid rgba(0,0,0,.04);
+  padding: 8px 0; margin: 0 0 12px 0;
+}
+
+/* 2) Gleich hohe Spalten + Scroll-Schatten für die linke Liste */
+.two-col.equalize { align-items: stretch; }
+.two-col__sidebar .panel.fill {
+  overflow: auto; /* eigener Scroll */
+  box-shadow: inset 0 6px 6px -6px rgba(0,0,0,.05),
+              inset 0 -6px 6px -6px rgba(0,0,0,.05);
+}
+
+/* 3) Kapitelkarte: kompakter, Actions nur bei Hover */
+.chap-card { transition: transform .08s ease; }
+.chap-card:hover { transform: translateY(-1px); }
+.chap-head { padding: 10px 12px; }
+.chap-actions .icon-btn { opacity: 0; transform: translateY(-2px); transition: .12s; }
+.chap-card:hover .chap-actions .icon-btn { opacity: 1; transform: translateY(0); }
+
+/* 4) Szenenliste im Kapitel links: pills wie „Subitems“ */
+.scene-list { padding: 6px 8px 10px; gap: 6px; }
+.scene-item .scene-link { gap: 8px; }
+.scene-item.current .scene-link .text { font-weight: 600; }
+
+/* 5) Kartenraster rechts: auto-fit, gleich hohe Karten */
+.scene-grid {
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.scene-card { display: flex; flex-direction: column; min-height: 150px; }
+.scene-card-top { align-items: start; }
+.scene-card-snippet { flex: 1 1 auto; }
+.scene-card .scene-card-meta { display: flex; justify-content: space-between; align-items: center; }
+
+/* 6) Editor: Toolbar sticky & angenehmer Zeilenabstand */
+.editor-toolbar {
+  position: sticky; top: 104px; z-index: 4;
+  backdrop-filter: blur(6px);
+  background: color-mix(in srgb, white 70%, transparent);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.editor { line-height: 1.7; font-size: 16px; }
+
+/* 7) Chips & Badges – etwas ruhiger */
+.chip { background: #eef2ff; color: #3b5bfd; border: 0; }
+.chip.saving { background: #fff3cd; color: #c27b00; }
+.chip.saved  { background: #eafaf0; color: #17803d; }
+
+/* 8) Buttons: konsistente Höhe + Icon-Abstand */
+.btn, .btn.sm, .btn.xsm { gap: 6px; }
+.btn.primary { box-shadow: 0 6px 12px -6px rgba(59,91,253,.25); }
+
+/* 9) Scrollbar subtil (Chromium/Safari) */
+.panel.fill::-webkit-scrollbar { height: 8px; width: 8px; }
+.panel.fill::-webkit-scrollbar-thumb { background: rgba(0,0,0,.12); border-radius: 8px; }
+
+/* 10) Fokus sichtbar aber weich */
+:focus-visible { outline: 2px solid #7aa2ff; outline-offset: 2px; border-radius: 8px; }
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 240px;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+.muted {
+  color: #8a94a6;
+}
+/* --- Sidebar-Kacheln im Charakter-Menü wie Kapitel --- */
+
+.klist.slim { gap: 10px; }
+
+.kitem.tile {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 0 rgba(16,24,40,.04), 0 1px 2px rgba(16,24,40,.08);
+  padding: 6px;
+  transition: box-shadow .2s, border-color .2s;
+  border: 1px solid rgba(16,24,40,.06);
+}
+
+.kitem.tile.active {
+  box-shadow: 0 0 0 3px rgba(31, 136, 255, .12), 0 1px 0 rgba(16,24,40,.04);
+  border-color: rgba(31, 136, 255, .35);
+}
+
+.krow.tile-head {
+  display: grid;
+  grid-template-columns: 34px 1fr auto auto;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.ordinal {
+  display: inline-flex;
+  width: 34px;
+  height: 28px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  font-weight: 600;
+  font-size: 12px;
+  color: #334155;
+}
+
+.title-input {
+  background: #f8fafc;
+  border: 1px solid transparent;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.title-input:focus {
+  background: #fff;
+  border-color: rgba(31,136,255,.35);
+  outline: none;
+}
+
+.bubble.small {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f1f5f9;
+}
+
+.tile-body.subtle {
+  padding: 6px 8px 8px 42px; /* eingerückt unter der Ordinal */
+}
+
+.dot-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #94a3b8;
+  display: inline-block;
+}
+
+.kactions .icon-btn {
+  opacity: .75;
+}
+.krow:hover .kactions .icon-btn { opacity: 1; }
+
+/* Empty-State */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 240px;
+  text-align: center;
+}
+.center { text-align: center; }
+.muted { color: #8a94a6; }
+
+/* Sidebar-Kacheln wie Kapitel */
+.klist.slim { gap: 10px; }
+
+.kitem.tile {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 0 rgba(16,24,40,.04), 0 1px 2px rgba(16,24,40,.08);
+  padding: 6px;
+  transition: box-shadow .2s, border-color .2s;
+  border: 1px solid rgba(16,24,40,.06);
+}
+.kitem.tile.active {
+  box-shadow: 0 0 0 3px rgba(31,136,255,.12), 0 1px 0 rgba(16,24,40,.04);
+  border-color: rgba(31,136,255,.35);
+}
+
+.krow.tile-head {
+  display: grid;
+  grid-template-columns: 34px 1fr auto auto;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.ordinal {
+  display: inline-flex;
+  width: 34px;
+  height: 28px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  font-weight: 600;
+  font-size: 12px;
+  color: #334155;
+}
+
+/* Nur Anzeige, kein Input */
+.ktitle {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 8px 4px;
+}
+
+.bubble.small {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f1f5f9;
+}
+
+.tile-body.subtle {
+  padding: 6px 8px 8px 42px;
+}
+
+.dot-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+.dot {
+  width: 8px; height: 8px; border-radius: 999px; background: #94a3b8; display: inline-block;
+}
+
+.kactions .icon-btn { opacity: .75; }
+.krow:hover .kactions .icon-btn { opacity: 1; }
+
+/* Empty-State */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 240px;
+  text-align: center;
+}
+.center { text-align: center; }
+.muted { color: #8a94a6; }
+/* Modal */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(15,23,42,.45);
+  display: flex; align-items: center; justify-content: center; z-index: 60;
+}
+.modal {
+  width: min(860px, 92vw); background: #fff; border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.25); overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.modal-head, .modal-foot {
+  padding: 12px 16px; display:flex; align-items:center; justify-content: space-between;
+  border-bottom: 1px solid rgba(16,24,40,.06);
+}
+.modal-foot { border-top: 1px solid rgba(16,24,40,.06); border-bottom: none; }
+.modal-body { padding: 16px; max-height: 70vh; overflow: auto; }
+.editor.sm { min-height: 90px; }
+
+/* Wizard steps */
+.steps { display:flex; gap:8px; padding: 8px 16px; border-bottom:1px solid rgba(16,24,40,.06); }
+.step {
+  padding:6px 10px; border-radius:999px; background:#f1f5f9; font-size:12px; font-weight:600; color:#334155;
+}
+.step.active { background:#dbeafe; color:#1e40af; }
+
+/* Drawer */
+.drawer-backdrop { position: fixed; inset:0; background: rgba(15,23,42,.35); z-index: 50; }
+.drawer {
+  position: absolute; right:0; top:0; height:100%; width: min(520px, 96vw); background:#fff;
+  box-shadow: -10px 0 30px rgba(0,0,0,.15); display:flex; flex-direction:column;
+}
+.drawer-head, .drawer-foot { padding:12px 16px; display:flex; align-items:center; justify-content: space-between; border-bottom:1px solid rgba(16,24,40,.06); }
+.drawer-foot { border-top:1px solid rgba(16,24,40,.06); border-bottom:none; margin-top:auto; }
+.drawer-body { padding: 12px 16px; overflow:auto; }
+.rel-row { display:grid; grid-template-columns: 1fr 1fr 90px 1fr auto; gap:8px; align-items:center; }
+
+/* Utilities */
+.vstack { display:flex; flex-direction:column; }
+.btn.ghost { background:#f1f5f9; }
+
+/* Graph im Modal */
+/* ---- Graph Modal nutzt die verfügbare Fläche besser ---- */
+.modal.graph-modal {
+  width: min(1200px, 96vw);
+  height: 88vh;             /* mehr Höhe */
+  display: flex;
+  flex-direction: column;
+}
+
+.graph-body {
+  padding: 0;               /* Rahmenloser Canvas */
+  flex: 1 1 auto;
+  overflow: hidden;         /* kein Scroll im Body */
+}
+
+.graph-frame {
+  width: 100%;
+  height: 100%;             /* füllt den gesamten Body */
+  border: 0;
+  display: block;
+  background: #fff;
+}
+
+/* Tabs */
+.tabs { display:flex; gap:6px; border-bottom:1px solid rgba(16,24,40,.08); margin-bottom:10px; }
+.tab-btn { padding:8px 12px; border-radius:10px 10px 0 0; background:#f1f5f9; color:#334155; font-weight:600; border:none; cursor:pointer; }
+.tab-btn.active { background:#e2e8f0; color:#0f172a; }
+.tab-body { padding-top:6px; }
+
+/* Grid helpers */
+.grid { display:grid; }
+.grid.two { grid-template-columns: 1fr 1fr; }
+.gap16 { gap:16px; }
+
+/* Avatar placeholder box (rechts oben im Tab "Allgemein") */
+.avatar-box { display:flex; flex-direction:column; gap:8px; align-items:center; justify-content:flex-start; }
+.avatar-img, .avatar-ph {
+  width: 140px; height: 140px; border-radius: 12px; object-fit: cover; background:#e2e8f0;
+  display:flex; align-items:center; justify-content:center; font-size:48px; color:#64748b; font-weight:700;
+}
+
+/* Existing graph modal sizing */
+.modal.graph-modal { width: min(1200px, 96vw); height: 88vh; display:flex; flex-direction:column; }
+.graph-body { padding: 0; flex: 1 1 auto; overflow: hidden; }
+.graph-frame { width:100%; height:100%; border:0; display:block; background:#fff; }
+
+/* Small helpers */
+.editor.sm { min-height: 90px; }
+.bullets { padding-left: 18px; }
+
+/* Beziehungen-Tab */
+.rel-table { display: grid; gap: 8px; }
+.rel-header {
+  display: grid;
+  grid-template-columns: 1fr 180px 100px 1fr 32px;
+  gap: 8px;
+  font-weight: 600;
+  color: #334155;
+}
+.rel-row {
+  display: grid;
+  grid-template-columns: 1fr 180px 100px 1fr 32px;
+  gap: 8px;
+  align-items: center;
+}
+.rel-row .icon-btn { justify-self: end; }
+
+/* Graph Modal (bereits vorhanden; hier der Vollständigkeit halber) */
+.modal.graph-modal { width: min(1200px, 96vw); height: 88vh; display:flex; flex-direction:column; }
+.graph-body { padding: 0; flex: 1 1 auto; overflow: hidden; }
+.graph-frame { width:100%; height:100%; border:0; background:#fff; }
+
+/* Avatar (Allgemein-Tab) */
+.avatar-box { display:flex; flex-direction:column; gap:8px; align-items:center; justify-content:flex-start; }
+.avatar-img, .avatar-ph {
+  width: 140px; height: 140px; border-radius: 12px; object-fit: cover; background:#e2e8f0;
+  display:flex; align-items:center; justify-content:center; font-size:48px; color:#64748b; font-weight:700;
+}
+/* ----- Tag Input / Chips für Fähigkeiten ----- */
+.tag-input { display: flex; flex-direction: column; gap: 10px; }
+.tag-input .input { width: 100%; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  font-weight: 600;
+  color: #0f172a;
+}
+.tag-x {
+  appearance: none;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  color: #475569;
+}
+.tag-x:hover { color: #0f172a; }
