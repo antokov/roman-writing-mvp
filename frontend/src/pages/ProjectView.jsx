@@ -3,6 +3,18 @@ import { useParams } from 'react-router-dom'
 import '../layout-2col.css'
 import '../projectview.css'
 
+// Dev => immer Proxy '/api'; Prod => ENV oder '/api'
+const API_BASE = import.meta.env.DEV
+  ? '/api'
+  : (import.meta.env.VITE_API_BASE || '/api');
+
+const api      = (p) => `${API_BASE}${p}`;
+const get      = (p, init) => fetch(api(p), init);
+const postJSON = (p, body) => fetch(api(p), { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body||{}) });
+const putJSON  = (p, body) => fetch(api(p), { method:'PUT',  headers:{'Content-Type':'application/json'}, body: JSON.stringify(body||{}) });
+const del      = (p)      => fetch(api(p), { method:'DELETE' });
+
+
 export default function ProjectView() {
   const { id } = useParams()
   const pid = Number(id)
@@ -26,10 +38,6 @@ export default function ProjectView() {
   const saveTimer = useRef(null)
   const textareaRef = useRef(null)
   const debounce = (fn) => { clearTimeout(saveTimer.current); saveTimer.current = setTimeout(fn, 600) }
-
-  const postJSON = (url, body) => fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body||{}) })
-  const putJSON  = (url, body) => fetch(url, { method:'PUT',  headers:{'Content-Type':'application/json'}, body: JSON.stringify(body||{}) })
-  const del      = (url)      => fetch(url, { method:'DELETE' })
 
   const activeChapter = useMemo(
     () => chapters.find(c => c.id === activeChapterId) || null,
@@ -61,7 +69,7 @@ export default function ProjectView() {
   async function loadScenes(chId) {
     const ch = chapters.find(c => c.id === chId)
     if (ch && ch._loaded) return
-    const res = await fetch(`/api/chapters/${chId}/scenes`)
+    const res = await get(`/chapters/${chId}/scenes`)
     if (!res.ok) return
     const list = await res.json()
     setChapters(prev => prev.map(c => c.id === chId ? { ...c, scenes: list, _loaded: true } : c))
@@ -72,7 +80,7 @@ export default function ProjectView() {
     (async () => {
       setLoading(true); setError('')
       try {
-        const res = await fetch(`/api/projects/${pid}`)
+        const res = await get(`/projects/${pid}`)
         if (!res.ok) throw new Error('HTTP ' + res.status)
         const data = await res.json()
         setProject({ id: data.id, title: data.title })
@@ -106,7 +114,7 @@ export default function ProjectView() {
     flushingRef.current = true
     try {
       setSaveState('saving')
-      const res = await putJSON(`/api/scenes/${activeSceneId}`, { title: sceneTitle, content: sceneContent })
+      const res = await putJSON(`/scenes/${activeSceneId}`, { title: sceneTitle, content: sceneContent })
       if (!res.ok) throw new Error('HTTP ' + res.status)
       setSaveState('saved'); setLastSavedAt(new Date())
     } catch (e) { console.error('Flush save failed:', e) }
@@ -147,7 +155,7 @@ export default function ProjectView() {
 
   async function addChapter() {
     const title = `Kapitel ${chapters.length + 1}`
-    const res = await postJSON(`/api/projects/${pid}/chapters`, { title })
+    const res = await postJSON(`/projects/${pid}/chapters`, { title })
     if (!res.ok) return alert('Kapitel konnte nicht angelegt werden.')
     const ch = await res.json()
     const newCh = { ...ch, scenes: [], _loaded: false }
@@ -159,7 +167,7 @@ export default function ProjectView() {
   }
   async function removeChapter(chId) {
     if (!confirm('Kapitel wirklich löschen?')) return
-    const res = await del(`/api/chapters/${chId}`)
+    const res = await del(`/chapters/${chId}`)
     if (!res.ok) return alert('Löschen fehlgeschlagen.')
     setChapters(prev => prev.filter(c => c.id !== chId))
     if (activeChapterId === chId) {
@@ -172,10 +180,10 @@ export default function ProjectView() {
   }
   async function renameChapter(chId, title) {
     setChapters(prev => prev.map(c => c.id === chId ? { ...c, title } : c))
-    debounce(async () => { await putJSON(`/api/chapters/${chId}`, { title }) })
+    debounce(async () => { await putJSON(`/chapters/${chId}`, { title }) })
   }
   async function addScene(chId) {
-    const res = await postJSON(`/api/chapters/${chId}/scenes`, { title:'Neue Szene', content:'' })
+    const res = await postJSON(`/chapters/${chId}/scenes`, { title:'Neue Szene', content:'' })
     if (!res.ok) return alert('Szene konnte nicht angelegt werden.')
     const sc = await res.json()
     setChapters(prev => prev.map(c => c.id === chId ? { ...c, scenes:[...c.scenes, sc], _loaded: true } : c))
@@ -185,7 +193,7 @@ export default function ProjectView() {
   }
   async function removeScene(scId) {
     if (!confirm('Szene wirklich löschen?')) return
-    const res = await del(`/api/scenes/${scId}`)
+    const res = await del(`/scenes/${scId}`)
     if (!res.ok) return alert('Löschen fehlgeschlagen.')
     setChapters(prev => prev.map(c => ({ ...c, scenes:c.scenes.filter(s => s.id !== scId) })))
     if (activeSceneId === scId) setActiveSceneId(null)
@@ -200,7 +208,7 @@ export default function ProjectView() {
       scenes: c.scenes.map(s => s.id === activeSceneId ? { ...s, title: val } : s)
     })))
     debounce(async () => {
-      await putJSON(`/api/scenes/${activeSceneId}`, { title: val })
+      await putJSON(`/scenes/${activeSceneId}`, { title: val })
       setSaveState('saved'); setLastSavedAt(new Date())
     })
   }
@@ -213,7 +221,7 @@ export default function ProjectView() {
       scenes: c.scenes.map(s => s.id === activeSceneId ? { ...s, content: val } : s)
     })))
     debounce(async () => {
-      await putJSON(`/api/scenes/${activeSceneId}`, { content: val })
+      await putJSON(`/scenes/${activeSceneId}`, { content: val })
       setSaveState('saved'); setLastSavedAt(new Date())
     })
   }
@@ -228,7 +236,7 @@ export default function ProjectView() {
     const next = before + prefix + selected + suffix + after
     setSceneContent(next)
     setSaveState('saving')
-    debounce(async () => { await putJSON(`/api/scenes/${activeSceneId}`, { content: next }); setSaveState('saved'); setLastSavedAt(new Date()) })
+    debounce(async () => { await putJSON(`/scenes/${activeSceneId}`, { content: next }); setSaveState('saved'); setLastSavedAt(new Date()) })
     requestAnimationFrame(() => { ta.focus(); const pos = start + prefix.length + selected.length; ta.setSelectionRange(pos, pos) })
   }
   function insertLine(prefix) {
@@ -240,7 +248,7 @@ export default function ProjectView() {
     const next = before + nl + prefix + '\n' + after
     setSceneContent(next)
     setSaveState('saving')
-    debounce(async () => { await putJSON(`/api/scenes/${activeSceneId}`, { content: next }); setSaveState('saved'); setLastSavedAt(new Date()) })
+    debounce(async () => { await putJSON(`/scenes/${activeSceneId}`, { content: next }); setSaveState('saved'); setLastSavedAt(new Date()) })
     requestAnimationFrame(() => { ta.focus(); const pos = (before + nl + prefix + '\n').length; ta.setSelectionRange(pos, pos) })
   }
 
