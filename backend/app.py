@@ -17,14 +17,17 @@ CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # ⬇ ersetzt deinen SQLite-Block
 db_url = os.getenv("DATABASE_URL")
+
 if db_url:
     app.config["SQLALCHEMY_DATABASE_URI"] = db_url
 else:
-    # Flüchtige Dev-DB, überlebt Container-Neustarts nicht
-    db_path = os.path.join(tempfile.gettempdir(), "app.db")
+    is_aws = bool(os.getenv("AWS_EXECUTION_ENV"))
+    db_path = "/tmp/app.db" if is_aws else os.path.join(os.path.dirname(__file__), "app.db")
     app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{db_path}"
+    app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {"connect_args": {"check_same_thread": False}}
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
 db = SQLAlchemy(app)
 
 # ----------------- Models -----------------
@@ -297,20 +300,47 @@ def projects():
         return jsonify(p.to_dict()), 201
     return jsonify([x.to_dict() for x in Project.query.all()])
 
-@app.route("/api/projects/<int:pid>", methods=["GET","PUT","DELETE"])
+from sqlalchemy import func
+import traceback
+from flask import current_app
+
+@app.route("/api/projects/<int:pid>", methods=["GET", "PUT", "DELETE"])
 def project_detail(pid):
     p = get_or_404(Project, pid)
+
     if request.method == "GET":
-        data = p.to_dict()
-        data["chapters"] = [{"id":c.id,"title":c.title,"order_index":c.order_index}
-                            for c in Chapter.query.filter_by(project_id=pid).order_by(Chapter.order_index.asc(), Chapter.id.asc())]
-        return jsonify(data)
-    if request.method == "PUT":
+        try:
+            data = p.to_dict()
+            # defensiv, ohne order_index sortieren (nur nach id)
+            chs = (
+                Chapter.query
+                .filter_by(project_id=pid)
+                .order_by(Chapter.id.asc())
+                .all()
+            )
+            data["chapters"] = [
+                {"id": c.id, "title": c.title, "order_index": (c.order_index or 0)}
+                for c in chs
+            ]
+            return jsonify(data)
+        except Exception as ex:
+            # Log für dich im Terminal und eine klare 500-Antwort
+            current_app.logger.exception("GET /api/projects/<pid> failed")
+            return jsonify({"error": "internal", "detail": str(ex)}), 500
+
+    elif request.method == "PUT":
         data = request.get_json() or {}
         p.title = data.get("title", p.title)
         p.description = data.get("description", p.description)
-        db.session.commit(); return jsonify(p.to_dict())
-    db.session.delete(p); db.session.commit(); return jsonify({"ok":True})
+        db.session.commit()
+        return jsonify(p.to_dict())
+
+    else:  # DELETE
+        db.session.delete(p)
+        db.session.commit()
+        return jsonify({"ok": True})
+
+
 
 # Chapters / Scenes (unchanged)
 @app.route("/api/projects/<int:pid>/chapters", methods=["GET","POST"])
@@ -542,13 +572,36 @@ def project_book(pid):
     } for c in chapters]
     return jsonify({"project": p.to_dict(), "chapters": data})
 
+def ensure_project_columns():
+    ensure_column("projects", "description", "TEXT DEFAULT ''")
+    ensure_column("projects", "updated_at", "DATETIME")
+
+def ensure_chapter_columns():
+    ensure_column("chapters", "order_index", "INTEGER DEFAULT 0")
+    ensure_column("chapters", "content", "TEXT DEFAULT ''")
+    ensure_column("chapters", "updated_at", "DATETIME")
+
+def ensure_scene_columns():
+    ensure_column("scenes", "order_index", "INTEGER DEFAULT 0")
+    ensure_column("scenes", "content", "TEXT DEFAULT ''")
+    ensure_column("scenes", "updated_at", "DATETIME")
+
+
+# ✅ Einmalige Initialisierung – läuft bei jedem Start (Gunicorn, flask run, python app.py)
+with app.app_context():
+    db.create_all()
+    ensure_project_columns()
+    ensure_chapter_columns()
+    ensure_scene_columns()
+    ensure_relations_column()
+    ensure_profile_column()
+
+
 @app.route("/healthz")
 def health():
     return {"ok": True}
 
+
+# Optional für lokalen Start per `python app.py`
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
-        ensure_relations_column()
-        ensure_profile_column()
     app.run(host="0.0.0.0", port=8000, debug=True)

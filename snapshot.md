@@ -1,4 +1,4 @@
-﻿<!-- Generated 2025-10-06 12:46:36 -->
+﻿<!-- Generated 2025-10-07 09:26:01 -->
 # roman-writing-mvp - Code Snapshot
 
 ## Projektstruktur
@@ -6,9 +6,11 @@
 Auflistung der Ordnerpfade f³r Volume Boot
 Volumeseriennummer : D072-BBC6
 C:.
+|   .dockerignore
 |   .gitattributes
 |   .gitignore
 |   code-snapshot.md
+|   Dockerfile
 |   make-snapshot.ps1
 |   README.md
 |   snapshot.md
@@ -2371,11 +2373,13 @@ C:.
 |   |   
 |   \---roman-writing-mvp
 |       +---FileContentIndex
-|       |       0e566617-4120-439a-8f0f-c0a20a3dcf68.vsidx
+|       |       0d7a9609-517f-4ac1-bc75-fc484e8c1062.vsidx
 |       |       13db1929-9897-4370-9d82-8cf2e42929a1.vsidx
+|       |       2b54f48b-4bfa-4928-85df-d62521dd9cf0.vsidx
 |       |       3331c02e-9621-4086-a1c8-54e8b7d636ea.vsidx
-|       |       6da5f0f4-2ed3-4cb7-8d95-0d68f4f31744.vsidx
 |       |       a7e1cc4a-08aa-497b-8ee5-6ca1d0da3972.vsidx
+|       |       ba681683-972e-41b7-8927-72bb9199426c.vsidx
+|       |       d27cd925-8c51-4bf2-8310-48e7cb547825.vsidx
 |       |       
 |       \---v17
 |               DocumentLayout.backup.json
@@ -2385,2362 +2389,8214 @@ C:.
 +---backend
 |   |   app.db
 |   |   app.py
+|   |   Dockerfile
 |   |   README.md
 |   |   requirements.txt
+|   |   __init__.py
 |   |   
-|   \---.venv
-|       |   pyvenv.cfg
-|       |   
-|       +---Include
-|       |   \---site
-|       |       \---python3.12
-|       |           \---greenlet
-|       |                   greenlet.h
-|       |                   
-|       +---Lib
-|       |   \---site-packages
-|       |       |   typing_extensions.py
-|       |       |   
-|       |       +---blinker
-|       |       |   |   base.py
-|       |       |   |   py.typed
-|       |       |   |   _utilities.py
-|       |       |   |   __init__.py
-|       |       |   |   
-|       |       |   \---__pycache__
-|       |       |           base.cpython-312.pyc
-|       |       |           _utilities.cpython-312.pyc
-|       |       |           __init__.cpython-312.pyc
-|       |       |           
-|       |       +---blinker-1.9.0.dist-info
-|       |       |       INSTALLER
-|       |       |       LICENSE.txt
-|       |       |       METADATA
-|       |       |       RECORD
-|       |       |       WHEEL
-|       |       |       
-|       |       +---click
-|       |       |   |   core.py
-|       |       |   |   decorators.py
-|       |       |   |   exceptions.py
-|       |       |   |   formatting.py
-|       |       |   |   globals.py
-|       |       |   |   parser.py
-|       |       |   |   py.typed
-|       |       |   |   shell_completion.py
-|       |       |   |   termui.py
-|       |       |   |   testing.py
-|       |       |   |   types.py
-|       |       |   |   utils.py
-|       |       |   |   _compat.py
-|       |       |   |   _termui_impl.py
-|       |       |   |   _textwrap.py
-|       |       |   |   _utils.py
-|       |       |   |   _winconsole.py
-|       |       |   |   __init__.py
-|       |       |   |   
-|       |       |   \---__pycache__
-|       |       |           core.cpython-312.pyc
-|       |       |           decorators.cpython-312.pyc
-|       |       |           exceptions.cpython-312.pyc
-|       |       |           formatting.cpython-312.pyc
-|       |       |           globals.cpython-312.pyc
-|       |       |           parser.cpython-312.pyc
-|       |       |           shell_completion.cpython-312.pyc
-|       |       |           termui.cpython-312.pyc
-|       |       |           testing.cpython-312.pyc
-|       |       |           types.cpython-312.pyc
-|       |       |           utils.cpython-312.pyc
-|       |       |           _compat.cpython-312.pyc
-|       |       |           _termui_impl.cpython-312.pyc
-|       |       |           _textwrap.cpython-312.pyc
-|       |       |           _utils.cpython-312.pyc
-|       |       |           _winconsole.cpython-312.pyc
-|       |       |           __init__.cpython-312.pyc
-|       |       |           
-|       |       +---click-8.3.0.dist-info
-|       |       |   |   INSTALLER
-|       |       |   |   METADATA
-|       |       |   |   RECORD
-|       |       |   |   WHEEL
-|       |       |   |   
-|       |       |   \---licenses
-|       |       |           LICENSE.txt
-|       |       |           
-|       |       +---colorama
-|       |       |   |   ansi.py
-|       |       |   |   ansitowin32.py
-|       |       |   |   initialise.py
-|       |       |   |   win32.py
-|       |       |   |   winterm.py
-|       |       |   |   __init__.py
-|       |       |   |   
-|       |       |   +---tests
-|       |       |   |   |   ansitowin32_test.py
-|       |       |   |   |   ansi_test.py
-|       |       |   |   |   initialise_test.py
-|       |       |   |   |   isatty_test.py
-|       |       |   |   |   utils.py
-|       |       |   |   |   winterm_test.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           ansitowin32_test.cpython-312.pyc
-|       |       |   |           ansi_test.cpython-312.pyc
-|       |       |   |           initialise_test.cpython-312.pyc
-|       |       |   |           isatty_test.cpython-312.pyc
-|       |       |   |           utils.cpython-312.pyc
-|       |       |   |           winterm_test.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   \---__pycache__
-|       |       |           ansi.cpython-312.pyc
-|       |       |           ansitowin32.cpython-312.pyc
-|       |       |           initialise.cpython-312.pyc
-|       |       |           win32.cpython-312.pyc
-|       |       |           winterm.cpython-312.pyc
-|       |       |           __init__.cpython-312.pyc
-|       |       |           
-|       |       +---colorama-0.4.6.dist-info
-|       |       |   |   INSTALLER
-|       |       |   |   METADATA
-|       |       |   |   RECORD
-|       |       |   |   WHEEL
-|       |       |   |   
-|       |       |   \---licenses
-|       |       |           LICENSE.txt
-|       |       |           
-|       |       +---flask
-|       |       |   |   app.py
-|       |       |   |   blueprints.py
-|       |       |   |   cli.py
-|       |       |   |   config.py
-|       |       |   |   ctx.py
-|       |       |   |   debughelpers.py
-|       |       |   |   globals.py
-|       |       |   |   helpers.py
-|       |       |   |   logging.py
-|       |       |   |   py.typed
-|       |       |   |   sessions.py
-|       |       |   |   signals.py
-|       |       |   |   templating.py
-|       |       |   |   testing.py
-|       |       |   |   typing.py
-|       |       |   |   views.py
-|       |       |   |   wrappers.py
-|       |       |   |   __init__.py
-|       |       |   |   __main__.py
-|       |       |   |   
-|       |       |   +---json
-|       |       |   |   |   provider.py
-|       |       |   |   |   tag.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           provider.cpython-312.pyc
-|       |       |   |           tag.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---sansio
-|       |       |   |   |   app.py
-|       |       |   |   |   blueprints.py
-|       |       |   |   |   README.md
-|       |       |   |   |   scaffold.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           app.cpython-312.pyc
-|       |       |   |           blueprints.cpython-312.pyc
-|       |       |   |           scaffold.cpython-312.pyc
-|       |       |   |           
-|       |       |   \---__pycache__
-|       |       |           app.cpython-312.pyc
-|       |       |           blueprints.cpython-312.pyc
-|       |       |           cli.cpython-312.pyc
-|       |       |           config.cpython-312.pyc
-|       |       |           ctx.cpython-312.pyc
-|       |       |           debughelpers.cpython-312.pyc
-|       |       |           globals.cpython-312.pyc
-|       |       |           helpers.cpython-312.pyc
-|       |       |           logging.cpython-312.pyc
-|       |       |           sessions.cpython-312.pyc
-|       |       |           signals.cpython-312.pyc
-|       |       |           templating.cpython-312.pyc
-|       |       |           testing.cpython-312.pyc
-|       |       |           typing.cpython-312.pyc
-|       |       |           views.cpython-312.pyc
-|       |       |           wrappers.cpython-312.pyc
-|       |       |           __init__.cpython-312.pyc
-|       |       |           __main__.cpython-312.pyc
-|       |       |           
-|       |       +---flask-3.0.3.dist-info
-|       |       |       entry_points.txt
-|       |       |       INSTALLER
-|       |       |       LICENSE.txt
-|       |       |       METADATA
-|       |       |       RECORD
-|       |       |       REQUESTED
-|       |       |       WHEEL
-|       |       |       
-|       |       +---flask_cors
-|       |       |   |   core.py
-|       |       |   |   decorator.py
-|       |       |   |   extension.py
-|       |       |   |   version.py
-|       |       |   |   __init__.py
-|       |       |   |   
-|       |       |   \---__pycache__
-|       |       |           core.cpython-312.pyc
-|       |       |           decorator.cpython-312.pyc
-|       |       |           extension.cpython-312.pyc
-|       |       |           version.cpython-312.pyc
-|       |       |           __init__.cpython-312.pyc
-|       |       |           
-|       |       +---Flask_Cors-4.0.1.dist-info
-|       |       |       INSTALLER
-|       |       |       LICENSE
-|       |       |       METADATA
-|       |       |       RECORD
-|       |       |       REQUESTED
-|       |       |       top_level.txt
-|       |       |       WHEEL
-|       |       |       
-|       |       +---flask_sqlalchemy
-|       |       |   |   cli.py
-|       |       |   |   extension.py
-|       |       |   |   model.py
-|       |       |   |   pagination.py
-|       |       |   |   py.typed
-|       |       |   |   query.py
-|       |       |   |   record_queries.py
-|       |       |   |   session.py
-|       |       |   |   table.py
-|       |       |   |   track_modifications.py
-|       |       |   |   __init__.py
-|       |       |   |   
-|       |       |   \---__pycache__
-|       |       |           cli.cpython-312.pyc
-|       |       |           extension.cpython-312.pyc
-|       |       |           model.cpython-312.pyc
-|       |       |           pagination.cpython-312.pyc
-|       |       |           query.cpython-312.pyc
-|       |       |           record_queries.cpython-312.pyc
-|       |       |           session.cpython-312.pyc
-|       |       |           table.cpython-312.pyc
-|       |       |           track_modifications.cpython-312.pyc
-|       |       |           __init__.cpython-312.pyc
-|       |       |           
-|       |       +---flask_sqlalchemy-3.1.1.dist-info
-|       |       |       INSTALLER
-|       |       |       LICENSE.rst
-|       |       |       METADATA
-|       |       |       RECORD
-|       |       |       REQUESTED
-|       |       |       WHEEL
-|       |       |       
-|       |       +---greenlet
-|       |       |   |   CObjects.cpp
-|       |       |   |   greenlet.cpp
-|       |       |   |   greenlet.h
-|       |       |   |   greenlet_allocator.hpp
-|       |       |   |   greenlet_compiler_compat.hpp
-|       |       |   |   greenlet_cpython_compat.hpp
-|       |       |   |   greenlet_exceptions.hpp
-|       |       |   |   greenlet_internal.hpp
-|       |       |   |   greenlet_msvc_compat.hpp
-|       |       |   |   greenlet_refs.hpp
-|       |       |   |   greenlet_slp_switch.hpp
-|       |       |   |   greenlet_thread_support.hpp
-|       |       |   |   PyGreenlet.cpp
-|       |       |   |   PyGreenlet.hpp
-|       |       |   |   PyGreenletUnswitchable.cpp
-|       |       |   |   PyModule.cpp
-|       |       |   |   slp_platformselect.h
-|       |       |   |   TBrokenGreenlet.cpp
-|       |       |   |   TExceptionState.cpp
-|       |       |   |   TGreenlet.cpp
-|       |       |   |   TGreenlet.hpp
-|       |       |   |   TGreenletGlobals.cpp
-|       |       |   |   TMainGreenlet.cpp
-|       |       |   |   TPythonState.cpp
-|       |       |   |   TStackState.cpp
-|       |       |   |   TThreadState.hpp
-|       |       |   |   TThreadStateCreator.hpp
-|       |       |   |   TThreadStateDestroy.cpp
-|       |       |   |   TUserGreenlet.cpp
-|       |       |   |   _greenlet.cp312-win_amd64.pyd
-|       |       |   |   __init__.py
-|       |       |   |   
-|       |       |   +---platform
-|       |       |   |   |   setup_switch_x64_masm.cmd
-|       |       |   |   |   switch_aarch64_gcc.h
-|       |       |   |   |   switch_alpha_unix.h
-|       |       |   |   |   switch_amd64_unix.h
-|       |       |   |   |   switch_arm32_gcc.h
-|       |       |   |   |   switch_arm32_ios.h
-|       |       |   |   |   switch_arm64_masm.asm
-|       |       |   |   |   switch_arm64_masm.obj
-|       |       |   |   |   switch_arm64_msvc.h
-|       |       |   |   |   switch_csky_gcc.h
-|       |       |   |   |   switch_loongarch64_linux.h
-|       |       |   |   |   switch_m68k_gcc.h
-|       |       |   |   |   switch_mips_unix.h
-|       |       |   |   |   switch_ppc64_aix.h
-|       |       |   |   |   switch_ppc64_linux.h
-|       |       |   |   |   switch_ppc_aix.h
-|       |       |   |   |   switch_ppc_linux.h
-|       |       |   |   |   switch_ppc_macosx.h
-|       |       |   |   |   switch_ppc_unix.h
-|       |       |   |   |   switch_riscv_unix.h
-|       |       |   |   |   switch_s390_unix.h
-|       |       |   |   |   switch_sh_gcc.h
-|       |       |   |   |   switch_sparc_sun_gcc.h
-|       |       |   |   |   switch_x32_unix.h
-|       |       |   |   |   switch_x64_masm.asm
-|       |       |   |   |   switch_x64_masm.obj
-|       |       |   |   |   switch_x64_msvc.h
-|       |       |   |   |   switch_x86_msvc.h
-|       |       |   |   |   switch_x86_unix.h
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---tests
-|       |       |   |   |   fail_clearing_run_switches.py
-|       |       |   |   |   fail_cpp_exception.py
-|       |       |   |   |   fail_initialstub_already_started.py
-|       |       |   |   |   fail_slp_switch.py
-|       |       |   |   |   fail_switch_three_greenlets.py
-|       |       |   |   |   fail_switch_three_greenlets2.py
-|       |       |   |   |   fail_switch_two_greenlets.py
-|       |       |   |   |   leakcheck.py
-|       |       |   |   |   test_contextvars.py
-|       |       |   |   |   test_cpp.py
-|       |       |   |   |   test_extension_interface.py
-|       |       |   |   |   test_gc.py
-|       |       |   |   |   test_generator.py
-|       |       |   |   |   test_generator_nested.py
-|       |       |   |   |   test_greenlet.py
-|       |       |   |   |   test_greenlet_trash.py
-|       |       |   |   |   test_leaks.py
-|       |       |   |   |   test_stack_saved.py
-|       |       |   |   |   test_throw.py
-|       |       |   |   |   test_tracing.py
-|       |       |   |   |   test_version.py
-|       |       |   |   |   test_weakref.py
-|       |       |   |   |   _test_extension.c
-|       |       |   |   |   _test_extension.cp312-win_amd64.pyd
-|       |       |   |   |   _test_extension_cpp.cp312-win_amd64.pyd
-|       |       |   |   |   _test_extension_cpp.cpp
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           fail_clearing_run_switches.cpython-312.pyc
-|       |       |   |           fail_cpp_exception.cpython-312.pyc
-|       |       |   |           fail_initialstub_already_started.cpython-312.pyc
-|       |       |   |           fail_slp_switch.cpython-312.pyc
-|       |       |   |           fail_switch_three_greenlets.cpython-312.pyc
-|       |       |   |           fail_switch_three_greenlets2.cpython-312.pyc
-|       |       |   |           fail_switch_two_greenlets.cpython-312.pyc
-|       |       |   |           leakcheck.cpython-312.pyc
-|       |       |   |           test_contextvars.cpython-312.pyc
-|       |       |   |           test_cpp.cpython-312.pyc
-|       |       |   |           test_extension_interface.cpython-312.pyc
-|       |       |   |           test_gc.cpython-312.pyc
-|       |       |   |           test_generator.cpython-312.pyc
-|       |       |   |           test_generator_nested.cpython-312.pyc
-|       |       |   |           test_greenlet.cpython-312.pyc
-|       |       |   |           test_greenlet_trash.cpython-312.pyc
-|       |       |   |           test_leaks.cpython-312.pyc
-|       |       |   |           test_stack_saved.cpython-312.pyc
-|       |       |   |           test_throw.cpython-312.pyc
-|       |       |   |           test_tracing.cpython-312.pyc
-|       |       |   |           test_version.cpython-312.pyc
-|       |       |   |           test_weakref.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   \---__pycache__
-|       |       |           __init__.cpython-312.pyc
-|       |       |           
-|       |       +---greenlet-3.2.4.dist-info
-|       |       |   |   INSTALLER
-|       |       |   |   METADATA
-|       |       |   |   RECORD
-|       |       |   |   top_level.txt
-|       |       |   |   WHEEL
-|       |       |   |   
-|       |       |   \---licenses
-|       |       |           LICENSE
-|       |       |           LICENSE.PSF
-|       |       |           
-|       |       +---itsdangerous
-|       |       |   |   encoding.py
-|       |       |   |   exc.py
-|       |       |   |   py.typed
-|       |       |   |   serializer.py
-|       |       |   |   signer.py
-|       |       |   |   timed.py
-|       |       |   |   url_safe.py
-|       |       |   |   _json.py
-|       |       |   |   __init__.py
-|       |       |   |   
-|       |       |   \---__pycache__
-|       |       |           encoding.cpython-312.pyc
-|       |       |           exc.cpython-312.pyc
-|       |       |           serializer.cpython-312.pyc
-|       |       |           signer.cpython-312.pyc
-|       |       |           timed.cpython-312.pyc
-|       |       |           url_safe.cpython-312.pyc
-|       |       |           _json.cpython-312.pyc
-|       |       |           __init__.cpython-312.pyc
-|       |       |           
-|       |       +---itsdangerous-2.2.0.dist-info
-|       |       |       INSTALLER
-|       |       |       LICENSE.txt
-|       |       |       METADATA
-|       |       |       RECORD
-|       |       |       WHEEL
-|       |       |       
-|       |       +---jinja2
-|       |       |   |   async_utils.py
-|       |       |   |   bccache.py
-|       |       |   |   compiler.py
-|       |       |   |   constants.py
-|       |       |   |   debug.py
-|       |       |   |   defaults.py
-|       |       |   |   environment.py
-|       |       |   |   exceptions.py
-|       |       |   |   ext.py
-|       |       |   |   filters.py
-|       |       |   |   idtracking.py
-|       |       |   |   lexer.py
-|       |       |   |   loaders.py
-|       |       |   |   meta.py
-|       |       |   |   nativetypes.py
-|       |       |   |   nodes.py
-|       |       |   |   optimizer.py
-|       |       |   |   parser.py
-|       |       |   |   py.typed
-|       |       |   |   runtime.py
-|       |       |   |   sandbox.py
-|       |       |   |   tests.py
-|       |       |   |   utils.py
-|       |       |   |   visitor.py
-|       |       |   |   _identifier.py
-|       |       |   |   __init__.py
-|       |       |   |   
-|       |       |   \---__pycache__
-|       |       |           async_utils.cpython-312.pyc
-|       |       |           bccache.cpython-312.pyc
-|       |       |           compiler.cpython-312.pyc
-|       |       |           constants.cpython-312.pyc
-|       |       |           debug.cpython-312.pyc
-|       |       |           defaults.cpython-312.pyc
-|       |       |           environment.cpython-312.pyc
-|       |       |           exceptions.cpython-312.pyc
-|       |       |           ext.cpython-312.pyc
-|       |       |           filters.cpython-312.pyc
-|       |       |           idtracking.cpython-312.pyc
-|       |       |           lexer.cpython-312.pyc
-|       |       |           loaders.cpython-312.pyc
-|       |       |           meta.cpython-312.pyc
-|       |       |           nativetypes.cpython-312.pyc
-|       |       |           nodes.cpython-312.pyc
-|       |       |           optimizer.cpython-312.pyc
-|       |       |           parser.cpython-312.pyc
-|       |       |           runtime.cpython-312.pyc
-|       |       |           sandbox.cpython-312.pyc
-|       |       |           tests.cpython-312.pyc
-|       |       |           utils.cpython-312.pyc
-|       |       |           visitor.cpython-312.pyc
-|       |       |           _identifier.cpython-312.pyc
-|       |       |           __init__.cpython-312.pyc
-|       |       |           
-|       |       +---jinja2-3.1.6.dist-info
-|       |       |   |   entry_points.txt
-|       |       |   |   INSTALLER
-|       |       |   |   METADATA
-|       |       |   |   RECORD
-|       |       |   |   WHEEL
-|       |       |   |   
-|       |       |   \---licenses
-|       |       |           LICENSE.txt
-|       |       |           
-|       |       +---markupsafe
-|       |       |   |   py.typed
-|       |       |   |   _native.py
-|       |       |   |   _speedups.c
-|       |       |   |   _speedups.cp312-win_amd64.pyd
-|       |       |   |   _speedups.pyi
-|       |       |   |   __init__.py
-|       |       |   |   
-|       |       |   \---__pycache__
-|       |       |           _native.cpython-312.pyc
-|       |       |           __init__.cpython-312.pyc
-|       |       |           
-|       |       +---markupsafe-3.0.3.dist-info
-|       |       |   |   INSTALLER
-|       |       |   |   METADATA
-|       |       |   |   RECORD
-|       |       |   |   top_level.txt
-|       |       |   |   WHEEL
-|       |       |   |   
-|       |       |   \---licenses
-|       |       |           LICENSE.txt
-|       |       |           
-|       |       +---pip
-|       |       |   |   py.typed
-|       |       |   |   __init__.py
-|       |       |   |   __main__.py
-|       |       |   |   __pip-runner__.py
-|       |       |   |   
-|       |       |   +---_internal
-|       |       |   |   |   build_env.py
-|       |       |   |   |   cache.py
-|       |       |   |   |   configuration.py
-|       |       |   |   |   exceptions.py
-|       |       |   |   |   main.py
-|       |       |   |   |   pyproject.py
-|       |       |   |   |   self_outdated_check.py
-|       |       |   |   |   wheel_builder.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   +---cli
-|       |       |   |   |   |   autocompletion.py
-|       |       |   |   |   |   base_command.py
-|       |       |   |   |   |   cmdoptions.py
-|       |       |   |   |   |   command_context.py
-|       |       |   |   |   |   index_command.py
-|       |       |   |   |   |   main.py
-|       |       |   |   |   |   main_parser.py
-|       |       |   |   |   |   parser.py
-|       |       |   |   |   |   progress_bars.py
-|       |       |   |   |   |   req_command.py
-|       |       |   |   |   |   spinners.py
-|       |       |   |   |   |   status_codes.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           autocompletion.cpython-312.pyc
-|       |       |   |   |           base_command.cpython-312.pyc
-|       |       |   |   |           cmdoptions.cpython-312.pyc
-|       |       |   |   |           command_context.cpython-312.pyc
-|       |       |   |   |           index_command.cpython-312.pyc
-|       |       |   |   |           main.cpython-312.pyc
-|       |       |   |   |           main_parser.cpython-312.pyc
-|       |       |   |   |           parser.cpython-312.pyc
-|       |       |   |   |           progress_bars.cpython-312.pyc
-|       |       |   |   |           req_command.cpython-312.pyc
-|       |       |   |   |           spinners.cpython-312.pyc
-|       |       |   |   |           status_codes.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---commands
-|       |       |   |   |   |   cache.py
-|       |       |   |   |   |   check.py
-|       |       |   |   |   |   completion.py
-|       |       |   |   |   |   configuration.py
-|       |       |   |   |   |   debug.py
-|       |       |   |   |   |   download.py
-|       |       |   |   |   |   freeze.py
-|       |       |   |   |   |   hash.py
-|       |       |   |   |   |   help.py
-|       |       |   |   |   |   index.py
-|       |       |   |   |   |   inspect.py
-|       |       |   |   |   |   install.py
-|       |       |   |   |   |   list.py
-|       |       |   |   |   |   search.py
-|       |       |   |   |   |   show.py
-|       |       |   |   |   |   uninstall.py
-|       |       |   |   |   |   wheel.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           cache.cpython-312.pyc
-|       |       |   |   |           check.cpython-312.pyc
-|       |       |   |   |           completion.cpython-312.pyc
-|       |       |   |   |           configuration.cpython-312.pyc
-|       |       |   |   |           debug.cpython-312.pyc
-|       |       |   |   |           download.cpython-312.pyc
-|       |       |   |   |           freeze.cpython-312.pyc
-|       |       |   |   |           hash.cpython-312.pyc
-|       |       |   |   |           help.cpython-312.pyc
-|       |       |   |   |           index.cpython-312.pyc
-|       |       |   |   |           inspect.cpython-312.pyc
-|       |       |   |   |           install.cpython-312.pyc
-|       |       |   |   |           list.cpython-312.pyc
-|       |       |   |   |           search.cpython-312.pyc
-|       |       |   |   |           show.cpython-312.pyc
-|       |       |   |   |           uninstall.cpython-312.pyc
-|       |       |   |   |           wheel.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---distributions
-|       |       |   |   |   |   base.py
-|       |       |   |   |   |   installed.py
-|       |       |   |   |   |   sdist.py
-|       |       |   |   |   |   wheel.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           base.cpython-312.pyc
-|       |       |   |   |           installed.cpython-312.pyc
-|       |       |   |   |           sdist.cpython-312.pyc
-|       |       |   |   |           wheel.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---index
-|       |       |   |   |   |   collector.py
-|       |       |   |   |   |   package_finder.py
-|       |       |   |   |   |   sources.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           collector.cpython-312.pyc
-|       |       |   |   |           package_finder.cpython-312.pyc
-|       |       |   |   |           sources.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---locations
-|       |       |   |   |   |   base.py
-|       |       |   |   |   |   _distutils.py
-|       |       |   |   |   |   _sysconfig.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           base.cpython-312.pyc
-|       |       |   |   |           _distutils.cpython-312.pyc
-|       |       |   |   |           _sysconfig.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---metadata
-|       |       |   |   |   |   base.py
-|       |       |   |   |   |   pkg_resources.py
-|       |       |   |   |   |   _json.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   +---importlib
-|       |       |   |   |   |   |   _compat.py
-|       |       |   |   |   |   |   _dists.py
-|       |       |   |   |   |   |   _envs.py
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           _compat.cpython-312.pyc
-|       |       |   |   |   |           _dists.cpython-312.pyc
-|       |       |   |   |   |           _envs.cpython-312.pyc
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           base.cpython-312.pyc
-|       |       |   |   |           pkg_resources.cpython-312.pyc
-|       |       |   |   |           _json.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---models
-|       |       |   |   |   |   candidate.py
-|       |       |   |   |   |   direct_url.py
-|       |       |   |   |   |   format_control.py
-|       |       |   |   |   |   index.py
-|       |       |   |   |   |   installation_report.py
-|       |       |   |   |   |   link.py
-|       |       |   |   |   |   scheme.py
-|       |       |   |   |   |   search_scope.py
-|       |       |   |   |   |   selection_prefs.py
-|       |       |   |   |   |   target_python.py
-|       |       |   |   |   |   wheel.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           candidate.cpython-312.pyc
-|       |       |   |   |           direct_url.cpython-312.pyc
-|       |       |   |   |           format_control.cpython-312.pyc
-|       |       |   |   |           index.cpython-312.pyc
-|       |       |   |   |           installation_report.cpython-312.pyc
-|       |       |   |   |           link.cpython-312.pyc
-|       |       |   |   |           scheme.cpython-312.pyc
-|       |       |   |   |           search_scope.cpython-312.pyc
-|       |       |   |   |           selection_prefs.cpython-312.pyc
-|       |       |   |   |           target_python.cpython-312.pyc
-|       |       |   |   |           wheel.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---network
-|       |       |   |   |   |   auth.py
-|       |       |   |   |   |   cache.py
-|       |       |   |   |   |   download.py
-|       |       |   |   |   |   lazy_wheel.py
-|       |       |   |   |   |   session.py
-|       |       |   |   |   |   utils.py
-|       |       |   |   |   |   xmlrpc.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           auth.cpython-312.pyc
-|       |       |   |   |           cache.cpython-312.pyc
-|       |       |   |   |           download.cpython-312.pyc
-|       |       |   |   |           lazy_wheel.cpython-312.pyc
-|       |       |   |   |           session.cpython-312.pyc
-|       |       |   |   |           utils.cpython-312.pyc
-|       |       |   |   |           xmlrpc.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---operations
-|       |       |   |   |   |   check.py
-|       |       |   |   |   |   freeze.py
-|       |       |   |   |   |   prepare.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   +---build
-|       |       |   |   |   |   |   build_tracker.py
-|       |       |   |   |   |   |   metadata.py
-|       |       |   |   |   |   |   metadata_editable.py
-|       |       |   |   |   |   |   metadata_legacy.py
-|       |       |   |   |   |   |   wheel.py
-|       |       |   |   |   |   |   wheel_editable.py
-|       |       |   |   |   |   |   wheel_legacy.py
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           build_tracker.cpython-312.pyc
-|       |       |   |   |   |           metadata.cpython-312.pyc
-|       |       |   |   |   |           metadata_editable.cpython-312.pyc
-|       |       |   |   |   |           metadata_legacy.cpython-312.pyc
-|       |       |   |   |   |           wheel.cpython-312.pyc
-|       |       |   |   |   |           wheel_editable.cpython-312.pyc
-|       |       |   |   |   |           wheel_legacy.cpython-312.pyc
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   +---install
-|       |       |   |   |   |   |   editable_legacy.py
-|       |       |   |   |   |   |   wheel.py
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           editable_legacy.cpython-312.pyc
-|       |       |   |   |   |           wheel.cpython-312.pyc
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           check.cpython-312.pyc
-|       |       |   |   |           freeze.cpython-312.pyc
-|       |       |   |   |           prepare.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---req
-|       |       |   |   |   |   constructors.py
-|       |       |   |   |   |   req_file.py
-|       |       |   |   |   |   req_install.py
-|       |       |   |   |   |   req_set.py
-|       |       |   |   |   |   req_uninstall.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           constructors.cpython-312.pyc
-|       |       |   |   |           req_file.cpython-312.pyc
-|       |       |   |   |           req_install.cpython-312.pyc
-|       |       |   |   |           req_set.cpython-312.pyc
-|       |       |   |   |           req_uninstall.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---resolution
-|       |       |   |   |   |   base.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   +---legacy
-|       |       |   |   |   |   |   resolver.py
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           resolver.cpython-312.pyc
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   +---resolvelib
-|       |       |   |   |   |   |   base.py
-|       |       |   |   |   |   |   candidates.py
-|       |       |   |   |   |   |   factory.py
-|       |       |   |   |   |   |   found_candidates.py
-|       |       |   |   |   |   |   provider.py
-|       |       |   |   |   |   |   reporter.py
-|       |       |   |   |   |   |   requirements.py
-|       |       |   |   |   |   |   resolver.py
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           base.cpython-312.pyc
-|       |       |   |   |   |           candidates.cpython-312.pyc
-|       |       |   |   |   |           factory.cpython-312.pyc
-|       |       |   |   |   |           found_candidates.cpython-312.pyc
-|       |       |   |   |   |           provider.cpython-312.pyc
-|       |       |   |   |   |           reporter.cpython-312.pyc
-|       |       |   |   |   |           requirements.cpython-312.pyc
-|       |       |   |   |   |           resolver.cpython-312.pyc
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           base.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---utils
-|       |       |   |   |   |   appdirs.py
-|       |       |   |   |   |   compat.py
-|       |       |   |   |   |   compatibility_tags.py
-|       |       |   |   |   |   datetime.py
-|       |       |   |   |   |   deprecation.py
-|       |       |   |   |   |   direct_url_helpers.py
-|       |       |   |   |   |   egg_link.py
-|       |       |   |   |   |   encoding.py
-|       |       |   |   |   |   entrypoints.py
-|       |       |   |   |   |   filesystem.py
-|       |       |   |   |   |   filetypes.py
-|       |       |   |   |   |   glibc.py
-|       |       |   |   |   |   hashes.py
-|       |       |   |   |   |   logging.py
-|       |       |   |   |   |   misc.py
-|       |       |   |   |   |   packaging.py
-|       |       |   |   |   |   retry.py
-|       |       |   |   |   |   setuptools_build.py
-|       |       |   |   |   |   subprocess.py
-|       |       |   |   |   |   temp_dir.py
-|       |       |   |   |   |   unpacking.py
-|       |       |   |   |   |   urls.py
-|       |       |   |   |   |   virtualenv.py
-|       |       |   |   |   |   wheel.py
-|       |       |   |   |   |   _jaraco_text.py
-|       |       |   |   |   |   _log.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           appdirs.cpython-312.pyc
-|       |       |   |   |           compat.cpython-312.pyc
-|       |       |   |   |           compatibility_tags.cpython-312.pyc
-|       |       |   |   |           datetime.cpython-312.pyc
-|       |       |   |   |           deprecation.cpython-312.pyc
-|       |       |   |   |           direct_url_helpers.cpython-312.pyc
-|       |       |   |   |           egg_link.cpython-312.pyc
-|       |       |   |   |           encoding.cpython-312.pyc
-|       |       |   |   |           entrypoints.cpython-312.pyc
-|       |       |   |   |           filesystem.cpython-312.pyc
-|       |       |   |   |           filetypes.cpython-312.pyc
-|       |       |   |   |           glibc.cpython-312.pyc
-|       |       |   |   |           hashes.cpython-312.pyc
-|       |       |   |   |           logging.cpython-312.pyc
-|       |       |   |   |           misc.cpython-312.pyc
-|       |       |   |   |           packaging.cpython-312.pyc
-|       |       |   |   |           retry.cpython-312.pyc
-|       |       |   |   |           setuptools_build.cpython-312.pyc
-|       |       |   |   |           subprocess.cpython-312.pyc
-|       |       |   |   |           temp_dir.cpython-312.pyc
-|       |       |   |   |           unpacking.cpython-312.pyc
-|       |       |   |   |           urls.cpython-312.pyc
-|       |       |   |   |           virtualenv.cpython-312.pyc
-|       |       |   |   |           wheel.cpython-312.pyc
-|       |       |   |   |           _jaraco_text.cpython-312.pyc
-|       |       |   |   |           _log.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---vcs
-|       |       |   |   |   |   bazaar.py
-|       |       |   |   |   |   git.py
-|       |       |   |   |   |   mercurial.py
-|       |       |   |   |   |   subversion.py
-|       |       |   |   |   |   versioncontrol.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           bazaar.cpython-312.pyc
-|       |       |   |   |           git.cpython-312.pyc
-|       |       |   |   |           mercurial.cpython-312.pyc
-|       |       |   |   |           subversion.cpython-312.pyc
-|       |       |   |   |           versioncontrol.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   \---__pycache__
-|       |       |   |           build_env.cpython-312.pyc
-|       |       |   |           cache.cpython-312.pyc
-|       |       |   |           configuration.cpython-312.pyc
-|       |       |   |           exceptions.cpython-312.pyc
-|       |       |   |           main.cpython-312.pyc
-|       |       |   |           pyproject.cpython-312.pyc
-|       |       |   |           self_outdated_check.cpython-312.pyc
-|       |       |   |           wheel_builder.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---_vendor
-|       |       |   |   |   typing_extensions.py
-|       |       |   |   |   vendor.txt
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   +---cachecontrol
-|       |       |   |   |   |   adapter.py
-|       |       |   |   |   |   cache.py
-|       |       |   |   |   |   controller.py
-|       |       |   |   |   |   filewrapper.py
-|       |       |   |   |   |   heuristics.py
-|       |       |   |   |   |   py.typed
-|       |       |   |   |   |   serialize.py
-|       |       |   |   |   |   wrapper.py
-|       |       |   |   |   |   _cmd.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   +---caches
-|       |       |   |   |   |   |   file_cache.py
-|       |       |   |   |   |   |   redis_cache.py
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           file_cache.cpython-312.pyc
-|       |       |   |   |   |           redis_cache.cpython-312.pyc
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           adapter.cpython-312.pyc
-|       |       |   |   |           cache.cpython-312.pyc
-|       |       |   |   |           controller.cpython-312.pyc
-|       |       |   |   |           filewrapper.cpython-312.pyc
-|       |       |   |   |           heuristics.cpython-312.pyc
-|       |       |   |   |           serialize.cpython-312.pyc
-|       |       |   |   |           wrapper.cpython-312.pyc
-|       |       |   |   |           _cmd.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---certifi
-|       |       |   |   |   |   cacert.pem
-|       |       |   |   |   |   core.py
-|       |       |   |   |   |   py.typed
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   __main__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           core.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           __main__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---distlib
-|       |       |   |   |   |   compat.py
-|       |       |   |   |   |   database.py
-|       |       |   |   |   |   index.py
-|       |       |   |   |   |   locators.py
-|       |       |   |   |   |   manifest.py
-|       |       |   |   |   |   markers.py
-|       |       |   |   |   |   metadata.py
-|       |       |   |   |   |   resources.py
-|       |       |   |   |   |   scripts.py
-|       |       |   |   |   |   t32.exe
-|       |       |   |   |   |   t64-arm.exe
-|       |       |   |   |   |   t64.exe
-|       |       |   |   |   |   util.py
-|       |       |   |   |   |   version.py
-|       |       |   |   |   |   w32.exe
-|       |       |   |   |   |   w64-arm.exe
-|       |       |   |   |   |   w64.exe
-|       |       |   |   |   |   wheel.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           compat.cpython-312.pyc
-|       |       |   |   |           database.cpython-312.pyc
-|       |       |   |   |           index.cpython-312.pyc
-|       |       |   |   |           locators.cpython-312.pyc
-|       |       |   |   |           manifest.cpython-312.pyc
-|       |       |   |   |           markers.cpython-312.pyc
-|       |       |   |   |           metadata.cpython-312.pyc
-|       |       |   |   |           resources.cpython-312.pyc
-|       |       |   |   |           scripts.cpython-312.pyc
-|       |       |   |   |           util.cpython-312.pyc
-|       |       |   |   |           version.cpython-312.pyc
-|       |       |   |   |           wheel.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---distro
-|       |       |   |   |   |   distro.py
-|       |       |   |   |   |   py.typed
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   __main__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           distro.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           __main__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---idna
-|       |       |   |   |   |   codec.py
-|       |       |   |   |   |   compat.py
-|       |       |   |   |   |   core.py
-|       |       |   |   |   |   idnadata.py
-|       |       |   |   |   |   intranges.py
-|       |       |   |   |   |   package_data.py
-|       |       |   |   |   |   py.typed
-|       |       |   |   |   |   uts46data.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           codec.cpython-312.pyc
-|       |       |   |   |           compat.cpython-312.pyc
-|       |       |   |   |           core.cpython-312.pyc
-|       |       |   |   |           idnadata.cpython-312.pyc
-|       |       |   |   |           intranges.cpython-312.pyc
-|       |       |   |   |           package_data.cpython-312.pyc
-|       |       |   |   |           uts46data.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---msgpack
-|       |       |   |   |   |   exceptions.py
-|       |       |   |   |   |   ext.py
-|       |       |   |   |   |   fallback.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           exceptions.cpython-312.pyc
-|       |       |   |   |           ext.cpython-312.pyc
-|       |       |   |   |           fallback.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---packaging
-|       |       |   |   |   |   markers.py
-|       |       |   |   |   |   metadata.py
-|       |       |   |   |   |   py.typed
-|       |       |   |   |   |   requirements.py
-|       |       |   |   |   |   specifiers.py
-|       |       |   |   |   |   tags.py
-|       |       |   |   |   |   utils.py
-|       |       |   |   |   |   version.py
-|       |       |   |   |   |   _elffile.py
-|       |       |   |   |   |   _manylinux.py
-|       |       |   |   |   |   _musllinux.py
-|       |       |   |   |   |   _parser.py
-|       |       |   |   |   |   _structures.py
-|       |       |   |   |   |   _tokenizer.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           markers.cpython-312.pyc
-|       |       |   |   |           metadata.cpython-312.pyc
-|       |       |   |   |           requirements.cpython-312.pyc
-|       |       |   |   |           specifiers.cpython-312.pyc
-|       |       |   |   |           tags.cpython-312.pyc
-|       |       |   |   |           utils.cpython-312.pyc
-|       |       |   |   |           version.cpython-312.pyc
-|       |       |   |   |           _elffile.cpython-312.pyc
-|       |       |   |   |           _manylinux.cpython-312.pyc
-|       |       |   |   |           _musllinux.cpython-312.pyc
-|       |       |   |   |           _parser.cpython-312.pyc
-|       |       |   |   |           _structures.cpython-312.pyc
-|       |       |   |   |           _tokenizer.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---pkg_resources
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---platformdirs
-|       |       |   |   |   |   android.py
-|       |       |   |   |   |   api.py
-|       |       |   |   |   |   macos.py
-|       |       |   |   |   |   py.typed
-|       |       |   |   |   |   unix.py
-|       |       |   |   |   |   version.py
-|       |       |   |   |   |   windows.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   __main__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           android.cpython-312.pyc
-|       |       |   |   |           api.cpython-312.pyc
-|       |       |   |   |           macos.cpython-312.pyc
-|       |       |   |   |           unix.cpython-312.pyc
-|       |       |   |   |           version.cpython-312.pyc
-|       |       |   |   |           windows.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           __main__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---pygments
-|       |       |   |   |   |   cmdline.py
-|       |       |   |   |   |   console.py
-|       |       |   |   |   |   filter.py
-|       |       |   |   |   |   formatter.py
-|       |       |   |   |   |   lexer.py
-|       |       |   |   |   |   modeline.py
-|       |       |   |   |   |   plugin.py
-|       |       |   |   |   |   regexopt.py
-|       |       |   |   |   |   scanner.py
-|       |       |   |   |   |   sphinxext.py
-|       |       |   |   |   |   style.py
-|       |       |   |   |   |   token.py
-|       |       |   |   |   |   unistring.py
-|       |       |   |   |   |   util.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   __main__.py
-|       |       |   |   |   |   
-|       |       |   |   |   +---filters
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   +---formatters
-|       |       |   |   |   |   |   bbcode.py
-|       |       |   |   |   |   |   groff.py
-|       |       |   |   |   |   |   html.py
-|       |       |   |   |   |   |   img.py
-|       |       |   |   |   |   |   irc.py
-|       |       |   |   |   |   |   latex.py
-|       |       |   |   |   |   |   other.py
-|       |       |   |   |   |   |   pangomarkup.py
-|       |       |   |   |   |   |   rtf.py
-|       |       |   |   |   |   |   svg.py
-|       |       |   |   |   |   |   terminal.py
-|       |       |   |   |   |   |   terminal256.py
-|       |       |   |   |   |   |   _mapping.py
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           bbcode.cpython-312.pyc
-|       |       |   |   |   |           groff.cpython-312.pyc
-|       |       |   |   |   |           html.cpython-312.pyc
-|       |       |   |   |   |           img.cpython-312.pyc
-|       |       |   |   |   |           irc.cpython-312.pyc
-|       |       |   |   |   |           latex.cpython-312.pyc
-|       |       |   |   |   |           other.cpython-312.pyc
-|       |       |   |   |   |           pangomarkup.cpython-312.pyc
-|       |       |   |   |   |           rtf.cpython-312.pyc
-|       |       |   |   |   |           svg.cpython-312.pyc
-|       |       |   |   |   |           terminal.cpython-312.pyc
-|       |       |   |   |   |           terminal256.cpython-312.pyc
-|       |       |   |   |   |           _mapping.cpython-312.pyc
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   +---lexers
-|       |       |   |   |   |   |   python.py
-|       |       |   |   |   |   |   _mapping.py
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           python.cpython-312.pyc
-|       |       |   |   |   |           _mapping.cpython-312.pyc
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   +---styles
-|       |       |   |   |   |   |   _mapping.py
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           _mapping.cpython-312.pyc
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           cmdline.cpython-312.pyc
-|       |       |   |   |           console.cpython-312.pyc
-|       |       |   |   |           filter.cpython-312.pyc
-|       |       |   |   |           formatter.cpython-312.pyc
-|       |       |   |   |           lexer.cpython-312.pyc
-|       |       |   |   |           modeline.cpython-312.pyc
-|       |       |   |   |           plugin.cpython-312.pyc
-|       |       |   |   |           regexopt.cpython-312.pyc
-|       |       |   |   |           scanner.cpython-312.pyc
-|       |       |   |   |           sphinxext.cpython-312.pyc
-|       |       |   |   |           style.cpython-312.pyc
-|       |       |   |   |           token.cpython-312.pyc
-|       |       |   |   |           unistring.cpython-312.pyc
-|       |       |   |   |           util.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           __main__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---pyproject_hooks
-|       |       |   |   |   |   _compat.py
-|       |       |   |   |   |   _impl.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   +---_in_process
-|       |       |   |   |   |   |   _in_process.py
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           _in_process.cpython-312.pyc
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           _compat.cpython-312.pyc
-|       |       |   |   |           _impl.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---requests
-|       |       |   |   |   |   adapters.py
-|       |       |   |   |   |   api.py
-|       |       |   |   |   |   auth.py
-|       |       |   |   |   |   certs.py
-|       |       |   |   |   |   compat.py
-|       |       |   |   |   |   cookies.py
-|       |       |   |   |   |   exceptions.py
-|       |       |   |   |   |   help.py
-|       |       |   |   |   |   hooks.py
-|       |       |   |   |   |   models.py
-|       |       |   |   |   |   packages.py
-|       |       |   |   |   |   sessions.py
-|       |       |   |   |   |   status_codes.py
-|       |       |   |   |   |   structures.py
-|       |       |   |   |   |   utils.py
-|       |       |   |   |   |   _internal_utils.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   __version__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           adapters.cpython-312.pyc
-|       |       |   |   |           api.cpython-312.pyc
-|       |       |   |   |           auth.cpython-312.pyc
-|       |       |   |   |           certs.cpython-312.pyc
-|       |       |   |   |           compat.cpython-312.pyc
-|       |       |   |   |           cookies.cpython-312.pyc
-|       |       |   |   |           exceptions.cpython-312.pyc
-|       |       |   |   |           help.cpython-312.pyc
-|       |       |   |   |           hooks.cpython-312.pyc
-|       |       |   |   |           models.cpython-312.pyc
-|       |       |   |   |           packages.cpython-312.pyc
-|       |       |   |   |           sessions.cpython-312.pyc
-|       |       |   |   |           status_codes.cpython-312.pyc
-|       |       |   |   |           structures.cpython-312.pyc
-|       |       |   |   |           utils.cpython-312.pyc
-|       |       |   |   |           _internal_utils.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           __version__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---resolvelib
-|       |       |   |   |   |   providers.py
-|       |       |   |   |   |   py.typed
-|       |       |   |   |   |   reporters.py
-|       |       |   |   |   |   resolvers.py
-|       |       |   |   |   |   structs.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   +---compat
-|       |       |   |   |   |   |   collections_abc.py
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           collections_abc.cpython-312.pyc
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           providers.cpython-312.pyc
-|       |       |   |   |           reporters.cpython-312.pyc
-|       |       |   |   |           resolvers.cpython-312.pyc
-|       |       |   |   |           structs.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---rich
-|       |       |   |   |   |   abc.py
-|       |       |   |   |   |   align.py
-|       |       |   |   |   |   ansi.py
-|       |       |   |   |   |   bar.py
-|       |       |   |   |   |   box.py
-|       |       |   |   |   |   cells.py
-|       |       |   |   |   |   color.py
-|       |       |   |   |   |   color_triplet.py
-|       |       |   |   |   |   columns.py
-|       |       |   |   |   |   console.py
-|       |       |   |   |   |   constrain.py
-|       |       |   |   |   |   containers.py
-|       |       |   |   |   |   control.py
-|       |       |   |   |   |   default_styles.py
-|       |       |   |   |   |   diagnose.py
-|       |       |   |   |   |   emoji.py
-|       |       |   |   |   |   errors.py
-|       |       |   |   |   |   filesize.py
-|       |       |   |   |   |   file_proxy.py
-|       |       |   |   |   |   highlighter.py
-|       |       |   |   |   |   json.py
-|       |       |   |   |   |   jupyter.py
-|       |       |   |   |   |   layout.py
-|       |       |   |   |   |   live.py
-|       |       |   |   |   |   live_render.py
-|       |       |   |   |   |   logging.py
-|       |       |   |   |   |   markup.py
-|       |       |   |   |   |   measure.py
-|       |       |   |   |   |   padding.py
-|       |       |   |   |   |   pager.py
-|       |       |   |   |   |   palette.py
-|       |       |   |   |   |   panel.py
-|       |       |   |   |   |   pretty.py
-|       |       |   |   |   |   progress.py
-|       |       |   |   |   |   progress_bar.py
-|       |       |   |   |   |   prompt.py
-|       |       |   |   |   |   protocol.py
-|       |       |   |   |   |   py.typed
-|       |       |   |   |   |   region.py
-|       |       |   |   |   |   repr.py
-|       |       |   |   |   |   rule.py
-|       |       |   |   |   |   scope.py
-|       |       |   |   |   |   screen.py
-|       |       |   |   |   |   segment.py
-|       |       |   |   |   |   spinner.py
-|       |       |   |   |   |   status.py
-|       |       |   |   |   |   style.py
-|       |       |   |   |   |   styled.py
-|       |       |   |   |   |   syntax.py
-|       |       |   |   |   |   table.py
-|       |       |   |   |   |   terminal_theme.py
-|       |       |   |   |   |   text.py
-|       |       |   |   |   |   theme.py
-|       |       |   |   |   |   themes.py
-|       |       |   |   |   |   traceback.py
-|       |       |   |   |   |   tree.py
-|       |       |   |   |   |   _cell_widths.py
-|       |       |   |   |   |   _emoji_codes.py
-|       |       |   |   |   |   _emoji_replace.py
-|       |       |   |   |   |   _export_format.py
-|       |       |   |   |   |   _extension.py
-|       |       |   |   |   |   _fileno.py
-|       |       |   |   |   |   _inspect.py
-|       |       |   |   |   |   _log_render.py
-|       |       |   |   |   |   _loop.py
-|       |       |   |   |   |   _null_file.py
-|       |       |   |   |   |   _palettes.py
-|       |       |   |   |   |   _pick.py
-|       |       |   |   |   |   _ratio.py
-|       |       |   |   |   |   _spinners.py
-|       |       |   |   |   |   _stack.py
-|       |       |   |   |   |   _timer.py
-|       |       |   |   |   |   _win32_console.py
-|       |       |   |   |   |   _windows.py
-|       |       |   |   |   |   _windows_renderer.py
-|       |       |   |   |   |   _wrap.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   __main__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           abc.cpython-312.pyc
-|       |       |   |   |           align.cpython-312.pyc
-|       |       |   |   |           ansi.cpython-312.pyc
-|       |       |   |   |           bar.cpython-312.pyc
-|       |       |   |   |           box.cpython-312.pyc
-|       |       |   |   |           cells.cpython-312.pyc
-|       |       |   |   |           color.cpython-312.pyc
-|       |       |   |   |           color_triplet.cpython-312.pyc
-|       |       |   |   |           columns.cpython-312.pyc
-|       |       |   |   |           console.cpython-312.pyc
-|       |       |   |   |           constrain.cpython-312.pyc
-|       |       |   |   |           containers.cpython-312.pyc
-|       |       |   |   |           control.cpython-312.pyc
-|       |       |   |   |           default_styles.cpython-312.pyc
-|       |       |   |   |           diagnose.cpython-312.pyc
-|       |       |   |   |           emoji.cpython-312.pyc
-|       |       |   |   |           errors.cpython-312.pyc
-|       |       |   |   |           filesize.cpython-312.pyc
-|       |       |   |   |           file_proxy.cpython-312.pyc
-|       |       |   |   |           highlighter.cpython-312.pyc
-|       |       |   |   |           json.cpython-312.pyc
-|       |       |   |   |           jupyter.cpython-312.pyc
-|       |       |   |   |           layout.cpython-312.pyc
-|       |       |   |   |           live.cpython-312.pyc
-|       |       |   |   |           live_render.cpython-312.pyc
-|       |       |   |   |           logging.cpython-312.pyc
-|       |       |   |   |           markup.cpython-312.pyc
-|       |       |   |   |           measure.cpython-312.pyc
-|       |       |   |   |           padding.cpython-312.pyc
-|       |       |   |   |           pager.cpython-312.pyc
-|       |       |   |   |           palette.cpython-312.pyc
-|       |       |   |   |           panel.cpython-312.pyc
-|       |       |   |   |           pretty.cpython-312.pyc
-|       |       |   |   |           progress.cpython-312.pyc
-|       |       |   |   |           progress_bar.cpython-312.pyc
-|       |       |   |   |           prompt.cpython-312.pyc
-|       |       |   |   |           protocol.cpython-312.pyc
-|       |       |   |   |           region.cpython-312.pyc
-|       |       |   |   |           repr.cpython-312.pyc
-|       |       |   |   |           rule.cpython-312.pyc
-|       |       |   |   |           scope.cpython-312.pyc
-|       |       |   |   |           screen.cpython-312.pyc
-|       |       |   |   |           segment.cpython-312.pyc
-|       |       |   |   |           spinner.cpython-312.pyc
-|       |       |   |   |           status.cpython-312.pyc
-|       |       |   |   |           style.cpython-312.pyc
-|       |       |   |   |           styled.cpython-312.pyc
-|       |       |   |   |           syntax.cpython-312.pyc
-|       |       |   |   |           table.cpython-312.pyc
-|       |       |   |   |           terminal_theme.cpython-312.pyc
-|       |       |   |   |           text.cpython-312.pyc
-|       |       |   |   |           theme.cpython-312.pyc
-|       |       |   |   |           themes.cpython-312.pyc
-|       |       |   |   |           traceback.cpython-312.pyc
-|       |       |   |   |           tree.cpython-312.pyc
-|       |       |   |   |           _cell_widths.cpython-312.pyc
-|       |       |   |   |           _emoji_codes.cpython-312.pyc
-|       |       |   |   |           _emoji_replace.cpython-312.pyc
-|       |       |   |   |           _export_format.cpython-312.pyc
-|       |       |   |   |           _extension.cpython-312.pyc
-|       |       |   |   |           _fileno.cpython-312.pyc
-|       |       |   |   |           _inspect.cpython-312.pyc
-|       |       |   |   |           _log_render.cpython-312.pyc
-|       |       |   |   |           _loop.cpython-312.pyc
-|       |       |   |   |           _null_file.cpython-312.pyc
-|       |       |   |   |           _palettes.cpython-312.pyc
-|       |       |   |   |           _pick.cpython-312.pyc
-|       |       |   |   |           _ratio.cpython-312.pyc
-|       |       |   |   |           _spinners.cpython-312.pyc
-|       |       |   |   |           _stack.cpython-312.pyc
-|       |       |   |   |           _timer.cpython-312.pyc
-|       |       |   |   |           _win32_console.cpython-312.pyc
-|       |       |   |   |           _windows.cpython-312.pyc
-|       |       |   |   |           _windows_renderer.cpython-312.pyc
-|       |       |   |   |           _wrap.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           __main__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---tomli
-|       |       |   |   |   |   py.typed
-|       |       |   |   |   |   _parser.py
-|       |       |   |   |   |   _re.py
-|       |       |   |   |   |   _types.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           _parser.cpython-312.pyc
-|       |       |   |   |           _re.cpython-312.pyc
-|       |       |   |   |           _types.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---truststore
-|       |       |   |   |   |   py.typed
-|       |       |   |   |   |   _api.py
-|       |       |   |   |   |   _macos.py
-|       |       |   |   |   |   _openssl.py
-|       |       |   |   |   |   _ssl_constants.py
-|       |       |   |   |   |   _windows.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           _api.cpython-312.pyc
-|       |       |   |   |           _macos.cpython-312.pyc
-|       |       |   |   |           _openssl.cpython-312.pyc
-|       |       |   |   |           _ssl_constants.cpython-312.pyc
-|       |       |   |   |           _windows.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---urllib3
-|       |       |   |   |   |   connection.py
-|       |       |   |   |   |   connectionpool.py
-|       |       |   |   |   |   exceptions.py
-|       |       |   |   |   |   fields.py
-|       |       |   |   |   |   filepost.py
-|       |       |   |   |   |   poolmanager.py
-|       |       |   |   |   |   request.py
-|       |       |   |   |   |   response.py
-|       |       |   |   |   |   _collections.py
-|       |       |   |   |   |   _version.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   +---contrib
-|       |       |   |   |   |   |   appengine.py
-|       |       |   |   |   |   |   ntlmpool.py
-|       |       |   |   |   |   |   pyopenssl.py
-|       |       |   |   |   |   |   securetransport.py
-|       |       |   |   |   |   |   socks.py
-|       |       |   |   |   |   |   _appengine_environ.py
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   +---_securetransport
-|       |       |   |   |   |   |   |   bindings.py
-|       |       |   |   |   |   |   |   low_level.py
-|       |       |   |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   |   
-|       |       |   |   |   |   |   \---__pycache__
-|       |       |   |   |   |   |           bindings.cpython-312.pyc
-|       |       |   |   |   |   |           low_level.cpython-312.pyc
-|       |       |   |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |   |           
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           appengine.cpython-312.pyc
-|       |       |   |   |   |           ntlmpool.cpython-312.pyc
-|       |       |   |   |   |           pyopenssl.cpython-312.pyc
-|       |       |   |   |   |           securetransport.cpython-312.pyc
-|       |       |   |   |   |           socks.cpython-312.pyc
-|       |       |   |   |   |           _appengine_environ.cpython-312.pyc
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   +---packages
-|       |       |   |   |   |   |   six.py
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   +---backports
-|       |       |   |   |   |   |   |   makefile.py
-|       |       |   |   |   |   |   |   weakref_finalize.py
-|       |       |   |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   |   
-|       |       |   |   |   |   |   \---__pycache__
-|       |       |   |   |   |   |           makefile.cpython-312.pyc
-|       |       |   |   |   |   |           weakref_finalize.cpython-312.pyc
-|       |       |   |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |   |           
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           six.cpython-312.pyc
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   +---util
-|       |       |   |   |   |   |   connection.py
-|       |       |   |   |   |   |   proxy.py
-|       |       |   |   |   |   |   queue.py
-|       |       |   |   |   |   |   request.py
-|       |       |   |   |   |   |   response.py
-|       |       |   |   |   |   |   retry.py
-|       |       |   |   |   |   |   ssltransport.py
-|       |       |   |   |   |   |   ssl_.py
-|       |       |   |   |   |   |   ssl_match_hostname.py
-|       |       |   |   |   |   |   timeout.py
-|       |       |   |   |   |   |   url.py
-|       |       |   |   |   |   |   wait.py
-|       |       |   |   |   |   |   __init__.py
-|       |       |   |   |   |   |   
-|       |       |   |   |   |   \---__pycache__
-|       |       |   |   |   |           connection.cpython-312.pyc
-|       |       |   |   |   |           proxy.cpython-312.pyc
-|       |       |   |   |   |           queue.cpython-312.pyc
-|       |       |   |   |   |           request.cpython-312.pyc
-|       |       |   |   |   |           response.cpython-312.pyc
-|       |       |   |   |   |           retry.cpython-312.pyc
-|       |       |   |   |   |           ssltransport.cpython-312.pyc
-|       |       |   |   |   |           ssl_.cpython-312.pyc
-|       |       |   |   |   |           ssl_match_hostname.cpython-312.pyc
-|       |       |   |   |   |           timeout.cpython-312.pyc
-|       |       |   |   |   |           url.cpython-312.pyc
-|       |       |   |   |   |           wait.cpython-312.pyc
-|       |       |   |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |   |           
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           connection.cpython-312.pyc
-|       |       |   |   |           connectionpool.cpython-312.pyc
-|       |       |   |   |           exceptions.cpython-312.pyc
-|       |       |   |   |           fields.cpython-312.pyc
-|       |       |   |   |           filepost.cpython-312.pyc
-|       |       |   |   |           poolmanager.cpython-312.pyc
-|       |       |   |   |           request.cpython-312.pyc
-|       |       |   |   |           response.cpython-312.pyc
-|       |       |   |   |           _collections.cpython-312.pyc
-|       |       |   |   |           _version.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   \---__pycache__
-|       |       |   |           typing_extensions.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   \---__pycache__
-|       |       |           __init__.cpython-312.pyc
-|       |       |           __main__.cpython-312.pyc
-|       |       |           __pip-runner__.cpython-312.pyc
-|       |       |           
-|       |       +---pip-24.2.dist-info
-|       |       |       AUTHORS.txt
-|       |       |       entry_points.txt
-|       |       |       INSTALLER
-|       |       |       LICENSE.txt
-|       |       |       METADATA
-|       |       |       RECORD
-|       |       |       REQUESTED
-|       |       |       top_level.txt
-|       |       |       WHEEL
-|       |       |       
-|       |       +---sqlalchemy
-|       |       |   |   events.py
-|       |       |   |   exc.py
-|       |       |   |   inspection.py
-|       |       |   |   log.py
-|       |       |   |   py.typed
-|       |       |   |   schema.py
-|       |       |   |   types.py
-|       |       |   |   __init__.py
-|       |       |   |   
-|       |       |   +---connectors
-|       |       |   |   |   aioodbc.py
-|       |       |   |   |   asyncio.py
-|       |       |   |   |   pyodbc.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           aioodbc.cpython-312.pyc
-|       |       |   |           asyncio.cpython-312.pyc
-|       |       |   |           pyodbc.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---cyextension
-|       |       |   |   |   collections.cp312-win_amd64.pyd
-|       |       |   |   |   collections.pyx
-|       |       |   |   |   immutabledict.cp312-win_amd64.pyd
-|       |       |   |   |   immutabledict.pxd
-|       |       |   |   |   immutabledict.pyx
-|       |       |   |   |   processors.cp312-win_amd64.pyd
-|       |       |   |   |   processors.pyx
-|       |       |   |   |   resultproxy.cp312-win_amd64.pyd
-|       |       |   |   |   resultproxy.pyx
-|       |       |   |   |   util.cp312-win_amd64.pyd
-|       |       |   |   |   util.pyx
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---dialects
-|       |       |   |   |   type_migration_guidelines.txt
-|       |       |   |   |   _typing.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   +---mssql
-|       |       |   |   |   |   aioodbc.py
-|       |       |   |   |   |   base.py
-|       |       |   |   |   |   information_schema.py
-|       |       |   |   |   |   json.py
-|       |       |   |   |   |   provision.py
-|       |       |   |   |   |   pymssql.py
-|       |       |   |   |   |   pyodbc.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           aioodbc.cpython-312.pyc
-|       |       |   |   |           base.cpython-312.pyc
-|       |       |   |   |           information_schema.cpython-312.pyc
-|       |       |   |   |           json.cpython-312.pyc
-|       |       |   |   |           provision.cpython-312.pyc
-|       |       |   |   |           pymssql.cpython-312.pyc
-|       |       |   |   |           pyodbc.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---mysql
-|       |       |   |   |   |   aiomysql.py
-|       |       |   |   |   |   asyncmy.py
-|       |       |   |   |   |   base.py
-|       |       |   |   |   |   cymysql.py
-|       |       |   |   |   |   dml.py
-|       |       |   |   |   |   enumerated.py
-|       |       |   |   |   |   expression.py
-|       |       |   |   |   |   json.py
-|       |       |   |   |   |   mariadb.py
-|       |       |   |   |   |   mariadbconnector.py
-|       |       |   |   |   |   mysqlconnector.py
-|       |       |   |   |   |   mysqldb.py
-|       |       |   |   |   |   provision.py
-|       |       |   |   |   |   pymysql.py
-|       |       |   |   |   |   pyodbc.py
-|       |       |   |   |   |   reflection.py
-|       |       |   |   |   |   reserved_words.py
-|       |       |   |   |   |   types.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           aiomysql.cpython-312.pyc
-|       |       |   |   |           asyncmy.cpython-312.pyc
-|       |       |   |   |           base.cpython-312.pyc
-|       |       |   |   |           cymysql.cpython-312.pyc
-|       |       |   |   |           dml.cpython-312.pyc
-|       |       |   |   |           enumerated.cpython-312.pyc
-|       |       |   |   |           expression.cpython-312.pyc
-|       |       |   |   |           json.cpython-312.pyc
-|       |       |   |   |           mariadb.cpython-312.pyc
-|       |       |   |   |           mariadbconnector.cpython-312.pyc
-|       |       |   |   |           mysqlconnector.cpython-312.pyc
-|       |       |   |   |           mysqldb.cpython-312.pyc
-|       |       |   |   |           provision.cpython-312.pyc
-|       |       |   |   |           pymysql.cpython-312.pyc
-|       |       |   |   |           pyodbc.cpython-312.pyc
-|       |       |   |   |           reflection.cpython-312.pyc
-|       |       |   |   |           reserved_words.cpython-312.pyc
-|       |       |   |   |           types.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---oracle
-|       |       |   |   |   |   base.py
-|       |       |   |   |   |   cx_oracle.py
-|       |       |   |   |   |   dictionary.py
-|       |       |   |   |   |   oracledb.py
-|       |       |   |   |   |   provision.py
-|       |       |   |   |   |   types.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           base.cpython-312.pyc
-|       |       |   |   |           cx_oracle.cpython-312.pyc
-|       |       |   |   |           dictionary.cpython-312.pyc
-|       |       |   |   |           oracledb.cpython-312.pyc
-|       |       |   |   |           provision.cpython-312.pyc
-|       |       |   |   |           types.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---postgresql
-|       |       |   |   |   |   array.py
-|       |       |   |   |   |   asyncpg.py
-|       |       |   |   |   |   base.py
-|       |       |   |   |   |   dml.py
-|       |       |   |   |   |   ext.py
-|       |       |   |   |   |   hstore.py
-|       |       |   |   |   |   json.py
-|       |       |   |   |   |   named_types.py
-|       |       |   |   |   |   operators.py
-|       |       |   |   |   |   pg8000.py
-|       |       |   |   |   |   pg_catalog.py
-|       |       |   |   |   |   provision.py
-|       |       |   |   |   |   psycopg.py
-|       |       |   |   |   |   psycopg2.py
-|       |       |   |   |   |   psycopg2cffi.py
-|       |       |   |   |   |   ranges.py
-|       |       |   |   |   |   types.py
-|       |       |   |   |   |   _psycopg_common.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           array.cpython-312.pyc
-|       |       |   |   |           asyncpg.cpython-312.pyc
-|       |       |   |   |           base.cpython-312.pyc
-|       |       |   |   |           dml.cpython-312.pyc
-|       |       |   |   |           ext.cpython-312.pyc
-|       |       |   |   |           hstore.cpython-312.pyc
-|       |       |   |   |           json.cpython-312.pyc
-|       |       |   |   |           named_types.cpython-312.pyc
-|       |       |   |   |           operators.cpython-312.pyc
-|       |       |   |   |           pg8000.cpython-312.pyc
-|       |       |   |   |           pg_catalog.cpython-312.pyc
-|       |       |   |   |           provision.cpython-312.pyc
-|       |       |   |   |           psycopg.cpython-312.pyc
-|       |       |   |   |           psycopg2.cpython-312.pyc
-|       |       |   |   |           psycopg2cffi.cpython-312.pyc
-|       |       |   |   |           ranges.cpython-312.pyc
-|       |       |   |   |           types.cpython-312.pyc
-|       |       |   |   |           _psycopg_common.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---sqlite
-|       |       |   |   |   |   aiosqlite.py
-|       |       |   |   |   |   base.py
-|       |       |   |   |   |   dml.py
-|       |       |   |   |   |   json.py
-|       |       |   |   |   |   provision.py
-|       |       |   |   |   |   pysqlcipher.py
-|       |       |   |   |   |   pysqlite.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           aiosqlite.cpython-312.pyc
-|       |       |   |   |           base.cpython-312.pyc
-|       |       |   |   |           dml.cpython-312.pyc
-|       |       |   |   |           json.cpython-312.pyc
-|       |       |   |   |           provision.cpython-312.pyc
-|       |       |   |   |           pysqlcipher.cpython-312.pyc
-|       |       |   |   |           pysqlite.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   \---__pycache__
-|       |       |   |           _typing.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---engine
-|       |       |   |   |   base.py
-|       |       |   |   |   characteristics.py
-|       |       |   |   |   create.py
-|       |       |   |   |   cursor.py
-|       |       |   |   |   default.py
-|       |       |   |   |   events.py
-|       |       |   |   |   interfaces.py
-|       |       |   |   |   mock.py
-|       |       |   |   |   processors.py
-|       |       |   |   |   reflection.py
-|       |       |   |   |   result.py
-|       |       |   |   |   row.py
-|       |       |   |   |   strategies.py
-|       |       |   |   |   url.py
-|       |       |   |   |   util.py
-|       |       |   |   |   _py_processors.py
-|       |       |   |   |   _py_row.py
-|       |       |   |   |   _py_util.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           base.cpython-312.pyc
-|       |       |   |           characteristics.cpython-312.pyc
-|       |       |   |           create.cpython-312.pyc
-|       |       |   |           cursor.cpython-312.pyc
-|       |       |   |           default.cpython-312.pyc
-|       |       |   |           events.cpython-312.pyc
-|       |       |   |           interfaces.cpython-312.pyc
-|       |       |   |           mock.cpython-312.pyc
-|       |       |   |           processors.cpython-312.pyc
-|       |       |   |           reflection.cpython-312.pyc
-|       |       |   |           result.cpython-312.pyc
-|       |       |   |           row.cpython-312.pyc
-|       |       |   |           strategies.cpython-312.pyc
-|       |       |   |           url.cpython-312.pyc
-|       |       |   |           util.cpython-312.pyc
-|       |       |   |           _py_processors.cpython-312.pyc
-|       |       |   |           _py_row.cpython-312.pyc
-|       |       |   |           _py_util.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---event
-|       |       |   |   |   api.py
-|       |       |   |   |   attr.py
-|       |       |   |   |   base.py
-|       |       |   |   |   legacy.py
-|       |       |   |   |   registry.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           api.cpython-312.pyc
-|       |       |   |           attr.cpython-312.pyc
-|       |       |   |           base.cpython-312.pyc
-|       |       |   |           legacy.cpython-312.pyc
-|       |       |   |           registry.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---ext
-|       |       |   |   |   associationproxy.py
-|       |       |   |   |   automap.py
-|       |       |   |   |   baked.py
-|       |       |   |   |   compiler.py
-|       |       |   |   |   horizontal_shard.py
-|       |       |   |   |   hybrid.py
-|       |       |   |   |   indexable.py
-|       |       |   |   |   instrumentation.py
-|       |       |   |   |   mutable.py
-|       |       |   |   |   orderinglist.py
-|       |       |   |   |   serializer.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   +---asyncio
-|       |       |   |   |   |   base.py
-|       |       |   |   |   |   engine.py
-|       |       |   |   |   |   exc.py
-|       |       |   |   |   |   result.py
-|       |       |   |   |   |   scoping.py
-|       |       |   |   |   |   session.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           base.cpython-312.pyc
-|       |       |   |   |           engine.cpython-312.pyc
-|       |       |   |   |           exc.cpython-312.pyc
-|       |       |   |   |           result.cpython-312.pyc
-|       |       |   |   |           scoping.cpython-312.pyc
-|       |       |   |   |           session.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---declarative
-|       |       |   |   |   |   extensions.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           extensions.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---mypy
-|       |       |   |   |   |   apply.py
-|       |       |   |   |   |   decl_class.py
-|       |       |   |   |   |   infer.py
-|       |       |   |   |   |   names.py
-|       |       |   |   |   |   plugin.py
-|       |       |   |   |   |   util.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           apply.cpython-312.pyc
-|       |       |   |   |           decl_class.cpython-312.pyc
-|       |       |   |   |           infer.cpython-312.pyc
-|       |       |   |   |           names.cpython-312.pyc
-|       |       |   |   |           plugin.cpython-312.pyc
-|       |       |   |   |           util.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   \---__pycache__
-|       |       |   |           associationproxy.cpython-312.pyc
-|       |       |   |           automap.cpython-312.pyc
-|       |       |   |           baked.cpython-312.pyc
-|       |       |   |           compiler.cpython-312.pyc
-|       |       |   |           horizontal_shard.cpython-312.pyc
-|       |       |   |           hybrid.cpython-312.pyc
-|       |       |   |           indexable.cpython-312.pyc
-|       |       |   |           instrumentation.cpython-312.pyc
-|       |       |   |           mutable.cpython-312.pyc
-|       |       |   |           orderinglist.cpython-312.pyc
-|       |       |   |           serializer.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---future
-|       |       |   |   |   engine.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           engine.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---orm
-|       |       |   |   |   attributes.py
-|       |       |   |   |   base.py
-|       |       |   |   |   bulk_persistence.py
-|       |       |   |   |   clsregistry.py
-|       |       |   |   |   collections.py
-|       |       |   |   |   context.py
-|       |       |   |   |   decl_api.py
-|       |       |   |   |   decl_base.py
-|       |       |   |   |   dependency.py
-|       |       |   |   |   descriptor_props.py
-|       |       |   |   |   dynamic.py
-|       |       |   |   |   evaluator.py
-|       |       |   |   |   events.py
-|       |       |   |   |   exc.py
-|       |       |   |   |   identity.py
-|       |       |   |   |   instrumentation.py
-|       |       |   |   |   interfaces.py
-|       |       |   |   |   loading.py
-|       |       |   |   |   mapped_collection.py
-|       |       |   |   |   mapper.py
-|       |       |   |   |   path_registry.py
-|       |       |   |   |   persistence.py
-|       |       |   |   |   properties.py
-|       |       |   |   |   query.py
-|       |       |   |   |   relationships.py
-|       |       |   |   |   scoping.py
-|       |       |   |   |   session.py
-|       |       |   |   |   state.py
-|       |       |   |   |   state_changes.py
-|       |       |   |   |   strategies.py
-|       |       |   |   |   strategy_options.py
-|       |       |   |   |   sync.py
-|       |       |   |   |   unitofwork.py
-|       |       |   |   |   util.py
-|       |       |   |   |   writeonly.py
-|       |       |   |   |   _orm_constructors.py
-|       |       |   |   |   _typing.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           attributes.cpython-312.pyc
-|       |       |   |           base.cpython-312.pyc
-|       |       |   |           bulk_persistence.cpython-312.pyc
-|       |       |   |           clsregistry.cpython-312.pyc
-|       |       |   |           collections.cpython-312.pyc
-|       |       |   |           context.cpython-312.pyc
-|       |       |   |           decl_api.cpython-312.pyc
-|       |       |   |           decl_base.cpython-312.pyc
-|       |       |   |           dependency.cpython-312.pyc
-|       |       |   |           descriptor_props.cpython-312.pyc
-|       |       |   |           dynamic.cpython-312.pyc
-|       |       |   |           evaluator.cpython-312.pyc
-|       |       |   |           events.cpython-312.pyc
-|       |       |   |           exc.cpython-312.pyc
-|       |       |   |           identity.cpython-312.pyc
-|       |       |   |           instrumentation.cpython-312.pyc
-|       |       |   |           interfaces.cpython-312.pyc
-|       |       |   |           loading.cpython-312.pyc
-|       |       |   |           mapped_collection.cpython-312.pyc
-|       |       |   |           mapper.cpython-312.pyc
-|       |       |   |           path_registry.cpython-312.pyc
-|       |       |   |           persistence.cpython-312.pyc
-|       |       |   |           properties.cpython-312.pyc
-|       |       |   |           query.cpython-312.pyc
-|       |       |   |           relationships.cpython-312.pyc
-|       |       |   |           scoping.cpython-312.pyc
-|       |       |   |           session.cpython-312.pyc
-|       |       |   |           state.cpython-312.pyc
-|       |       |   |           state_changes.cpython-312.pyc
-|       |       |   |           strategies.cpython-312.pyc
-|       |       |   |           strategy_options.cpython-312.pyc
-|       |       |   |           sync.cpython-312.pyc
-|       |       |   |           unitofwork.cpython-312.pyc
-|       |       |   |           util.cpython-312.pyc
-|       |       |   |           writeonly.cpython-312.pyc
-|       |       |   |           _orm_constructors.cpython-312.pyc
-|       |       |   |           _typing.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---pool
-|       |       |   |   |   base.py
-|       |       |   |   |   events.py
-|       |       |   |   |   impl.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           base.cpython-312.pyc
-|       |       |   |           events.cpython-312.pyc
-|       |       |   |           impl.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---sql
-|       |       |   |   |   annotation.py
-|       |       |   |   |   base.py
-|       |       |   |   |   cache_key.py
-|       |       |   |   |   coercions.py
-|       |       |   |   |   compiler.py
-|       |       |   |   |   crud.py
-|       |       |   |   |   ddl.py
-|       |       |   |   |   default_comparator.py
-|       |       |   |   |   dml.py
-|       |       |   |   |   elements.py
-|       |       |   |   |   events.py
-|       |       |   |   |   expression.py
-|       |       |   |   |   functions.py
-|       |       |   |   |   lambdas.py
-|       |       |   |   |   naming.py
-|       |       |   |   |   operators.py
-|       |       |   |   |   roles.py
-|       |       |   |   |   schema.py
-|       |       |   |   |   selectable.py
-|       |       |   |   |   sqltypes.py
-|       |       |   |   |   traversals.py
-|       |       |   |   |   type_api.py
-|       |       |   |   |   util.py
-|       |       |   |   |   visitors.py
-|       |       |   |   |   _dml_constructors.py
-|       |       |   |   |   _elements_constructors.py
-|       |       |   |   |   _orm_types.py
-|       |       |   |   |   _py_util.py
-|       |       |   |   |   _selectable_constructors.py
-|       |       |   |   |   _typing.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           annotation.cpython-312.pyc
-|       |       |   |           base.cpython-312.pyc
-|       |       |   |           cache_key.cpython-312.pyc
-|       |       |   |           coercions.cpython-312.pyc
-|       |       |   |           compiler.cpython-312.pyc
-|       |       |   |           crud.cpython-312.pyc
-|       |       |   |           ddl.cpython-312.pyc
-|       |       |   |           default_comparator.cpython-312.pyc
-|       |       |   |           dml.cpython-312.pyc
-|       |       |   |           elements.cpython-312.pyc
-|       |       |   |           events.cpython-312.pyc
-|       |       |   |           expression.cpython-312.pyc
-|       |       |   |           functions.cpython-312.pyc
-|       |       |   |           lambdas.cpython-312.pyc
-|       |       |   |           naming.cpython-312.pyc
-|       |       |   |           operators.cpython-312.pyc
-|       |       |   |           roles.cpython-312.pyc
-|       |       |   |           schema.cpython-312.pyc
-|       |       |   |           selectable.cpython-312.pyc
-|       |       |   |           sqltypes.cpython-312.pyc
-|       |       |   |           traversals.cpython-312.pyc
-|       |       |   |           type_api.cpython-312.pyc
-|       |       |   |           util.cpython-312.pyc
-|       |       |   |           visitors.cpython-312.pyc
-|       |       |   |           _dml_constructors.cpython-312.pyc
-|       |       |   |           _elements_constructors.cpython-312.pyc
-|       |       |   |           _orm_types.cpython-312.pyc
-|       |       |   |           _py_util.cpython-312.pyc
-|       |       |   |           _selectable_constructors.cpython-312.pyc
-|       |       |   |           _typing.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---testing
-|       |       |   |   |   assertions.py
-|       |       |   |   |   assertsql.py
-|       |       |   |   |   asyncio.py
-|       |       |   |   |   config.py
-|       |       |   |   |   engines.py
-|       |       |   |   |   entities.py
-|       |       |   |   |   exclusions.py
-|       |       |   |   |   pickleable.py
-|       |       |   |   |   profiling.py
-|       |       |   |   |   provision.py
-|       |       |   |   |   requirements.py
-|       |       |   |   |   schema.py
-|       |       |   |   |   util.py
-|       |       |   |   |   warnings.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   +---fixtures
-|       |       |   |   |   |   base.py
-|       |       |   |   |   |   mypy.py
-|       |       |   |   |   |   orm.py
-|       |       |   |   |   |   sql.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           base.cpython-312.pyc
-|       |       |   |   |           mypy.cpython-312.pyc
-|       |       |   |   |           orm.cpython-312.pyc
-|       |       |   |   |           sql.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---plugin
-|       |       |   |   |   |   bootstrap.py
-|       |       |   |   |   |   plugin_base.py
-|       |       |   |   |   |   pytestplugin.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           bootstrap.cpython-312.pyc
-|       |       |   |   |           plugin_base.cpython-312.pyc
-|       |       |   |   |           pytestplugin.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   +---suite
-|       |       |   |   |   |   test_cte.py
-|       |       |   |   |   |   test_ddl.py
-|       |       |   |   |   |   test_deprecations.py
-|       |       |   |   |   |   test_dialect.py
-|       |       |   |   |   |   test_insert.py
-|       |       |   |   |   |   test_reflection.py
-|       |       |   |   |   |   test_results.py
-|       |       |   |   |   |   test_rowcount.py
-|       |       |   |   |   |   test_select.py
-|       |       |   |   |   |   test_sequence.py
-|       |       |   |   |   |   test_types.py
-|       |       |   |   |   |   test_unicode_ddl.py
-|       |       |   |   |   |   test_update_delete.py
-|       |       |   |   |   |   __init__.py
-|       |       |   |   |   |   
-|       |       |   |   |   \---__pycache__
-|       |       |   |   |           test_cte.cpython-312.pyc
-|       |       |   |   |           test_ddl.cpython-312.pyc
-|       |       |   |   |           test_deprecations.cpython-312.pyc
-|       |       |   |   |           test_dialect.cpython-312.pyc
-|       |       |   |   |           test_insert.cpython-312.pyc
-|       |       |   |   |           test_reflection.cpython-312.pyc
-|       |       |   |   |           test_results.cpython-312.pyc
-|       |       |   |   |           test_rowcount.cpython-312.pyc
-|       |       |   |   |           test_select.cpython-312.pyc
-|       |       |   |   |           test_sequence.cpython-312.pyc
-|       |       |   |   |           test_types.cpython-312.pyc
-|       |       |   |   |           test_unicode_ddl.cpython-312.pyc
-|       |       |   |   |           test_update_delete.cpython-312.pyc
-|       |       |   |   |           __init__.cpython-312.pyc
-|       |       |   |   |           
-|       |       |   |   \---__pycache__
-|       |       |   |           assertions.cpython-312.pyc
-|       |       |   |           assertsql.cpython-312.pyc
-|       |       |   |           asyncio.cpython-312.pyc
-|       |       |   |           config.cpython-312.pyc
-|       |       |   |           engines.cpython-312.pyc
-|       |       |   |           entities.cpython-312.pyc
-|       |       |   |           exclusions.cpython-312.pyc
-|       |       |   |           pickleable.cpython-312.pyc
-|       |       |   |           profiling.cpython-312.pyc
-|       |       |   |           provision.cpython-312.pyc
-|       |       |   |           requirements.cpython-312.pyc
-|       |       |   |           schema.cpython-312.pyc
-|       |       |   |           util.cpython-312.pyc
-|       |       |   |           warnings.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---util
-|       |       |   |   |   compat.py
-|       |       |   |   |   concurrency.py
-|       |       |   |   |   deprecations.py
-|       |       |   |   |   langhelpers.py
-|       |       |   |   |   preloaded.py
-|       |       |   |   |   queue.py
-|       |       |   |   |   tool_support.py
-|       |       |   |   |   topological.py
-|       |       |   |   |   typing.py
-|       |       |   |   |   _collections.py
-|       |       |   |   |   _concurrency_py3k.py
-|       |       |   |   |   _has_cy.py
-|       |       |   |   |   _py_collections.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           compat.cpython-312.pyc
-|       |       |   |           concurrency.cpython-312.pyc
-|       |       |   |           deprecations.cpython-312.pyc
-|       |       |   |           langhelpers.cpython-312.pyc
-|       |       |   |           preloaded.cpython-312.pyc
-|       |       |   |           queue.cpython-312.pyc
-|       |       |   |           tool_support.cpython-312.pyc
-|       |       |   |           topological.cpython-312.pyc
-|       |       |   |           typing.cpython-312.pyc
-|       |       |   |           _collections.cpython-312.pyc
-|       |       |   |           _concurrency_py3k.cpython-312.pyc
-|       |       |   |           _has_cy.cpython-312.pyc
-|       |       |   |           _py_collections.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   \---__pycache__
-|       |       |           events.cpython-312.pyc
-|       |       |           exc.cpython-312.pyc
-|       |       |           inspection.cpython-312.pyc
-|       |       |           log.cpython-312.pyc
-|       |       |           schema.cpython-312.pyc
-|       |       |           types.cpython-312.pyc
-|       |       |           __init__.cpython-312.pyc
-|       |       |           
-|       |       +---SQLAlchemy-2.0.31.dist-info
-|       |       |       INSTALLER
-|       |       |       LICENSE
-|       |       |       METADATA
-|       |       |       RECORD
-|       |       |       REQUESTED
-|       |       |       top_level.txt
-|       |       |       WHEEL
-|       |       |       
-|       |       +---typing_extensions-4.15.0.dist-info
-|       |       |   |   INSTALLER
-|       |       |   |   METADATA
-|       |       |   |   RECORD
-|       |       |   |   WHEEL
-|       |       |   |   
-|       |       |   \---licenses
-|       |       |           LICENSE
-|       |       |           
-|       |       +---werkzeug
-|       |       |   |   exceptions.py
-|       |       |   |   formparser.py
-|       |       |   |   http.py
-|       |       |   |   local.py
-|       |       |   |   py.typed
-|       |       |   |   security.py
-|       |       |   |   serving.py
-|       |       |   |   test.py
-|       |       |   |   testapp.py
-|       |       |   |   urls.py
-|       |       |   |   user_agent.py
-|       |       |   |   utils.py
-|       |       |   |   wsgi.py
-|       |       |   |   _internal.py
-|       |       |   |   _reloader.py
-|       |       |   |   __init__.py
-|       |       |   |   
-|       |       |   +---datastructures
-|       |       |   |   |   accept.py
-|       |       |   |   |   auth.py
-|       |       |   |   |   cache_control.py
-|       |       |   |   |   csp.py
-|       |       |   |   |   etag.py
-|       |       |   |   |   file_storage.py
-|       |       |   |   |   headers.py
-|       |       |   |   |   mixins.py
-|       |       |   |   |   range.py
-|       |       |   |   |   structures.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           accept.cpython-312.pyc
-|       |       |   |           auth.cpython-312.pyc
-|       |       |   |           cache_control.cpython-312.pyc
-|       |       |   |           csp.cpython-312.pyc
-|       |       |   |           etag.cpython-312.pyc
-|       |       |   |           file_storage.cpython-312.pyc
-|       |       |   |           headers.cpython-312.pyc
-|       |       |   |           mixins.cpython-312.pyc
-|       |       |   |           range.cpython-312.pyc
-|       |       |   |           structures.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---debug
-|       |       |   |   |   console.py
-|       |       |   |   |   repr.py
-|       |       |   |   |   tbtools.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   +---shared
-|       |       |   |   |       console.png
-|       |       |   |   |       debugger.js
-|       |       |   |   |       ICON_LICENSE.md
-|       |       |   |   |       less.png
-|       |       |   |   |       more.png
-|       |       |   |   |       style.css
-|       |       |   |   |       
-|       |       |   |   \---__pycache__
-|       |       |   |           console.cpython-312.pyc
-|       |       |   |           repr.cpython-312.pyc
-|       |       |   |           tbtools.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---middleware
-|       |       |   |   |   dispatcher.py
-|       |       |   |   |   http_proxy.py
-|       |       |   |   |   lint.py
-|       |       |   |   |   profiler.py
-|       |       |   |   |   proxy_fix.py
-|       |       |   |   |   shared_data.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           dispatcher.cpython-312.pyc
-|       |       |   |           http_proxy.cpython-312.pyc
-|       |       |   |           lint.cpython-312.pyc
-|       |       |   |           profiler.cpython-312.pyc
-|       |       |   |           proxy_fix.cpython-312.pyc
-|       |       |   |           shared_data.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---routing
-|       |       |   |   |   converters.py
-|       |       |   |   |   exceptions.py
-|       |       |   |   |   map.py
-|       |       |   |   |   matcher.py
-|       |       |   |   |   rules.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           converters.cpython-312.pyc
-|       |       |   |           exceptions.cpython-312.pyc
-|       |       |   |           map.cpython-312.pyc
-|       |       |   |           matcher.cpython-312.pyc
-|       |       |   |           rules.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---sansio
-|       |       |   |   |   http.py
-|       |       |   |   |   multipart.py
-|       |       |   |   |   request.py
-|       |       |   |   |   response.py
-|       |       |   |   |   utils.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           http.cpython-312.pyc
-|       |       |   |           multipart.cpython-312.pyc
-|       |       |   |           request.cpython-312.pyc
-|       |       |   |           response.cpython-312.pyc
-|       |       |   |           utils.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   +---wrappers
-|       |       |   |   |   request.py
-|       |       |   |   |   response.py
-|       |       |   |   |   __init__.py
-|       |       |   |   |   
-|       |       |   |   \---__pycache__
-|       |       |   |           request.cpython-312.pyc
-|       |       |   |           response.cpython-312.pyc
-|       |       |   |           __init__.cpython-312.pyc
-|       |       |   |           
-|       |       |   \---__pycache__
-|       |       |           exceptions.cpython-312.pyc
-|       |       |           formparser.cpython-312.pyc
-|       |       |           http.cpython-312.pyc
-|       |       |           local.cpython-312.pyc
-|       |       |           security.cpython-312.pyc
-|       |       |           serving.cpython-312.pyc
-|       |       |           test.cpython-312.pyc
-|       |       |           testapp.cpython-312.pyc
-|       |       |           urls.cpython-312.pyc
-|       |       |           user_agent.cpython-312.pyc
-|       |       |           utils.cpython-312.pyc
-|       |       |           wsgi.cpython-312.pyc
-|       |       |           _internal.cpython-312.pyc
-|       |       |           _reloader.cpython-312.pyc
-|       |       |           __init__.cpython-312.pyc
-|       |       |           
-|       |       +---werkzeug-3.1.3.dist-info
-|       |       |       INSTALLER
-|       |       |       LICENSE.txt
-|       |       |       METADATA
-|       |       |       RECORD
-|       |       |       WHEEL
-|       |       |       
-|       |       \---__pycache__
-|       |               typing_extensions.cpython-312.pyc
-|       |               
-|       \---Scripts
-|               activate
-|               activate.bat
-|               Activate.ps1
-|               deactivate.bat
-|               flask.exe
-|               pip.exe
-|               pip3.12.exe
-|               pip3.exe
-|               python.exe
-|               pythonw.exe
+|   +---.venv
+|   |   |   pyvenv.cfg
+|   |   |   
+|   |   +---Include
+|   |   |   \---site
+|   |   |       \---python3.12
+|   |   |           \---greenlet
+|   |   |                   greenlet.h
+|   |   |                   
+|   |   +---Lib
+|   |   |   \---site-packages
+|   |   |       |   decorator.py
+|   |   |       |   ipython_pygments_lexers.py
+|   |   |       |   typing_extensions.py
+|   |   |       |   
+|   |   |       +---asttokens
+|   |   |       |   |   astroid_compat.py
+|   |   |       |   |   asttokens.py
+|   |   |       |   |   line_numbers.py
+|   |   |       |   |   mark_tokens.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   util.py
+|   |   |       |   |   version.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   \---__pycache__
+|   |   |       |           astroid_compat.cpython-312.pyc
+|   |   |       |           asttokens.cpython-312.pyc
+|   |   |       |           line_numbers.cpython-312.pyc
+|   |   |       |           mark_tokens.cpython-312.pyc
+|   |   |       |           util.cpython-312.pyc
+|   |   |       |           version.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---asttokens-3.0.0.dist-info
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       top_level.txt
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---blinker
+|   |   |       |   |   base.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   _utilities.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   \---__pycache__
+|   |   |       |           base.cpython-312.pyc
+|   |   |       |           _utilities.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---blinker-1.9.0.dist-info
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE.txt
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---click
+|   |   |       |   |   core.py
+|   |   |       |   |   decorators.py
+|   |   |       |   |   exceptions.py
+|   |   |       |   |   formatting.py
+|   |   |       |   |   globals.py
+|   |   |       |   |   parser.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   shell_completion.py
+|   |   |       |   |   termui.py
+|   |   |       |   |   testing.py
+|   |   |       |   |   types.py
+|   |   |       |   |   utils.py
+|   |   |       |   |   _compat.py
+|   |   |       |   |   _termui_impl.py
+|   |   |       |   |   _textwrap.py
+|   |   |       |   |   _utils.py
+|   |   |       |   |   _winconsole.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   \---__pycache__
+|   |   |       |           core.cpython-312.pyc
+|   |   |       |           decorators.cpython-312.pyc
+|   |   |       |           exceptions.cpython-312.pyc
+|   |   |       |           formatting.cpython-312.pyc
+|   |   |       |           globals.cpython-312.pyc
+|   |   |       |           parser.cpython-312.pyc
+|   |   |       |           shell_completion.cpython-312.pyc
+|   |   |       |           termui.cpython-312.pyc
+|   |   |       |           testing.cpython-312.pyc
+|   |   |       |           types.cpython-312.pyc
+|   |   |       |           utils.cpython-312.pyc
+|   |   |       |           _compat.cpython-312.pyc
+|   |   |       |           _termui_impl.cpython-312.pyc
+|   |   |       |           _textwrap.cpython-312.pyc
+|   |   |       |           _utils.cpython-312.pyc
+|   |   |       |           _winconsole.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---click-8.3.0.dist-info
+|   |   |       |   |   INSTALLER
+|   |   |       |   |   METADATA
+|   |   |       |   |   RECORD
+|   |   |       |   |   WHEEL
+|   |   |       |   |   
+|   |   |       |   \---licenses
+|   |   |       |           LICENSE.txt
+|   |   |       |           
+|   |   |       +---colorama
+|   |   |       |   |   ansi.py
+|   |   |       |   |   ansitowin32.py
+|   |   |       |   |   initialise.py
+|   |   |       |   |   win32.py
+|   |   |       |   |   winterm.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   +---tests
+|   |   |       |   |   |   ansitowin32_test.py
+|   |   |       |   |   |   ansi_test.py
+|   |   |       |   |   |   initialise_test.py
+|   |   |       |   |   |   isatty_test.py
+|   |   |       |   |   |   utils.py
+|   |   |       |   |   |   winterm_test.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           ansitowin32_test.cpython-312.pyc
+|   |   |       |   |           ansi_test.cpython-312.pyc
+|   |   |       |   |           initialise_test.cpython-312.pyc
+|   |   |       |   |           isatty_test.cpython-312.pyc
+|   |   |       |   |           utils.cpython-312.pyc
+|   |   |       |   |           winterm_test.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   \---__pycache__
+|   |   |       |           ansi.cpython-312.pyc
+|   |   |       |           ansitowin32.cpython-312.pyc
+|   |   |       |           initialise.cpython-312.pyc
+|   |   |       |           win32.cpython-312.pyc
+|   |   |       |           winterm.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---colorama-0.4.6.dist-info
+|   |   |       |   |   INSTALLER
+|   |   |       |   |   METADATA
+|   |   |       |   |   RECORD
+|   |   |       |   |   WHEEL
+|   |   |       |   |   
+|   |   |       |   \---licenses
+|   |   |       |           LICENSE.txt
+|   |   |       |           
+|   |   |       +---decorator-5.2.1.dist-info
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE.txt
+|   |   |       |       METADATA
+|   |   |       |       pbr.json
+|   |   |       |       RECORD
+|   |   |       |       top_level.txt
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---executing
+|   |   |       |   |   executing.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   version.py
+|   |   |       |   |   _exceptions.py
+|   |   |       |   |   _position_node_finder.py
+|   |   |       |   |   _pytest_utils.py
+|   |   |       |   |   _utils.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   \---__pycache__
+|   |   |       |           executing.cpython-312.pyc
+|   |   |       |           version.cpython-312.pyc
+|   |   |       |           _exceptions.cpython-312.pyc
+|   |   |       |           _position_node_finder.cpython-312.pyc
+|   |   |       |           _pytest_utils.cpython-312.pyc
+|   |   |       |           _utils.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---executing-2.2.1.dist-info
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE.txt
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       top_level.txt
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---flask
+|   |   |       |   |   app.py
+|   |   |       |   |   blueprints.py
+|   |   |       |   |   cli.py
+|   |   |       |   |   config.py
+|   |   |       |   |   ctx.py
+|   |   |       |   |   debughelpers.py
+|   |   |       |   |   globals.py
+|   |   |       |   |   helpers.py
+|   |   |       |   |   logging.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   sessions.py
+|   |   |       |   |   signals.py
+|   |   |       |   |   templating.py
+|   |   |       |   |   testing.py
+|   |   |       |   |   typing.py
+|   |   |       |   |   views.py
+|   |   |       |   |   wrappers.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   __main__.py
+|   |   |       |   |   
+|   |   |       |   +---json
+|   |   |       |   |   |   provider.py
+|   |   |       |   |   |   tag.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           provider.cpython-312.pyc
+|   |   |       |   |           tag.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---sansio
+|   |   |       |   |   |   app.py
+|   |   |       |   |   |   blueprints.py
+|   |   |       |   |   |   README.md
+|   |   |       |   |   |   scaffold.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           app.cpython-312.pyc
+|   |   |       |   |           blueprints.cpython-312.pyc
+|   |   |       |   |           scaffold.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   \---__pycache__
+|   |   |       |           app.cpython-312.pyc
+|   |   |       |           blueprints.cpython-312.pyc
+|   |   |       |           cli.cpython-312.pyc
+|   |   |       |           config.cpython-312.pyc
+|   |   |       |           ctx.cpython-312.pyc
+|   |   |       |           debughelpers.cpython-312.pyc
+|   |   |       |           globals.cpython-312.pyc
+|   |   |       |           helpers.cpython-312.pyc
+|   |   |       |           logging.cpython-312.pyc
+|   |   |       |           sessions.cpython-312.pyc
+|   |   |       |           signals.cpython-312.pyc
+|   |   |       |           templating.cpython-312.pyc
+|   |   |       |           testing.cpython-312.pyc
+|   |   |       |           typing.cpython-312.pyc
+|   |   |       |           views.cpython-312.pyc
+|   |   |       |           wrappers.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           __main__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---flask-3.0.3.dist-info
+|   |   |       |       entry_points.txt
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE.txt
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       REQUESTED
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---flask_cors
+|   |   |       |   |   core.py
+|   |   |       |   |   decorator.py
+|   |   |       |   |   extension.py
+|   |   |       |   |   version.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   \---__pycache__
+|   |   |       |           core.cpython-312.pyc
+|   |   |       |           decorator.cpython-312.pyc
+|   |   |       |           extension.cpython-312.pyc
+|   |   |       |           version.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---Flask_Cors-4.0.1.dist-info
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       REQUESTED
+|   |   |       |       top_level.txt
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---flask_sqlalchemy
+|   |   |       |   |   cli.py
+|   |   |       |   |   extension.py
+|   |   |       |   |   model.py
+|   |   |       |   |   pagination.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   query.py
+|   |   |       |   |   record_queries.py
+|   |   |       |   |   session.py
+|   |   |       |   |   table.py
+|   |   |       |   |   track_modifications.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   \---__pycache__
+|   |   |       |           cli.cpython-312.pyc
+|   |   |       |           extension.cpython-312.pyc
+|   |   |       |           model.cpython-312.pyc
+|   |   |       |           pagination.cpython-312.pyc
+|   |   |       |           query.cpython-312.pyc
+|   |   |       |           record_queries.cpython-312.pyc
+|   |   |       |           session.cpython-312.pyc
+|   |   |       |           table.cpython-312.pyc
+|   |   |       |           track_modifications.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---flask_sqlalchemy-3.1.1.dist-info
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE.rst
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       REQUESTED
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---greenlet
+|   |   |       |   |   CObjects.cpp
+|   |   |       |   |   greenlet.cpp
+|   |   |       |   |   greenlet.h
+|   |   |       |   |   greenlet_allocator.hpp
+|   |   |       |   |   greenlet_compiler_compat.hpp
+|   |   |       |   |   greenlet_cpython_compat.hpp
+|   |   |       |   |   greenlet_exceptions.hpp
+|   |   |       |   |   greenlet_internal.hpp
+|   |   |       |   |   greenlet_msvc_compat.hpp
+|   |   |       |   |   greenlet_refs.hpp
+|   |   |       |   |   greenlet_slp_switch.hpp
+|   |   |       |   |   greenlet_thread_support.hpp
+|   |   |       |   |   PyGreenlet.cpp
+|   |   |       |   |   PyGreenlet.hpp
+|   |   |       |   |   PyGreenletUnswitchable.cpp
+|   |   |       |   |   PyModule.cpp
+|   |   |       |   |   slp_platformselect.h
+|   |   |       |   |   TBrokenGreenlet.cpp
+|   |   |       |   |   TExceptionState.cpp
+|   |   |       |   |   TGreenlet.cpp
+|   |   |       |   |   TGreenlet.hpp
+|   |   |       |   |   TGreenletGlobals.cpp
+|   |   |       |   |   TMainGreenlet.cpp
+|   |   |       |   |   TPythonState.cpp
+|   |   |       |   |   TStackState.cpp
+|   |   |       |   |   TThreadState.hpp
+|   |   |       |   |   TThreadStateCreator.hpp
+|   |   |       |   |   TThreadStateDestroy.cpp
+|   |   |       |   |   TUserGreenlet.cpp
+|   |   |       |   |   _greenlet.cp312-win_amd64.pyd
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   +---platform
+|   |   |       |   |   |   setup_switch_x64_masm.cmd
+|   |   |       |   |   |   switch_aarch64_gcc.h
+|   |   |       |   |   |   switch_alpha_unix.h
+|   |   |       |   |   |   switch_amd64_unix.h
+|   |   |       |   |   |   switch_arm32_gcc.h
+|   |   |       |   |   |   switch_arm32_ios.h
+|   |   |       |   |   |   switch_arm64_masm.asm
+|   |   |       |   |   |   switch_arm64_masm.obj
+|   |   |       |   |   |   switch_arm64_msvc.h
+|   |   |       |   |   |   switch_csky_gcc.h
+|   |   |       |   |   |   switch_loongarch64_linux.h
+|   |   |       |   |   |   switch_m68k_gcc.h
+|   |   |       |   |   |   switch_mips_unix.h
+|   |   |       |   |   |   switch_ppc64_aix.h
+|   |   |       |   |   |   switch_ppc64_linux.h
+|   |   |       |   |   |   switch_ppc_aix.h
+|   |   |       |   |   |   switch_ppc_linux.h
+|   |   |       |   |   |   switch_ppc_macosx.h
+|   |   |       |   |   |   switch_ppc_unix.h
+|   |   |       |   |   |   switch_riscv_unix.h
+|   |   |       |   |   |   switch_s390_unix.h
+|   |   |       |   |   |   switch_sh_gcc.h
+|   |   |       |   |   |   switch_sparc_sun_gcc.h
+|   |   |       |   |   |   switch_x32_unix.h
+|   |   |       |   |   |   switch_x64_masm.asm
+|   |   |       |   |   |   switch_x64_masm.obj
+|   |   |       |   |   |   switch_x64_msvc.h
+|   |   |       |   |   |   switch_x86_msvc.h
+|   |   |       |   |   |   switch_x86_unix.h
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---tests
+|   |   |       |   |   |   fail_clearing_run_switches.py
+|   |   |       |   |   |   fail_cpp_exception.py
+|   |   |       |   |   |   fail_initialstub_already_started.py
+|   |   |       |   |   |   fail_slp_switch.py
+|   |   |       |   |   |   fail_switch_three_greenlets.py
+|   |   |       |   |   |   fail_switch_three_greenlets2.py
+|   |   |       |   |   |   fail_switch_two_greenlets.py
+|   |   |       |   |   |   leakcheck.py
+|   |   |       |   |   |   test_contextvars.py
+|   |   |       |   |   |   test_cpp.py
+|   |   |       |   |   |   test_extension_interface.py
+|   |   |       |   |   |   test_gc.py
+|   |   |       |   |   |   test_generator.py
+|   |   |       |   |   |   test_generator_nested.py
+|   |   |       |   |   |   test_greenlet.py
+|   |   |       |   |   |   test_greenlet_trash.py
+|   |   |       |   |   |   test_leaks.py
+|   |   |       |   |   |   test_stack_saved.py
+|   |   |       |   |   |   test_throw.py
+|   |   |       |   |   |   test_tracing.py
+|   |   |       |   |   |   test_version.py
+|   |   |       |   |   |   test_weakref.py
+|   |   |       |   |   |   _test_extension.c
+|   |   |       |   |   |   _test_extension.cp312-win_amd64.pyd
+|   |   |       |   |   |   _test_extension_cpp.cp312-win_amd64.pyd
+|   |   |       |   |   |   _test_extension_cpp.cpp
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           fail_clearing_run_switches.cpython-312.pyc
+|   |   |       |   |           fail_cpp_exception.cpython-312.pyc
+|   |   |       |   |           fail_initialstub_already_started.cpython-312.pyc
+|   |   |       |   |           fail_slp_switch.cpython-312.pyc
+|   |   |       |   |           fail_switch_three_greenlets.cpython-312.pyc
+|   |   |       |   |           fail_switch_three_greenlets2.cpython-312.pyc
+|   |   |       |   |           fail_switch_two_greenlets.cpython-312.pyc
+|   |   |       |   |           leakcheck.cpython-312.pyc
+|   |   |       |   |           test_contextvars.cpython-312.pyc
+|   |   |       |   |           test_cpp.cpython-312.pyc
+|   |   |       |   |           test_extension_interface.cpython-312.pyc
+|   |   |       |   |           test_gc.cpython-312.pyc
+|   |   |       |   |           test_generator.cpython-312.pyc
+|   |   |       |   |           test_generator_nested.cpython-312.pyc
+|   |   |       |   |           test_greenlet.cpython-312.pyc
+|   |   |       |   |           test_greenlet_trash.cpython-312.pyc
+|   |   |       |   |           test_leaks.cpython-312.pyc
+|   |   |       |   |           test_stack_saved.cpython-312.pyc
+|   |   |       |   |           test_throw.cpython-312.pyc
+|   |   |       |   |           test_tracing.cpython-312.pyc
+|   |   |       |   |           test_version.cpython-312.pyc
+|   |   |       |   |           test_weakref.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   \---__pycache__
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---greenlet-3.2.4.dist-info
+|   |   |       |   |   INSTALLER
+|   |   |       |   |   METADATA
+|   |   |       |   |   RECORD
+|   |   |       |   |   top_level.txt
+|   |   |       |   |   WHEEL
+|   |   |       |   |   
+|   |   |       |   \---licenses
+|   |   |       |           LICENSE
+|   |   |       |           LICENSE.PSF
+|   |   |       |           
+|   |   |       +---IPython
+|   |   |       |   |   display.py
+|   |   |       |   |   paths.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   __init__.py
+|   |   |       |   |   __main__.py
+|   |   |       |   |   
+|   |   |       |   +---core
+|   |   |       |   |   |   alias.py
+|   |   |       |   |   |   application.py
+|   |   |       |   |   |   async_helpers.py
+|   |   |       |   |   |   autocall.py
+|   |   |       |   |   |   builtin_trap.py
+|   |   |       |   |   |   compilerop.py
+|   |   |       |   |   |   completer.py
+|   |   |       |   |   |   completerlib.py
+|   |   |       |   |   |   crashhandler.py
+|   |   |       |   |   |   debugger.py
+|   |   |       |   |   |   debugger_backport.py
+|   |   |       |   |   |   display.py
+|   |   |       |   |   |   displayhook.py
+|   |   |       |   |   |   displaypub.py
+|   |   |       |   |   |   display_functions.py
+|   |   |       |   |   |   display_trap.py
+|   |   |       |   |   |   doctb.py
+|   |   |       |   |   |   error.py
+|   |   |       |   |   |   events.py
+|   |   |       |   |   |   extensions.py
+|   |   |       |   |   |   formatters.py
+|   |   |       |   |   |   getipython.py
+|   |   |       |   |   |   guarded_eval.py
+|   |   |       |   |   |   history.py
+|   |   |       |   |   |   historyapp.py
+|   |   |       |   |   |   hooks.py
+|   |   |       |   |   |   inputtransformer2.py
+|   |   |       |   |   |   interactiveshell.py
+|   |   |       |   |   |   latex_symbols.py
+|   |   |       |   |   |   logger.py
+|   |   |       |   |   |   macro.py
+|   |   |       |   |   |   magic.py
+|   |   |       |   |   |   magic_arguments.py
+|   |   |       |   |   |   oinspect.py
+|   |   |       |   |   |   page.py
+|   |   |       |   |   |   payload.py
+|   |   |       |   |   |   payloadpage.py
+|   |   |       |   |   |   prefilter.py
+|   |   |       |   |   |   profileapp.py
+|   |   |       |   |   |   profiledir.py
+|   |   |       |   |   |   pylabtools.py
+|   |   |       |   |   |   release.py
+|   |   |       |   |   |   shellapp.py
+|   |   |       |   |   |   splitinput.py
+|   |   |       |   |   |   tbtools.py
+|   |   |       |   |   |   tips.py
+|   |   |       |   |   |   ultratb.py
+|   |   |       |   |   |   usage.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---magics
+|   |   |       |   |   |   |   ast_mod.py
+|   |   |       |   |   |   |   auto.py
+|   |   |       |   |   |   |   basic.py
+|   |   |       |   |   |   |   code.py
+|   |   |       |   |   |   |   config.py
+|   |   |       |   |   |   |   display.py
+|   |   |       |   |   |   |   execution.py
+|   |   |       |   |   |   |   extension.py
+|   |   |       |   |   |   |   history.py
+|   |   |       |   |   |   |   logging.py
+|   |   |       |   |   |   |   namespace.py
+|   |   |       |   |   |   |   osm.py
+|   |   |       |   |   |   |   packaging.py
+|   |   |       |   |   |   |   pylab.py
+|   |   |       |   |   |   |   script.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           ast_mod.cpython-312.pyc
+|   |   |       |   |   |           auto.cpython-312.pyc
+|   |   |       |   |   |           basic.cpython-312.pyc
+|   |   |       |   |   |           code.cpython-312.pyc
+|   |   |       |   |   |           config.cpython-312.pyc
+|   |   |       |   |   |           display.cpython-312.pyc
+|   |   |       |   |   |           execution.cpython-312.pyc
+|   |   |       |   |   |           extension.cpython-312.pyc
+|   |   |       |   |   |           history.cpython-312.pyc
+|   |   |       |   |   |           logging.cpython-312.pyc
+|   |   |       |   |   |           namespace.cpython-312.pyc
+|   |   |       |   |   |           osm.cpython-312.pyc
+|   |   |       |   |   |           packaging.cpython-312.pyc
+|   |   |       |   |   |           pylab.cpython-312.pyc
+|   |   |       |   |   |           script.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---profile
+|   |   |       |   |   |       README_STARTUP
+|   |   |       |   |   |       
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           alias.cpython-312.pyc
+|   |   |       |   |           application.cpython-312.pyc
+|   |   |       |   |           async_helpers.cpython-312.pyc
+|   |   |       |   |           autocall.cpython-312.pyc
+|   |   |       |   |           builtin_trap.cpython-312.pyc
+|   |   |       |   |           compilerop.cpython-312.pyc
+|   |   |       |   |           completer.cpython-312.pyc
+|   |   |       |   |           completerlib.cpython-312.pyc
+|   |   |       |   |           crashhandler.cpython-312.pyc
+|   |   |       |   |           debugger.cpython-312.pyc
+|   |   |       |   |           debugger_backport.cpython-312.pyc
+|   |   |       |   |           display.cpython-312.pyc
+|   |   |       |   |           displayhook.cpython-312.pyc
+|   |   |       |   |           displaypub.cpython-312.pyc
+|   |   |       |   |           display_functions.cpython-312.pyc
+|   |   |       |   |           display_trap.cpython-312.pyc
+|   |   |       |   |           doctb.cpython-312.pyc
+|   |   |       |   |           error.cpython-312.pyc
+|   |   |       |   |           events.cpython-312.pyc
+|   |   |       |   |           extensions.cpython-312.pyc
+|   |   |       |   |           formatters.cpython-312.pyc
+|   |   |       |   |           getipython.cpython-312.pyc
+|   |   |       |   |           guarded_eval.cpython-312.pyc
+|   |   |       |   |           history.cpython-312.pyc
+|   |   |       |   |           historyapp.cpython-312.pyc
+|   |   |       |   |           hooks.cpython-312.pyc
+|   |   |       |   |           inputtransformer2.cpython-312.pyc
+|   |   |       |   |           interactiveshell.cpython-312.pyc
+|   |   |       |   |           latex_symbols.cpython-312.pyc
+|   |   |       |   |           logger.cpython-312.pyc
+|   |   |       |   |           macro.cpython-312.pyc
+|   |   |       |   |           magic.cpython-312.pyc
+|   |   |       |   |           magic_arguments.cpython-312.pyc
+|   |   |       |   |           oinspect.cpython-312.pyc
+|   |   |       |   |           page.cpython-312.pyc
+|   |   |       |   |           payload.cpython-312.pyc
+|   |   |       |   |           payloadpage.cpython-312.pyc
+|   |   |       |   |           prefilter.cpython-312.pyc
+|   |   |       |   |           profileapp.cpython-312.pyc
+|   |   |       |   |           profiledir.cpython-312.pyc
+|   |   |       |   |           pylabtools.cpython-312.pyc
+|   |   |       |   |           release.cpython-312.pyc
+|   |   |       |   |           shellapp.cpython-312.pyc
+|   |   |       |   |           splitinput.cpython-312.pyc
+|   |   |       |   |           tbtools.cpython-312.pyc
+|   |   |       |   |           tips.cpython-312.pyc
+|   |   |       |   |           ultratb.cpython-312.pyc
+|   |   |       |   |           usage.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---extensions
+|   |   |       |   |   |   autoreload.py
+|   |   |       |   |   |   storemagic.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---deduperreload
+|   |   |       |   |   |   |   deduperreload.py
+|   |   |       |   |   |   |   deduperreload_patching.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           deduperreload.cpython-312.pyc
+|   |   |       |   |   |           deduperreload_patching.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           autoreload.cpython-312.pyc
+|   |   |       |   |           storemagic.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---external
+|   |   |       |   |   |   pickleshare.py
+|   |   |       |   |   |   qt_for_kernel.py
+|   |   |       |   |   |   qt_loaders.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           pickleshare.cpython-312.pyc
+|   |   |       |   |           qt_for_kernel.cpython-312.pyc
+|   |   |       |   |           qt_loaders.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---lib
+|   |   |       |   |   |   backgroundjobs.py
+|   |   |       |   |   |   clipboard.py
+|   |   |       |   |   |   deepreload.py
+|   |   |       |   |   |   demo.py
+|   |   |       |   |   |   display.py
+|   |   |       |   |   |   editorhooks.py
+|   |   |       |   |   |   guisupport.py
+|   |   |       |   |   |   latextools.py
+|   |   |       |   |   |   lexers.py
+|   |   |       |   |   |   pretty.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           backgroundjobs.cpython-312.pyc
+|   |   |       |   |           clipboard.cpython-312.pyc
+|   |   |       |   |           deepreload.cpython-312.pyc
+|   |   |       |   |           demo.cpython-312.pyc
+|   |   |       |   |           display.cpython-312.pyc
+|   |   |       |   |           editorhooks.cpython-312.pyc
+|   |   |       |   |           guisupport.cpython-312.pyc
+|   |   |       |   |           latextools.cpython-312.pyc
+|   |   |       |   |           lexers.cpython-312.pyc
+|   |   |       |   |           pretty.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---sphinxext
+|   |   |       |   |   |   custom_doctests.py
+|   |   |       |   |   |   ipython_console_highlighting.py
+|   |   |       |   |   |   ipython_directive.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           custom_doctests.cpython-312.pyc
+|   |   |       |   |           ipython_console_highlighting.cpython-312.pyc
+|   |   |       |   |           ipython_directive.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---terminal
+|   |   |       |   |   |   debugger.py
+|   |   |       |   |   |   embed.py
+|   |   |       |   |   |   interactiveshell.py
+|   |   |       |   |   |   ipapp.py
+|   |   |       |   |   |   magics.py
+|   |   |       |   |   |   prompts.py
+|   |   |       |   |   |   ptutils.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---pt_inputhooks
+|   |   |       |   |   |   |   asyncio.py
+|   |   |       |   |   |   |   glut.py
+|   |   |       |   |   |   |   gtk.py
+|   |   |       |   |   |   |   gtk3.py
+|   |   |       |   |   |   |   gtk4.py
+|   |   |       |   |   |   |   osx.py
+|   |   |       |   |   |   |   pyglet.py
+|   |   |       |   |   |   |   qt.py
+|   |   |       |   |   |   |   tk.py
+|   |   |       |   |   |   |   wx.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           asyncio.cpython-312.pyc
+|   |   |       |   |   |           glut.cpython-312.pyc
+|   |   |       |   |   |           gtk.cpython-312.pyc
+|   |   |       |   |   |           gtk3.cpython-312.pyc
+|   |   |       |   |   |           gtk4.cpython-312.pyc
+|   |   |       |   |   |           osx.cpython-312.pyc
+|   |   |       |   |   |           pyglet.cpython-312.pyc
+|   |   |       |   |   |           qt.cpython-312.pyc
+|   |   |       |   |   |           tk.cpython-312.pyc
+|   |   |       |   |   |           wx.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---shortcuts
+|   |   |       |   |   |   |   auto_match.py
+|   |   |       |   |   |   |   auto_suggest.py
+|   |   |       |   |   |   |   filters.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           auto_match.cpython-312.pyc
+|   |   |       |   |   |           auto_suggest.cpython-312.pyc
+|   |   |       |   |   |           filters.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           debugger.cpython-312.pyc
+|   |   |       |   |           embed.cpython-312.pyc
+|   |   |       |   |           interactiveshell.cpython-312.pyc
+|   |   |       |   |           ipapp.cpython-312.pyc
+|   |   |       |   |           magics.cpython-312.pyc
+|   |   |       |   |           prompts.cpython-312.pyc
+|   |   |       |   |           ptutils.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---testing
+|   |   |       |   |   |   decorators.py
+|   |   |       |   |   |   globalipapp.py
+|   |   |       |   |   |   ipunittest.py
+|   |   |       |   |   |   skipdoctest.py
+|   |   |       |   |   |   tools.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---plugin
+|   |   |       |   |   |   |   dtexample.py
+|   |   |       |   |   |   |   ipdoctest.py
+|   |   |       |   |   |   |   pytest_ipdoctest.py
+|   |   |       |   |   |   |   setup.py
+|   |   |       |   |   |   |   simple.py
+|   |   |       |   |   |   |   simplevars.py
+|   |   |       |   |   |   |   test_combo.txt
+|   |   |       |   |   |   |   test_example.txt
+|   |   |       |   |   |   |   test_exampleip.txt
+|   |   |       |   |   |   |   test_ipdoctest.py
+|   |   |       |   |   |   |   test_refs.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           dtexample.cpython-312.pyc
+|   |   |       |   |   |           ipdoctest.cpython-312.pyc
+|   |   |       |   |   |           pytest_ipdoctest.cpython-312.pyc
+|   |   |       |   |   |           setup.cpython-312.pyc
+|   |   |       |   |   |           simple.cpython-312.pyc
+|   |   |       |   |   |           simplevars.cpython-312.pyc
+|   |   |       |   |   |           test_ipdoctest.cpython-312.pyc
+|   |   |       |   |   |           test_refs.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           decorators.cpython-312.pyc
+|   |   |       |   |           globalipapp.cpython-312.pyc
+|   |   |       |   |           ipunittest.cpython-312.pyc
+|   |   |       |   |           skipdoctest.cpython-312.pyc
+|   |   |       |   |           tools.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---utils
+|   |   |       |   |   |   capture.py
+|   |   |       |   |   |   coloransi.py
+|   |   |       |   |   |   contexts.py
+|   |   |       |   |   |   data.py
+|   |   |       |   |   |   decorators.py
+|   |   |       |   |   |   dir2.py
+|   |   |       |   |   |   docs.py
+|   |   |       |   |   |   encoding.py
+|   |   |       |   |   |   eventful.py
+|   |   |       |   |   |   frame.py
+|   |   |       |   |   |   generics.py
+|   |   |       |   |   |   importstring.py
+|   |   |       |   |   |   io.py
+|   |   |       |   |   |   ipstruct.py
+|   |   |       |   |   |   jsonutil.py
+|   |   |       |   |   |   log.py
+|   |   |       |   |   |   module_paths.py
+|   |   |       |   |   |   openpy.py
+|   |   |       |   |   |   path.py
+|   |   |       |   |   |   process.py
+|   |   |       |   |   |   py3compat.py
+|   |   |       |   |   |   PyColorize.py
+|   |   |       |   |   |   sentinel.py
+|   |   |       |   |   |   strdispatch.py
+|   |   |       |   |   |   sysinfo.py
+|   |   |       |   |   |   syspathcontext.py
+|   |   |       |   |   |   tempdir.py
+|   |   |       |   |   |   terminal.py
+|   |   |       |   |   |   text.py
+|   |   |       |   |   |   timing.py
+|   |   |       |   |   |   tokenutil.py
+|   |   |       |   |   |   wildcard.py
+|   |   |       |   |   |   _process_cli.py
+|   |   |       |   |   |   _process_common.py
+|   |   |       |   |   |   _process_emscripten.py
+|   |   |       |   |   |   _process_posix.py
+|   |   |       |   |   |   _process_win32.py
+|   |   |       |   |   |   _process_win32_controller.py
+|   |   |       |   |   |   _sysinfo.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           capture.cpython-312.pyc
+|   |   |       |   |           coloransi.cpython-312.pyc
+|   |   |       |   |           contexts.cpython-312.pyc
+|   |   |       |   |           data.cpython-312.pyc
+|   |   |       |   |           decorators.cpython-312.pyc
+|   |   |       |   |           dir2.cpython-312.pyc
+|   |   |       |   |           docs.cpython-312.pyc
+|   |   |       |   |           encoding.cpython-312.pyc
+|   |   |       |   |           eventful.cpython-312.pyc
+|   |   |       |   |           frame.cpython-312.pyc
+|   |   |       |   |           generics.cpython-312.pyc
+|   |   |       |   |           importstring.cpython-312.pyc
+|   |   |       |   |           io.cpython-312.pyc
+|   |   |       |   |           ipstruct.cpython-312.pyc
+|   |   |       |   |           jsonutil.cpython-312.pyc
+|   |   |       |   |           log.cpython-312.pyc
+|   |   |       |   |           module_paths.cpython-312.pyc
+|   |   |       |   |           openpy.cpython-312.pyc
+|   |   |       |   |           path.cpython-312.pyc
+|   |   |       |   |           process.cpython-312.pyc
+|   |   |       |   |           py3compat.cpython-312.pyc
+|   |   |       |   |           PyColorize.cpython-312.pyc
+|   |   |       |   |           sentinel.cpython-312.pyc
+|   |   |       |   |           strdispatch.cpython-312.pyc
+|   |   |       |   |           sysinfo.cpython-312.pyc
+|   |   |       |   |           syspathcontext.cpython-312.pyc
+|   |   |       |   |           tempdir.cpython-312.pyc
+|   |   |       |   |           terminal.cpython-312.pyc
+|   |   |       |   |           text.cpython-312.pyc
+|   |   |       |   |           timing.cpython-312.pyc
+|   |   |       |   |           tokenutil.cpython-312.pyc
+|   |   |       |   |           wildcard.cpython-312.pyc
+|   |   |       |   |           _process_cli.cpython-312.pyc
+|   |   |       |   |           _process_common.cpython-312.pyc
+|   |   |       |   |           _process_emscripten.cpython-312.pyc
+|   |   |       |   |           _process_posix.cpython-312.pyc
+|   |   |       |   |           _process_win32.cpython-312.pyc
+|   |   |       |   |           _process_win32_controller.cpython-312.pyc
+|   |   |       |   |           _sysinfo.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   \---__pycache__
+|   |   |       |           display.cpython-312.pyc
+|   |   |       |           paths.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           __main__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---ipython-9.6.0.dist-info
+|   |   |       |   |   entry_points.txt
+|   |   |       |   |   INSTALLER
+|   |   |       |   |   METADATA
+|   |   |       |   |   RECORD
+|   |   |       |   |   top_level.txt
+|   |   |       |   |   WHEEL
+|   |   |       |   |   
+|   |   |       |   \---licenses
+|   |   |       |           COPYING.rst
+|   |   |       |           LICENSE
+|   |   |       |           
+|   |   |       +---ipython_pygments_lexers-1.1.1.dist-info
+|   |   |       |       entry_points.txt
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---itsdangerous
+|   |   |       |   |   encoding.py
+|   |   |       |   |   exc.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   serializer.py
+|   |   |       |   |   signer.py
+|   |   |       |   |   timed.py
+|   |   |       |   |   url_safe.py
+|   |   |       |   |   _json.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   \---__pycache__
+|   |   |       |           encoding.cpython-312.pyc
+|   |   |       |           exc.cpython-312.pyc
+|   |   |       |           serializer.cpython-312.pyc
+|   |   |       |           signer.cpython-312.pyc
+|   |   |       |           timed.cpython-312.pyc
+|   |   |       |           url_safe.cpython-312.pyc
+|   |   |       |           _json.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---itsdangerous-2.2.0.dist-info
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE.txt
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---jedi
+|   |   |       |   |   cache.py
+|   |   |       |   |   common.py
+|   |   |       |   |   debug.py
+|   |   |       |   |   file_io.py
+|   |   |       |   |   parser_utils.py
+|   |   |       |   |   settings.py
+|   |   |       |   |   utils.py
+|   |   |       |   |   _compatibility.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   __main__.py
+|   |   |       |   |   
+|   |   |       |   +---api
+|   |   |       |   |   |   classes.py
+|   |   |       |   |   |   completion.py
+|   |   |       |   |   |   completion_cache.py
+|   |   |       |   |   |   environment.py
+|   |   |       |   |   |   errors.py
+|   |   |       |   |   |   exceptions.py
+|   |   |       |   |   |   file_name.py
+|   |   |       |   |   |   helpers.py
+|   |   |       |   |   |   interpreter.py
+|   |   |       |   |   |   keywords.py
+|   |   |       |   |   |   project.py
+|   |   |       |   |   |   replstartup.py
+|   |   |       |   |   |   strings.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---refactoring
+|   |   |       |   |   |   |   extract.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           extract.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           classes.cpython-312.pyc
+|   |   |       |   |           completion.cpython-312.pyc
+|   |   |       |   |           completion_cache.cpython-312.pyc
+|   |   |       |   |           environment.cpython-312.pyc
+|   |   |       |   |           errors.cpython-312.pyc
+|   |   |       |   |           exceptions.cpython-312.pyc
+|   |   |       |   |           file_name.cpython-312.pyc
+|   |   |       |   |           helpers.cpython-312.pyc
+|   |   |       |   |           interpreter.cpython-312.pyc
+|   |   |       |   |           keywords.cpython-312.pyc
+|   |   |       |   |           project.cpython-312.pyc
+|   |   |       |   |           replstartup.cpython-312.pyc
+|   |   |       |   |           strings.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---inference
+|   |   |       |   |   |   analysis.py
+|   |   |       |   |   |   arguments.py
+|   |   |       |   |   |   base_value.py
+|   |   |       |   |   |   cache.py
+|   |   |       |   |   |   context.py
+|   |   |       |   |   |   docstrings.py
+|   |   |       |   |   |   docstring_utils.py
+|   |   |       |   |   |   dynamic_params.py
+|   |   |       |   |   |   filters.py
+|   |   |       |   |   |   finder.py
+|   |   |       |   |   |   flow_analysis.py
+|   |   |       |   |   |   helpers.py
+|   |   |       |   |   |   imports.py
+|   |   |       |   |   |   lazy_value.py
+|   |   |       |   |   |   names.py
+|   |   |       |   |   |   param.py
+|   |   |       |   |   |   parser_cache.py
+|   |   |       |   |   |   recursion.py
+|   |   |       |   |   |   references.py
+|   |   |       |   |   |   signature.py
+|   |   |       |   |   |   star_args.py
+|   |   |       |   |   |   syntax_tree.py
+|   |   |       |   |   |   sys_path.py
+|   |   |       |   |   |   utils.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---compiled
+|   |   |       |   |   |   |   access.py
+|   |   |       |   |   |   |   getattr_static.py
+|   |   |       |   |   |   |   mixed.py
+|   |   |       |   |   |   |   value.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---subprocess
+|   |   |       |   |   |   |   |   functions.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   __main__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           functions.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           __main__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           access.cpython-312.pyc
+|   |   |       |   |   |           getattr_static.cpython-312.pyc
+|   |   |       |   |   |           mixed.cpython-312.pyc
+|   |   |       |   |   |           value.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---gradual
+|   |   |       |   |   |   |   annotation.py
+|   |   |       |   |   |   |   base.py
+|   |   |       |   |   |   |   conversion.py
+|   |   |       |   |   |   |   generics.py
+|   |   |       |   |   |   |   stub_value.py
+|   |   |       |   |   |   |   typeshed.py
+|   |   |       |   |   |   |   type_var.py
+|   |   |       |   |   |   |   typing.py
+|   |   |       |   |   |   |   utils.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           annotation.cpython-312.pyc
+|   |   |       |   |   |           base.cpython-312.pyc
+|   |   |       |   |   |           conversion.cpython-312.pyc
+|   |   |       |   |   |           generics.cpython-312.pyc
+|   |   |       |   |   |           stub_value.cpython-312.pyc
+|   |   |       |   |   |           typeshed.cpython-312.pyc
+|   |   |       |   |   |           type_var.cpython-312.pyc
+|   |   |       |   |   |           typing.cpython-312.pyc
+|   |   |       |   |   |           utils.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---value
+|   |   |       |   |   |   |   decorator.py
+|   |   |       |   |   |   |   dynamic_arrays.py
+|   |   |       |   |   |   |   function.py
+|   |   |       |   |   |   |   instance.py
+|   |   |       |   |   |   |   iterable.py
+|   |   |       |   |   |   |   klass.py
+|   |   |       |   |   |   |   module.py
+|   |   |       |   |   |   |   namespace.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           decorator.cpython-312.pyc
+|   |   |       |   |   |           dynamic_arrays.cpython-312.pyc
+|   |   |       |   |   |           function.cpython-312.pyc
+|   |   |       |   |   |           instance.cpython-312.pyc
+|   |   |       |   |   |           iterable.cpython-312.pyc
+|   |   |       |   |   |           klass.cpython-312.pyc
+|   |   |       |   |   |           module.cpython-312.pyc
+|   |   |       |   |   |           namespace.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           analysis.cpython-312.pyc
+|   |   |       |   |           arguments.cpython-312.pyc
+|   |   |       |   |           base_value.cpython-312.pyc
+|   |   |       |   |           cache.cpython-312.pyc
+|   |   |       |   |           context.cpython-312.pyc
+|   |   |       |   |           docstrings.cpython-312.pyc
+|   |   |       |   |           docstring_utils.cpython-312.pyc
+|   |   |       |   |           dynamic_params.cpython-312.pyc
+|   |   |       |   |           filters.cpython-312.pyc
+|   |   |       |   |           finder.cpython-312.pyc
+|   |   |       |   |           flow_analysis.cpython-312.pyc
+|   |   |       |   |           helpers.cpython-312.pyc
+|   |   |       |   |           imports.cpython-312.pyc
+|   |   |       |   |           lazy_value.cpython-312.pyc
+|   |   |       |   |           names.cpython-312.pyc
+|   |   |       |   |           param.cpython-312.pyc
+|   |   |       |   |           parser_cache.cpython-312.pyc
+|   |   |       |   |           recursion.cpython-312.pyc
+|   |   |       |   |           references.cpython-312.pyc
+|   |   |       |   |           signature.cpython-312.pyc
+|   |   |       |   |           star_args.cpython-312.pyc
+|   |   |       |   |           syntax_tree.cpython-312.pyc
+|   |   |       |   |           sys_path.cpython-312.pyc
+|   |   |       |   |           utils.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---plugins
+|   |   |       |   |   |   django.py
+|   |   |       |   |   |   flask.py
+|   |   |       |   |   |   pytest.py
+|   |   |       |   |   |   registry.py
+|   |   |       |   |   |   stdlib.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           django.cpython-312.pyc
+|   |   |       |   |           flask.cpython-312.pyc
+|   |   |       |   |           pytest.cpython-312.pyc
+|   |   |       |   |           registry.cpython-312.pyc
+|   |   |       |   |           stdlib.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---third_party
+|   |   |       |   |   +---django-stubs
+|   |   |       |   |   |   |   LICENSE.txt
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---django-stubs
+|   |   |       |   |   |       |   shortcuts.pyi
+|   |   |       |   |   |       |   __init__.pyi
+|   |   |       |   |   |       |   
+|   |   |       |   |   |       +---apps
+|   |   |       |   |   |       |       config.pyi
+|   |   |       |   |   |       |       registry.pyi
+|   |   |       |   |   |       |       __init__.pyi
+|   |   |       |   |   |       |       
+|   |   |       |   |   |       +---conf
+|   |   |       |   |   |       |   |   global_settings.pyi
+|   |   |       |   |   |       |   |   __init__.pyi
+|   |   |       |   |   |       |   |   
+|   |   |       |   |   |       |   +---locale
+|   |   |       |   |   |       |   |       __init__.pyi
+|   |   |       |   |   |       |   |       
+|   |   |       |   |   |       |   \---urls
+|   |   |       |   |   |       |           i18n.pyi
+|   |   |       |   |   |       |           static.pyi
+|   |   |       |   |   |       |           __init__.pyi
+|   |   |       |   |   |       |           
+|   |   |       |   |   |       +---contrib
+|   |   |       |   |   |       |   |   __init__.pyi
+|   |   |       |   |   |       |   |   
+|   |   |       |   |   |       |   +---admin
+|   |   |       |   |   |       |   |   |   actions.pyi
+|   |   |       |   |   |       |   |   |   apps.pyi
+|   |   |       |   |   |       |   |   |   checks.pyi
+|   |   |       |   |   |       |   |   |   decorators.pyi
+|   |   |       |   |   |       |   |   |   filters.pyi
+|   |   |       |   |   |       |   |   |   forms.pyi
+|   |   |       |   |   |       |   |   |   helpers.pyi
+|   |   |       |   |   |       |   |   |   models.pyi
+|   |   |       |   |   |       |   |   |   options.pyi
+|   |   |       |   |   |       |   |   |   sites.pyi
+|   |   |       |   |   |       |   |   |   tests.pyi
+|   |   |       |   |   |       |   |   |   utils.pyi
+|   |   |       |   |   |       |   |   |   widgets.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   +---templatetags
+|   |   |       |   |   |       |   |   |       admin_list.pyi
+|   |   |       |   |   |       |   |   |       admin_modify.pyi
+|   |   |       |   |   |       |   |   |       admin_static.pyi
+|   |   |       |   |   |       |   |   |       admin_urls.pyi
+|   |   |       |   |   |       |   |   |       base.pyi
+|   |   |       |   |   |       |   |   |       log.pyi
+|   |   |       |   |   |       |   |   |       __init__.pyi
+|   |   |       |   |   |       |   |   |       
+|   |   |       |   |   |       |   |   \---views
+|   |   |       |   |   |       |   |           autocomplete.pyi
+|   |   |       |   |   |       |   |           decorators.pyi
+|   |   |       |   |   |       |   |           main.pyi
+|   |   |       |   |   |       |   |           __init__.pyi
+|   |   |       |   |   |       |   |           
+|   |   |       |   |   |       |   +---admindocs
+|   |   |       |   |   |       |   |       middleware.pyi
+|   |   |       |   |   |       |   |       urls.pyi
+|   |   |       |   |   |       |   |       utils.pyi
+|   |   |       |   |   |       |   |       views.pyi
+|   |   |       |   |   |       |   |       __init__.pyi
+|   |   |       |   |   |       |   |       
+|   |   |       |   |   |       |   +---auth
+|   |   |       |   |   |       |   |   |   admin.pyi
+|   |   |       |   |   |       |   |   |   apps.pyi
+|   |   |       |   |   |       |   |   |   backends.pyi
+|   |   |       |   |   |       |   |   |   base_user.pyi
+|   |   |       |   |   |       |   |   |   checks.pyi
+|   |   |       |   |   |       |   |   |   context_processors.pyi
+|   |   |       |   |   |       |   |   |   decorators.pyi
+|   |   |       |   |   |       |   |   |   forms.pyi
+|   |   |       |   |   |       |   |   |   hashers.pyi
+|   |   |       |   |   |       |   |   |   middleware.pyi
+|   |   |       |   |   |       |   |   |   mixins.pyi
+|   |   |       |   |   |       |   |   |   models.pyi
+|   |   |       |   |   |       |   |   |   password_validation.pyi
+|   |   |       |   |   |       |   |   |   signals.pyi
+|   |   |       |   |   |       |   |   |   tokens.pyi
+|   |   |       |   |   |       |   |   |   urls.pyi
+|   |   |       |   |   |       |   |   |   validators.pyi
+|   |   |       |   |   |       |   |   |   views.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   +---handlers
+|   |   |       |   |   |       |   |   |       modwsgi.pyi
+|   |   |       |   |   |       |   |   |       __init__.pyi
+|   |   |       |   |   |       |   |   |       
+|   |   |       |   |   |       |   |   \---management
+|   |   |       |   |   |       |   |       |   __init__.pyi
+|   |   |       |   |   |       |   |       |   
+|   |   |       |   |   |       |   |       \---commands
+|   |   |       |   |   |       |   |               changepassword.pyi
+|   |   |       |   |   |       |   |               createsuperuser.pyi
+|   |   |       |   |   |       |   |               __init__.pyi
+|   |   |       |   |   |       |   |               
+|   |   |       |   |   |       |   +---contenttypes
+|   |   |       |   |   |       |   |   |   admin.pyi
+|   |   |       |   |   |       |   |   |   apps.pyi
+|   |   |       |   |   |       |   |   |   checks.pyi
+|   |   |       |   |   |       |   |   |   fields.pyi
+|   |   |       |   |   |       |   |   |   forms.pyi
+|   |   |       |   |   |       |   |   |   models.pyi
+|   |   |       |   |   |       |   |   |   views.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   \---management
+|   |   |       |   |   |       |   |       |   __init__.pyi
+|   |   |       |   |   |       |   |       |   
+|   |   |       |   |   |       |   |       \---commands
+|   |   |       |   |   |       |   |               remove_stale_contenttypes.pyi
+|   |   |       |   |   |       |   |               __init__.pyi
+|   |   |       |   |   |       |   |               
+|   |   |       |   |   |       |   +---flatpages
+|   |   |       |   |   |       |   |   |   forms.pyi
+|   |   |       |   |   |       |   |   |   middleware.pyi
+|   |   |       |   |   |       |   |   |   models.pyi
+|   |   |       |   |   |       |   |   |   sitemaps.pyi
+|   |   |       |   |   |       |   |   |   urls.pyi
+|   |   |       |   |   |       |   |   |   views.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   \---templatetags
+|   |   |       |   |   |       |   |           flatpages.pyi
+|   |   |       |   |   |       |   |           __init__.pyi
+|   |   |       |   |   |       |   |           
+|   |   |       |   |   |       |   +---gis
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   \---db
+|   |   |       |   |   |       |   |       |   __init__.pyi
+|   |   |       |   |   |       |   |       |   
+|   |   |       |   |   |       |   |       \---models
+|   |   |       |   |   |       |   |               fields.pyi
+|   |   |       |   |   |       |   |               __init__.pyi
+|   |   |       |   |   |       |   |               
+|   |   |       |   |   |       |   +---humanize
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   \---templatetags
+|   |   |       |   |   |       |   |           humanize.pyi
+|   |   |       |   |   |       |   |           __init__.pyi
+|   |   |       |   |   |       |   |           
+|   |   |       |   |   |       |   +---messages
+|   |   |       |   |   |       |   |   |   api.pyi
+|   |   |       |   |   |       |   |   |   constants.pyi
+|   |   |       |   |   |       |   |   |   context_processors.pyi
+|   |   |       |   |   |       |   |   |   middleware.pyi
+|   |   |       |   |   |       |   |   |   utils.pyi
+|   |   |       |   |   |       |   |   |   views.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   \---storage
+|   |   |       |   |   |       |   |           base.pyi
+|   |   |       |   |   |       |   |           cookie.pyi
+|   |   |       |   |   |       |   |           fallback.pyi
+|   |   |       |   |   |       |   |           session.pyi
+|   |   |       |   |   |       |   |           __init__.pyi
+|   |   |       |   |   |       |   |           
+|   |   |       |   |   |       |   +---postgres
+|   |   |       |   |   |       |   |   |   constraints.pyi
+|   |   |       |   |   |       |   |   |   functions.pyi
+|   |   |       |   |   |       |   |   |   indexes.pyi
+|   |   |       |   |   |       |   |   |   lookups.pyi
+|   |   |       |   |   |       |   |   |   operations.pyi
+|   |   |       |   |   |       |   |   |   search.pyi
+|   |   |       |   |   |       |   |   |   signals.pyi
+|   |   |       |   |   |       |   |   |   validators.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   +---aggregates
+|   |   |       |   |   |       |   |   |       general.pyi
+|   |   |       |   |   |       |   |   |       mixins.pyi
+|   |   |       |   |   |       |   |   |       statistics.pyi
+|   |   |       |   |   |       |   |   |       __init__.pyi
+|   |   |       |   |   |       |   |   |       
+|   |   |       |   |   |       |   |   \---fields
+|   |   |       |   |   |       |   |           array.pyi
+|   |   |       |   |   |       |   |           citext.pyi
+|   |   |       |   |   |       |   |           hstore.pyi
+|   |   |       |   |   |       |   |           jsonb.pyi
+|   |   |       |   |   |       |   |           mixins.pyi
+|   |   |       |   |   |       |   |           ranges.pyi
+|   |   |       |   |   |       |   |           __init__.pyi
+|   |   |       |   |   |       |   |           
+|   |   |       |   |   |       |   +---redirects
+|   |   |       |   |   |       |   |       middleware.pyi
+|   |   |       |   |   |       |   |       models.pyi
+|   |   |       |   |   |       |   |       __init__.pyi
+|   |   |       |   |   |       |   |       
+|   |   |       |   |   |       |   +---sessions
+|   |   |       |   |   |       |   |   |   base_session.pyi
+|   |   |       |   |   |       |   |   |   exceptions.pyi
+|   |   |       |   |   |       |   |   |   middleware.pyi
+|   |   |       |   |   |       |   |   |   models.pyi
+|   |   |       |   |   |       |   |   |   serializers.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   +---backends
+|   |   |       |   |   |       |   |   |       base.pyi
+|   |   |       |   |   |       |   |   |       cache.pyi
+|   |   |       |   |   |       |   |   |       cached_db.pyi
+|   |   |       |   |   |       |   |   |       db.pyi
+|   |   |       |   |   |       |   |   |       file.pyi
+|   |   |       |   |   |       |   |   |       signed_cookies.pyi
+|   |   |       |   |   |       |   |   |       __init__.pyi
+|   |   |       |   |   |       |   |   |       
+|   |   |       |   |   |       |   |   \---management
+|   |   |       |   |   |       |   |       |   __init__.pyi
+|   |   |       |   |   |       |   |       |   
+|   |   |       |   |   |       |   |       \---commands
+|   |   |       |   |   |       |   |               clearsessions.pyi
+|   |   |       |   |   |       |   |               __init__.pyi
+|   |   |       |   |   |       |   |               
+|   |   |       |   |   |       |   +---sitemaps
+|   |   |       |   |   |       |   |   |   views.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   \---management
+|   |   |       |   |   |       |   |       |   __init__.pyi
+|   |   |       |   |   |       |   |       |   
+|   |   |       |   |   |       |   |       \---commands
+|   |   |       |   |   |       |   |               ping_google.pyi
+|   |   |       |   |   |       |   |               __init__.pyi
+|   |   |       |   |   |       |   |               
+|   |   |       |   |   |       |   +---sites
+|   |   |       |   |   |       |   |       apps.pyi
+|   |   |       |   |   |       |   |       management.pyi
+|   |   |       |   |   |       |   |       managers.pyi
+|   |   |       |   |   |       |   |       middleware.pyi
+|   |   |       |   |   |       |   |       models.pyi
+|   |   |       |   |   |       |   |       requests.pyi
+|   |   |       |   |   |       |   |       shortcuts.pyi
+|   |   |       |   |   |       |   |       __init__.pyi
+|   |   |       |   |   |       |   |       
+|   |   |       |   |   |       |   +---staticfiles
+|   |   |       |   |   |       |   |   |   apps.pyi
+|   |   |       |   |   |       |   |   |   checks.pyi
+|   |   |       |   |   |       |   |   |   finders.pyi
+|   |   |       |   |   |       |   |   |   handlers.pyi
+|   |   |       |   |   |       |   |   |   storage.pyi
+|   |   |       |   |   |       |   |   |   testing.pyi
+|   |   |       |   |   |       |   |   |   urls.pyi
+|   |   |       |   |   |       |   |   |   utils.pyi
+|   |   |       |   |   |       |   |   |   views.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   +---management
+|   |   |       |   |   |       |   |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   |   
+|   |   |       |   |   |       |   |   |   \---commands
+|   |   |       |   |   |       |   |   |           collectstatic.pyi
+|   |   |       |   |   |       |   |   |           findstatic.pyi
+|   |   |       |   |   |       |   |   |           runserver.pyi
+|   |   |       |   |   |       |   |   |           __init__.pyi
+|   |   |       |   |   |       |   |   |           
+|   |   |       |   |   |       |   |   \---templatetags
+|   |   |       |   |   |       |   |           staticfiles.pyi
+|   |   |       |   |   |       |   |           __init__.pyi
+|   |   |       |   |   |       |   |           
+|   |   |       |   |   |       |   \---syndication
+|   |   |       |   |   |       |           views.pyi
+|   |   |       |   |   |       |           __init__.pyi
+|   |   |       |   |   |       |           
+|   |   |       |   |   |       +---core
+|   |   |       |   |   |       |   |   exceptions.pyi
+|   |   |       |   |   |       |   |   paginator.pyi
+|   |   |       |   |   |       |   |   signals.pyi
+|   |   |       |   |   |       |   |   signing.pyi
+|   |   |       |   |   |       |   |   validators.pyi
+|   |   |       |   |   |       |   |   wsgi.pyi
+|   |   |       |   |   |       |   |   __init__.pyi
+|   |   |       |   |   |       |   |   
+|   |   |       |   |   |       |   +---cache
+|   |   |       |   |   |       |   |   |   utils.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   \---backends
+|   |   |       |   |   |       |   |           base.pyi
+|   |   |       |   |   |       |   |           db.pyi
+|   |   |       |   |   |       |   |           dummy.pyi
+|   |   |       |   |   |       |   |           filebased.pyi
+|   |   |       |   |   |       |   |           locmem.pyi
+|   |   |       |   |   |       |   |           memcached.pyi
+|   |   |       |   |   |       |   |           __init__.pyi
+|   |   |       |   |   |       |   |           
+|   |   |       |   |   |       |   +---checks
+|   |   |       |   |   |       |   |   |   caches.pyi
+|   |   |       |   |   |       |   |   |   database.pyi
+|   |   |       |   |   |       |   |   |   messages.pyi
+|   |   |       |   |   |       |   |   |   model_checks.pyi
+|   |   |       |   |   |       |   |   |   registry.pyi
+|   |   |       |   |   |       |   |   |   templates.pyi
+|   |   |       |   |   |       |   |   |   translation.pyi
+|   |   |       |   |   |       |   |   |   urls.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   \---security
+|   |   |       |   |   |       |   |           base.pyi
+|   |   |       |   |   |       |   |           csrf.pyi
+|   |   |       |   |   |       |   |           sessions.pyi
+|   |   |       |   |   |       |   |           __init__.pyi
+|   |   |       |   |   |       |   |           
+|   |   |       |   |   |       |   +---files
+|   |   |       |   |   |       |   |       base.pyi
+|   |   |       |   |   |       |   |       images.pyi
+|   |   |       |   |   |       |   |       locks.pyi
+|   |   |       |   |   |       |   |       move.pyi
+|   |   |       |   |   |       |   |       storage.pyi
+|   |   |       |   |   |       |   |       temp.pyi
+|   |   |       |   |   |       |   |       uploadedfile.pyi
+|   |   |       |   |   |       |   |       uploadhandler.pyi
+|   |   |       |   |   |       |   |       utils.pyi
+|   |   |       |   |   |       |   |       __init__.pyi
+|   |   |       |   |   |       |   |       
+|   |   |       |   |   |       |   +---handlers
+|   |   |       |   |   |       |   |       base.pyi
+|   |   |       |   |   |       |   |       exception.pyi
+|   |   |       |   |   |       |   |       wsgi.pyi
+|   |   |       |   |   |       |   |       __init__.pyi
+|   |   |       |   |   |       |   |       
+|   |   |       |   |   |       |   +---mail
+|   |   |       |   |   |       |   |   |   message.pyi
+|   |   |       |   |   |       |   |   |   utils.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   \---backends
+|   |   |       |   |   |       |   |           base.pyi
+|   |   |       |   |   |       |   |           console.pyi
+|   |   |       |   |   |       |   |           dummy.pyi
+|   |   |       |   |   |       |   |           filebased.pyi
+|   |   |       |   |   |       |   |           locmem.pyi
+|   |   |       |   |   |       |   |           smtp.pyi
+|   |   |       |   |   |       |   |           __init__.pyi
+|   |   |       |   |   |       |   |           
+|   |   |       |   |   |       |   +---management
+|   |   |       |   |   |       |   |   |   base.pyi
+|   |   |       |   |   |       |   |   |   color.pyi
+|   |   |       |   |   |       |   |   |   sql.pyi
+|   |   |       |   |   |       |   |   |   templates.pyi
+|   |   |       |   |   |       |   |   |   utils.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   \---commands
+|   |   |       |   |   |       |   |           dumpdata.pyi
+|   |   |       |   |   |       |   |           loaddata.pyi
+|   |   |       |   |   |       |   |           makemessages.pyi
+|   |   |       |   |   |       |   |           runserver.pyi
+|   |   |       |   |   |       |   |           testserver.pyi
+|   |   |       |   |   |       |   |           __init__.pyi
+|   |   |       |   |   |       |   |           
+|   |   |       |   |   |       |   +---serializers
+|   |   |       |   |   |       |   |       base.pyi
+|   |   |       |   |   |       |   |       json.pyi
+|   |   |       |   |   |       |   |       python.pyi
+|   |   |       |   |   |       |   |       __init__.pyi
+|   |   |       |   |   |       |   |       
+|   |   |       |   |   |       |   \---servers
+|   |   |       |   |   |       |           basehttp.pyi
+|   |   |       |   |   |       |           __init__.pyi
+|   |   |       |   |   |       |           
+|   |   |       |   |   |       +---db
+|   |   |       |   |   |       |   |   transaction.pyi
+|   |   |       |   |   |       |   |   utils.pyi
+|   |   |       |   |   |       |   |   __init__.pyi
+|   |   |       |   |   |       |   |   
+|   |   |       |   |   |       |   +---backends
+|   |   |       |   |   |       |   |   |   ddl_references.pyi
+|   |   |       |   |   |       |   |   |   signals.pyi
+|   |   |       |   |   |       |   |   |   utils.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   +---base
+|   |   |       |   |   |       |   |   |       base.pyi
+|   |   |       |   |   |       |   |   |       client.pyi
+|   |   |       |   |   |       |   |   |       creation.pyi
+|   |   |       |   |   |       |   |   |       features.pyi
+|   |   |       |   |   |       |   |   |       introspection.pyi
+|   |   |       |   |   |       |   |   |       operations.pyi
+|   |   |       |   |   |       |   |   |       schema.pyi
+|   |   |       |   |   |       |   |   |       validation.pyi
+|   |   |       |   |   |       |   |   |       __init__.pyi
+|   |   |       |   |   |       |   |   |       
+|   |   |       |   |   |       |   |   +---dummy
+|   |   |       |   |   |       |   |   |       base.pyi
+|   |   |       |   |   |       |   |   |       __init__.pyi
+|   |   |       |   |   |       |   |   |       
+|   |   |       |   |   |       |   |   +---mysql
+|   |   |       |   |   |       |   |   |       client.pyi
+|   |   |       |   |   |       |   |   |       __init__.pyi
+|   |   |       |   |   |       |   |   |       
+|   |   |       |   |   |       |   |   +---postgresql
+|   |   |       |   |   |       |   |   |       base.pyi
+|   |   |       |   |   |       |   |   |       client.pyi
+|   |   |       |   |   |       |   |   |       creation.pyi
+|   |   |       |   |   |       |   |   |       operations.pyi
+|   |   |       |   |   |       |   |   |       __init__.pyi
+|   |   |       |   |   |       |   |   |       
+|   |   |       |   |   |       |   |   \---sqlite3
+|   |   |       |   |   |       |   |           base.pyi
+|   |   |       |   |   |       |   |           creation.pyi
+|   |   |       |   |   |       |   |           features.pyi
+|   |   |       |   |   |       |   |           introspection.pyi
+|   |   |       |   |   |       |   |           operations.pyi
+|   |   |       |   |   |       |   |           schema.pyi
+|   |   |       |   |   |       |   |           __init__.pyi
+|   |   |       |   |   |       |   |           
+|   |   |       |   |   |       |   +---migrations
+|   |   |       |   |   |       |   |   |   autodetector.pyi
+|   |   |       |   |   |       |   |   |   exceptions.pyi
+|   |   |       |   |   |       |   |   |   executor.pyi
+|   |   |       |   |   |       |   |   |   graph.pyi
+|   |   |       |   |   |       |   |   |   loader.pyi
+|   |   |       |   |   |       |   |   |   migration.pyi
+|   |   |       |   |   |       |   |   |   optimizer.pyi
+|   |   |       |   |   |       |   |   |   questioner.pyi
+|   |   |       |   |   |       |   |   |   recorder.pyi
+|   |   |       |   |   |       |   |   |   serializer.pyi
+|   |   |       |   |   |       |   |   |   state.pyi
+|   |   |       |   |   |       |   |   |   topological_sort.pyi
+|   |   |       |   |   |       |   |   |   utils.pyi
+|   |   |       |   |   |       |   |   |   writer.pyi
+|   |   |       |   |   |       |   |   |   __init__.pyi
+|   |   |       |   |   |       |   |   |   
+|   |   |       |   |   |       |   |   \---operations
+|   |   |       |   |   |       |   |           base.pyi
+|   |   |       |   |   |       |   |           fields.pyi
+|   |   |       |   |   |       |   |           models.pyi
+|   |   |       |   |   |       |   |           special.pyi
+|   |   |       |   |   |       |   |           utils.pyi
+|   |   |       |   |   |       |   |           __init__.pyi
+|   |   |       |   |   |       |   |           
+|   |   |       |   |   |       |   \---models
+|   |   |       |   |   |       |       |   aggregates.pyi
+|   |   |       |   |   |       |       |   base.pyi
+|   |   |       |   |   |       |       |   constraints.pyi
+|   |   |       |   |   |       |       |   deletion.pyi
+|   |   |       |   |   |       |       |   enums.pyi
+|   |   |       |   |   |       |       |   expressions.pyi
+|   |   |       |   |   |       |       |   indexes.pyi
+|   |   |       |   |   |       |       |   lookups.pyi
+|   |   |       |   |   |       |       |   manager.pyi
+|   |   |       |   |   |       |       |   options.pyi
+|   |   |       |   |   |       |       |   query.pyi
+|   |   |       |   |   |       |       |   query_utils.pyi
+|   |   |       |   |   |       |       |   signals.pyi
+|   |   |       |   |   |       |       |   utils.pyi
+|   |   |       |   |   |       |       |   __init__.pyi
+|   |   |       |   |   |       |       |   
+|   |   |       |   |   |       |       +---fields
+|   |   |       |   |   |       |       |       files.pyi
+|   |   |       |   |   |       |       |       mixins.pyi
+|   |   |       |   |   |       |       |       proxy.pyi
+|   |   |       |   |   |       |       |       related.pyi
+|   |   |       |   |   |       |       |       related_descriptors.pyi
+|   |   |       |   |   |       |       |       related_lookups.pyi
+|   |   |       |   |   |       |       |       reverse_related.pyi
+|   |   |       |   |   |       |       |       __init__.pyi
+|   |   |       |   |   |       |       |       
+|   |   |       |   |   |       |       +---functions
+|   |   |       |   |   |       |       |       comparison.pyi
+|   |   |       |   |   |       |       |       datetime.pyi
+|   |   |       |   |   |       |       |       math.pyi
+|   |   |       |   |   |       |       |       mixins.pyi
+|   |   |       |   |   |       |       |       text.pyi
+|   |   |       |   |   |       |       |       window.pyi
+|   |   |       |   |   |       |       |       __init__.pyi
+|   |   |       |   |   |       |       |       
+|   |   |       |   |   |       |       \---sql
+|   |   |       |   |   |       |               compiler.pyi
+|   |   |       |   |   |       |               constants.pyi
+|   |   |       |   |   |       |               datastructures.pyi
+|   |   |       |   |   |       |               query.pyi
+|   |   |       |   |   |       |               subqueries.pyi
+|   |   |       |   |   |       |               where.pyi
+|   |   |       |   |   |       |               __init__.pyi
+|   |   |       |   |   |       |               
+|   |   |       |   |   |       +---dispatch
+|   |   |       |   |   |       |       dispatcher.pyi
+|   |   |       |   |   |       |       __init__.pyi
+|   |   |       |   |   |       |       
+|   |   |       |   |   |       +---forms
+|   |   |       |   |   |       |       boundfield.pyi
+|   |   |       |   |   |       |       fields.pyi
+|   |   |       |   |   |       |       forms.pyi
+|   |   |       |   |   |       |       formsets.pyi
+|   |   |       |   |   |       |       models.pyi
+|   |   |       |   |   |       |       renderers.pyi
+|   |   |       |   |   |       |       utils.pyi
+|   |   |       |   |   |       |       widgets.pyi
+|   |   |       |   |   |       |       __init__.pyi
+|   |   |       |   |   |       |       
+|   |   |       |   |   |       +---http
+|   |   |       |   |   |       |       cookie.pyi
+|   |   |       |   |   |       |       multipartparser.pyi
+|   |   |       |   |   |       |       request.pyi
+|   |   |       |   |   |       |       response.pyi
+|   |   |       |   |   |       |       __init__.pyi
+|   |   |       |   |   |       |       
+|   |   |       |   |   |       +---middleware
+|   |   |       |   |   |       |       cache.pyi
+|   |   |       |   |   |       |       clickjacking.pyi
+|   |   |       |   |   |       |       common.pyi
+|   |   |       |   |   |       |       csrf.pyi
+|   |   |       |   |   |       |       gzip.pyi
+|   |   |       |   |   |       |       http.pyi
+|   |   |       |   |   |       |       locale.pyi
+|   |   |       |   |   |       |       security.pyi
+|   |   |       |   |   |       |       __init__.pyi
+|   |   |       |   |   |       |       
+|   |   |       |   |   |       +---template
+|   |   |       |   |   |       |   |   base.pyi
+|   |   |       |   |   |       |   |   context.pyi
+|   |   |       |   |   |       |   |   context_processors.pyi
+|   |   |       |   |   |       |   |   defaultfilters.pyi
+|   |   |       |   |   |       |   |   defaulttags.pyi
+|   |   |       |   |   |       |   |   engine.pyi
+|   |   |       |   |   |       |   |   exceptions.pyi
+|   |   |       |   |   |       |   |   library.pyi
+|   |   |       |   |   |       |   |   loader.pyi
+|   |   |       |   |   |       |   |   loader_tags.pyi
+|   |   |       |   |   |       |   |   response.pyi
+|   |   |       |   |   |       |   |   smartif.pyi
+|   |   |       |   |   |       |   |   utils.pyi
+|   |   |       |   |   |       |   |   __init__.pyi
+|   |   |       |   |   |       |   |   
+|   |   |       |   |   |       |   +---backends
+|   |   |       |   |   |       |   |       base.pyi
+|   |   |       |   |   |       |   |       django.pyi
+|   |   |       |   |   |       |   |       dummy.pyi
+|   |   |       |   |   |       |   |       jinja2.pyi
+|   |   |       |   |   |       |   |       utils.pyi
+|   |   |       |   |   |       |   |       __init__.pyi
+|   |   |       |   |   |       |   |       
+|   |   |       |   |   |       |   \---loaders
+|   |   |       |   |   |       |           app_directories.pyi
+|   |   |       |   |   |       |           base.pyi
+|   |   |       |   |   |       |           cached.pyi
+|   |   |       |   |   |       |           filesystem.pyi
+|   |   |       |   |   |       |           locmem.pyi
+|   |   |       |   |   |       |           __init__.pyi
+|   |   |       |   |   |       |           
+|   |   |       |   |   |       +---templatetags
+|   |   |       |   |   |       |       cache.pyi
+|   |   |       |   |   |       |       i18n.pyi
+|   |   |       |   |   |       |       l10n.pyi
+|   |   |       |   |   |       |       static.pyi
+|   |   |       |   |   |       |       tz.pyi
+|   |   |       |   |   |       |       __init__.pyi
+|   |   |       |   |   |       |       
+|   |   |       |   |   |       +---test
+|   |   |       |   |   |       |       client.pyi
+|   |   |       |   |   |       |       html.pyi
+|   |   |       |   |   |       |       runner.pyi
+|   |   |       |   |   |       |       selenium.pyi
+|   |   |       |   |   |       |       signals.pyi
+|   |   |       |   |   |       |       testcases.pyi
+|   |   |       |   |   |       |       utils.pyi
+|   |   |       |   |   |       |       __init__.pyi
+|   |   |       |   |   |       |       
+|   |   |       |   |   |       +---urls
+|   |   |       |   |   |       |       base.pyi
+|   |   |       |   |   |       |       conf.pyi
+|   |   |       |   |   |       |       converters.pyi
+|   |   |       |   |   |       |       exceptions.pyi
+|   |   |       |   |   |       |       resolvers.pyi
+|   |   |       |   |   |       |       utils.pyi
+|   |   |       |   |   |       |       __init__.pyi
+|   |   |       |   |   |       |       
+|   |   |       |   |   |       +---utils
+|   |   |       |   |   |       |   |   archive.pyi
+|   |   |       |   |   |       |   |   autoreload.pyi
+|   |   |       |   |   |       |   |   baseconv.pyi
+|   |   |       |   |   |       |   |   cache.pyi
+|   |   |       |   |   |       |   |   crypto.pyi
+|   |   |       |   |   |       |   |   datastructures.pyi
+|   |   |       |   |   |       |   |   dateformat.pyi
+|   |   |       |   |   |       |   |   dateparse.pyi
+|   |   |       |   |   |       |   |   dates.pyi
+|   |   |       |   |   |       |   |   datetime_safe.pyi
+|   |   |       |   |   |       |   |   deconstruct.pyi
+|   |   |       |   |   |       |   |   decorators.pyi
+|   |   |       |   |   |       |   |   deprecation.pyi
+|   |   |       |   |   |       |   |   duration.pyi
+|   |   |       |   |   |       |   |   encoding.pyi
+|   |   |       |   |   |       |   |   feedgenerator.pyi
+|   |   |       |   |   |       |   |   formats.pyi
+|   |   |       |   |   |       |   |   functional.pyi
+|   |   |       |   |   |       |   |   hashable.pyi
+|   |   |       |   |   |       |   |   html.pyi
+|   |   |       |   |   |       |   |   http.pyi
+|   |   |       |   |   |       |   |   inspect.pyi
+|   |   |       |   |   |       |   |   ipv6.pyi
+|   |   |       |   |   |       |   |   itercompat.pyi
+|   |   |       |   |   |       |   |   jslex.pyi
+|   |   |       |   |   |       |   |   log.pyi
+|   |   |       |   |   |       |   |   lorem_ipsum.pyi
+|   |   |       |   |   |       |   |   module_loading.pyi
+|   |   |       |   |   |       |   |   numberformat.pyi
+|   |   |       |   |   |       |   |   regex_helper.pyi
+|   |   |       |   |   |       |   |   safestring.pyi
+|   |   |       |   |   |       |   |   six.pyi
+|   |   |       |   |   |       |   |   termcolors.pyi
+|   |   |       |   |   |       |   |   text.pyi
+|   |   |       |   |   |       |   |   timesince.pyi
+|   |   |       |   |   |       |   |   timezone.pyi
+|   |   |       |   |   |       |   |   topological_sort.pyi
+|   |   |       |   |   |       |   |   tree.pyi
+|   |   |       |   |   |       |   |   version.pyi
+|   |   |       |   |   |       |   |   xmlutils.pyi
+|   |   |       |   |   |       |   |   _os.pyi
+|   |   |       |   |   |       |   |   __init__.pyi
+|   |   |       |   |   |       |   |   
+|   |   |       |   |   |       |   \---translation
+|   |   |       |   |   |       |           reloader.pyi
+|   |   |       |   |   |       |           template.pyi
+|   |   |       |   |   |       |           trans_null.pyi
+|   |   |       |   |   |       |           trans_real.pyi
+|   |   |       |   |   |       |           __init__.pyi
+|   |   |       |   |   |       |           
+|   |   |       |   |   |       \---views
+|   |   |       |   |   |           |   csrf.pyi
+|   |   |       |   |   |           |   debug.pyi
+|   |   |       |   |   |           |   defaults.pyi
+|   |   |       |   |   |           |   i18n.pyi
+|   |   |       |   |   |           |   static.pyi
+|   |   |       |   |   |           |   __init__.pyi
+|   |   |       |   |   |           |   
+|   |   |       |   |   |           +---decorators
+|   |   |       |   |   |           |       cache.pyi
+|   |   |       |   |   |           |       clickjacking.pyi
+|   |   |       |   |   |           |       csrf.pyi
+|   |   |       |   |   |           |       debug.pyi
+|   |   |       |   |   |           |       gzip.pyi
+|   |   |       |   |   |           |       http.pyi
+|   |   |       |   |   |           |       vary.pyi
+|   |   |       |   |   |           |       __init__.pyi
+|   |   |       |   |   |           |       
+|   |   |       |   |   |           \---generic
+|   |   |       |   |   |                   base.pyi
+|   |   |       |   |   |                   dates.pyi
+|   |   |       |   |   |                   detail.pyi
+|   |   |       |   |   |                   edit.pyi
+|   |   |       |   |   |                   list.pyi
+|   |   |       |   |   |                   __init__.pyi
+|   |   |       |   |   |                   
+|   |   |       |   |   \---typeshed
+|   |   |       |   |       |   LICENSE
+|   |   |       |   |       |   
+|   |   |       |   |       +---stdlib
+|   |   |       |   |       |   +---2
+|   |   |       |   |       |   |   |   abc.pyi
+|   |   |       |   |       |   |   |   ast.pyi
+|   |   |       |   |       |   |   |   atexit.pyi
+|   |   |       |   |       |   |   |   BaseHTTPServer.pyi
+|   |   |       |   |       |   |   |   builtins.pyi
+|   |   |       |   |       |   |   |   CGIHTTPServer.pyi
+|   |   |       |   |       |   |   |   collections.pyi
+|   |   |       |   |       |   |   |   commands.pyi
+|   |   |       |   |       |   |   |   compileall.pyi
+|   |   |       |   |       |   |   |   ConfigParser.pyi
+|   |   |       |   |       |   |   |   Cookie.pyi
+|   |   |       |   |       |   |   |   cookielib.pyi
+|   |   |       |   |       |   |   |   copy_reg.pyi
+|   |   |       |   |       |   |   |   cPickle.pyi
+|   |   |       |   |       |   |   |   cStringIO.pyi
+|   |   |       |   |       |   |   |   dircache.pyi
+|   |   |       |   |       |   |   |   dummy_thread.pyi
+|   |   |       |   |       |   |   |   exceptions.pyi
+|   |   |       |   |       |   |   |   fcntl.pyi
+|   |   |       |   |       |   |   |   fnmatch.pyi
+|   |   |       |   |       |   |   |   functools.pyi
+|   |   |       |   |       |   |   |   future_builtins.pyi
+|   |   |       |   |       |   |   |   gc.pyi
+|   |   |       |   |       |   |   |   getopt.pyi
+|   |   |       |   |       |   |   |   getpass.pyi
+|   |   |       |   |       |   |   |   gettext.pyi
+|   |   |       |   |       |   |   |   glob.pyi
+|   |   |       |   |       |   |   |   gzip.pyi
+|   |   |       |   |       |   |   |   hashlib.pyi
+|   |   |       |   |       |   |   |   heapq.pyi
+|   |   |       |   |       |   |   |   htmlentitydefs.pyi
+|   |   |       |   |       |   |   |   HTMLParser.pyi
+|   |   |       |   |       |   |   |   httplib.pyi
+|   |   |       |   |       |   |   |   imp.pyi
+|   |   |       |   |       |   |   |   importlib.pyi
+|   |   |       |   |       |   |   |   inspect.pyi
+|   |   |       |   |       |   |   |   io.pyi
+|   |   |       |   |       |   |   |   itertools.pyi
+|   |   |       |   |       |   |   |   json.pyi
+|   |   |       |   |       |   |   |   markupbase.pyi
+|   |   |       |   |       |   |   |   md5.pyi
+|   |   |       |   |       |   |   |   mimetools.pyi
+|   |   |       |   |       |   |   |   mutex.pyi
+|   |   |       |   |       |   |   |   ntpath.pyi
+|   |   |       |   |       |   |   |   nturl2path.pyi
+|   |   |       |   |       |   |   |   os2emxpath.pyi
+|   |   |       |   |       |   |   |   pipes.pyi
+|   |   |       |   |       |   |   |   platform.pyi
+|   |   |       |   |       |   |   |   popen2.pyi
+|   |   |       |   |       |   |   |   posix.pyi
+|   |   |       |   |       |   |   |   posixpath.pyi
+|   |   |       |   |       |   |   |   Queue.pyi
+|   |   |       |   |       |   |   |   random.pyi
+|   |   |       |   |       |   |   |   re.pyi
+|   |   |       |   |       |   |   |   repr.pyi
+|   |   |       |   |       |   |   |   resource.pyi
+|   |   |       |   |       |   |   |   rfc822.pyi
+|   |   |       |   |       |   |   |   robotparser.pyi
+|   |   |       |   |       |   |   |   runpy.pyi
+|   |   |       |   |       |   |   |   sets.pyi
+|   |   |       |   |       |   |   |   sha.pyi
+|   |   |       |   |       |   |   |   shelve.pyi
+|   |   |       |   |       |   |   |   shlex.pyi
+|   |   |       |   |       |   |   |   signal.pyi
+|   |   |       |   |       |   |   |   SimpleHTTPServer.pyi
+|   |   |       |   |       |   |   |   smtplib.pyi
+|   |   |       |   |       |   |   |   SocketServer.pyi
+|   |   |       |   |       |   |   |   spwd.pyi
+|   |   |       |   |       |   |   |   sre_constants.pyi
+|   |   |       |   |       |   |   |   sre_parse.pyi
+|   |   |       |   |       |   |   |   stat.pyi
+|   |   |       |   |       |   |   |   string.pyi
+|   |   |       |   |       |   |   |   StringIO.pyi
+|   |   |       |   |       |   |   |   stringold.pyi
+|   |   |       |   |       |   |   |   strop.pyi
+|   |   |       |   |       |   |   |   subprocess.pyi
+|   |   |       |   |       |   |   |   symbol.pyi
+|   |   |       |   |       |   |   |   sys.pyi
+|   |   |       |   |       |   |   |   tempfile.pyi
+|   |   |       |   |       |   |   |   textwrap.pyi
+|   |   |       |   |       |   |   |   thread.pyi
+|   |   |       |   |       |   |   |   toaiff.pyi
+|   |   |       |   |       |   |   |   tokenize.pyi
+|   |   |       |   |       |   |   |   types.pyi
+|   |   |       |   |       |   |   |   typing.pyi
+|   |   |       |   |       |   |   |   unittest.pyi
+|   |   |       |   |       |   |   |   urllib.pyi
+|   |   |       |   |       |   |   |   urllib2.pyi
+|   |   |       |   |       |   |   |   urlparse.pyi
+|   |   |       |   |       |   |   |   user.pyi
+|   |   |       |   |       |   |   |   UserDict.pyi
+|   |   |       |   |       |   |   |   UserList.pyi
+|   |   |       |   |       |   |   |   UserString.pyi
+|   |   |       |   |       |   |   |   whichdb.pyi
+|   |   |       |   |       |   |   |   xmlrpclib.pyi
+|   |   |       |   |       |   |   |   _ast.pyi
+|   |   |       |   |       |   |   |   _collections.pyi
+|   |   |       |   |       |   |   |   _functools.pyi
+|   |   |       |   |       |   |   |   _hotshot.pyi
+|   |   |       |   |       |   |   |   _io.pyi
+|   |   |       |   |       |   |   |   _json.pyi
+|   |   |       |   |       |   |   |   _md5.pyi
+|   |   |       |   |       |   |   |   _sha.pyi
+|   |   |       |   |       |   |   |   _sha256.pyi
+|   |   |       |   |       |   |   |   _sha512.pyi
+|   |   |       |   |       |   |   |   _socket.pyi
+|   |   |       |   |       |   |   |   _sre.pyi
+|   |   |       |   |       |   |   |   _struct.pyi
+|   |   |       |   |       |   |   |   _symtable.pyi
+|   |   |       |   |       |   |   |   _threading_local.pyi
+|   |   |       |   |       |   |   |   _winreg.pyi
+|   |   |       |   |       |   |   |   __builtin__.pyi
+|   |   |       |   |       |   |   |   
+|   |   |       |   |       |   |   +---distutils
+|   |   |       |   |       |   |   |   |   archive_util.pyi
+|   |   |       |   |       |   |   |   |   bcppcompiler.pyi
+|   |   |       |   |       |   |   |   |   ccompiler.pyi
+|   |   |       |   |       |   |   |   |   cmd.pyi
+|   |   |       |   |       |   |   |   |   config.pyi
+|   |   |       |   |       |   |   |   |   core.pyi
+|   |   |       |   |       |   |   |   |   cygwinccompiler.pyi
+|   |   |       |   |       |   |   |   |   debug.pyi
+|   |   |       |   |       |   |   |   |   dep_util.pyi
+|   |   |       |   |       |   |   |   |   dir_util.pyi
+|   |   |       |   |       |   |   |   |   dist.pyi
+|   |   |       |   |       |   |   |   |   emxccompiler.pyi
+|   |   |       |   |       |   |   |   |   errors.pyi
+|   |   |       |   |       |   |   |   |   extension.pyi
+|   |   |       |   |       |   |   |   |   fancy_getopt.pyi
+|   |   |       |   |       |   |   |   |   filelist.pyi
+|   |   |       |   |       |   |   |   |   file_util.pyi
+|   |   |       |   |       |   |   |   |   log.pyi
+|   |   |       |   |       |   |   |   |   msvccompiler.pyi
+|   |   |       |   |       |   |   |   |   spawn.pyi
+|   |   |       |   |       |   |   |   |   sysconfig.pyi
+|   |   |       |   |       |   |   |   |   text_file.pyi
+|   |   |       |   |       |   |   |   |   unixccompiler.pyi
+|   |   |       |   |       |   |   |   |   util.pyi
+|   |   |       |   |       |   |   |   |   version.pyi
+|   |   |       |   |       |   |   |   |   __init__.pyi
+|   |   |       |   |       |   |   |   |   
+|   |   |       |   |       |   |   |   \---command
+|   |   |       |   |       |   |   |           bdist.pyi
+|   |   |       |   |       |   |   |           bdist_dumb.pyi
+|   |   |       |   |       |   |   |           bdist_msi.pyi
+|   |   |       |   |       |   |   |           bdist_packager.pyi
+|   |   |       |   |       |   |   |           bdist_rpm.pyi
+|   |   |       |   |       |   |   |           bdist_wininst.pyi
+|   |   |       |   |       |   |   |           build.pyi
+|   |   |       |   |       |   |   |           build_clib.pyi
+|   |   |       |   |       |   |   |           build_ext.pyi
+|   |   |       |   |       |   |   |           build_py.pyi
+|   |   |       |   |       |   |   |           build_scripts.pyi
+|   |   |       |   |       |   |   |           check.pyi
+|   |   |       |   |       |   |   |           clean.pyi
+|   |   |       |   |       |   |   |           config.pyi
+|   |   |       |   |       |   |   |           install.pyi
+|   |   |       |   |       |   |   |           install_data.pyi
+|   |   |       |   |       |   |   |           install_egg_info.pyi
+|   |   |       |   |       |   |   |           install_headers.pyi
+|   |   |       |   |       |   |   |           install_lib.pyi
+|   |   |       |   |       |   |   |           install_scripts.pyi
+|   |   |       |   |       |   |   |           register.pyi
+|   |   |       |   |       |   |   |           sdist.pyi
+|   |   |       |   |       |   |   |           upload.pyi
+|   |   |       |   |       |   |   |           __init__.pyi
+|   |   |       |   |       |   |   |           
+|   |   |       |   |       |   |   +---email
+|   |   |       |   |       |   |   |   |   base64mime.pyi
+|   |   |       |   |       |   |   |   |   charset.pyi
+|   |   |       |   |       |   |   |   |   encoders.pyi
+|   |   |       |   |       |   |   |   |   feedparser.pyi
+|   |   |       |   |       |   |   |   |   generator.pyi
+|   |   |       |   |       |   |   |   |   header.pyi
+|   |   |       |   |       |   |   |   |   iterators.pyi
+|   |   |       |   |       |   |   |   |   message.pyi
+|   |   |       |   |       |   |   |   |   MIMEText.pyi
+|   |   |       |   |       |   |   |   |   parser.pyi
+|   |   |       |   |       |   |   |   |   quoprimime.pyi
+|   |   |       |   |       |   |   |   |   utils.pyi
+|   |   |       |   |       |   |   |   |   _parseaddr.pyi
+|   |   |       |   |       |   |   |   |   __init__.pyi
+|   |   |       |   |       |   |   |   |   
+|   |   |       |   |       |   |   |   \---mime
+|   |   |       |   |       |   |   |           application.pyi
+|   |   |       |   |       |   |   |           audio.pyi
+|   |   |       |   |       |   |   |           base.pyi
+|   |   |       |   |       |   |   |           image.pyi
+|   |   |       |   |       |   |   |           message.pyi
+|   |   |       |   |       |   |   |           multipart.pyi
+|   |   |       |   |       |   |   |           nonmultipart.pyi
+|   |   |       |   |       |   |   |           text.pyi
+|   |   |       |   |       |   |   |           __init__.pyi
+|   |   |       |   |       |   |   |           
+|   |   |       |   |       |   |   +---encodings
+|   |   |       |   |       |   |   |       utf_8.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---multiprocessing
+|   |   |       |   |       |   |   |   |   pool.pyi
+|   |   |       |   |       |   |   |   |   process.pyi
+|   |   |       |   |       |   |   |   |   util.pyi
+|   |   |       |   |       |   |   |   |   __init__.pyi
+|   |   |       |   |       |   |   |   |   
+|   |   |       |   |       |   |   |   \---dummy
+|   |   |       |   |       |   |   |           connection.pyi
+|   |   |       |   |       |   |   |           __init__.pyi
+|   |   |       |   |       |   |   |           
+|   |   |       |   |       |   |   \---os
+|   |   |       |   |       |   |           path.pyi
+|   |   |       |   |       |   |           __init__.pyi
+|   |   |       |   |       |   |           
+|   |   |       |   |       |   +---2and3
+|   |   |       |   |       |   |   |   aifc.pyi
+|   |   |       |   |       |   |   |   antigravity.pyi
+|   |   |       |   |       |   |   |   argparse.pyi
+|   |   |       |   |       |   |   |   array.pyi
+|   |   |       |   |       |   |   |   asynchat.pyi
+|   |   |       |   |       |   |   |   asyncore.pyi
+|   |   |       |   |       |   |   |   audioop.pyi
+|   |   |       |   |       |   |   |   base64.pyi
+|   |   |       |   |       |   |   |   bdb.pyi
+|   |   |       |   |       |   |   |   binascii.pyi
+|   |   |       |   |       |   |   |   binhex.pyi
+|   |   |       |   |       |   |   |   bisect.pyi
+|   |   |       |   |       |   |   |   bz2.pyi
+|   |   |       |   |       |   |   |   calendar.pyi
+|   |   |       |   |       |   |   |   cgi.pyi
+|   |   |       |   |       |   |   |   cgitb.pyi
+|   |   |       |   |       |   |   |   chunk.pyi
+|   |   |       |   |       |   |   |   cmath.pyi
+|   |   |       |   |       |   |   |   cmd.pyi
+|   |   |       |   |       |   |   |   code.pyi
+|   |   |       |   |       |   |   |   codecs.pyi
+|   |   |       |   |       |   |   |   codeop.pyi
+|   |   |       |   |       |   |   |   colorsys.pyi
+|   |   |       |   |       |   |   |   contextlib.pyi
+|   |   |       |   |       |   |   |   copy.pyi
+|   |   |       |   |       |   |   |   cProfile.pyi
+|   |   |       |   |       |   |   |   crypt.pyi
+|   |   |       |   |       |   |   |   csv.pyi
+|   |   |       |   |       |   |   |   datetime.pyi
+|   |   |       |   |       |   |   |   decimal.pyi
+|   |   |       |   |       |   |   |   difflib.pyi
+|   |   |       |   |       |   |   |   dis.pyi
+|   |   |       |   |       |   |   |   doctest.pyi
+|   |   |       |   |       |   |   |   dummy_threading.pyi
+|   |   |       |   |       |   |   |   errno.pyi
+|   |   |       |   |       |   |   |   filecmp.pyi
+|   |   |       |   |       |   |   |   fileinput.pyi
+|   |   |       |   |       |   |   |   formatter.pyi
+|   |   |       |   |       |   |   |   fractions.pyi
+|   |   |       |   |       |   |   |   ftplib.pyi
+|   |   |       |   |       |   |   |   genericpath.pyi
+|   |   |       |   |       |   |   |   grp.pyi
+|   |   |       |   |       |   |   |   hmac.pyi
+|   |   |       |   |       |   |   |   imaplib.pyi
+|   |   |       |   |       |   |   |   imghdr.pyi
+|   |   |       |   |       |   |   |   keyword.pyi
+|   |   |       |   |       |   |   |   linecache.pyi
+|   |   |       |   |       |   |   |   locale.pyi
+|   |   |       |   |       |   |   |   macpath.pyi
+|   |   |       |   |       |   |   |   mailbox.pyi
+|   |   |       |   |       |   |   |   mailcap.pyi
+|   |   |       |   |       |   |   |   marshal.pyi
+|   |   |       |   |       |   |   |   math.pyi
+|   |   |       |   |       |   |   |   mimetypes.pyi
+|   |   |       |   |       |   |   |   mmap.pyi
+|   |   |       |   |       |   |   |   modulefinder.pyi
+|   |   |       |   |       |   |   |   msvcrt.pyi
+|   |   |       |   |       |   |   |   netrc.pyi
+|   |   |       |   |       |   |   |   nis.pyi
+|   |   |       |   |       |   |   |   numbers.pyi
+|   |   |       |   |       |   |   |   opcode.pyi
+|   |   |       |   |       |   |   |   operator.pyi
+|   |   |       |   |       |   |   |   optparse.pyi
+|   |   |       |   |       |   |   |   parser.pyi
+|   |   |       |   |       |   |   |   pdb.pyi
+|   |   |       |   |       |   |   |   pickle.pyi
+|   |   |       |   |       |   |   |   pickletools.pyi
+|   |   |       |   |       |   |   |   pkgutil.pyi
+|   |   |       |   |       |   |   |   plistlib.pyi
+|   |   |       |   |       |   |   |   poplib.pyi
+|   |   |       |   |       |   |   |   pprint.pyi
+|   |   |       |   |       |   |   |   profile.pyi
+|   |   |       |   |       |   |   |   pstats.pyi
+|   |   |       |   |       |   |   |   pty.pyi
+|   |   |       |   |       |   |   |   pwd.pyi
+|   |   |       |   |       |   |   |   pyclbr.pyi
+|   |   |       |   |       |   |   |   pydoc.pyi
+|   |   |       |   |       |   |   |   py_compile.pyi
+|   |   |       |   |       |   |   |   quopri.pyi
+|   |   |       |   |       |   |   |   readline.pyi
+|   |   |       |   |       |   |   |   rlcompleter.pyi
+|   |   |       |   |       |   |   |   sched.pyi
+|   |   |       |   |       |   |   |   select.pyi
+|   |   |       |   |       |   |   |   shutil.pyi
+|   |   |       |   |       |   |   |   site.pyi
+|   |   |       |   |       |   |   |   smtpd.pyi
+|   |   |       |   |       |   |   |   sndhdr.pyi
+|   |   |       |   |       |   |   |   socket.pyi
+|   |   |       |   |       |   |   |   sre_compile.pyi
+|   |   |       |   |       |   |   |   ssl.pyi
+|   |   |       |   |       |   |   |   stringprep.pyi
+|   |   |       |   |       |   |   |   struct.pyi
+|   |   |       |   |       |   |   |   sunau.pyi
+|   |   |       |   |       |   |   |   symtable.pyi
+|   |   |       |   |       |   |   |   sysconfig.pyi
+|   |   |       |   |       |   |   |   syslog.pyi
+|   |   |       |   |       |   |   |   tabnanny.pyi
+|   |   |       |   |       |   |   |   tarfile.pyi
+|   |   |       |   |       |   |   |   telnetlib.pyi
+|   |   |       |   |       |   |   |   termios.pyi
+|   |   |       |   |       |   |   |   this.pyi
+|   |   |       |   |       |   |   |   threading.pyi
+|   |   |       |   |       |   |   |   time.pyi
+|   |   |       |   |       |   |   |   timeit.pyi
+|   |   |       |   |       |   |   |   token.pyi
+|   |   |       |   |       |   |   |   trace.pyi
+|   |   |       |   |       |   |   |   traceback.pyi
+|   |   |       |   |       |   |   |   tty.pyi
+|   |   |       |   |       |   |   |   turtle.pyi
+|   |   |       |   |       |   |   |   unicodedata.pyi
+|   |   |       |   |       |   |   |   uu.pyi
+|   |   |       |   |       |   |   |   uuid.pyi
+|   |   |       |   |       |   |   |   warnings.pyi
+|   |   |       |   |       |   |   |   wave.pyi
+|   |   |       |   |       |   |   |   weakref.pyi
+|   |   |       |   |       |   |   |   webbrowser.pyi
+|   |   |       |   |       |   |   |   winsound.pyi
+|   |   |       |   |       |   |   |   xdrlib.pyi
+|   |   |       |   |       |   |   |   zipfile.pyi
+|   |   |       |   |       |   |   |   zipimport.pyi
+|   |   |       |   |       |   |   |   zlib.pyi
+|   |   |       |   |       |   |   |   _bisect.pyi
+|   |   |       |   |       |   |   |   _codecs.pyi
+|   |   |       |   |       |   |   |   _csv.pyi
+|   |   |       |   |       |   |   |   _curses.pyi
+|   |   |       |   |       |   |   |   _dummy_threading.pyi
+|   |   |       |   |       |   |   |   _heapq.pyi
+|   |   |       |   |       |   |   |   _msi.pyi
+|   |   |       |   |       |   |   |   _random.pyi
+|   |   |       |   |       |   |   |   _warnings.pyi
+|   |   |       |   |       |   |   |   _weakref.pyi
+|   |   |       |   |       |   |   |   _weakrefset.pyi
+|   |   |       |   |       |   |   |   __future__.pyi
+|   |   |       |   |       |   |   |   
+|   |   |       |   |       |   |   +---ctypes
+|   |   |       |   |       |   |   |       util.pyi
+|   |   |       |   |       |   |   |       wintypes.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---curses
+|   |   |       |   |       |   |   |       ascii.pyi
+|   |   |       |   |       |   |   |       panel.pyi
+|   |   |       |   |       |   |   |       textpad.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---ensurepip
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---lib2to3
+|   |   |       |   |       |   |   |   |   pygram.pyi
+|   |   |       |   |       |   |   |   |   pytree.pyi
+|   |   |       |   |       |   |   |   |   __init__.pyi
+|   |   |       |   |       |   |   |   |   
+|   |   |       |   |       |   |   |   \---pgen2
+|   |   |       |   |       |   |   |           driver.pyi
+|   |   |       |   |       |   |   |           grammar.pyi
+|   |   |       |   |       |   |   |           literals.pyi
+|   |   |       |   |       |   |   |           parse.pyi
+|   |   |       |   |       |   |   |           pgen.pyi
+|   |   |       |   |       |   |   |           token.pyi
+|   |   |       |   |       |   |   |           tokenize.pyi
+|   |   |       |   |       |   |   |           __init__.pyi
+|   |   |       |   |       |   |   |           
+|   |   |       |   |       |   |   +---logging
+|   |   |       |   |       |   |   |       config.pyi
+|   |   |       |   |       |   |   |       handlers.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---msilib
+|   |   |       |   |       |   |   |       schema.pyi
+|   |   |       |   |       |   |   |       sequence.pyi
+|   |   |       |   |       |   |   |       text.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---pydoc_data
+|   |   |       |   |       |   |   |       topics.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---pyexpat
+|   |   |       |   |       |   |   |       errors.pyi
+|   |   |       |   |       |   |   |       model.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---sqlite3
+|   |   |       |   |       |   |   |       dbapi2.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---wsgiref
+|   |   |       |   |       |   |   |       handlers.pyi
+|   |   |       |   |       |   |   |       headers.pyi
+|   |   |       |   |       |   |   |       simple_server.pyi
+|   |   |       |   |       |   |   |       types.pyi
+|   |   |       |   |       |   |   |       util.pyi
+|   |   |       |   |       |   |   |       validate.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---xml
+|   |   |       |   |       |   |   |   |   __init__.pyi
+|   |   |       |   |       |   |   |   |   
+|   |   |       |   |       |   |   |   +---dom
+|   |   |       |   |       |   |   |   |       domreg.pyi
+|   |   |       |   |       |   |   |   |       expatbuilder.pyi
+|   |   |       |   |       |   |   |   |       minicompat.pyi
+|   |   |       |   |       |   |   |   |       minidom.pyi
+|   |   |       |   |       |   |   |   |       NodeFilter.pyi
+|   |   |       |   |       |   |   |   |       pulldom.pyi
+|   |   |       |   |       |   |   |   |       xmlbuilder.pyi
+|   |   |       |   |       |   |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |   |       
+|   |   |       |   |       |   |   |   +---etree
+|   |   |       |   |       |   |   |   |       cElementTree.pyi
+|   |   |       |   |       |   |   |   |       ElementInclude.pyi
+|   |   |       |   |       |   |   |   |       ElementPath.pyi
+|   |   |       |   |       |   |   |   |       ElementTree.pyi
+|   |   |       |   |       |   |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |   |       
+|   |   |       |   |       |   |   |   +---parsers
+|   |   |       |   |       |   |   |   |   |   __init__.pyi
+|   |   |       |   |       |   |   |   |   |   
+|   |   |       |   |       |   |   |   |   \---expat
+|   |   |       |   |       |   |   |   |           errors.pyi
+|   |   |       |   |       |   |   |   |           model.pyi
+|   |   |       |   |       |   |   |   |           __init__.pyi
+|   |   |       |   |       |   |   |   |           
+|   |   |       |   |       |   |   |   \---sax
+|   |   |       |   |       |   |   |           handler.pyi
+|   |   |       |   |       |   |   |           saxutils.pyi
+|   |   |       |   |       |   |   |           xmlreader.pyi
+|   |   |       |   |       |   |   |           __init__.pyi
+|   |   |       |   |       |   |   |           
+|   |   |       |   |       |   |   \---_typeshed
+|   |   |       |   |       |   |           wsgi.pyi
+|   |   |       |   |       |   |           xml.pyi
+|   |   |       |   |       |   |           __init__.pyi
+|   |   |       |   |       |   |           
+|   |   |       |   |       |   +---3
+|   |   |       |   |       |   |   |   abc.pyi
+|   |   |       |   |       |   |   |   ast.pyi
+|   |   |       |   |       |   |   |   atexit.pyi
+|   |   |       |   |       |   |   |   builtins.pyi
+|   |   |       |   |       |   |   |   compileall.pyi
+|   |   |       |   |       |   |   |   configparser.pyi
+|   |   |       |   |       |   |   |   copyreg.pyi
+|   |   |       |   |       |   |   |   enum.pyi
+|   |   |       |   |       |   |   |   faulthandler.pyi
+|   |   |       |   |       |   |   |   fcntl.pyi
+|   |   |       |   |       |   |   |   fnmatch.pyi
+|   |   |       |   |       |   |   |   functools.pyi
+|   |   |       |   |       |   |   |   gc.pyi
+|   |   |       |   |       |   |   |   getopt.pyi
+|   |   |       |   |       |   |   |   getpass.pyi
+|   |   |       |   |       |   |   |   gettext.pyi
+|   |   |       |   |       |   |   |   glob.pyi
+|   |   |       |   |       |   |   |   gzip.pyi
+|   |   |       |   |       |   |   |   hashlib.pyi
+|   |   |       |   |       |   |   |   heapq.pyi
+|   |   |       |   |       |   |   |   imp.pyi
+|   |   |       |   |       |   |   |   inspect.pyi
+|   |   |       |   |       |   |   |   io.pyi
+|   |   |       |   |       |   |   |   ipaddress.pyi
+|   |   |       |   |       |   |   |   itertools.pyi
+|   |   |       |   |       |   |   |   lzma.pyi
+|   |   |       |   |       |   |   |   macurl2path.pyi
+|   |   |       |   |       |   |   |   nntplib.pyi
+|   |   |       |   |       |   |   |   ntpath.pyi
+|   |   |       |   |       |   |   |   nturl2path.pyi
+|   |   |       |   |       |   |   |   pathlib.pyi
+|   |   |       |   |       |   |   |   pipes.pyi
+|   |   |       |   |       |   |   |   platform.pyi
+|   |   |       |   |       |   |   |   posix.pyi
+|   |   |       |   |       |   |   |   posixpath.pyi
+|   |   |       |   |       |   |   |   queue.pyi
+|   |   |       |   |       |   |   |   random.pyi
+|   |   |       |   |       |   |   |   re.pyi
+|   |   |       |   |       |   |   |   reprlib.pyi
+|   |   |       |   |       |   |   |   resource.pyi
+|   |   |       |   |       |   |   |   runpy.pyi
+|   |   |       |   |       |   |   |   secrets.pyi
+|   |   |       |   |       |   |   |   selectors.pyi
+|   |   |       |   |       |   |   |   shelve.pyi
+|   |   |       |   |       |   |   |   shlex.pyi
+|   |   |       |   |       |   |   |   signal.pyi
+|   |   |       |   |       |   |   |   smtplib.pyi
+|   |   |       |   |       |   |   |   socketserver.pyi
+|   |   |       |   |       |   |   |   spwd.pyi
+|   |   |       |   |       |   |   |   sre_constants.pyi
+|   |   |       |   |       |   |   |   sre_parse.pyi
+|   |   |       |   |       |   |   |   stat.pyi
+|   |   |       |   |       |   |   |   statistics.pyi
+|   |   |       |   |       |   |   |   string.pyi
+|   |   |       |   |       |   |   |   subprocess.pyi
+|   |   |       |   |       |   |   |   symbol.pyi
+|   |   |       |   |       |   |   |   sys.pyi
+|   |   |       |   |       |   |   |   tempfile.pyi
+|   |   |       |   |       |   |   |   textwrap.pyi
+|   |   |       |   |       |   |   |   tokenize.pyi
+|   |   |       |   |       |   |   |   tracemalloc.pyi
+|   |   |       |   |       |   |   |   types.pyi
+|   |   |       |   |       |   |   |   typing.pyi
+|   |   |       |   |       |   |   |   winreg.pyi
+|   |   |       |   |       |   |   |   xxlimited.pyi
+|   |   |       |   |       |   |   |   zipapp.pyi
+|   |   |       |   |       |   |   |   _ast.pyi
+|   |   |       |   |       |   |   |   _bootlocale.pyi
+|   |   |       |   |       |   |   |   _compat_pickle.pyi
+|   |   |       |   |       |   |   |   _compression.pyi
+|   |   |       |   |       |   |   |   _decimal.pyi
+|   |   |       |   |       |   |   |   _dummy_thread.pyi
+|   |   |       |   |       |   |   |   _imp.pyi
+|   |   |       |   |       |   |   |   _importlib_modulespec.pyi
+|   |   |       |   |       |   |   |   _json.pyi
+|   |   |       |   |       |   |   |   _markupbase.pyi
+|   |   |       |   |       |   |   |   _operator.pyi
+|   |   |       |   |       |   |   |   _osx_support.pyi
+|   |   |       |   |       |   |   |   _posixsubprocess.pyi
+|   |   |       |   |       |   |   |   _pydecimal.pyi
+|   |   |       |   |       |   |   |   _sitebuiltins.pyi
+|   |   |       |   |       |   |   |   _stat.pyi
+|   |   |       |   |       |   |   |   _thread.pyi
+|   |   |       |   |       |   |   |   _threading_local.pyi
+|   |   |       |   |       |   |   |   _tkinter.pyi
+|   |   |       |   |       |   |   |   _tracemalloc.pyi
+|   |   |       |   |       |   |   |   _winapi.pyi
+|   |   |       |   |       |   |   |   
+|   |   |       |   |       |   |   +---asyncio
+|   |   |       |   |       |   |   |       base_events.pyi
+|   |   |       |   |       |   |   |       base_futures.pyi
+|   |   |       |   |       |   |   |       base_subprocess.pyi
+|   |   |       |   |       |   |   |       base_tasks.pyi
+|   |   |       |   |       |   |   |       compat.pyi
+|   |   |       |   |       |   |   |       constants.pyi
+|   |   |       |   |       |   |   |       coroutines.pyi
+|   |   |       |   |       |   |   |       events.pyi
+|   |   |       |   |       |   |   |       exceptions.pyi
+|   |   |       |   |       |   |   |       format_helpers.pyi
+|   |   |       |   |       |   |   |       futures.pyi
+|   |   |       |   |       |   |   |       locks.pyi
+|   |   |       |   |       |   |   |       log.pyi
+|   |   |       |   |       |   |   |       proactor_events.pyi
+|   |   |       |   |       |   |   |       protocols.pyi
+|   |   |       |   |       |   |   |       queues.pyi
+|   |   |       |   |       |   |   |       runners.pyi
+|   |   |       |   |       |   |   |       selector_events.pyi
+|   |   |       |   |       |   |   |       sslproto.pyi
+|   |   |       |   |       |   |   |       staggered.pyi
+|   |   |       |   |       |   |   |       streams.pyi
+|   |   |       |   |       |   |   |       subprocess.pyi
+|   |   |       |   |       |   |   |       tasks.pyi
+|   |   |       |   |       |   |   |       threads.pyi
+|   |   |       |   |       |   |   |       transports.pyi
+|   |   |       |   |       |   |   |       trsock.pyi
+|   |   |       |   |       |   |   |       unix_events.pyi
+|   |   |       |   |       |   |   |       windows_events.pyi
+|   |   |       |   |       |   |   |       windows_utils.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---collections
+|   |   |       |   |       |   |   |       abc.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---concurrent
+|   |   |       |   |       |   |   |   |   __init__.pyi
+|   |   |       |   |       |   |   |   |   
+|   |   |       |   |       |   |   |   \---futures
+|   |   |       |   |       |   |   |           process.pyi
+|   |   |       |   |       |   |   |           thread.pyi
+|   |   |       |   |       |   |   |           _base.pyi
+|   |   |       |   |       |   |   |           __init__.pyi
+|   |   |       |   |       |   |   |           
+|   |   |       |   |       |   |   +---dbm
+|   |   |       |   |       |   |   |       dumb.pyi
+|   |   |       |   |       |   |   |       gnu.pyi
+|   |   |       |   |       |   |   |       ndbm.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---distutils
+|   |   |       |   |       |   |   |   |   archive_util.pyi
+|   |   |       |   |       |   |   |   |   bcppcompiler.pyi
+|   |   |       |   |       |   |   |   |   ccompiler.pyi
+|   |   |       |   |       |   |   |   |   cmd.pyi
+|   |   |       |   |       |   |   |   |   config.pyi
+|   |   |       |   |       |   |   |   |   core.pyi
+|   |   |       |   |       |   |   |   |   cygwinccompiler.pyi
+|   |   |       |   |       |   |   |   |   debug.pyi
+|   |   |       |   |       |   |   |   |   dep_util.pyi
+|   |   |       |   |       |   |   |   |   dir_util.pyi
+|   |   |       |   |       |   |   |   |   dist.pyi
+|   |   |       |   |       |   |   |   |   errors.pyi
+|   |   |       |   |       |   |   |   |   extension.pyi
+|   |   |       |   |       |   |   |   |   fancy_getopt.pyi
+|   |   |       |   |       |   |   |   |   filelist.pyi
+|   |   |       |   |       |   |   |   |   file_util.pyi
+|   |   |       |   |       |   |   |   |   log.pyi
+|   |   |       |   |       |   |   |   |   msvccompiler.pyi
+|   |   |       |   |       |   |   |   |   spawn.pyi
+|   |   |       |   |       |   |   |   |   sysconfig.pyi
+|   |   |       |   |       |   |   |   |   text_file.pyi
+|   |   |       |   |       |   |   |   |   unixccompiler.pyi
+|   |   |       |   |       |   |   |   |   util.pyi
+|   |   |       |   |       |   |   |   |   version.pyi
+|   |   |       |   |       |   |   |   |   __init__.pyi
+|   |   |       |   |       |   |   |   |   
+|   |   |       |   |       |   |   |   \---command
+|   |   |       |   |       |   |   |           bdist.pyi
+|   |   |       |   |       |   |   |           bdist_dumb.pyi
+|   |   |       |   |       |   |   |           bdist_msi.pyi
+|   |   |       |   |       |   |   |           bdist_packager.pyi
+|   |   |       |   |       |   |   |           bdist_rpm.pyi
+|   |   |       |   |       |   |   |           bdist_wininst.pyi
+|   |   |       |   |       |   |   |           build.pyi
+|   |   |       |   |       |   |   |           build_clib.pyi
+|   |   |       |   |       |   |   |           build_ext.pyi
+|   |   |       |   |       |   |   |           build_py.pyi
+|   |   |       |   |       |   |   |           build_scripts.pyi
+|   |   |       |   |       |   |   |           check.pyi
+|   |   |       |   |       |   |   |           clean.pyi
+|   |   |       |   |       |   |   |           config.pyi
+|   |   |       |   |       |   |   |           install.pyi
+|   |   |       |   |       |   |   |           install_data.pyi
+|   |   |       |   |       |   |   |           install_egg_info.pyi
+|   |   |       |   |       |   |   |           install_headers.pyi
+|   |   |       |   |       |   |   |           install_lib.pyi
+|   |   |       |   |       |   |   |           install_scripts.pyi
+|   |   |       |   |       |   |   |           register.pyi
+|   |   |       |   |       |   |   |           sdist.pyi
+|   |   |       |   |       |   |   |           upload.pyi
+|   |   |       |   |       |   |   |           __init__.pyi
+|   |   |       |   |       |   |   |           
+|   |   |       |   |       |   |   +---email
+|   |   |       |   |       |   |   |   |   charset.pyi
+|   |   |       |   |       |   |   |   |   contentmanager.pyi
+|   |   |       |   |       |   |   |   |   encoders.pyi
+|   |   |       |   |       |   |   |   |   errors.pyi
+|   |   |       |   |       |   |   |   |   feedparser.pyi
+|   |   |       |   |       |   |   |   |   generator.pyi
+|   |   |       |   |       |   |   |   |   header.pyi
+|   |   |       |   |       |   |   |   |   headerregistry.pyi
+|   |   |       |   |       |   |   |   |   iterators.pyi
+|   |   |       |   |       |   |   |   |   message.pyi
+|   |   |       |   |       |   |   |   |   parser.pyi
+|   |   |       |   |       |   |   |   |   policy.pyi
+|   |   |       |   |       |   |   |   |   utils.pyi
+|   |   |       |   |       |   |   |   |   __init__.pyi
+|   |   |       |   |       |   |   |   |   
+|   |   |       |   |       |   |   |   \---mime
+|   |   |       |   |       |   |   |           application.pyi
+|   |   |       |   |       |   |   |           audio.pyi
+|   |   |       |   |       |   |   |           base.pyi
+|   |   |       |   |       |   |   |           image.pyi
+|   |   |       |   |       |   |   |           message.pyi
+|   |   |       |   |       |   |   |           multipart.pyi
+|   |   |       |   |       |   |   |           nonmultipart.pyi
+|   |   |       |   |       |   |   |           text.pyi
+|   |   |       |   |       |   |   |           __init__.pyi
+|   |   |       |   |       |   |   |           
+|   |   |       |   |       |   |   +---encodings
+|   |   |       |   |       |   |   |       utf_8.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---html
+|   |   |       |   |       |   |   |       entities.pyi
+|   |   |       |   |       |   |   |       parser.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---http
+|   |   |       |   |       |   |   |       client.pyi
+|   |   |       |   |       |   |   |       cookiejar.pyi
+|   |   |       |   |       |   |   |       cookies.pyi
+|   |   |       |   |       |   |   |       server.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---importlib
+|   |   |       |   |       |   |   |       abc.pyi
+|   |   |       |   |       |   |   |       machinery.pyi
+|   |   |       |   |       |   |   |       metadata.pyi
+|   |   |       |   |       |   |   |       resources.pyi
+|   |   |       |   |       |   |   |       util.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---json
+|   |   |       |   |       |   |   |       decoder.pyi
+|   |   |       |   |       |   |   |       encoder.pyi
+|   |   |       |   |       |   |   |       tool.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---multiprocessing
+|   |   |       |   |       |   |   |   |   connection.pyi
+|   |   |       |   |       |   |   |   |   context.pyi
+|   |   |       |   |       |   |   |   |   managers.pyi
+|   |   |       |   |       |   |   |   |   pool.pyi
+|   |   |       |   |       |   |   |   |   process.pyi
+|   |   |       |   |       |   |   |   |   queues.pyi
+|   |   |       |   |       |   |   |   |   sharedctypes.pyi
+|   |   |       |   |       |   |   |   |   shared_memory.pyi
+|   |   |       |   |       |   |   |   |   spawn.pyi
+|   |   |       |   |       |   |   |   |   synchronize.pyi
+|   |   |       |   |       |   |   |   |   __init__.pyi
+|   |   |       |   |       |   |   |   |   
+|   |   |       |   |       |   |   |   \---dummy
+|   |   |       |   |       |   |   |           connection.pyi
+|   |   |       |   |       |   |   |           __init__.pyi
+|   |   |       |   |       |   |   |           
+|   |   |       |   |       |   |   +---os
+|   |   |       |   |       |   |   |       path.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---tkinter
+|   |   |       |   |       |   |   |       commondialog.pyi
+|   |   |       |   |       |   |   |       constants.pyi
+|   |   |       |   |       |   |   |       dialog.pyi
+|   |   |       |   |       |   |   |       filedialog.pyi
+|   |   |       |   |       |   |   |       font.pyi
+|   |   |       |   |       |   |   |       messagebox.pyi
+|   |   |       |   |       |   |   |       ttk.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---unittest
+|   |   |       |   |       |   |   |       async_case.pyi
+|   |   |       |   |       |   |   |       case.pyi
+|   |   |       |   |       |   |   |       loader.pyi
+|   |   |       |   |       |   |   |       main.pyi
+|   |   |       |   |       |   |   |       mock.pyi
+|   |   |       |   |       |   |   |       result.pyi
+|   |   |       |   |       |   |   |       runner.pyi
+|   |   |       |   |       |   |   |       signals.pyi
+|   |   |       |   |       |   |   |       suite.pyi
+|   |   |       |   |       |   |   |       util.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---urllib
+|   |   |       |   |       |   |   |       error.pyi
+|   |   |       |   |       |   |   |       parse.pyi
+|   |   |       |   |       |   |   |       request.pyi
+|   |   |       |   |       |   |   |       response.pyi
+|   |   |       |   |       |   |   |       robotparser.pyi
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   +---venv
+|   |   |       |   |       |   |   |       __init__.pyi
+|   |   |       |   |       |   |   |       
+|   |   |       |   |       |   |   \---xmlrpc
+|   |   |       |   |       |   |           client.pyi
+|   |   |       |   |       |   |           server.pyi
+|   |   |       |   |       |   |           __init__.pyi
+|   |   |       |   |       |   |           
+|   |   |       |   |       |   +---3.7
+|   |   |       |   |       |   |       contextvars.pyi
+|   |   |       |   |       |   |       dataclasses.pyi
+|   |   |       |   |       |   |       _py_abc.pyi
+|   |   |       |   |       |   |       
+|   |   |       |   |       |   \---3.9
+|   |   |       |   |       |       |   graphlib.pyi
+|   |   |       |   |       |       |   
+|   |   |       |   |       |       \---zoneinfo
+|   |   |       |   |       |               __init__.pyi
+|   |   |       |   |       |               
+|   |   |       |   |       \---third_party
+|   |   |       |   |           +---2
+|   |   |       |   |           |   |   enum.pyi
+|   |   |       |   |           |   |   ipaddress.pyi
+|   |   |       |   |           |   |   pathlib2.pyi
+|   |   |       |   |           |   |   pymssql.pyi
+|   |   |       |   |           |   |   
+|   |   |       |   |           |   +---concurrent
+|   |   |       |   |           |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   
+|   |   |       |   |           |   |   \---futures
+|   |   |       |   |           |   |           process.pyi
+|   |   |       |   |           |   |           thread.pyi
+|   |   |       |   |           |   |           _base.pyi
+|   |   |       |   |           |   |           __init__.pyi
+|   |   |       |   |           |   |           
+|   |   |       |   |           |   +---fb303
+|   |   |       |   |           |   |       FacebookService.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---kazoo
+|   |   |       |   |           |   |   |   client.pyi
+|   |   |       |   |           |   |   |   exceptions.pyi
+|   |   |       |   |           |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   
+|   |   |       |   |           |   |   \---recipe
+|   |   |       |   |           |   |           watchers.pyi
+|   |   |       |   |           |   |           __init__.pyi
+|   |   |       |   |           |   |           
+|   |   |       |   |           |   +---OpenSSL
+|   |   |       |   |           |   |       crypto.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---routes
+|   |   |       |   |           |   |       mapper.pyi
+|   |   |       |   |           |   |       util.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---scribe
+|   |   |       |   |           |   |       scribe.pyi
+|   |   |       |   |           |   |       ttypes.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---six
+|   |   |       |   |           |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   
+|   |   |       |   |           |   |   \---moves
+|   |   |       |   |           |   |       |   BaseHTTPServer.pyi
+|   |   |       |   |           |   |       |   CGIHTTPServer.pyi
+|   |   |       |   |           |   |       |   collections_abc.pyi
+|   |   |       |   |           |   |       |   configparser.pyi
+|   |   |       |   |           |   |       |   cPickle.pyi
+|   |   |       |   |           |   |       |   email_mime_base.pyi
+|   |   |       |   |           |   |       |   email_mime_multipart.pyi
+|   |   |       |   |           |   |       |   email_mime_nonmultipart.pyi
+|   |   |       |   |           |   |       |   email_mime_text.pyi
+|   |   |       |   |           |   |       |   html_entities.pyi
+|   |   |       |   |           |   |       |   html_parser.pyi
+|   |   |       |   |           |   |       |   http_client.pyi
+|   |   |       |   |           |   |       |   http_cookiejar.pyi
+|   |   |       |   |           |   |       |   http_cookies.pyi
+|   |   |       |   |           |   |       |   queue.pyi
+|   |   |       |   |           |   |       |   reprlib.pyi
+|   |   |       |   |           |   |       |   SimpleHTTPServer.pyi
+|   |   |       |   |           |   |       |   socketserver.pyi
+|   |   |       |   |           |   |       |   urllib_error.pyi
+|   |   |       |   |           |   |       |   urllib_parse.pyi
+|   |   |       |   |           |   |       |   urllib_request.pyi
+|   |   |       |   |           |   |       |   urllib_response.pyi
+|   |   |       |   |           |   |       |   urllib_robotparser.pyi
+|   |   |       |   |           |   |       |   xmlrpc_client.pyi
+|   |   |       |   |           |   |       |   _dummy_thread.pyi
+|   |   |       |   |           |   |       |   _thread.pyi
+|   |   |       |   |           |   |       |   __init__.pyi
+|   |   |       |   |           |   |       |   
+|   |   |       |   |           |   |       \---urllib
+|   |   |       |   |           |   |               error.pyi
+|   |   |       |   |           |   |               parse.pyi
+|   |   |       |   |           |   |               request.pyi
+|   |   |       |   |           |   |               response.pyi
+|   |   |       |   |           |   |               robotparser.pyi
+|   |   |       |   |           |   |               __init__.pyi
+|   |   |       |   |           |   |               
+|   |   |       |   |           |   \---tornado
+|   |   |       |   |           |           concurrent.pyi
+|   |   |       |   |           |           gen.pyi
+|   |   |       |   |           |           httpclient.pyi
+|   |   |       |   |           |           httpserver.pyi
+|   |   |       |   |           |           httputil.pyi
+|   |   |       |   |           |           ioloop.pyi
+|   |   |       |   |           |           locks.pyi
+|   |   |       |   |           |           netutil.pyi
+|   |   |       |   |           |           process.pyi
+|   |   |       |   |           |           tcpserver.pyi
+|   |   |       |   |           |           testing.pyi
+|   |   |       |   |           |           util.pyi
+|   |   |       |   |           |           web.pyi
+|   |   |       |   |           |           __init__.pyi
+|   |   |       |   |           |           
+|   |   |       |   |           +---2and3
+|   |   |       |   |           |   |   backports_abc.pyi
+|   |   |       |   |           |   |   certifi.pyi
+|   |   |       |   |           |   |   croniter.pyi
+|   |   |       |   |           |   |   dateparser.pyi
+|   |   |       |   |           |   |   decorator.pyi
+|   |   |       |   |           |   |   first.pyi
+|   |   |       |   |           |   |   gflags.pyi
+|   |   |       |   |           |   |   itsdangerous.pyi
+|   |   |       |   |           |   |   mock.pyi
+|   |   |       |   |           |   |   mypy_extensions.pyi
+|   |   |       |   |           |   |   polib.pyi
+|   |   |       |   |           |   |   pycurl.pyi
+|   |   |       |   |           |   |   pyre_extensions.pyi
+|   |   |       |   |           |   |   singledispatch.pyi
+|   |   |       |   |           |   |   tabulate.pyi
+|   |   |       |   |           |   |   termcolor.pyi
+|   |   |       |   |           |   |   toml.pyi
+|   |   |       |   |           |   |   typing_extensions.pyi
+|   |   |       |   |           |   |   ujson.pyi
+|   |   |       |   |           |   |   
+|   |   |       |   |           |   +---atomicwrites
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---attr
+|   |   |       |   |           |   |       converters.pyi
+|   |   |       |   |           |   |       exceptions.pyi
+|   |   |       |   |           |   |       filters.pyi
+|   |   |       |   |           |   |       validators.pyi
+|   |   |       |   |           |   |       _version_info.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---backports
+|   |   |       |   |           |   |       ssl_match_hostname.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---bleach
+|   |   |       |   |           |   |       callbacks.pyi
+|   |   |       |   |           |   |       linkifier.pyi
+|   |   |       |   |           |   |       sanitizer.pyi
+|   |   |       |   |           |   |       utils.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---boto
+|   |   |       |   |           |   |   |   auth.pyi
+|   |   |       |   |           |   |   |   auth_handler.pyi
+|   |   |       |   |           |   |   |   compat.pyi
+|   |   |       |   |           |   |   |   connection.pyi
+|   |   |       |   |           |   |   |   exception.pyi
+|   |   |       |   |           |   |   |   plugin.pyi
+|   |   |       |   |           |   |   |   regioninfo.pyi
+|   |   |       |   |           |   |   |   utils.pyi
+|   |   |       |   |           |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   
+|   |   |       |   |           |   |   +---ec2
+|   |   |       |   |           |   |   |       __init__.pyi
+|   |   |       |   |           |   |   |       
+|   |   |       |   |           |   |   +---elb
+|   |   |       |   |           |   |   |       __init__.pyi
+|   |   |       |   |           |   |   |       
+|   |   |       |   |           |   |   +---kms
+|   |   |       |   |           |   |   |       exceptions.pyi
+|   |   |       |   |           |   |   |       layer1.pyi
+|   |   |       |   |           |   |   |       __init__.pyi
+|   |   |       |   |           |   |   |       
+|   |   |       |   |           |   |   \---s3
+|   |   |       |   |           |   |           acl.pyi
+|   |   |       |   |           |   |           bucket.pyi
+|   |   |       |   |           |   |           bucketlistresultset.pyi
+|   |   |       |   |           |   |           bucketlogging.pyi
+|   |   |       |   |           |   |           connection.pyi
+|   |   |       |   |           |   |           cors.pyi
+|   |   |       |   |           |   |           deletemarker.pyi
+|   |   |       |   |           |   |           key.pyi
+|   |   |       |   |           |   |           keyfile.pyi
+|   |   |       |   |           |   |           lifecycle.pyi
+|   |   |       |   |           |   |           multidelete.pyi
+|   |   |       |   |           |   |           multipart.pyi
+|   |   |       |   |           |   |           prefix.pyi
+|   |   |       |   |           |   |           tagging.pyi
+|   |   |       |   |           |   |           user.pyi
+|   |   |       |   |           |   |           website.pyi
+|   |   |       |   |           |   |           __init__.pyi
+|   |   |       |   |           |   |           
+|   |   |       |   |           |   +---cachetools
+|   |   |       |   |           |   |       abc.pyi
+|   |   |       |   |           |   |       cache.pyi
+|   |   |       |   |           |   |       decorators.pyi
+|   |   |       |   |           |   |       func.pyi
+|   |   |       |   |           |   |       lfu.pyi
+|   |   |       |   |           |   |       lru.pyi
+|   |   |       |   |           |   |       rr.pyi
+|   |   |       |   |           |   |       ttl.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---characteristic
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---chardet
+|   |   |       |   |           |   |       enums.pyi
+|   |   |       |   |           |   |       langbulgarianmodel.pyi
+|   |   |       |   |           |   |       langcyrillicmodel.pyi
+|   |   |       |   |           |   |       langgreekmodel.pyi
+|   |   |       |   |           |   |       langhebrewmodel.pyi
+|   |   |       |   |           |   |       langhungarianmodel.pyi
+|   |   |       |   |           |   |       langthaimodel.pyi
+|   |   |       |   |           |   |       langturkishmodel.pyi
+|   |   |       |   |           |   |       universaldetector.pyi
+|   |   |       |   |           |   |       version.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---click
+|   |   |       |   |           |   |       core.pyi
+|   |   |       |   |           |   |       decorators.pyi
+|   |   |       |   |           |   |       exceptions.pyi
+|   |   |       |   |           |   |       formatting.pyi
+|   |   |       |   |           |   |       globals.pyi
+|   |   |       |   |           |   |       parser.pyi
+|   |   |       |   |           |   |       termui.pyi
+|   |   |       |   |           |   |       testing.pyi
+|   |   |       |   |           |   |       types.pyi
+|   |   |       |   |           |   |       utils.pyi
+|   |   |       |   |           |   |       _termui_impl.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---cryptography
+|   |   |       |   |           |   |   |   exceptions.pyi
+|   |   |       |   |           |   |   |   fernet.pyi
+|   |   |       |   |           |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   
+|   |   |       |   |           |   |   +---hazmat
+|   |   |       |   |           |   |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   |   
+|   |   |       |   |           |   |   |   +---backends
+|   |   |       |   |           |   |   |   |       interfaces.pyi
+|   |   |       |   |           |   |   |   |       __init__.pyi
+|   |   |       |   |           |   |   |   |       
+|   |   |       |   |           |   |   |   +---bindings
+|   |   |       |   |           |   |   |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   |   |   
+|   |   |       |   |           |   |   |   |   \---openssl
+|   |   |       |   |           |   |   |   |           binding.pyi
+|   |   |       |   |           |   |   |   |           __init__.pyi
+|   |   |       |   |           |   |   |   |           
+|   |   |       |   |           |   |   |   \---primitives
+|   |   |       |   |           |   |   |       |   cmac.pyi
+|   |   |       |   |           |   |   |       |   constant_time.pyi
+|   |   |       |   |           |   |   |       |   hashes.pyi
+|   |   |       |   |           |   |   |       |   hmac.pyi
+|   |   |       |   |           |   |   |       |   keywrap.pyi
+|   |   |       |   |           |   |   |       |   padding.pyi
+|   |   |       |   |           |   |   |       |   poly1305.pyi
+|   |   |       |   |           |   |   |       |   __init__.pyi
+|   |   |       |   |           |   |   |       |   
+|   |   |       |   |           |   |   |       +---asymmetric
+|   |   |       |   |           |   |   |       |       dh.pyi
+|   |   |       |   |           |   |   |       |       dsa.pyi
+|   |   |       |   |           |   |   |       |       ec.pyi
+|   |   |       |   |           |   |   |       |       ed25519.pyi
+|   |   |       |   |           |   |   |       |       ed448.pyi
+|   |   |       |   |           |   |   |       |       padding.pyi
+|   |   |       |   |           |   |   |       |       rsa.pyi
+|   |   |       |   |           |   |   |       |       utils.pyi
+|   |   |       |   |           |   |   |       |       x25519.pyi
+|   |   |       |   |           |   |   |       |       x448.pyi
+|   |   |       |   |           |   |   |       |       __init__.pyi
+|   |   |       |   |           |   |   |       |       
+|   |   |       |   |           |   |   |       +---ciphers
+|   |   |       |   |           |   |   |       |       aead.pyi
+|   |   |       |   |           |   |   |       |       algorithms.pyi
+|   |   |       |   |           |   |   |       |       modes.pyi
+|   |   |       |   |           |   |   |       |       __init__.pyi
+|   |   |       |   |           |   |   |       |       
+|   |   |       |   |           |   |   |       +---kdf
+|   |   |       |   |           |   |   |       |       concatkdf.pyi
+|   |   |       |   |           |   |   |       |       hkdf.pyi
+|   |   |       |   |           |   |   |       |       kbkdf.pyi
+|   |   |       |   |           |   |   |       |       pbkdf2.pyi
+|   |   |       |   |           |   |   |       |       scrypt.pyi
+|   |   |       |   |           |   |   |       |       x963kdf.pyi
+|   |   |       |   |           |   |   |       |       __init__.pyi
+|   |   |       |   |           |   |   |       |       
+|   |   |       |   |           |   |   |       +---serialization
+|   |   |       |   |           |   |   |       |       pkcs12.pyi
+|   |   |       |   |           |   |   |       |       __init__.pyi
+|   |   |       |   |           |   |   |       |       
+|   |   |       |   |           |   |   |       \---twofactor
+|   |   |       |   |           |   |   |               hotp.pyi
+|   |   |       |   |           |   |   |               totp.pyi
+|   |   |       |   |           |   |   |               __init__.pyi
+|   |   |       |   |           |   |   |               
+|   |   |       |   |           |   |   \---x509
+|   |   |       |   |           |   |           extensions.pyi
+|   |   |       |   |           |   |           oid.pyi
+|   |   |       |   |           |   |           __init__.pyi
+|   |   |       |   |           |   |           
+|   |   |       |   |           |   +---datetimerange
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---dateutil
+|   |   |       |   |           |   |   |   easter.pyi
+|   |   |       |   |           |   |   |   parser.pyi
+|   |   |       |   |           |   |   |   relativedelta.pyi
+|   |   |       |   |           |   |   |   rrule.pyi
+|   |   |       |   |           |   |   |   utils.pyi
+|   |   |       |   |           |   |   |   _common.pyi
+|   |   |       |   |           |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   
+|   |   |       |   |           |   |   \---tz
+|   |   |       |   |           |   |           tz.pyi
+|   |   |       |   |           |   |           _common.pyi
+|   |   |       |   |           |   |           __init__.pyi
+|   |   |       |   |           |   |           
+|   |   |       |   |           |   +---deprecated
+|   |   |       |   |           |   |       classic.pyi
+|   |   |       |   |           |   |       sphinx.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---emoji
+|   |   |       |   |           |   |       core.pyi
+|   |   |       |   |           |   |       unicode_codes.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---flask
+|   |   |       |   |           |   |   |   app.pyi
+|   |   |       |   |           |   |   |   blueprints.pyi
+|   |   |       |   |           |   |   |   cli.pyi
+|   |   |       |   |           |   |   |   config.pyi
+|   |   |       |   |           |   |   |   ctx.pyi
+|   |   |       |   |           |   |   |   debughelpers.pyi
+|   |   |       |   |           |   |   |   globals.pyi
+|   |   |       |   |           |   |   |   helpers.pyi
+|   |   |       |   |           |   |   |   logging.pyi
+|   |   |       |   |           |   |   |   sessions.pyi
+|   |   |       |   |           |   |   |   signals.pyi
+|   |   |       |   |           |   |   |   templating.pyi
+|   |   |       |   |           |   |   |   testing.pyi
+|   |   |       |   |           |   |   |   views.pyi
+|   |   |       |   |           |   |   |   wrappers.pyi
+|   |   |       |   |           |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   
+|   |   |       |   |           |   |   \---json
+|   |   |       |   |           |   |           tag.pyi
+|   |   |       |   |           |   |           __init__.pyi
+|   |   |       |   |           |   |           
+|   |   |       |   |           |   +---geoip2
+|   |   |       |   |           |   |       database.pyi
+|   |   |       |   |           |   |       errors.pyi
+|   |   |       |   |           |   |       mixins.pyi
+|   |   |       |   |           |   |       models.pyi
+|   |   |       |   |           |   |       records.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---google
+|   |   |       |   |           |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   
+|   |   |       |   |           |   |   \---protobuf
+|   |   |       |   |           |   |       |   any_pb2.pyi
+|   |   |       |   |           |   |       |   api_pb2.pyi
+|   |   |       |   |           |   |       |   descriptor.pyi
+|   |   |       |   |           |   |       |   descriptor_pb2.pyi
+|   |   |       |   |           |   |       |   descriptor_pool.pyi
+|   |   |       |   |           |   |       |   duration_pb2.pyi
+|   |   |       |   |           |   |       |   empty_pb2.pyi
+|   |   |       |   |           |   |       |   field_mask_pb2.pyi
+|   |   |       |   |           |   |       |   json_format.pyi
+|   |   |       |   |           |   |       |   message.pyi
+|   |   |       |   |           |   |       |   message_factory.pyi
+|   |   |       |   |           |   |       |   reflection.pyi
+|   |   |       |   |           |   |       |   service.pyi
+|   |   |       |   |           |   |       |   source_context_pb2.pyi
+|   |   |       |   |           |   |       |   struct_pb2.pyi
+|   |   |       |   |           |   |       |   symbol_database.pyi
+|   |   |       |   |           |   |       |   timestamp_pb2.pyi
+|   |   |       |   |           |   |       |   type_pb2.pyi
+|   |   |       |   |           |   |       |   wrappers_pb2.pyi
+|   |   |       |   |           |   |       |   __init__.pyi
+|   |   |       |   |           |   |       |   
+|   |   |       |   |           |   |       +---compiler
+|   |   |       |   |           |   |       |       plugin_pb2.pyi
+|   |   |       |   |           |   |       |       __init__.pyi
+|   |   |       |   |           |   |       |       
+|   |   |       |   |           |   |       +---internal
+|   |   |       |   |           |   |       |       containers.pyi
+|   |   |       |   |           |   |       |       decoder.pyi
+|   |   |       |   |           |   |       |       encoder.pyi
+|   |   |       |   |           |   |       |       enum_type_wrapper.pyi
+|   |   |       |   |           |   |       |       extension_dict.pyi
+|   |   |       |   |           |   |       |       message_listener.pyi
+|   |   |       |   |           |   |       |       python_message.pyi
+|   |   |       |   |           |   |       |       well_known_types.pyi
+|   |   |       |   |           |   |       |       wire_format.pyi
+|   |   |       |   |           |   |       |       __init__.pyi
+|   |   |       |   |           |   |       |       
+|   |   |       |   |           |   |       \---util
+|   |   |       |   |           |   |               __init__.pyi
+|   |   |       |   |           |   |               
+|   |   |       |   |           |   +---jinja2
+|   |   |       |   |           |   |       bccache.pyi
+|   |   |       |   |           |   |       compiler.pyi
+|   |   |       |   |           |   |       constants.pyi
+|   |   |       |   |           |   |       debug.pyi
+|   |   |       |   |           |   |       defaults.pyi
+|   |   |       |   |           |   |       environment.pyi
+|   |   |       |   |           |   |       exceptions.pyi
+|   |   |       |   |           |   |       ext.pyi
+|   |   |       |   |           |   |       filters.pyi
+|   |   |       |   |           |   |       lexer.pyi
+|   |   |       |   |           |   |       loaders.pyi
+|   |   |       |   |           |   |       meta.pyi
+|   |   |       |   |           |   |       nodes.pyi
+|   |   |       |   |           |   |       optimizer.pyi
+|   |   |       |   |           |   |       parser.pyi
+|   |   |       |   |           |   |       runtime.pyi
+|   |   |       |   |           |   |       sandbox.pyi
+|   |   |       |   |           |   |       tests.pyi
+|   |   |       |   |           |   |       utils.pyi
+|   |   |       |   |           |   |       visitor.pyi
+|   |   |       |   |           |   |       _compat.pyi
+|   |   |       |   |           |   |       _stringdefs.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---markdown
+|   |   |       |   |           |   |   |   blockparser.pyi
+|   |   |       |   |           |   |   |   blockprocessors.pyi
+|   |   |       |   |           |   |   |   core.pyi
+|   |   |       |   |           |   |   |   inlinepatterns.pyi
+|   |   |       |   |           |   |   |   pep562.pyi
+|   |   |       |   |           |   |   |   postprocessors.pyi
+|   |   |       |   |           |   |   |   preprocessors.pyi
+|   |   |       |   |           |   |   |   serializers.pyi
+|   |   |       |   |           |   |   |   treeprocessors.pyi
+|   |   |       |   |           |   |   |   util.pyi
+|   |   |       |   |           |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   __meta__.pyi
+|   |   |       |   |           |   |   |   
+|   |   |       |   |           |   |   \---extensions
+|   |   |       |   |           |   |           abbr.pyi
+|   |   |       |   |           |   |           admonition.pyi
+|   |   |       |   |           |   |           attr_list.pyi
+|   |   |       |   |           |   |           codehilite.pyi
+|   |   |       |   |           |   |           def_list.pyi
+|   |   |       |   |           |   |           extra.pyi
+|   |   |       |   |           |   |           fenced_code.pyi
+|   |   |       |   |           |   |           footnotes.pyi
+|   |   |       |   |           |   |           legacy_attrs.pyi
+|   |   |       |   |           |   |           legacy_em.pyi
+|   |   |       |   |           |   |           md_in_html.pyi
+|   |   |       |   |           |   |           meta.pyi
+|   |   |       |   |           |   |           nl2br.pyi
+|   |   |       |   |           |   |           sane_lists.pyi
+|   |   |       |   |           |   |           smarty.pyi
+|   |   |       |   |           |   |           tables.pyi
+|   |   |       |   |           |   |           toc.pyi
+|   |   |       |   |           |   |           wikilinks.pyi
+|   |   |       |   |           |   |           __init__.pyi
+|   |   |       |   |           |   |           
+|   |   |       |   |           |   +---markupsafe
+|   |   |       |   |           |   |       _compat.pyi
+|   |   |       |   |           |   |       _constants.pyi
+|   |   |       |   |           |   |       _native.pyi
+|   |   |       |   |           |   |       _speedups.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---maxminddb
+|   |   |       |   |           |   |       compat.pyi
+|   |   |       |   |           |   |       const.pyi
+|   |   |       |   |           |   |       decoder.pyi
+|   |   |       |   |           |   |       errors.pyi
+|   |   |       |   |           |   |       extension.pyi
+|   |   |       |   |           |   |       reader.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---nmap
+|   |   |       |   |           |   |       nmap.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---paramiko
+|   |   |       |   |           |   |       agent.pyi
+|   |   |       |   |           |   |       auth_handler.pyi
+|   |   |       |   |           |   |       ber.pyi
+|   |   |       |   |           |   |       buffered_pipe.pyi
+|   |   |       |   |           |   |       channel.pyi
+|   |   |       |   |           |   |       client.pyi
+|   |   |       |   |           |   |       common.pyi
+|   |   |       |   |           |   |       compress.pyi
+|   |   |       |   |           |   |       config.pyi
+|   |   |       |   |           |   |       dsskey.pyi
+|   |   |       |   |           |   |       ecdsakey.pyi
+|   |   |       |   |           |   |       ed25519key.pyi
+|   |   |       |   |           |   |       file.pyi
+|   |   |       |   |           |   |       hostkeys.pyi
+|   |   |       |   |           |   |       kex_curve25519.pyi
+|   |   |       |   |           |   |       kex_ecdh_nist.pyi
+|   |   |       |   |           |   |       kex_gex.pyi
+|   |   |       |   |           |   |       kex_group1.pyi
+|   |   |       |   |           |   |       kex_group14.pyi
+|   |   |       |   |           |   |       kex_group16.pyi
+|   |   |       |   |           |   |       kex_gss.pyi
+|   |   |       |   |           |   |       message.pyi
+|   |   |       |   |           |   |       packet.pyi
+|   |   |       |   |           |   |       pipe.pyi
+|   |   |       |   |           |   |       pkey.pyi
+|   |   |       |   |           |   |       primes.pyi
+|   |   |       |   |           |   |       proxy.pyi
+|   |   |       |   |           |   |       py3compat.pyi
+|   |   |       |   |           |   |       rsakey.pyi
+|   |   |       |   |           |   |       server.pyi
+|   |   |       |   |           |   |       sftp.pyi
+|   |   |       |   |           |   |       sftp_attr.pyi
+|   |   |       |   |           |   |       sftp_client.pyi
+|   |   |       |   |           |   |       sftp_file.pyi
+|   |   |       |   |           |   |       sftp_handle.pyi
+|   |   |       |   |           |   |       sftp_server.pyi
+|   |   |       |   |           |   |       sftp_si.pyi
+|   |   |       |   |           |   |       ssh_exception.pyi
+|   |   |       |   |           |   |       ssh_gss.pyi
+|   |   |       |   |           |   |       transport.pyi
+|   |   |       |   |           |   |       util.pyi
+|   |   |       |   |           |   |       win_pageant.pyi
+|   |   |       |   |           |   |       _version.pyi
+|   |   |       |   |           |   |       _winapi.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---pymysql
+|   |   |       |   |           |   |   |   charset.pyi
+|   |   |       |   |           |   |   |   connections.pyi
+|   |   |       |   |           |   |   |   converters.pyi
+|   |   |       |   |           |   |   |   cursors.pyi
+|   |   |       |   |           |   |   |   err.pyi
+|   |   |       |   |           |   |   |   times.pyi
+|   |   |       |   |           |   |   |   util.pyi
+|   |   |       |   |           |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   
+|   |   |       |   |           |   |   \---constants
+|   |   |       |   |           |   |           CLIENT.pyi
+|   |   |       |   |           |   |           COMMAND.pyi
+|   |   |       |   |           |   |           ER.pyi
+|   |   |       |   |           |   |           FIELD_TYPE.pyi
+|   |   |       |   |           |   |           FLAG.pyi
+|   |   |       |   |           |   |           SERVER_STATUS.pyi
+|   |   |       |   |           |   |           __init__.pyi
+|   |   |       |   |           |   |           
+|   |   |       |   |           |   +---pynamodb
+|   |   |       |   |           |   |   |   attributes.pyi
+|   |   |       |   |           |   |   |   constants.pyi
+|   |   |       |   |           |   |   |   exceptions.pyi
+|   |   |       |   |           |   |   |   indexes.pyi
+|   |   |       |   |           |   |   |   models.pyi
+|   |   |       |   |           |   |   |   settings.pyi
+|   |   |       |   |           |   |   |   throttle.pyi
+|   |   |       |   |           |   |   |   types.pyi
+|   |   |       |   |           |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   
+|   |   |       |   |           |   |   \---connection
+|   |   |       |   |           |   |           base.pyi
+|   |   |       |   |           |   |           table.pyi
+|   |   |       |   |           |   |           util.pyi
+|   |   |       |   |           |   |           __init__.pyi
+|   |   |       |   |           |   |           
+|   |   |       |   |           |   +---pytz
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---pyVmomi
+|   |   |       |   |           |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   
+|   |   |       |   |           |   |   +---vim
+|   |   |       |   |           |   |   |       event.pyi
+|   |   |       |   |           |   |   |       fault.pyi
+|   |   |       |   |           |   |   |       option.pyi
+|   |   |       |   |           |   |   |       view.pyi
+|   |   |       |   |           |   |   |       __init__.pyi
+|   |   |       |   |           |   |   |       
+|   |   |       |   |           |   |   \---vmodl
+|   |   |       |   |           |   |           fault.pyi
+|   |   |       |   |           |   |           query.pyi
+|   |   |       |   |           |   |           __init__.pyi
+|   |   |       |   |           |   |           
+|   |   |       |   |           |   +---redis
+|   |   |       |   |           |   |       client.pyi
+|   |   |       |   |           |   |       connection.pyi
+|   |   |       |   |           |   |       exceptions.pyi
+|   |   |       |   |           |   |       utils.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---requests
+|   |   |       |   |           |   |   |   adapters.pyi
+|   |   |       |   |           |   |   |   api.pyi
+|   |   |       |   |           |   |   |   auth.pyi
+|   |   |       |   |           |   |   |   compat.pyi
+|   |   |       |   |           |   |   |   cookies.pyi
+|   |   |       |   |           |   |   |   exceptions.pyi
+|   |   |       |   |           |   |   |   hooks.pyi
+|   |   |       |   |           |   |   |   models.pyi
+|   |   |       |   |           |   |   |   sessions.pyi
+|   |   |       |   |           |   |   |   status_codes.pyi
+|   |   |       |   |           |   |   |   structures.pyi
+|   |   |       |   |           |   |   |   utils.pyi
+|   |   |       |   |           |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   
+|   |   |       |   |           |   |   \---packages
+|   |   |       |   |           |   |       |   __init__.pyi
+|   |   |       |   |           |   |       |   
+|   |   |       |   |           |   |       \---urllib3
+|   |   |       |   |           |   |           |   connection.pyi
+|   |   |       |   |           |   |           |   connectionpool.pyi
+|   |   |       |   |           |   |           |   exceptions.pyi
+|   |   |       |   |           |   |           |   fields.pyi
+|   |   |       |   |           |   |           |   filepost.pyi
+|   |   |       |   |           |   |           |   poolmanager.pyi
+|   |   |       |   |           |   |           |   request.pyi
+|   |   |       |   |           |   |           |   response.pyi
+|   |   |       |   |           |   |           |   _collections.pyi
+|   |   |       |   |           |   |           |   __init__.pyi
+|   |   |       |   |           |   |           |   
+|   |   |       |   |           |   |           +---contrib
+|   |   |       |   |           |   |           |       __init__.pyi
+|   |   |       |   |           |   |           |       
+|   |   |       |   |           |   |           +---packages
+|   |   |       |   |           |   |           |   |   __init__.pyi
+|   |   |       |   |           |   |           |   |   
+|   |   |       |   |           |   |           |   \---ssl_match_hostname
+|   |   |       |   |           |   |           |           _implementation.pyi
+|   |   |       |   |           |   |           |           __init__.pyi
+|   |   |       |   |           |   |           |           
+|   |   |       |   |           |   |           \---util
+|   |   |       |   |           |   |                   connection.pyi
+|   |   |       |   |           |   |                   request.pyi
+|   |   |       |   |           |   |                   response.pyi
+|   |   |       |   |           |   |                   retry.pyi
+|   |   |       |   |           |   |                   ssl_.pyi
+|   |   |       |   |           |   |                   timeout.pyi
+|   |   |       |   |           |   |                   url.pyi
+|   |   |       |   |           |   |                   __init__.pyi
+|   |   |       |   |           |   |                   
+|   |   |       |   |           |   +---retry
+|   |   |       |   |           |   |       api.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---simplejson
+|   |   |       |   |           |   |       decoder.pyi
+|   |   |       |   |           |   |       encoder.pyi
+|   |   |       |   |           |   |       scanner.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---slugify
+|   |   |       |   |           |   |       slugify.pyi
+|   |   |       |   |           |   |       special.pyi
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---tzlocal
+|   |   |       |   |           |   |       __init__.pyi
+|   |   |       |   |           |   |       
+|   |   |       |   |           |   +---werkzeug
+|   |   |       |   |           |   |   |   datastructures.pyi
+|   |   |       |   |           |   |   |   exceptions.pyi
+|   |   |       |   |           |   |   |   filesystem.pyi
+|   |   |       |   |           |   |   |   formparser.pyi
+|   |   |       |   |           |   |   |   http.pyi
+|   |   |       |   |           |   |   |   local.pyi
+|   |   |       |   |           |   |   |   posixemulation.pyi
+|   |   |       |   |           |   |   |   routing.pyi
+|   |   |       |   |           |   |   |   script.pyi
+|   |   |       |   |           |   |   |   security.pyi
+|   |   |       |   |           |   |   |   serving.pyi
+|   |   |       |   |           |   |   |   test.pyi
+|   |   |       |   |           |   |   |   testapp.pyi
+|   |   |       |   |           |   |   |   urls.pyi
+|   |   |       |   |           |   |   |   useragents.pyi
+|   |   |       |   |           |   |   |   utils.pyi
+|   |   |       |   |           |   |   |   wrappers.pyi
+|   |   |       |   |           |   |   |   wsgi.pyi
+|   |   |       |   |           |   |   |   _compat.pyi
+|   |   |       |   |           |   |   |   _internal.pyi
+|   |   |       |   |           |   |   |   _reloader.pyi
+|   |   |       |   |           |   |   |   __init__.pyi
+|   |   |       |   |           |   |   |   
+|   |   |       |   |           |   |   +---contrib
+|   |   |       |   |           |   |   |       atom.pyi
+|   |   |       |   |           |   |   |       cache.pyi
+|   |   |       |   |           |   |   |       fixers.pyi
+|   |   |       |   |           |   |   |       iterio.pyi
+|   |   |       |   |           |   |   |       jsrouting.pyi
+|   |   |       |   |           |   |   |       limiter.pyi
+|   |   |       |   |           |   |   |       lint.pyi
+|   |   |       |   |           |   |   |       profiler.pyi
+|   |   |       |   |           |   |   |       securecookie.pyi
+|   |   |       |   |           |   |   |       sessions.pyi
+|   |   |       |   |           |   |   |       testtools.pyi
+|   |   |       |   |           |   |   |       wrappers.pyi
+|   |   |       |   |           |   |   |       __init__.pyi
+|   |   |       |   |           |   |   |       
+|   |   |       |   |           |   |   +---debug
+|   |   |       |   |           |   |   |       console.pyi
+|   |   |       |   |           |   |   |       repr.pyi
+|   |   |       |   |           |   |   |       tbtools.pyi
+|   |   |       |   |           |   |   |       __init__.pyi
+|   |   |       |   |           |   |   |       
+|   |   |       |   |           |   |   \---middleware
+|   |   |       |   |           |   |           dispatcher.pyi
+|   |   |       |   |           |   |           http_proxy.pyi
+|   |   |       |   |           |   |           lint.pyi
+|   |   |       |   |           |   |           profiler.pyi
+|   |   |       |   |           |   |           proxy_fix.pyi
+|   |   |       |   |           |   |           shared_data.pyi
+|   |   |       |   |           |   |           __init__.pyi
+|   |   |       |   |           |   |           
+|   |   |       |   |           |   \---yaml
+|   |   |       |   |           |           composer.pyi
+|   |   |       |   |           |           constructor.pyi
+|   |   |       |   |           |           cyaml.pyi
+|   |   |       |   |           |           dumper.pyi
+|   |   |       |   |           |           emitter.pyi
+|   |   |       |   |           |           error.pyi
+|   |   |       |   |           |           events.pyi
+|   |   |       |   |           |           loader.pyi
+|   |   |       |   |           |           nodes.pyi
+|   |   |       |   |           |           parser.pyi
+|   |   |       |   |           |           reader.pyi
+|   |   |       |   |           |           representer.pyi
+|   |   |       |   |           |           resolver.pyi
+|   |   |       |   |           |           scanner.pyi
+|   |   |       |   |           |           serializer.pyi
+|   |   |       |   |           |           tokens.pyi
+|   |   |       |   |           |           __init__.pyi
+|   |   |       |   |           |           
+|   |   |       |   |           \---3
+|   |   |       |   |               |   contextvars.pyi
+|   |   |       |   |               |   dataclasses.pyi
+|   |   |       |   |               |   frozendict.pyi
+|   |   |       |   |               |   orjson.pyi
+|   |   |       |   |               |   
+|   |   |       |   |               +---aiofiles
+|   |   |       |   |               |   |   base.pyi
+|   |   |       |   |               |   |   os.pyi
+|   |   |       |   |               |   |   __init__.pyi
+|   |   |       |   |               |   |   
+|   |   |       |   |               |   \---threadpool
+|   |   |       |   |               |           binary.pyi
+|   |   |       |   |               |           text.pyi
+|   |   |       |   |               |           __init__.pyi
+|   |   |       |   |               |           
+|   |   |       |   |               +---docutils
+|   |   |       |   |               |   |   examples.pyi
+|   |   |       |   |               |   |   nodes.pyi
+|   |   |       |   |               |   |   __init__.pyi
+|   |   |       |   |               |   |   
+|   |   |       |   |               |   \---parsers
+|   |   |       |   |               |       |   __init__.pyi
+|   |   |       |   |               |       |   
+|   |   |       |   |               |       \---rst
+|   |   |       |   |               |               nodes.pyi
+|   |   |       |   |               |               roles.pyi
+|   |   |       |   |               |               states.pyi
+|   |   |       |   |               |               __init__.pyi
+|   |   |       |   |               |               
+|   |   |       |   |               +---filelock
+|   |   |       |   |               |       __init__.pyi
+|   |   |       |   |               |       
+|   |   |       |   |               +---freezegun
+|   |   |       |   |               |       api.pyi
+|   |   |       |   |               |       __init__.pyi
+|   |   |       |   |               |       
+|   |   |       |   |               +---jwt
+|   |   |       |   |               |   |   algorithms.pyi
+|   |   |       |   |               |   |   __init__.pyi
+|   |   |       |   |               |   |   
+|   |   |       |   |               |   \---contrib
+|   |   |       |   |               |       |   __init__.pyi
+|   |   |       |   |               |       |   
+|   |   |       |   |               |       \---algorithms
+|   |   |       |   |               |               pycrypto.pyi
+|   |   |       |   |               |               py_ecdsa.pyi
+|   |   |       |   |               |               __init__.pyi
+|   |   |       |   |               |               
+|   |   |       |   |               +---pkg_resources
+|   |   |       |   |               |       py31compat.pyi
+|   |   |       |   |               |       __init__.pyi
+|   |   |       |   |               |       
+|   |   |       |   |               +---pyrfc3339
+|   |   |       |   |               |       generator.pyi
+|   |   |       |   |               |       parser.pyi
+|   |   |       |   |               |       utils.pyi
+|   |   |       |   |               |       __init__.pyi
+|   |   |       |   |               |       
+|   |   |       |   |               +---six
+|   |   |       |   |               |   |   __init__.pyi
+|   |   |       |   |               |   |   
+|   |   |       |   |               |   \---moves
+|   |   |       |   |               |       |   BaseHTTPServer.pyi
+|   |   |       |   |               |       |   builtins.pyi
+|   |   |       |   |               |       |   CGIHTTPServer.pyi
+|   |   |       |   |               |       |   collections_abc.pyi
+|   |   |       |   |               |       |   configparser.pyi
+|   |   |       |   |               |       |   cPickle.pyi
+|   |   |       |   |               |       |   email_mime_base.pyi
+|   |   |       |   |               |       |   email_mime_multipart.pyi
+|   |   |       |   |               |       |   email_mime_nonmultipart.pyi
+|   |   |       |   |               |       |   email_mime_text.pyi
+|   |   |       |   |               |       |   html_entities.pyi
+|   |   |       |   |               |       |   html_parser.pyi
+|   |   |       |   |               |       |   http_client.pyi
+|   |   |       |   |               |       |   http_cookiejar.pyi
+|   |   |       |   |               |       |   http_cookies.pyi
+|   |   |       |   |               |       |   queue.pyi
+|   |   |       |   |               |       |   reprlib.pyi
+|   |   |       |   |               |       |   SimpleHTTPServer.pyi
+|   |   |       |   |               |       |   socketserver.pyi
+|   |   |       |   |               |       |   tkinter.pyi
+|   |   |       |   |               |       |   tkinter_commondialog.pyi
+|   |   |       |   |               |       |   tkinter_constants.pyi
+|   |   |       |   |               |       |   tkinter_dialog.pyi
+|   |   |       |   |               |       |   tkinter_filedialog.pyi
+|   |   |       |   |               |       |   tkinter_tkfiledialog.pyi
+|   |   |       |   |               |       |   tkinter_ttk.pyi
+|   |   |       |   |               |       |   urllib_error.pyi
+|   |   |       |   |               |       |   urllib_parse.pyi
+|   |   |       |   |               |       |   urllib_request.pyi
+|   |   |       |   |               |       |   urllib_response.pyi
+|   |   |       |   |               |       |   urllib_robotparser.pyi
+|   |   |       |   |               |       |   _dummy_thread.pyi
+|   |   |       |   |               |       |   _thread.pyi
+|   |   |       |   |               |       |   __init__.pyi
+|   |   |       |   |               |       |   
+|   |   |       |   |               |       \---urllib
+|   |   |       |   |               |               error.pyi
+|   |   |       |   |               |               parse.pyi
+|   |   |       |   |               |               request.pyi
+|   |   |       |   |               |               response.pyi
+|   |   |       |   |               |               robotparser.pyi
+|   |   |       |   |               |               __init__.pyi
+|   |   |       |   |               |               
+|   |   |       |   |               +---typed_ast
+|   |   |       |   |               |       ast27.pyi
+|   |   |       |   |               |       ast3.pyi
+|   |   |       |   |               |       conversions.pyi
+|   |   |       |   |               |       __init__.pyi
+|   |   |       |   |               |       
+|   |   |       |   |               \---waitress
+|   |   |       |   |                       adjustments.pyi
+|   |   |       |   |                       buffers.pyi
+|   |   |       |   |                       channel.pyi
+|   |   |       |   |                       compat.pyi
+|   |   |       |   |                       parser.pyi
+|   |   |       |   |                       proxy_headers.pyi
+|   |   |       |   |                       receiver.pyi
+|   |   |       |   |                       rfc7230.pyi
+|   |   |       |   |                       runner.pyi
+|   |   |       |   |                       server.pyi
+|   |   |       |   |                       task.pyi
+|   |   |       |   |                       trigger.pyi
+|   |   |       |   |                       utilities.pyi
+|   |   |       |   |                       wasyncore.pyi
+|   |   |       |   |                       __init__.pyi
+|   |   |       |   |                       
+|   |   |       |   \---__pycache__
+|   |   |       |           cache.cpython-312.pyc
+|   |   |       |           common.cpython-312.pyc
+|   |   |       |           debug.cpython-312.pyc
+|   |   |       |           file_io.cpython-312.pyc
+|   |   |       |           parser_utils.cpython-312.pyc
+|   |   |       |           settings.cpython-312.pyc
+|   |   |       |           utils.cpython-312.pyc
+|   |   |       |           _compatibility.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           __main__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---jedi-0.19.2.dist-info
+|   |   |       |       AUTHORS.txt
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE.txt
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       top_level.txt
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---jinja2
+|   |   |       |   |   async_utils.py
+|   |   |       |   |   bccache.py
+|   |   |       |   |   compiler.py
+|   |   |       |   |   constants.py
+|   |   |       |   |   debug.py
+|   |   |       |   |   defaults.py
+|   |   |       |   |   environment.py
+|   |   |       |   |   exceptions.py
+|   |   |       |   |   ext.py
+|   |   |       |   |   filters.py
+|   |   |       |   |   idtracking.py
+|   |   |       |   |   lexer.py
+|   |   |       |   |   loaders.py
+|   |   |       |   |   meta.py
+|   |   |       |   |   nativetypes.py
+|   |   |       |   |   nodes.py
+|   |   |       |   |   optimizer.py
+|   |   |       |   |   parser.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   runtime.py
+|   |   |       |   |   sandbox.py
+|   |   |       |   |   tests.py
+|   |   |       |   |   utils.py
+|   |   |       |   |   visitor.py
+|   |   |       |   |   _identifier.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   \---__pycache__
+|   |   |       |           async_utils.cpython-312.pyc
+|   |   |       |           bccache.cpython-312.pyc
+|   |   |       |           compiler.cpython-312.pyc
+|   |   |       |           constants.cpython-312.pyc
+|   |   |       |           debug.cpython-312.pyc
+|   |   |       |           defaults.cpython-312.pyc
+|   |   |       |           environment.cpython-312.pyc
+|   |   |       |           exceptions.cpython-312.pyc
+|   |   |       |           ext.cpython-312.pyc
+|   |   |       |           filters.cpython-312.pyc
+|   |   |       |           idtracking.cpython-312.pyc
+|   |   |       |           lexer.cpython-312.pyc
+|   |   |       |           loaders.cpython-312.pyc
+|   |   |       |           meta.cpython-312.pyc
+|   |   |       |           nativetypes.cpython-312.pyc
+|   |   |       |           nodes.cpython-312.pyc
+|   |   |       |           optimizer.cpython-312.pyc
+|   |   |       |           parser.cpython-312.pyc
+|   |   |       |           runtime.cpython-312.pyc
+|   |   |       |           sandbox.cpython-312.pyc
+|   |   |       |           tests.cpython-312.pyc
+|   |   |       |           utils.cpython-312.pyc
+|   |   |       |           visitor.cpython-312.pyc
+|   |   |       |           _identifier.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---jinja2-3.1.6.dist-info
+|   |   |       |   |   entry_points.txt
+|   |   |       |   |   INSTALLER
+|   |   |       |   |   METADATA
+|   |   |       |   |   RECORD
+|   |   |       |   |   WHEEL
+|   |   |       |   |   
+|   |   |       |   \---licenses
+|   |   |       |           LICENSE.txt
+|   |   |       |           
+|   |   |       +---jsonpickle
+|   |   |       |   |   backend.py
+|   |   |       |   |   compat.py
+|   |   |       |   |   errors.py
+|   |   |       |   |   handlers.py
+|   |   |       |   |   pickler.py
+|   |   |       |   |   tags.py
+|   |   |       |   |   tags_pd.py
+|   |   |       |   |   unpickler.py
+|   |   |       |   |   util.py
+|   |   |       |   |   version.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   +---ext
+|   |   |       |   |   |   gmpy.py
+|   |   |       |   |   |   numpy.py
+|   |   |       |   |   |   pandas.py
+|   |   |       |   |   |   yaml.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           gmpy.cpython-312.pyc
+|   |   |       |   |           numpy.cpython-312.pyc
+|   |   |       |   |           pandas.cpython-312.pyc
+|   |   |       |   |           yaml.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   \---__pycache__
+|   |   |       |           backend.cpython-312.pyc
+|   |   |       |           compat.cpython-312.pyc
+|   |   |       |           errors.cpython-312.pyc
+|   |   |       |           handlers.cpython-312.pyc
+|   |   |       |           pickler.cpython-312.pyc
+|   |   |       |           tags.cpython-312.pyc
+|   |   |       |           tags_pd.cpython-312.pyc
+|   |   |       |           unpickler.cpython-312.pyc
+|   |   |       |           util.cpython-312.pyc
+|   |   |       |           version.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---jsonpickle-4.1.1.dist-info
+|   |   |       |   |   INSTALLER
+|   |   |       |   |   METADATA
+|   |   |       |   |   RECORD
+|   |   |       |   |   top_level.txt
+|   |   |       |   |   WHEEL
+|   |   |       |   |   
+|   |   |       |   \---licenses
+|   |   |       |           LICENSE
+|   |   |       |           
+|   |   |       +---markupsafe
+|   |   |       |   |   py.typed
+|   |   |       |   |   _native.py
+|   |   |       |   |   _speedups.c
+|   |   |       |   |   _speedups.cp312-win_amd64.pyd
+|   |   |       |   |   _speedups.pyi
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   \---__pycache__
+|   |   |       |           _native.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---markupsafe-3.0.3.dist-info
+|   |   |       |   |   INSTALLER
+|   |   |       |   |   METADATA
+|   |   |       |   |   RECORD
+|   |   |       |   |   top_level.txt
+|   |   |       |   |   WHEEL
+|   |   |       |   |   
+|   |   |       |   \---licenses
+|   |   |       |           LICENSE.txt
+|   |   |       |           
+|   |   |       +---matplotlib_inline
+|   |   |       |   |   backend_inline.py
+|   |   |       |   |   config.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   \---__pycache__
+|   |   |       |           backend_inline.cpython-312.pyc
+|   |   |       |           config.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---matplotlib_inline-0.1.7.dist-info
+|   |   |       |       entry_points.txt
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       top_level.txt
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---networkx
+|   |   |       |   |   conftest.py
+|   |   |       |   |   convert.py
+|   |   |       |   |   convert_matrix.py
+|   |   |       |   |   exception.py
+|   |   |       |   |   lazy_imports.py
+|   |   |       |   |   relabel.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   +---algorithms
+|   |   |       |   |   |   asteroidal.py
+|   |   |       |   |   |   boundary.py
+|   |   |       |   |   |   bridges.py
+|   |   |       |   |   |   broadcasting.py
+|   |   |       |   |   |   chains.py
+|   |   |       |   |   |   chordal.py
+|   |   |       |   |   |   clique.py
+|   |   |       |   |   |   cluster.py
+|   |   |       |   |   |   communicability_alg.py
+|   |   |       |   |   |   core.py
+|   |   |       |   |   |   covering.py
+|   |   |       |   |   |   cuts.py
+|   |   |       |   |   |   cycles.py
+|   |   |       |   |   |   dag.py
+|   |   |       |   |   |   distance_measures.py
+|   |   |       |   |   |   distance_regular.py
+|   |   |       |   |   |   dominance.py
+|   |   |       |   |   |   dominating.py
+|   |   |       |   |   |   d_separation.py
+|   |   |       |   |   |   efficiency_measures.py
+|   |   |       |   |   |   euler.py
+|   |   |       |   |   |   graphical.py
+|   |   |       |   |   |   graph_hashing.py
+|   |   |       |   |   |   hierarchy.py
+|   |   |       |   |   |   hybrid.py
+|   |   |       |   |   |   isolate.py
+|   |   |       |   |   |   link_prediction.py
+|   |   |       |   |   |   lowest_common_ancestors.py
+|   |   |       |   |   |   matching.py
+|   |   |       |   |   |   mis.py
+|   |   |       |   |   |   moral.py
+|   |   |       |   |   |   node_classification.py
+|   |   |       |   |   |   non_randomness.py
+|   |   |       |   |   |   planarity.py
+|   |   |       |   |   |   planar_drawing.py
+|   |   |       |   |   |   polynomials.py
+|   |   |       |   |   |   reciprocity.py
+|   |   |       |   |   |   regular.py
+|   |   |       |   |   |   richclub.py
+|   |   |       |   |   |   similarity.py
+|   |   |       |   |   |   simple_paths.py
+|   |   |       |   |   |   smallworld.py
+|   |   |       |   |   |   smetric.py
+|   |   |       |   |   |   sparsifiers.py
+|   |   |       |   |   |   structuralholes.py
+|   |   |       |   |   |   summarization.py
+|   |   |       |   |   |   swap.py
+|   |   |       |   |   |   threshold.py
+|   |   |       |   |   |   time_dependent.py
+|   |   |       |   |   |   tournament.py
+|   |   |       |   |   |   triads.py
+|   |   |       |   |   |   vitality.py
+|   |   |       |   |   |   voronoi.py
+|   |   |       |   |   |   walks.py
+|   |   |       |   |   |   wiener.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---approximation
+|   |   |       |   |   |   |   clique.py
+|   |   |       |   |   |   |   clustering_coefficient.py
+|   |   |       |   |   |   |   connectivity.py
+|   |   |       |   |   |   |   density.py
+|   |   |       |   |   |   |   distance_measures.py
+|   |   |       |   |   |   |   dominating_set.py
+|   |   |       |   |   |   |   kcomponents.py
+|   |   |       |   |   |   |   matching.py
+|   |   |       |   |   |   |   maxcut.py
+|   |   |       |   |   |   |   ramsey.py
+|   |   |       |   |   |   |   steinertree.py
+|   |   |       |   |   |   |   traveling_salesman.py
+|   |   |       |   |   |   |   treewidth.py
+|   |   |       |   |   |   |   vertex_cover.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   test_approx_clust_coeff.py
+|   |   |       |   |   |   |   |   test_clique.py
+|   |   |       |   |   |   |   |   test_connectivity.py
+|   |   |       |   |   |   |   |   test_density.py
+|   |   |       |   |   |   |   |   test_distance_measures.py
+|   |   |       |   |   |   |   |   test_dominating_set.py
+|   |   |       |   |   |   |   |   test_kcomponents.py
+|   |   |       |   |   |   |   |   test_matching.py
+|   |   |       |   |   |   |   |   test_maxcut.py
+|   |   |       |   |   |   |   |   test_ramsey.py
+|   |   |       |   |   |   |   |   test_steinertree.py
+|   |   |       |   |   |   |   |   test_traveling_salesman.py
+|   |   |       |   |   |   |   |   test_treewidth.py
+|   |   |       |   |   |   |   |   test_vertex_cover.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_approx_clust_coeff.cpython-312.pyc
+|   |   |       |   |   |   |           test_clique.cpython-312.pyc
+|   |   |       |   |   |   |           test_connectivity.cpython-312.pyc
+|   |   |       |   |   |   |           test_density.cpython-312.pyc
+|   |   |       |   |   |   |           test_distance_measures.cpython-312.pyc
+|   |   |       |   |   |   |           test_dominating_set.cpython-312.pyc
+|   |   |       |   |   |   |           test_kcomponents.cpython-312.pyc
+|   |   |       |   |   |   |           test_matching.cpython-312.pyc
+|   |   |       |   |   |   |           test_maxcut.cpython-312.pyc
+|   |   |       |   |   |   |           test_ramsey.cpython-312.pyc
+|   |   |       |   |   |   |           test_steinertree.cpython-312.pyc
+|   |   |       |   |   |   |           test_traveling_salesman.cpython-312.pyc
+|   |   |       |   |   |   |           test_treewidth.cpython-312.pyc
+|   |   |       |   |   |   |           test_vertex_cover.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           clique.cpython-312.pyc
+|   |   |       |   |   |           clustering_coefficient.cpython-312.pyc
+|   |   |       |   |   |           connectivity.cpython-312.pyc
+|   |   |       |   |   |           density.cpython-312.pyc
+|   |   |       |   |   |           distance_measures.cpython-312.pyc
+|   |   |       |   |   |           dominating_set.cpython-312.pyc
+|   |   |       |   |   |           kcomponents.cpython-312.pyc
+|   |   |       |   |   |           matching.cpython-312.pyc
+|   |   |       |   |   |           maxcut.cpython-312.pyc
+|   |   |       |   |   |           ramsey.cpython-312.pyc
+|   |   |       |   |   |           steinertree.cpython-312.pyc
+|   |   |       |   |   |           traveling_salesman.cpython-312.pyc
+|   |   |       |   |   |           treewidth.cpython-312.pyc
+|   |   |       |   |   |           vertex_cover.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---assortativity
+|   |   |       |   |   |   |   connectivity.py
+|   |   |       |   |   |   |   correlation.py
+|   |   |       |   |   |   |   mixing.py
+|   |   |       |   |   |   |   neighbor_degree.py
+|   |   |       |   |   |   |   pairs.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   base_test.py
+|   |   |       |   |   |   |   |   test_connectivity.py
+|   |   |       |   |   |   |   |   test_correlation.py
+|   |   |       |   |   |   |   |   test_mixing.py
+|   |   |       |   |   |   |   |   test_neighbor_degree.py
+|   |   |       |   |   |   |   |   test_pairs.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           base_test.cpython-312.pyc
+|   |   |       |   |   |   |           test_connectivity.cpython-312.pyc
+|   |   |       |   |   |   |           test_correlation.cpython-312.pyc
+|   |   |       |   |   |   |           test_mixing.cpython-312.pyc
+|   |   |       |   |   |   |           test_neighbor_degree.cpython-312.pyc
+|   |   |       |   |   |   |           test_pairs.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           connectivity.cpython-312.pyc
+|   |   |       |   |   |           correlation.cpython-312.pyc
+|   |   |       |   |   |           mixing.cpython-312.pyc
+|   |   |       |   |   |           neighbor_degree.cpython-312.pyc
+|   |   |       |   |   |           pairs.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---bipartite
+|   |   |       |   |   |   |   basic.py
+|   |   |       |   |   |   |   centrality.py
+|   |   |       |   |   |   |   cluster.py
+|   |   |       |   |   |   |   covering.py
+|   |   |       |   |   |   |   edgelist.py
+|   |   |       |   |   |   |   extendability.py
+|   |   |       |   |   |   |   generators.py
+|   |   |       |   |   |   |   link_analysis.py
+|   |   |       |   |   |   |   matching.py
+|   |   |       |   |   |   |   matrix.py
+|   |   |       |   |   |   |   projection.py
+|   |   |       |   |   |   |   redundancy.py
+|   |   |       |   |   |   |   spectral.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   test_basic.py
+|   |   |       |   |   |   |   |   test_centrality.py
+|   |   |       |   |   |   |   |   test_cluster.py
+|   |   |       |   |   |   |   |   test_covering.py
+|   |   |       |   |   |   |   |   test_edgelist.py
+|   |   |       |   |   |   |   |   test_extendability.py
+|   |   |       |   |   |   |   |   test_generators.py
+|   |   |       |   |   |   |   |   test_link_analysis.py
+|   |   |       |   |   |   |   |   test_matching.py
+|   |   |       |   |   |   |   |   test_matrix.py
+|   |   |       |   |   |   |   |   test_project.py
+|   |   |       |   |   |   |   |   test_redundancy.py
+|   |   |       |   |   |   |   |   test_spectral_bipartivity.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_basic.cpython-312.pyc
+|   |   |       |   |   |   |           test_centrality.cpython-312.pyc
+|   |   |       |   |   |   |           test_cluster.cpython-312.pyc
+|   |   |       |   |   |   |           test_covering.cpython-312.pyc
+|   |   |       |   |   |   |           test_edgelist.cpython-312.pyc
+|   |   |       |   |   |   |           test_extendability.cpython-312.pyc
+|   |   |       |   |   |   |           test_generators.cpython-312.pyc
+|   |   |       |   |   |   |           test_link_analysis.cpython-312.pyc
+|   |   |       |   |   |   |           test_matching.cpython-312.pyc
+|   |   |       |   |   |   |           test_matrix.cpython-312.pyc
+|   |   |       |   |   |   |           test_project.cpython-312.pyc
+|   |   |       |   |   |   |           test_redundancy.cpython-312.pyc
+|   |   |       |   |   |   |           test_spectral_bipartivity.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           basic.cpython-312.pyc
+|   |   |       |   |   |           centrality.cpython-312.pyc
+|   |   |       |   |   |           cluster.cpython-312.pyc
+|   |   |       |   |   |           covering.cpython-312.pyc
+|   |   |       |   |   |           edgelist.cpython-312.pyc
+|   |   |       |   |   |           extendability.cpython-312.pyc
+|   |   |       |   |   |           generators.cpython-312.pyc
+|   |   |       |   |   |           link_analysis.cpython-312.pyc
+|   |   |       |   |   |           matching.cpython-312.pyc
+|   |   |       |   |   |           matrix.cpython-312.pyc
+|   |   |       |   |   |           projection.cpython-312.pyc
+|   |   |       |   |   |           redundancy.cpython-312.pyc
+|   |   |       |   |   |           spectral.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---centrality
+|   |   |       |   |   |   |   betweenness.py
+|   |   |       |   |   |   |   betweenness_subset.py
+|   |   |       |   |   |   |   closeness.py
+|   |   |       |   |   |   |   current_flow_betweenness.py
+|   |   |       |   |   |   |   current_flow_betweenness_subset.py
+|   |   |       |   |   |   |   current_flow_closeness.py
+|   |   |       |   |   |   |   degree_alg.py
+|   |   |       |   |   |   |   dispersion.py
+|   |   |       |   |   |   |   eigenvector.py
+|   |   |       |   |   |   |   flow_matrix.py
+|   |   |       |   |   |   |   group.py
+|   |   |       |   |   |   |   harmonic.py
+|   |   |       |   |   |   |   katz.py
+|   |   |       |   |   |   |   laplacian.py
+|   |   |       |   |   |   |   load.py
+|   |   |       |   |   |   |   percolation.py
+|   |   |       |   |   |   |   reaching.py
+|   |   |       |   |   |   |   second_order.py
+|   |   |       |   |   |   |   subgraph_alg.py
+|   |   |       |   |   |   |   trophic.py
+|   |   |       |   |   |   |   voterank_alg.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   test_betweenness_centrality.py
+|   |   |       |   |   |   |   |   test_betweenness_centrality_subset.py
+|   |   |       |   |   |   |   |   test_closeness_centrality.py
+|   |   |       |   |   |   |   |   test_current_flow_betweenness_centrality.py
+|   |   |       |   |   |   |   |   test_current_flow_betweenness_centrality_subset.py
+|   |   |       |   |   |   |   |   test_current_flow_closeness.py
+|   |   |       |   |   |   |   |   test_degree_centrality.py
+|   |   |       |   |   |   |   |   test_dispersion.py
+|   |   |       |   |   |   |   |   test_eigenvector_centrality.py
+|   |   |       |   |   |   |   |   test_group.py
+|   |   |       |   |   |   |   |   test_harmonic_centrality.py
+|   |   |       |   |   |   |   |   test_katz_centrality.py
+|   |   |       |   |   |   |   |   test_laplacian_centrality.py
+|   |   |       |   |   |   |   |   test_load_centrality.py
+|   |   |       |   |   |   |   |   test_percolation_centrality.py
+|   |   |       |   |   |   |   |   test_reaching.py
+|   |   |       |   |   |   |   |   test_second_order_centrality.py
+|   |   |       |   |   |   |   |   test_subgraph.py
+|   |   |       |   |   |   |   |   test_trophic.py
+|   |   |       |   |   |   |   |   test_voterank.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_betweenness_centrality.cpython-312.pyc
+|   |   |       |   |   |   |           test_betweenness_centrality_subset.cpython-312.pyc
+|   |   |       |   |   |   |           test_closeness_centrality.cpython-312.pyc
+|   |   |       |   |   |   |           test_current_flow_betweenness_centrality.cpython-312.pyc
+|   |   |       |   |   |   |           test_current_flow_betweenness_centrality_subset.cpython-312.pyc
+|   |   |       |   |   |   |           test_current_flow_closeness.cpython-312.pyc
+|   |   |       |   |   |   |           test_degree_centrality.cpython-312.pyc
+|   |   |       |   |   |   |           test_dispersion.cpython-312.pyc
+|   |   |       |   |   |   |           test_eigenvector_centrality.cpython-312.pyc
+|   |   |       |   |   |   |           test_group.cpython-312.pyc
+|   |   |       |   |   |   |           test_harmonic_centrality.cpython-312.pyc
+|   |   |       |   |   |   |           test_katz_centrality.cpython-312.pyc
+|   |   |       |   |   |   |           test_laplacian_centrality.cpython-312.pyc
+|   |   |       |   |   |   |           test_load_centrality.cpython-312.pyc
+|   |   |       |   |   |   |           test_percolation_centrality.cpython-312.pyc
+|   |   |       |   |   |   |           test_reaching.cpython-312.pyc
+|   |   |       |   |   |   |           test_second_order_centrality.cpython-312.pyc
+|   |   |       |   |   |   |           test_subgraph.cpython-312.pyc
+|   |   |       |   |   |   |           test_trophic.cpython-312.pyc
+|   |   |       |   |   |   |           test_voterank.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           betweenness.cpython-312.pyc
+|   |   |       |   |   |           betweenness_subset.cpython-312.pyc
+|   |   |       |   |   |           closeness.cpython-312.pyc
+|   |   |       |   |   |           current_flow_betweenness.cpython-312.pyc
+|   |   |       |   |   |           current_flow_betweenness_subset.cpython-312.pyc
+|   |   |       |   |   |           current_flow_closeness.cpython-312.pyc
+|   |   |       |   |   |           degree_alg.cpython-312.pyc
+|   |   |       |   |   |           dispersion.cpython-312.pyc
+|   |   |       |   |   |           eigenvector.cpython-312.pyc
+|   |   |       |   |   |           flow_matrix.cpython-312.pyc
+|   |   |       |   |   |           group.cpython-312.pyc
+|   |   |       |   |   |           harmonic.cpython-312.pyc
+|   |   |       |   |   |           katz.cpython-312.pyc
+|   |   |       |   |   |           laplacian.cpython-312.pyc
+|   |   |       |   |   |           load.cpython-312.pyc
+|   |   |       |   |   |           percolation.cpython-312.pyc
+|   |   |       |   |   |           reaching.cpython-312.pyc
+|   |   |       |   |   |           second_order.cpython-312.pyc
+|   |   |       |   |   |           subgraph_alg.cpython-312.pyc
+|   |   |       |   |   |           trophic.cpython-312.pyc
+|   |   |       |   |   |           voterank_alg.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---coloring
+|   |   |       |   |   |   |   equitable_coloring.py
+|   |   |       |   |   |   |   greedy_coloring.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   test_coloring.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_coloring.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           equitable_coloring.cpython-312.pyc
+|   |   |       |   |   |           greedy_coloring.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---community
+|   |   |       |   |   |   |   asyn_fluid.py
+|   |   |       |   |   |   |   centrality.py
+|   |   |       |   |   |   |   community_utils.py
+|   |   |       |   |   |   |   divisive.py
+|   |   |       |   |   |   |   kclique.py
+|   |   |       |   |   |   |   kernighan_lin.py
+|   |   |       |   |   |   |   label_propagation.py
+|   |   |       |   |   |   |   leiden.py
+|   |   |       |   |   |   |   local.py
+|   |   |       |   |   |   |   louvain.py
+|   |   |       |   |   |   |   lukes.py
+|   |   |       |   |   |   |   modularity_max.py
+|   |   |       |   |   |   |   quality.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   test_asyn_fluid.py
+|   |   |       |   |   |   |   |   test_centrality.py
+|   |   |       |   |   |   |   |   test_divisive.py
+|   |   |       |   |   |   |   |   test_kclique.py
+|   |   |       |   |   |   |   |   test_kernighan_lin.py
+|   |   |       |   |   |   |   |   test_label_propagation.py
+|   |   |       |   |   |   |   |   test_leiden.py
+|   |   |       |   |   |   |   |   test_local.py
+|   |   |       |   |   |   |   |   test_louvain.py
+|   |   |       |   |   |   |   |   test_lukes.py
+|   |   |       |   |   |   |   |   test_modularity_max.py
+|   |   |       |   |   |   |   |   test_quality.py
+|   |   |       |   |   |   |   |   test_utils.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_asyn_fluid.cpython-312.pyc
+|   |   |       |   |   |   |           test_centrality.cpython-312.pyc
+|   |   |       |   |   |   |           test_divisive.cpython-312.pyc
+|   |   |       |   |   |   |           test_kclique.cpython-312.pyc
+|   |   |       |   |   |   |           test_kernighan_lin.cpython-312.pyc
+|   |   |       |   |   |   |           test_label_propagation.cpython-312.pyc
+|   |   |       |   |   |   |           test_leiden.cpython-312.pyc
+|   |   |       |   |   |   |           test_local.cpython-312.pyc
+|   |   |       |   |   |   |           test_louvain.cpython-312.pyc
+|   |   |       |   |   |   |           test_lukes.cpython-312.pyc
+|   |   |       |   |   |   |           test_modularity_max.cpython-312.pyc
+|   |   |       |   |   |   |           test_quality.cpython-312.pyc
+|   |   |       |   |   |   |           test_utils.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           asyn_fluid.cpython-312.pyc
+|   |   |       |   |   |           centrality.cpython-312.pyc
+|   |   |       |   |   |           community_utils.cpython-312.pyc
+|   |   |       |   |   |           divisive.cpython-312.pyc
+|   |   |       |   |   |           kclique.cpython-312.pyc
+|   |   |       |   |   |           kernighan_lin.cpython-312.pyc
+|   |   |       |   |   |           label_propagation.cpython-312.pyc
+|   |   |       |   |   |           leiden.cpython-312.pyc
+|   |   |       |   |   |           local.cpython-312.pyc
+|   |   |       |   |   |           louvain.cpython-312.pyc
+|   |   |       |   |   |           lukes.cpython-312.pyc
+|   |   |       |   |   |           modularity_max.cpython-312.pyc
+|   |   |       |   |   |           quality.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---components
+|   |   |       |   |   |   |   attracting.py
+|   |   |       |   |   |   |   biconnected.py
+|   |   |       |   |   |   |   connected.py
+|   |   |       |   |   |   |   semiconnected.py
+|   |   |       |   |   |   |   strongly_connected.py
+|   |   |       |   |   |   |   weakly_connected.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   test_attracting.py
+|   |   |       |   |   |   |   |   test_biconnected.py
+|   |   |       |   |   |   |   |   test_connected.py
+|   |   |       |   |   |   |   |   test_semiconnected.py
+|   |   |       |   |   |   |   |   test_strongly_connected.py
+|   |   |       |   |   |   |   |   test_weakly_connected.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_attracting.cpython-312.pyc
+|   |   |       |   |   |   |           test_biconnected.cpython-312.pyc
+|   |   |       |   |   |   |           test_connected.cpython-312.pyc
+|   |   |       |   |   |   |           test_semiconnected.cpython-312.pyc
+|   |   |       |   |   |   |           test_strongly_connected.cpython-312.pyc
+|   |   |       |   |   |   |           test_weakly_connected.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           attracting.cpython-312.pyc
+|   |   |       |   |   |           biconnected.cpython-312.pyc
+|   |   |       |   |   |           connected.cpython-312.pyc
+|   |   |       |   |   |           semiconnected.cpython-312.pyc
+|   |   |       |   |   |           strongly_connected.cpython-312.pyc
+|   |   |       |   |   |           weakly_connected.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---connectivity
+|   |   |       |   |   |   |   connectivity.py
+|   |   |       |   |   |   |   cuts.py
+|   |   |       |   |   |   |   disjoint_paths.py
+|   |   |       |   |   |   |   edge_augmentation.py
+|   |   |       |   |   |   |   edge_kcomponents.py
+|   |   |       |   |   |   |   kcomponents.py
+|   |   |       |   |   |   |   kcutsets.py
+|   |   |       |   |   |   |   stoerwagner.py
+|   |   |       |   |   |   |   utils.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   test_connectivity.py
+|   |   |       |   |   |   |   |   test_cuts.py
+|   |   |       |   |   |   |   |   test_disjoint_paths.py
+|   |   |       |   |   |   |   |   test_edge_augmentation.py
+|   |   |       |   |   |   |   |   test_edge_kcomponents.py
+|   |   |       |   |   |   |   |   test_kcomponents.py
+|   |   |       |   |   |   |   |   test_kcutsets.py
+|   |   |       |   |   |   |   |   test_stoer_wagner.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_connectivity.cpython-312.pyc
+|   |   |       |   |   |   |           test_cuts.cpython-312.pyc
+|   |   |       |   |   |   |           test_disjoint_paths.cpython-312.pyc
+|   |   |       |   |   |   |           test_edge_augmentation.cpython-312.pyc
+|   |   |       |   |   |   |           test_edge_kcomponents.cpython-312.pyc
+|   |   |       |   |   |   |           test_kcomponents.cpython-312.pyc
+|   |   |       |   |   |   |           test_kcutsets.cpython-312.pyc
+|   |   |       |   |   |   |           test_stoer_wagner.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           connectivity.cpython-312.pyc
+|   |   |       |   |   |           cuts.cpython-312.pyc
+|   |   |       |   |   |           disjoint_paths.cpython-312.pyc
+|   |   |       |   |   |           edge_augmentation.cpython-312.pyc
+|   |   |       |   |   |           edge_kcomponents.cpython-312.pyc
+|   |   |       |   |   |           kcomponents.cpython-312.pyc
+|   |   |       |   |   |           kcutsets.cpython-312.pyc
+|   |   |       |   |   |           stoerwagner.cpython-312.pyc
+|   |   |       |   |   |           utils.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---flow
+|   |   |       |   |   |   |   boykovkolmogorov.py
+|   |   |       |   |   |   |   capacityscaling.py
+|   |   |       |   |   |   |   dinitz_alg.py
+|   |   |       |   |   |   |   edmondskarp.py
+|   |   |       |   |   |   |   gomory_hu.py
+|   |   |       |   |   |   |   maxflow.py
+|   |   |       |   |   |   |   mincost.py
+|   |   |       |   |   |   |   networksimplex.py
+|   |   |       |   |   |   |   preflowpush.py
+|   |   |       |   |   |   |   shortestaugmentingpath.py
+|   |   |       |   |   |   |   utils.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   gl1.gpickle.bz2
+|   |   |       |   |   |   |   |   gw1.gpickle.bz2
+|   |   |       |   |   |   |   |   netgen-2.gpickle.bz2
+|   |   |       |   |   |   |   |   test_gomory_hu.py
+|   |   |       |   |   |   |   |   test_maxflow.py
+|   |   |       |   |   |   |   |   test_maxflow_large_graph.py
+|   |   |       |   |   |   |   |   test_mincost.py
+|   |   |       |   |   |   |   |   test_networksimplex.py
+|   |   |       |   |   |   |   |   wlm3.gpickle.bz2
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_gomory_hu.cpython-312.pyc
+|   |   |       |   |   |   |           test_maxflow.cpython-312.pyc
+|   |   |       |   |   |   |           test_maxflow_large_graph.cpython-312.pyc
+|   |   |       |   |   |   |           test_mincost.cpython-312.pyc
+|   |   |       |   |   |   |           test_networksimplex.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           boykovkolmogorov.cpython-312.pyc
+|   |   |       |   |   |           capacityscaling.cpython-312.pyc
+|   |   |       |   |   |           dinitz_alg.cpython-312.pyc
+|   |   |       |   |   |           edmondskarp.cpython-312.pyc
+|   |   |       |   |   |           gomory_hu.cpython-312.pyc
+|   |   |       |   |   |           maxflow.cpython-312.pyc
+|   |   |       |   |   |           mincost.cpython-312.pyc
+|   |   |       |   |   |           networksimplex.cpython-312.pyc
+|   |   |       |   |   |           preflowpush.cpython-312.pyc
+|   |   |       |   |   |           shortestaugmentingpath.cpython-312.pyc
+|   |   |       |   |   |           utils.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---isomorphism
+|   |   |       |   |   |   |   ismags.py
+|   |   |       |   |   |   |   isomorph.py
+|   |   |       |   |   |   |   isomorphvf2.py
+|   |   |       |   |   |   |   matchhelpers.py
+|   |   |       |   |   |   |   temporalisomorphvf2.py
+|   |   |       |   |   |   |   tree_isomorphism.py
+|   |   |       |   |   |   |   vf2pp.py
+|   |   |       |   |   |   |   vf2userfunc.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   iso_r01_s80.A99
+|   |   |       |   |   |   |   |   iso_r01_s80.B99
+|   |   |       |   |   |   |   |   si2_b06_m200.A99
+|   |   |       |   |   |   |   |   si2_b06_m200.B99
+|   |   |       |   |   |   |   |   test_ismags.py
+|   |   |       |   |   |   |   |   test_isomorphism.py
+|   |   |       |   |   |   |   |   test_isomorphvf2.py
+|   |   |       |   |   |   |   |   test_match_helpers.py
+|   |   |       |   |   |   |   |   test_temporalisomorphvf2.py
+|   |   |       |   |   |   |   |   test_tree_isomorphism.py
+|   |   |       |   |   |   |   |   test_vf2pp.py
+|   |   |       |   |   |   |   |   test_vf2pp_helpers.py
+|   |   |       |   |   |   |   |   test_vf2userfunc.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_ismags.cpython-312.pyc
+|   |   |       |   |   |   |           test_isomorphism.cpython-312.pyc
+|   |   |       |   |   |   |           test_isomorphvf2.cpython-312.pyc
+|   |   |       |   |   |   |           test_match_helpers.cpython-312.pyc
+|   |   |       |   |   |   |           test_temporalisomorphvf2.cpython-312.pyc
+|   |   |       |   |   |   |           test_tree_isomorphism.cpython-312.pyc
+|   |   |       |   |   |   |           test_vf2pp.cpython-312.pyc
+|   |   |       |   |   |   |           test_vf2pp_helpers.cpython-312.pyc
+|   |   |       |   |   |   |           test_vf2userfunc.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           ismags.cpython-312.pyc
+|   |   |       |   |   |           isomorph.cpython-312.pyc
+|   |   |       |   |   |           isomorphvf2.cpython-312.pyc
+|   |   |       |   |   |           matchhelpers.cpython-312.pyc
+|   |   |       |   |   |           temporalisomorphvf2.cpython-312.pyc
+|   |   |       |   |   |           tree_isomorphism.cpython-312.pyc
+|   |   |       |   |   |           vf2pp.cpython-312.pyc
+|   |   |       |   |   |           vf2userfunc.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---link_analysis
+|   |   |       |   |   |   |   hits_alg.py
+|   |   |       |   |   |   |   pagerank_alg.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   test_hits.py
+|   |   |       |   |   |   |   |   test_pagerank.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_hits.cpython-312.pyc
+|   |   |       |   |   |   |           test_pagerank.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           hits_alg.cpython-312.pyc
+|   |   |       |   |   |           pagerank_alg.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---minors
+|   |   |       |   |   |   |   contraction.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   test_contraction.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_contraction.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           contraction.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---operators
+|   |   |       |   |   |   |   all.py
+|   |   |       |   |   |   |   binary.py
+|   |   |       |   |   |   |   product.py
+|   |   |       |   |   |   |   unary.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   test_all.py
+|   |   |       |   |   |   |   |   test_binary.py
+|   |   |       |   |   |   |   |   test_product.py
+|   |   |       |   |   |   |   |   test_unary.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_all.cpython-312.pyc
+|   |   |       |   |   |   |           test_binary.cpython-312.pyc
+|   |   |       |   |   |   |           test_product.cpython-312.pyc
+|   |   |       |   |   |   |           test_unary.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           all.cpython-312.pyc
+|   |   |       |   |   |           binary.cpython-312.pyc
+|   |   |       |   |   |           product.cpython-312.pyc
+|   |   |       |   |   |           unary.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---shortest_paths
+|   |   |       |   |   |   |   astar.py
+|   |   |       |   |   |   |   dense.py
+|   |   |       |   |   |   |   generic.py
+|   |   |       |   |   |   |   unweighted.py
+|   |   |       |   |   |   |   weighted.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   test_astar.py
+|   |   |       |   |   |   |   |   test_dense.py
+|   |   |       |   |   |   |   |   test_dense_numpy.py
+|   |   |       |   |   |   |   |   test_generic.py
+|   |   |       |   |   |   |   |   test_unweighted.py
+|   |   |       |   |   |   |   |   test_weighted.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_astar.cpython-312.pyc
+|   |   |       |   |   |   |           test_dense.cpython-312.pyc
+|   |   |       |   |   |   |           test_dense_numpy.cpython-312.pyc
+|   |   |       |   |   |   |           test_generic.cpython-312.pyc
+|   |   |       |   |   |   |           test_unweighted.cpython-312.pyc
+|   |   |       |   |   |   |           test_weighted.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           astar.cpython-312.pyc
+|   |   |       |   |   |           dense.cpython-312.pyc
+|   |   |       |   |   |           generic.cpython-312.pyc
+|   |   |       |   |   |           unweighted.cpython-312.pyc
+|   |   |       |   |   |           weighted.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---tests
+|   |   |       |   |   |   |   test_asteroidal.py
+|   |   |       |   |   |   |   test_boundary.py
+|   |   |       |   |   |   |   test_bridges.py
+|   |   |       |   |   |   |   test_broadcasting.py
+|   |   |       |   |   |   |   test_chains.py
+|   |   |       |   |   |   |   test_chordal.py
+|   |   |       |   |   |   |   test_clique.py
+|   |   |       |   |   |   |   test_cluster.py
+|   |   |       |   |   |   |   test_communicability.py
+|   |   |       |   |   |   |   test_core.py
+|   |   |       |   |   |   |   test_covering.py
+|   |   |       |   |   |   |   test_cuts.py
+|   |   |       |   |   |   |   test_cycles.py
+|   |   |       |   |   |   |   test_dag.py
+|   |   |       |   |   |   |   test_distance_measures.py
+|   |   |       |   |   |   |   test_distance_regular.py
+|   |   |       |   |   |   |   test_dominance.py
+|   |   |       |   |   |   |   test_dominating.py
+|   |   |       |   |   |   |   test_d_separation.py
+|   |   |       |   |   |   |   test_efficiency.py
+|   |   |       |   |   |   |   test_euler.py
+|   |   |       |   |   |   |   test_graphical.py
+|   |   |       |   |   |   |   test_graph_hashing.py
+|   |   |       |   |   |   |   test_hierarchy.py
+|   |   |       |   |   |   |   test_hybrid.py
+|   |   |       |   |   |   |   test_isolate.py
+|   |   |       |   |   |   |   test_link_prediction.py
+|   |   |       |   |   |   |   test_lowest_common_ancestors.py
+|   |   |       |   |   |   |   test_matching.py
+|   |   |       |   |   |   |   test_max_weight_clique.py
+|   |   |       |   |   |   |   test_mis.py
+|   |   |       |   |   |   |   test_moral.py
+|   |   |       |   |   |   |   test_node_classification.py
+|   |   |       |   |   |   |   test_non_randomness.py
+|   |   |       |   |   |   |   test_planarity.py
+|   |   |       |   |   |   |   test_planar_drawing.py
+|   |   |       |   |   |   |   test_polynomials.py
+|   |   |       |   |   |   |   test_reciprocity.py
+|   |   |       |   |   |   |   test_regular.py
+|   |   |       |   |   |   |   test_richclub.py
+|   |   |       |   |   |   |   test_similarity.py
+|   |   |       |   |   |   |   test_simple_paths.py
+|   |   |       |   |   |   |   test_smallworld.py
+|   |   |       |   |   |   |   test_smetric.py
+|   |   |       |   |   |   |   test_sparsifiers.py
+|   |   |       |   |   |   |   test_structuralholes.py
+|   |   |       |   |   |   |   test_summarization.py
+|   |   |       |   |   |   |   test_swap.py
+|   |   |       |   |   |   |   test_threshold.py
+|   |   |       |   |   |   |   test_time_dependent.py
+|   |   |       |   |   |   |   test_tournament.py
+|   |   |       |   |   |   |   test_triads.py
+|   |   |       |   |   |   |   test_vitality.py
+|   |   |       |   |   |   |   test_voronoi.py
+|   |   |       |   |   |   |   test_walks.py
+|   |   |       |   |   |   |   test_wiener.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           test_asteroidal.cpython-312.pyc
+|   |   |       |   |   |           test_boundary.cpython-312.pyc
+|   |   |       |   |   |           test_bridges.cpython-312.pyc
+|   |   |       |   |   |           test_broadcasting.cpython-312.pyc
+|   |   |       |   |   |           test_chains.cpython-312.pyc
+|   |   |       |   |   |           test_chordal.cpython-312.pyc
+|   |   |       |   |   |           test_clique.cpython-312.pyc
+|   |   |       |   |   |           test_cluster.cpython-312.pyc
+|   |   |       |   |   |           test_communicability.cpython-312.pyc
+|   |   |       |   |   |           test_core.cpython-312.pyc
+|   |   |       |   |   |           test_covering.cpython-312.pyc
+|   |   |       |   |   |           test_cuts.cpython-312.pyc
+|   |   |       |   |   |           test_cycles.cpython-312.pyc
+|   |   |       |   |   |           test_dag.cpython-312.pyc
+|   |   |       |   |   |           test_distance_measures.cpython-312.pyc
+|   |   |       |   |   |           test_distance_regular.cpython-312.pyc
+|   |   |       |   |   |           test_dominance.cpython-312.pyc
+|   |   |       |   |   |           test_dominating.cpython-312.pyc
+|   |   |       |   |   |           test_d_separation.cpython-312.pyc
+|   |   |       |   |   |           test_efficiency.cpython-312.pyc
+|   |   |       |   |   |           test_euler.cpython-312.pyc
+|   |   |       |   |   |           test_graphical.cpython-312.pyc
+|   |   |       |   |   |           test_graph_hashing.cpython-312.pyc
+|   |   |       |   |   |           test_hierarchy.cpython-312.pyc
+|   |   |       |   |   |           test_hybrid.cpython-312.pyc
+|   |   |       |   |   |           test_isolate.cpython-312.pyc
+|   |   |       |   |   |           test_link_prediction.cpython-312.pyc
+|   |   |       |   |   |           test_lowest_common_ancestors.cpython-312.pyc
+|   |   |       |   |   |           test_matching.cpython-312.pyc
+|   |   |       |   |   |           test_max_weight_clique.cpython-312.pyc
+|   |   |       |   |   |           test_mis.cpython-312.pyc
+|   |   |       |   |   |           test_moral.cpython-312.pyc
+|   |   |       |   |   |           test_node_classification.cpython-312.pyc
+|   |   |       |   |   |           test_non_randomness.cpython-312.pyc
+|   |   |       |   |   |           test_planarity.cpython-312.pyc
+|   |   |       |   |   |           test_planar_drawing.cpython-312.pyc
+|   |   |       |   |   |           test_polynomials.cpython-312.pyc
+|   |   |       |   |   |           test_reciprocity.cpython-312.pyc
+|   |   |       |   |   |           test_regular.cpython-312.pyc
+|   |   |       |   |   |           test_richclub.cpython-312.pyc
+|   |   |       |   |   |           test_similarity.cpython-312.pyc
+|   |   |       |   |   |           test_simple_paths.cpython-312.pyc
+|   |   |       |   |   |           test_smallworld.cpython-312.pyc
+|   |   |       |   |   |           test_smetric.cpython-312.pyc
+|   |   |       |   |   |           test_sparsifiers.cpython-312.pyc
+|   |   |       |   |   |           test_structuralholes.cpython-312.pyc
+|   |   |       |   |   |           test_summarization.cpython-312.pyc
+|   |   |       |   |   |           test_swap.cpython-312.pyc
+|   |   |       |   |   |           test_threshold.cpython-312.pyc
+|   |   |       |   |   |           test_time_dependent.cpython-312.pyc
+|   |   |       |   |   |           test_tournament.cpython-312.pyc
+|   |   |       |   |   |           test_triads.cpython-312.pyc
+|   |   |       |   |   |           test_vitality.cpython-312.pyc
+|   |   |       |   |   |           test_voronoi.cpython-312.pyc
+|   |   |       |   |   |           test_walks.cpython-312.pyc
+|   |   |       |   |   |           test_wiener.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---traversal
+|   |   |       |   |   |   |   beamsearch.py
+|   |   |       |   |   |   |   breadth_first_search.py
+|   |   |       |   |   |   |   depth_first_search.py
+|   |   |       |   |   |   |   edgebfs.py
+|   |   |       |   |   |   |   edgedfs.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   test_beamsearch.py
+|   |   |       |   |   |   |   |   test_bfs.py
+|   |   |       |   |   |   |   |   test_dfs.py
+|   |   |       |   |   |   |   |   test_edgebfs.py
+|   |   |       |   |   |   |   |   test_edgedfs.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_beamsearch.cpython-312.pyc
+|   |   |       |   |   |   |           test_bfs.cpython-312.pyc
+|   |   |       |   |   |   |           test_dfs.cpython-312.pyc
+|   |   |       |   |   |   |           test_edgebfs.cpython-312.pyc
+|   |   |       |   |   |   |           test_edgedfs.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           beamsearch.cpython-312.pyc
+|   |   |       |   |   |           breadth_first_search.cpython-312.pyc
+|   |   |       |   |   |           depth_first_search.cpython-312.pyc
+|   |   |       |   |   |           edgebfs.cpython-312.pyc
+|   |   |       |   |   |           edgedfs.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---tree
+|   |   |       |   |   |   |   branchings.py
+|   |   |       |   |   |   |   coding.py
+|   |   |       |   |   |   |   decomposition.py
+|   |   |       |   |   |   |   mst.py
+|   |   |       |   |   |   |   operations.py
+|   |   |       |   |   |   |   recognition.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   test_branchings.py
+|   |   |       |   |   |   |   |   test_coding.py
+|   |   |       |   |   |   |   |   test_decomposition.py
+|   |   |       |   |   |   |   |   test_mst.py
+|   |   |       |   |   |   |   |   test_operations.py
+|   |   |       |   |   |   |   |   test_recognition.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_branchings.cpython-312.pyc
+|   |   |       |   |   |   |           test_coding.cpython-312.pyc
+|   |   |       |   |   |   |           test_decomposition.cpython-312.pyc
+|   |   |       |   |   |   |           test_mst.cpython-312.pyc
+|   |   |       |   |   |   |           test_operations.cpython-312.pyc
+|   |   |       |   |   |   |           test_recognition.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           branchings.cpython-312.pyc
+|   |   |       |   |   |           coding.cpython-312.pyc
+|   |   |       |   |   |           decomposition.cpython-312.pyc
+|   |   |       |   |   |           mst.cpython-312.pyc
+|   |   |       |   |   |           operations.cpython-312.pyc
+|   |   |       |   |   |           recognition.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           asteroidal.cpython-312.pyc
+|   |   |       |   |           boundary.cpython-312.pyc
+|   |   |       |   |           bridges.cpython-312.pyc
+|   |   |       |   |           broadcasting.cpython-312.pyc
+|   |   |       |   |           chains.cpython-312.pyc
+|   |   |       |   |           chordal.cpython-312.pyc
+|   |   |       |   |           clique.cpython-312.pyc
+|   |   |       |   |           cluster.cpython-312.pyc
+|   |   |       |   |           communicability_alg.cpython-312.pyc
+|   |   |       |   |           core.cpython-312.pyc
+|   |   |       |   |           covering.cpython-312.pyc
+|   |   |       |   |           cuts.cpython-312.pyc
+|   |   |       |   |           cycles.cpython-312.pyc
+|   |   |       |   |           dag.cpython-312.pyc
+|   |   |       |   |           distance_measures.cpython-312.pyc
+|   |   |       |   |           distance_regular.cpython-312.pyc
+|   |   |       |   |           dominance.cpython-312.pyc
+|   |   |       |   |           dominating.cpython-312.pyc
+|   |   |       |   |           d_separation.cpython-312.pyc
+|   |   |       |   |           efficiency_measures.cpython-312.pyc
+|   |   |       |   |           euler.cpython-312.pyc
+|   |   |       |   |           graphical.cpython-312.pyc
+|   |   |       |   |           graph_hashing.cpython-312.pyc
+|   |   |       |   |           hierarchy.cpython-312.pyc
+|   |   |       |   |           hybrid.cpython-312.pyc
+|   |   |       |   |           isolate.cpython-312.pyc
+|   |   |       |   |           link_prediction.cpython-312.pyc
+|   |   |       |   |           lowest_common_ancestors.cpython-312.pyc
+|   |   |       |   |           matching.cpython-312.pyc
+|   |   |       |   |           mis.cpython-312.pyc
+|   |   |       |   |           moral.cpython-312.pyc
+|   |   |       |   |           node_classification.cpython-312.pyc
+|   |   |       |   |           non_randomness.cpython-312.pyc
+|   |   |       |   |           planarity.cpython-312.pyc
+|   |   |       |   |           planar_drawing.cpython-312.pyc
+|   |   |       |   |           polynomials.cpython-312.pyc
+|   |   |       |   |           reciprocity.cpython-312.pyc
+|   |   |       |   |           regular.cpython-312.pyc
+|   |   |       |   |           richclub.cpython-312.pyc
+|   |   |       |   |           similarity.cpython-312.pyc
+|   |   |       |   |           simple_paths.cpython-312.pyc
+|   |   |       |   |           smallworld.cpython-312.pyc
+|   |   |       |   |           smetric.cpython-312.pyc
+|   |   |       |   |           sparsifiers.cpython-312.pyc
+|   |   |       |   |           structuralholes.cpython-312.pyc
+|   |   |       |   |           summarization.cpython-312.pyc
+|   |   |       |   |           swap.cpython-312.pyc
+|   |   |       |   |           threshold.cpython-312.pyc
+|   |   |       |   |           time_dependent.cpython-312.pyc
+|   |   |       |   |           tournament.cpython-312.pyc
+|   |   |       |   |           triads.cpython-312.pyc
+|   |   |       |   |           vitality.cpython-312.pyc
+|   |   |       |   |           voronoi.cpython-312.pyc
+|   |   |       |   |           walks.cpython-312.pyc
+|   |   |       |   |           wiener.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---classes
+|   |   |       |   |   |   coreviews.py
+|   |   |       |   |   |   digraph.py
+|   |   |       |   |   |   filters.py
+|   |   |       |   |   |   function.py
+|   |   |       |   |   |   graph.py
+|   |   |       |   |   |   graphviews.py
+|   |   |       |   |   |   multidigraph.py
+|   |   |       |   |   |   multigraph.py
+|   |   |       |   |   |   reportviews.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---tests
+|   |   |       |   |   |   |   dispatch_interface.py
+|   |   |       |   |   |   |   historical_tests.py
+|   |   |       |   |   |   |   test_coreviews.py
+|   |   |       |   |   |   |   test_digraph.py
+|   |   |       |   |   |   |   test_digraph_historical.py
+|   |   |       |   |   |   |   test_filters.py
+|   |   |       |   |   |   |   test_function.py
+|   |   |       |   |   |   |   test_graph.py
+|   |   |       |   |   |   |   test_graphviews.py
+|   |   |       |   |   |   |   test_graph_historical.py
+|   |   |       |   |   |   |   test_multidigraph.py
+|   |   |       |   |   |   |   test_multigraph.py
+|   |   |       |   |   |   |   test_reportviews.py
+|   |   |       |   |   |   |   test_special.py
+|   |   |       |   |   |   |   test_subgraphviews.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           dispatch_interface.cpython-312.pyc
+|   |   |       |   |   |           historical_tests.cpython-312.pyc
+|   |   |       |   |   |           test_coreviews.cpython-312.pyc
+|   |   |       |   |   |           test_digraph.cpython-312.pyc
+|   |   |       |   |   |           test_digraph_historical.cpython-312.pyc
+|   |   |       |   |   |           test_filters.cpython-312.pyc
+|   |   |       |   |   |           test_function.cpython-312.pyc
+|   |   |       |   |   |           test_graph.cpython-312.pyc
+|   |   |       |   |   |           test_graphviews.cpython-312.pyc
+|   |   |       |   |   |           test_graph_historical.cpython-312.pyc
+|   |   |       |   |   |           test_multidigraph.cpython-312.pyc
+|   |   |       |   |   |           test_multigraph.cpython-312.pyc
+|   |   |       |   |   |           test_reportviews.cpython-312.pyc
+|   |   |       |   |   |           test_special.cpython-312.pyc
+|   |   |       |   |   |           test_subgraphviews.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           coreviews.cpython-312.pyc
+|   |   |       |   |           digraph.cpython-312.pyc
+|   |   |       |   |           filters.cpython-312.pyc
+|   |   |       |   |           function.cpython-312.pyc
+|   |   |       |   |           graph.cpython-312.pyc
+|   |   |       |   |           graphviews.cpython-312.pyc
+|   |   |       |   |           multidigraph.cpython-312.pyc
+|   |   |       |   |           multigraph.cpython-312.pyc
+|   |   |       |   |           reportviews.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---drawing
+|   |   |       |   |   |   layout.py
+|   |   |       |   |   |   nx_agraph.py
+|   |   |       |   |   |   nx_latex.py
+|   |   |       |   |   |   nx_pydot.py
+|   |   |       |   |   |   nx_pylab.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---tests
+|   |   |       |   |   |   |   test_agraph.py
+|   |   |       |   |   |   |   test_latex.py
+|   |   |       |   |   |   |   test_layout.py
+|   |   |       |   |   |   |   test_pydot.py
+|   |   |       |   |   |   |   test_pylab.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---baseline
+|   |   |       |   |   |   |       test_display_complex.png
+|   |   |       |   |   |   |       test_display_empty_graph.png
+|   |   |       |   |   |   |       test_display_house_with_colors.png
+|   |   |       |   |   |   |       test_display_labels_and_colors.png
+|   |   |       |   |   |   |       test_display_shortest_path.png
+|   |   |       |   |   |   |       test_house_with_colors.png
+|   |   |       |   |   |   |       
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           test_agraph.cpython-312.pyc
+|   |   |       |   |   |           test_latex.cpython-312.pyc
+|   |   |       |   |   |           test_layout.cpython-312.pyc
+|   |   |       |   |   |           test_pydot.cpython-312.pyc
+|   |   |       |   |   |           test_pylab.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           layout.cpython-312.pyc
+|   |   |       |   |           nx_agraph.cpython-312.pyc
+|   |   |       |   |           nx_latex.cpython-312.pyc
+|   |   |       |   |           nx_pydot.cpython-312.pyc
+|   |   |       |   |           nx_pylab.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---generators
+|   |   |       |   |   |   atlas.dat.gz
+|   |   |       |   |   |   atlas.py
+|   |   |       |   |   |   classic.py
+|   |   |       |   |   |   cographs.py
+|   |   |       |   |   |   community.py
+|   |   |       |   |   |   degree_seq.py
+|   |   |       |   |   |   directed.py
+|   |   |       |   |   |   duplication.py
+|   |   |       |   |   |   ego.py
+|   |   |       |   |   |   expanders.py
+|   |   |       |   |   |   geometric.py
+|   |   |       |   |   |   harary_graph.py
+|   |   |       |   |   |   internet_as_graphs.py
+|   |   |       |   |   |   intersection.py
+|   |   |       |   |   |   interval_graph.py
+|   |   |       |   |   |   joint_degree_seq.py
+|   |   |       |   |   |   lattice.py
+|   |   |       |   |   |   line.py
+|   |   |       |   |   |   mycielski.py
+|   |   |       |   |   |   nonisomorphic_trees.py
+|   |   |       |   |   |   random_clustered.py
+|   |   |       |   |   |   random_graphs.py
+|   |   |       |   |   |   small.py
+|   |   |       |   |   |   social.py
+|   |   |       |   |   |   spectral_graph_forge.py
+|   |   |       |   |   |   stochastic.py
+|   |   |       |   |   |   sudoku.py
+|   |   |       |   |   |   time_series.py
+|   |   |       |   |   |   trees.py
+|   |   |       |   |   |   triads.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---tests
+|   |   |       |   |   |   |   test_atlas.py
+|   |   |       |   |   |   |   test_classic.py
+|   |   |       |   |   |   |   test_cographs.py
+|   |   |       |   |   |   |   test_community.py
+|   |   |       |   |   |   |   test_degree_seq.py
+|   |   |       |   |   |   |   test_directed.py
+|   |   |       |   |   |   |   test_duplication.py
+|   |   |       |   |   |   |   test_ego.py
+|   |   |       |   |   |   |   test_expanders.py
+|   |   |       |   |   |   |   test_geometric.py
+|   |   |       |   |   |   |   test_harary_graph.py
+|   |   |       |   |   |   |   test_internet_as_graphs.py
+|   |   |       |   |   |   |   test_intersection.py
+|   |   |       |   |   |   |   test_interval_graph.py
+|   |   |       |   |   |   |   test_joint_degree_seq.py
+|   |   |       |   |   |   |   test_lattice.py
+|   |   |       |   |   |   |   test_line.py
+|   |   |       |   |   |   |   test_mycielski.py
+|   |   |       |   |   |   |   test_nonisomorphic_trees.py
+|   |   |       |   |   |   |   test_random_clustered.py
+|   |   |       |   |   |   |   test_random_graphs.py
+|   |   |       |   |   |   |   test_small.py
+|   |   |       |   |   |   |   test_spectral_graph_forge.py
+|   |   |       |   |   |   |   test_stochastic.py
+|   |   |       |   |   |   |   test_sudoku.py
+|   |   |       |   |   |   |   test_time_series.py
+|   |   |       |   |   |   |   test_trees.py
+|   |   |       |   |   |   |   test_triads.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           test_atlas.cpython-312.pyc
+|   |   |       |   |   |           test_classic.cpython-312.pyc
+|   |   |       |   |   |           test_cographs.cpython-312.pyc
+|   |   |       |   |   |           test_community.cpython-312.pyc
+|   |   |       |   |   |           test_degree_seq.cpython-312.pyc
+|   |   |       |   |   |           test_directed.cpython-312.pyc
+|   |   |       |   |   |           test_duplication.cpython-312.pyc
+|   |   |       |   |   |           test_ego.cpython-312.pyc
+|   |   |       |   |   |           test_expanders.cpython-312.pyc
+|   |   |       |   |   |           test_geometric.cpython-312.pyc
+|   |   |       |   |   |           test_harary_graph.cpython-312.pyc
+|   |   |       |   |   |           test_internet_as_graphs.cpython-312.pyc
+|   |   |       |   |   |           test_intersection.cpython-312.pyc
+|   |   |       |   |   |           test_interval_graph.cpython-312.pyc
+|   |   |       |   |   |           test_joint_degree_seq.cpython-312.pyc
+|   |   |       |   |   |           test_lattice.cpython-312.pyc
+|   |   |       |   |   |           test_line.cpython-312.pyc
+|   |   |       |   |   |           test_mycielski.cpython-312.pyc
+|   |   |       |   |   |           test_nonisomorphic_trees.cpython-312.pyc
+|   |   |       |   |   |           test_random_clustered.cpython-312.pyc
+|   |   |       |   |   |           test_random_graphs.cpython-312.pyc
+|   |   |       |   |   |           test_small.cpython-312.pyc
+|   |   |       |   |   |           test_spectral_graph_forge.cpython-312.pyc
+|   |   |       |   |   |           test_stochastic.cpython-312.pyc
+|   |   |       |   |   |           test_sudoku.cpython-312.pyc
+|   |   |       |   |   |           test_time_series.cpython-312.pyc
+|   |   |       |   |   |           test_trees.cpython-312.pyc
+|   |   |       |   |   |           test_triads.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           atlas.cpython-312.pyc
+|   |   |       |   |           classic.cpython-312.pyc
+|   |   |       |   |           cographs.cpython-312.pyc
+|   |   |       |   |           community.cpython-312.pyc
+|   |   |       |   |           degree_seq.cpython-312.pyc
+|   |   |       |   |           directed.cpython-312.pyc
+|   |   |       |   |           duplication.cpython-312.pyc
+|   |   |       |   |           ego.cpython-312.pyc
+|   |   |       |   |           expanders.cpython-312.pyc
+|   |   |       |   |           geometric.cpython-312.pyc
+|   |   |       |   |           harary_graph.cpython-312.pyc
+|   |   |       |   |           internet_as_graphs.cpython-312.pyc
+|   |   |       |   |           intersection.cpython-312.pyc
+|   |   |       |   |           interval_graph.cpython-312.pyc
+|   |   |       |   |           joint_degree_seq.cpython-312.pyc
+|   |   |       |   |           lattice.cpython-312.pyc
+|   |   |       |   |           line.cpython-312.pyc
+|   |   |       |   |           mycielski.cpython-312.pyc
+|   |   |       |   |           nonisomorphic_trees.cpython-312.pyc
+|   |   |       |   |           random_clustered.cpython-312.pyc
+|   |   |       |   |           random_graphs.cpython-312.pyc
+|   |   |       |   |           small.cpython-312.pyc
+|   |   |       |   |           social.cpython-312.pyc
+|   |   |       |   |           spectral_graph_forge.cpython-312.pyc
+|   |   |       |   |           stochastic.cpython-312.pyc
+|   |   |       |   |           sudoku.cpython-312.pyc
+|   |   |       |   |           time_series.cpython-312.pyc
+|   |   |       |   |           trees.cpython-312.pyc
+|   |   |       |   |           triads.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---linalg
+|   |   |       |   |   |   algebraicconnectivity.py
+|   |   |       |   |   |   attrmatrix.py
+|   |   |       |   |   |   bethehessianmatrix.py
+|   |   |       |   |   |   graphmatrix.py
+|   |   |       |   |   |   laplacianmatrix.py
+|   |   |       |   |   |   modularitymatrix.py
+|   |   |       |   |   |   spectrum.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---tests
+|   |   |       |   |   |   |   test_algebraic_connectivity.py
+|   |   |       |   |   |   |   test_attrmatrix.py
+|   |   |       |   |   |   |   test_bethehessian.py
+|   |   |       |   |   |   |   test_graphmatrix.py
+|   |   |       |   |   |   |   test_laplacian.py
+|   |   |       |   |   |   |   test_modularity.py
+|   |   |       |   |   |   |   test_spectrum.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           test_algebraic_connectivity.cpython-312.pyc
+|   |   |       |   |   |           test_attrmatrix.cpython-312.pyc
+|   |   |       |   |   |           test_bethehessian.cpython-312.pyc
+|   |   |       |   |   |           test_graphmatrix.cpython-312.pyc
+|   |   |       |   |   |           test_laplacian.cpython-312.pyc
+|   |   |       |   |   |           test_modularity.cpython-312.pyc
+|   |   |       |   |   |           test_spectrum.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           algebraicconnectivity.cpython-312.pyc
+|   |   |       |   |           attrmatrix.cpython-312.pyc
+|   |   |       |   |           bethehessianmatrix.cpython-312.pyc
+|   |   |       |   |           graphmatrix.cpython-312.pyc
+|   |   |       |   |           laplacianmatrix.cpython-312.pyc
+|   |   |       |   |           modularitymatrix.cpython-312.pyc
+|   |   |       |   |           spectrum.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---readwrite
+|   |   |       |   |   |   adjlist.py
+|   |   |       |   |   |   edgelist.py
+|   |   |       |   |   |   gexf.py
+|   |   |       |   |   |   gml.py
+|   |   |       |   |   |   graph6.py
+|   |   |       |   |   |   graphml.py
+|   |   |       |   |   |   leda.py
+|   |   |       |   |   |   multiline_adjlist.py
+|   |   |       |   |   |   p2g.py
+|   |   |       |   |   |   pajek.py
+|   |   |       |   |   |   sparse6.py
+|   |   |       |   |   |   text.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---json_graph
+|   |   |       |   |   |   |   adjacency.py
+|   |   |       |   |   |   |   cytoscape.py
+|   |   |       |   |   |   |   node_link.py
+|   |   |       |   |   |   |   tree.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---tests
+|   |   |       |   |   |   |   |   test_adjacency.py
+|   |   |       |   |   |   |   |   test_cytoscape.py
+|   |   |       |   |   |   |   |   test_node_link.py
+|   |   |       |   |   |   |   |   test_tree.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           test_adjacency.cpython-312.pyc
+|   |   |       |   |   |   |           test_cytoscape.cpython-312.pyc
+|   |   |       |   |   |   |           test_node_link.cpython-312.pyc
+|   |   |       |   |   |   |           test_tree.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           adjacency.cpython-312.pyc
+|   |   |       |   |   |           cytoscape.cpython-312.pyc
+|   |   |       |   |   |           node_link.cpython-312.pyc
+|   |   |       |   |   |           tree.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---tests
+|   |   |       |   |   |   |   test_adjlist.py
+|   |   |       |   |   |   |   test_edgelist.py
+|   |   |       |   |   |   |   test_gexf.py
+|   |   |       |   |   |   |   test_gml.py
+|   |   |       |   |   |   |   test_graph6.py
+|   |   |       |   |   |   |   test_graphml.py
+|   |   |       |   |   |   |   test_leda.py
+|   |   |       |   |   |   |   test_p2g.py
+|   |   |       |   |   |   |   test_pajek.py
+|   |   |       |   |   |   |   test_sparse6.py
+|   |   |       |   |   |   |   test_text.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           test_adjlist.cpython-312.pyc
+|   |   |       |   |   |           test_edgelist.cpython-312.pyc
+|   |   |       |   |   |           test_gexf.cpython-312.pyc
+|   |   |       |   |   |           test_gml.cpython-312.pyc
+|   |   |       |   |   |           test_graph6.cpython-312.pyc
+|   |   |       |   |   |           test_graphml.cpython-312.pyc
+|   |   |       |   |   |           test_leda.cpython-312.pyc
+|   |   |       |   |   |           test_p2g.cpython-312.pyc
+|   |   |       |   |   |           test_pajek.cpython-312.pyc
+|   |   |       |   |   |           test_sparse6.cpython-312.pyc
+|   |   |       |   |   |           test_text.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           adjlist.cpython-312.pyc
+|   |   |       |   |           edgelist.cpython-312.pyc
+|   |   |       |   |           gexf.cpython-312.pyc
+|   |   |       |   |           gml.cpython-312.pyc
+|   |   |       |   |           graph6.cpython-312.pyc
+|   |   |       |   |           graphml.cpython-312.pyc
+|   |   |       |   |           leda.cpython-312.pyc
+|   |   |       |   |           multiline_adjlist.cpython-312.pyc
+|   |   |       |   |           p2g.cpython-312.pyc
+|   |   |       |   |           pajek.cpython-312.pyc
+|   |   |       |   |           sparse6.cpython-312.pyc
+|   |   |       |   |           text.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---tests
+|   |   |       |   |   |   test_all_random_functions.py
+|   |   |       |   |   |   test_convert.py
+|   |   |       |   |   |   test_convert_numpy.py
+|   |   |       |   |   |   test_convert_pandas.py
+|   |   |       |   |   |   test_convert_scipy.py
+|   |   |       |   |   |   test_exceptions.py
+|   |   |       |   |   |   test_import.py
+|   |   |       |   |   |   test_lazy_imports.py
+|   |   |       |   |   |   test_relabel.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           test_all_random_functions.cpython-312.pyc
+|   |   |       |   |           test_convert.cpython-312.pyc
+|   |   |       |   |           test_convert_numpy.cpython-312.pyc
+|   |   |       |   |           test_convert_pandas.cpython-312.pyc
+|   |   |       |   |           test_convert_scipy.cpython-312.pyc
+|   |   |       |   |           test_exceptions.cpython-312.pyc
+|   |   |       |   |           test_import.cpython-312.pyc
+|   |   |       |   |           test_lazy_imports.cpython-312.pyc
+|   |   |       |   |           test_relabel.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---utils
+|   |   |       |   |   |   backends.py
+|   |   |       |   |   |   configs.py
+|   |   |       |   |   |   decorators.py
+|   |   |       |   |   |   heaps.py
+|   |   |       |   |   |   mapped_queue.py
+|   |   |       |   |   |   misc.py
+|   |   |       |   |   |   random_sequence.py
+|   |   |       |   |   |   rcm.py
+|   |   |       |   |   |   union_find.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---tests
+|   |   |       |   |   |   |   test_backends.py
+|   |   |       |   |   |   |   test_config.py
+|   |   |       |   |   |   |   test_decorators.py
+|   |   |       |   |   |   |   test_heaps.py
+|   |   |       |   |   |   |   test_mapped_queue.py
+|   |   |       |   |   |   |   test_misc.py
+|   |   |       |   |   |   |   test_random_sequence.py
+|   |   |       |   |   |   |   test_rcm.py
+|   |   |       |   |   |   |   test_unionfind.py
+|   |   |       |   |   |   |   test__init.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           test_backends.cpython-312.pyc
+|   |   |       |   |   |           test_config.cpython-312.pyc
+|   |   |       |   |   |           test_decorators.cpython-312.pyc
+|   |   |       |   |   |           test_heaps.cpython-312.pyc
+|   |   |       |   |   |           test_mapped_queue.cpython-312.pyc
+|   |   |       |   |   |           test_misc.cpython-312.pyc
+|   |   |       |   |   |           test_random_sequence.cpython-312.pyc
+|   |   |       |   |   |           test_rcm.cpython-312.pyc
+|   |   |       |   |   |           test_unionfind.cpython-312.pyc
+|   |   |       |   |   |           test__init.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           backends.cpython-312.pyc
+|   |   |       |   |           configs.cpython-312.pyc
+|   |   |       |   |           decorators.cpython-312.pyc
+|   |   |       |   |           heaps.cpython-312.pyc
+|   |   |       |   |           mapped_queue.cpython-312.pyc
+|   |   |       |   |           misc.cpython-312.pyc
+|   |   |       |   |           random_sequence.cpython-312.pyc
+|   |   |       |   |           rcm.cpython-312.pyc
+|   |   |       |   |           union_find.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   \---__pycache__
+|   |   |       |           conftest.cpython-312.pyc
+|   |   |       |           convert.cpython-312.pyc
+|   |   |       |           convert_matrix.cpython-312.pyc
+|   |   |       |           exception.cpython-312.pyc
+|   |   |       |           lazy_imports.cpython-312.pyc
+|   |   |       |           relabel.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---networkx-3.5.dist-info
+|   |   |       |   |   entry_points.txt
+|   |   |       |   |   INSTALLER
+|   |   |       |   |   METADATA
+|   |   |       |   |   RECORD
+|   |   |       |   |   top_level.txt
+|   |   |       |   |   WHEEL
+|   |   |       |   |   
+|   |   |       |   \---licenses
+|   |   |       |           LICENSE.txt
+|   |   |       |           
+|   |   |       +---parso
+|   |   |       |   |   cache.py
+|   |   |       |   |   file_io.py
+|   |   |       |   |   grammar.py
+|   |   |       |   |   normalizer.py
+|   |   |       |   |   parser.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   tree.py
+|   |   |       |   |   utils.py
+|   |   |       |   |   _compatibility.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   +---pgen2
+|   |   |       |   |   |   generator.py
+|   |   |       |   |   |   grammar_parser.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           generator.cpython-312.pyc
+|   |   |       |   |           grammar_parser.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---python
+|   |   |       |   |   |   diff.py
+|   |   |       |   |   |   errors.py
+|   |   |       |   |   |   grammar310.txt
+|   |   |       |   |   |   grammar311.txt
+|   |   |       |   |   |   grammar312.txt
+|   |   |       |   |   |   grammar313.txt
+|   |   |       |   |   |   grammar314.txt
+|   |   |       |   |   |   grammar36.txt
+|   |   |       |   |   |   grammar37.txt
+|   |   |       |   |   |   grammar38.txt
+|   |   |       |   |   |   grammar39.txt
+|   |   |       |   |   |   parser.py
+|   |   |       |   |   |   pep8.py
+|   |   |       |   |   |   prefix.py
+|   |   |       |   |   |   token.py
+|   |   |       |   |   |   tokenize.py
+|   |   |       |   |   |   tree.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           diff.cpython-312.pyc
+|   |   |       |   |           errors.cpython-312.pyc
+|   |   |       |   |           parser.cpython-312.pyc
+|   |   |       |   |           pep8.cpython-312.pyc
+|   |   |       |   |           prefix.cpython-312.pyc
+|   |   |       |   |           token.cpython-312.pyc
+|   |   |       |   |           tokenize.cpython-312.pyc
+|   |   |       |   |           tree.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   \---__pycache__
+|   |   |       |           cache.cpython-312.pyc
+|   |   |       |           file_io.cpython-312.pyc
+|   |   |       |           grammar.cpython-312.pyc
+|   |   |       |           normalizer.cpython-312.pyc
+|   |   |       |           parser.cpython-312.pyc
+|   |   |       |           tree.cpython-312.pyc
+|   |   |       |           utils.cpython-312.pyc
+|   |   |       |           _compatibility.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---parso-0.8.5.dist-info
+|   |   |       |   |   INSTALLER
+|   |   |       |   |   METADATA
+|   |   |       |   |   RECORD
+|   |   |       |   |   top_level.txt
+|   |   |       |   |   WHEEL
+|   |   |       |   |   
+|   |   |       |   \---licenses
+|   |   |       |           AUTHORS.txt
+|   |   |       |           LICENSE.txt
+|   |   |       |           
+|   |   |       +---pip
+|   |   |       |   |   py.typed
+|   |   |       |   |   __init__.py
+|   |   |       |   |   __main__.py
+|   |   |       |   |   __pip-runner__.py
+|   |   |       |   |   
+|   |   |       |   +---_internal
+|   |   |       |   |   |   build_env.py
+|   |   |       |   |   |   cache.py
+|   |   |       |   |   |   configuration.py
+|   |   |       |   |   |   exceptions.py
+|   |   |       |   |   |   main.py
+|   |   |       |   |   |   pyproject.py
+|   |   |       |   |   |   self_outdated_check.py
+|   |   |       |   |   |   wheel_builder.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---cli
+|   |   |       |   |   |   |   autocompletion.py
+|   |   |       |   |   |   |   base_command.py
+|   |   |       |   |   |   |   cmdoptions.py
+|   |   |       |   |   |   |   command_context.py
+|   |   |       |   |   |   |   index_command.py
+|   |   |       |   |   |   |   main.py
+|   |   |       |   |   |   |   main_parser.py
+|   |   |       |   |   |   |   parser.py
+|   |   |       |   |   |   |   progress_bars.py
+|   |   |       |   |   |   |   req_command.py
+|   |   |       |   |   |   |   spinners.py
+|   |   |       |   |   |   |   status_codes.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           autocompletion.cpython-312.pyc
+|   |   |       |   |   |           base_command.cpython-312.pyc
+|   |   |       |   |   |           cmdoptions.cpython-312.pyc
+|   |   |       |   |   |           command_context.cpython-312.pyc
+|   |   |       |   |   |           index_command.cpython-312.pyc
+|   |   |       |   |   |           main.cpython-312.pyc
+|   |   |       |   |   |           main_parser.cpython-312.pyc
+|   |   |       |   |   |           parser.cpython-312.pyc
+|   |   |       |   |   |           progress_bars.cpython-312.pyc
+|   |   |       |   |   |           req_command.cpython-312.pyc
+|   |   |       |   |   |           spinners.cpython-312.pyc
+|   |   |       |   |   |           status_codes.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---commands
+|   |   |       |   |   |   |   cache.py
+|   |   |       |   |   |   |   check.py
+|   |   |       |   |   |   |   completion.py
+|   |   |       |   |   |   |   configuration.py
+|   |   |       |   |   |   |   debug.py
+|   |   |       |   |   |   |   download.py
+|   |   |       |   |   |   |   freeze.py
+|   |   |       |   |   |   |   hash.py
+|   |   |       |   |   |   |   help.py
+|   |   |       |   |   |   |   index.py
+|   |   |       |   |   |   |   inspect.py
+|   |   |       |   |   |   |   install.py
+|   |   |       |   |   |   |   list.py
+|   |   |       |   |   |   |   search.py
+|   |   |       |   |   |   |   show.py
+|   |   |       |   |   |   |   uninstall.py
+|   |   |       |   |   |   |   wheel.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           cache.cpython-312.pyc
+|   |   |       |   |   |           check.cpython-312.pyc
+|   |   |       |   |   |           completion.cpython-312.pyc
+|   |   |       |   |   |           configuration.cpython-312.pyc
+|   |   |       |   |   |           debug.cpython-312.pyc
+|   |   |       |   |   |           download.cpython-312.pyc
+|   |   |       |   |   |           freeze.cpython-312.pyc
+|   |   |       |   |   |           hash.cpython-312.pyc
+|   |   |       |   |   |           help.cpython-312.pyc
+|   |   |       |   |   |           index.cpython-312.pyc
+|   |   |       |   |   |           inspect.cpython-312.pyc
+|   |   |       |   |   |           install.cpython-312.pyc
+|   |   |       |   |   |           list.cpython-312.pyc
+|   |   |       |   |   |           search.cpython-312.pyc
+|   |   |       |   |   |           show.cpython-312.pyc
+|   |   |       |   |   |           uninstall.cpython-312.pyc
+|   |   |       |   |   |           wheel.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---distributions
+|   |   |       |   |   |   |   base.py
+|   |   |       |   |   |   |   installed.py
+|   |   |       |   |   |   |   sdist.py
+|   |   |       |   |   |   |   wheel.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           base.cpython-312.pyc
+|   |   |       |   |   |           installed.cpython-312.pyc
+|   |   |       |   |   |           sdist.cpython-312.pyc
+|   |   |       |   |   |           wheel.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---index
+|   |   |       |   |   |   |   collector.py
+|   |   |       |   |   |   |   package_finder.py
+|   |   |       |   |   |   |   sources.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           collector.cpython-312.pyc
+|   |   |       |   |   |           package_finder.cpython-312.pyc
+|   |   |       |   |   |           sources.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---locations
+|   |   |       |   |   |   |   base.py
+|   |   |       |   |   |   |   _distutils.py
+|   |   |       |   |   |   |   _sysconfig.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           base.cpython-312.pyc
+|   |   |       |   |   |           _distutils.cpython-312.pyc
+|   |   |       |   |   |           _sysconfig.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---metadata
+|   |   |       |   |   |   |   base.py
+|   |   |       |   |   |   |   pkg_resources.py
+|   |   |       |   |   |   |   _json.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---importlib
+|   |   |       |   |   |   |   |   _compat.py
+|   |   |       |   |   |   |   |   _dists.py
+|   |   |       |   |   |   |   |   _envs.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           _compat.cpython-312.pyc
+|   |   |       |   |   |   |           _dists.cpython-312.pyc
+|   |   |       |   |   |   |           _envs.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           base.cpython-312.pyc
+|   |   |       |   |   |           pkg_resources.cpython-312.pyc
+|   |   |       |   |   |           _json.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---models
+|   |   |       |   |   |   |   candidate.py
+|   |   |       |   |   |   |   direct_url.py
+|   |   |       |   |   |   |   format_control.py
+|   |   |       |   |   |   |   index.py
+|   |   |       |   |   |   |   installation_report.py
+|   |   |       |   |   |   |   link.py
+|   |   |       |   |   |   |   scheme.py
+|   |   |       |   |   |   |   search_scope.py
+|   |   |       |   |   |   |   selection_prefs.py
+|   |   |       |   |   |   |   target_python.py
+|   |   |       |   |   |   |   wheel.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           candidate.cpython-312.pyc
+|   |   |       |   |   |           direct_url.cpython-312.pyc
+|   |   |       |   |   |           format_control.cpython-312.pyc
+|   |   |       |   |   |           index.cpython-312.pyc
+|   |   |       |   |   |           installation_report.cpython-312.pyc
+|   |   |       |   |   |           link.cpython-312.pyc
+|   |   |       |   |   |           scheme.cpython-312.pyc
+|   |   |       |   |   |           search_scope.cpython-312.pyc
+|   |   |       |   |   |           selection_prefs.cpython-312.pyc
+|   |   |       |   |   |           target_python.cpython-312.pyc
+|   |   |       |   |   |           wheel.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---network
+|   |   |       |   |   |   |   auth.py
+|   |   |       |   |   |   |   cache.py
+|   |   |       |   |   |   |   download.py
+|   |   |       |   |   |   |   lazy_wheel.py
+|   |   |       |   |   |   |   session.py
+|   |   |       |   |   |   |   utils.py
+|   |   |       |   |   |   |   xmlrpc.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           auth.cpython-312.pyc
+|   |   |       |   |   |           cache.cpython-312.pyc
+|   |   |       |   |   |           download.cpython-312.pyc
+|   |   |       |   |   |           lazy_wheel.cpython-312.pyc
+|   |   |       |   |   |           session.cpython-312.pyc
+|   |   |       |   |   |           utils.cpython-312.pyc
+|   |   |       |   |   |           xmlrpc.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---operations
+|   |   |       |   |   |   |   check.py
+|   |   |       |   |   |   |   freeze.py
+|   |   |       |   |   |   |   prepare.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---build
+|   |   |       |   |   |   |   |   build_tracker.py
+|   |   |       |   |   |   |   |   metadata.py
+|   |   |       |   |   |   |   |   metadata_editable.py
+|   |   |       |   |   |   |   |   metadata_legacy.py
+|   |   |       |   |   |   |   |   wheel.py
+|   |   |       |   |   |   |   |   wheel_editable.py
+|   |   |       |   |   |   |   |   wheel_legacy.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           build_tracker.cpython-312.pyc
+|   |   |       |   |   |   |           metadata.cpython-312.pyc
+|   |   |       |   |   |   |           metadata_editable.cpython-312.pyc
+|   |   |       |   |   |   |           metadata_legacy.cpython-312.pyc
+|   |   |       |   |   |   |           wheel.cpython-312.pyc
+|   |   |       |   |   |   |           wheel_editable.cpython-312.pyc
+|   |   |       |   |   |   |           wheel_legacy.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   +---install
+|   |   |       |   |   |   |   |   editable_legacy.py
+|   |   |       |   |   |   |   |   wheel.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           editable_legacy.cpython-312.pyc
+|   |   |       |   |   |   |           wheel.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           check.cpython-312.pyc
+|   |   |       |   |   |           freeze.cpython-312.pyc
+|   |   |       |   |   |           prepare.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---req
+|   |   |       |   |   |   |   constructors.py
+|   |   |       |   |   |   |   req_file.py
+|   |   |       |   |   |   |   req_install.py
+|   |   |       |   |   |   |   req_set.py
+|   |   |       |   |   |   |   req_uninstall.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           constructors.cpython-312.pyc
+|   |   |       |   |   |           req_file.cpython-312.pyc
+|   |   |       |   |   |           req_install.cpython-312.pyc
+|   |   |       |   |   |           req_set.cpython-312.pyc
+|   |   |       |   |   |           req_uninstall.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---resolution
+|   |   |       |   |   |   |   base.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---legacy
+|   |   |       |   |   |   |   |   resolver.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           resolver.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   +---resolvelib
+|   |   |       |   |   |   |   |   base.py
+|   |   |       |   |   |   |   |   candidates.py
+|   |   |       |   |   |   |   |   factory.py
+|   |   |       |   |   |   |   |   found_candidates.py
+|   |   |       |   |   |   |   |   provider.py
+|   |   |       |   |   |   |   |   reporter.py
+|   |   |       |   |   |   |   |   requirements.py
+|   |   |       |   |   |   |   |   resolver.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           base.cpython-312.pyc
+|   |   |       |   |   |   |           candidates.cpython-312.pyc
+|   |   |       |   |   |   |           factory.cpython-312.pyc
+|   |   |       |   |   |   |           found_candidates.cpython-312.pyc
+|   |   |       |   |   |   |           provider.cpython-312.pyc
+|   |   |       |   |   |   |           reporter.cpython-312.pyc
+|   |   |       |   |   |   |           requirements.cpython-312.pyc
+|   |   |       |   |   |   |           resolver.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           base.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---utils
+|   |   |       |   |   |   |   appdirs.py
+|   |   |       |   |   |   |   compat.py
+|   |   |       |   |   |   |   compatibility_tags.py
+|   |   |       |   |   |   |   datetime.py
+|   |   |       |   |   |   |   deprecation.py
+|   |   |       |   |   |   |   direct_url_helpers.py
+|   |   |       |   |   |   |   egg_link.py
+|   |   |       |   |   |   |   encoding.py
+|   |   |       |   |   |   |   entrypoints.py
+|   |   |       |   |   |   |   filesystem.py
+|   |   |       |   |   |   |   filetypes.py
+|   |   |       |   |   |   |   glibc.py
+|   |   |       |   |   |   |   hashes.py
+|   |   |       |   |   |   |   logging.py
+|   |   |       |   |   |   |   misc.py
+|   |   |       |   |   |   |   packaging.py
+|   |   |       |   |   |   |   retry.py
+|   |   |       |   |   |   |   setuptools_build.py
+|   |   |       |   |   |   |   subprocess.py
+|   |   |       |   |   |   |   temp_dir.py
+|   |   |       |   |   |   |   unpacking.py
+|   |   |       |   |   |   |   urls.py
+|   |   |       |   |   |   |   virtualenv.py
+|   |   |       |   |   |   |   wheel.py
+|   |   |       |   |   |   |   _jaraco_text.py
+|   |   |       |   |   |   |   _log.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           appdirs.cpython-312.pyc
+|   |   |       |   |   |           compat.cpython-312.pyc
+|   |   |       |   |   |           compatibility_tags.cpython-312.pyc
+|   |   |       |   |   |           datetime.cpython-312.pyc
+|   |   |       |   |   |           deprecation.cpython-312.pyc
+|   |   |       |   |   |           direct_url_helpers.cpython-312.pyc
+|   |   |       |   |   |           egg_link.cpython-312.pyc
+|   |   |       |   |   |           encoding.cpython-312.pyc
+|   |   |       |   |   |           entrypoints.cpython-312.pyc
+|   |   |       |   |   |           filesystem.cpython-312.pyc
+|   |   |       |   |   |           filetypes.cpython-312.pyc
+|   |   |       |   |   |           glibc.cpython-312.pyc
+|   |   |       |   |   |           hashes.cpython-312.pyc
+|   |   |       |   |   |           logging.cpython-312.pyc
+|   |   |       |   |   |           misc.cpython-312.pyc
+|   |   |       |   |   |           packaging.cpython-312.pyc
+|   |   |       |   |   |           retry.cpython-312.pyc
+|   |   |       |   |   |           setuptools_build.cpython-312.pyc
+|   |   |       |   |   |           subprocess.cpython-312.pyc
+|   |   |       |   |   |           temp_dir.cpython-312.pyc
+|   |   |       |   |   |           unpacking.cpython-312.pyc
+|   |   |       |   |   |           urls.cpython-312.pyc
+|   |   |       |   |   |           virtualenv.cpython-312.pyc
+|   |   |       |   |   |           wheel.cpython-312.pyc
+|   |   |       |   |   |           _jaraco_text.cpython-312.pyc
+|   |   |       |   |   |           _log.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---vcs
+|   |   |       |   |   |   |   bazaar.py
+|   |   |       |   |   |   |   git.py
+|   |   |       |   |   |   |   mercurial.py
+|   |   |       |   |   |   |   subversion.py
+|   |   |       |   |   |   |   versioncontrol.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           bazaar.cpython-312.pyc
+|   |   |       |   |   |           git.cpython-312.pyc
+|   |   |       |   |   |           mercurial.cpython-312.pyc
+|   |   |       |   |   |           subversion.cpython-312.pyc
+|   |   |       |   |   |           versioncontrol.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           build_env.cpython-312.pyc
+|   |   |       |   |           cache.cpython-312.pyc
+|   |   |       |   |           configuration.cpython-312.pyc
+|   |   |       |   |           exceptions.cpython-312.pyc
+|   |   |       |   |           main.cpython-312.pyc
+|   |   |       |   |           pyproject.cpython-312.pyc
+|   |   |       |   |           self_outdated_check.cpython-312.pyc
+|   |   |       |   |           wheel_builder.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---_vendor
+|   |   |       |   |   |   typing_extensions.py
+|   |   |       |   |   |   vendor.txt
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---cachecontrol
+|   |   |       |   |   |   |   adapter.py
+|   |   |       |   |   |   |   cache.py
+|   |   |       |   |   |   |   controller.py
+|   |   |       |   |   |   |   filewrapper.py
+|   |   |       |   |   |   |   heuristics.py
+|   |   |       |   |   |   |   py.typed
+|   |   |       |   |   |   |   serialize.py
+|   |   |       |   |   |   |   wrapper.py
+|   |   |       |   |   |   |   _cmd.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---caches
+|   |   |       |   |   |   |   |   file_cache.py
+|   |   |       |   |   |   |   |   redis_cache.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           file_cache.cpython-312.pyc
+|   |   |       |   |   |   |           redis_cache.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           adapter.cpython-312.pyc
+|   |   |       |   |   |           cache.cpython-312.pyc
+|   |   |       |   |   |           controller.cpython-312.pyc
+|   |   |       |   |   |           filewrapper.cpython-312.pyc
+|   |   |       |   |   |           heuristics.cpython-312.pyc
+|   |   |       |   |   |           serialize.cpython-312.pyc
+|   |   |       |   |   |           wrapper.cpython-312.pyc
+|   |   |       |   |   |           _cmd.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---certifi
+|   |   |       |   |   |   |   cacert.pem
+|   |   |       |   |   |   |   core.py
+|   |   |       |   |   |   |   py.typed
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   __main__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           core.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           __main__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---distlib
+|   |   |       |   |   |   |   compat.py
+|   |   |       |   |   |   |   database.py
+|   |   |       |   |   |   |   index.py
+|   |   |       |   |   |   |   locators.py
+|   |   |       |   |   |   |   manifest.py
+|   |   |       |   |   |   |   markers.py
+|   |   |       |   |   |   |   metadata.py
+|   |   |       |   |   |   |   resources.py
+|   |   |       |   |   |   |   scripts.py
+|   |   |       |   |   |   |   t32.exe
+|   |   |       |   |   |   |   t64-arm.exe
+|   |   |       |   |   |   |   t64.exe
+|   |   |       |   |   |   |   util.py
+|   |   |       |   |   |   |   version.py
+|   |   |       |   |   |   |   w32.exe
+|   |   |       |   |   |   |   w64-arm.exe
+|   |   |       |   |   |   |   w64.exe
+|   |   |       |   |   |   |   wheel.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           compat.cpython-312.pyc
+|   |   |       |   |   |           database.cpython-312.pyc
+|   |   |       |   |   |           index.cpython-312.pyc
+|   |   |       |   |   |           locators.cpython-312.pyc
+|   |   |       |   |   |           manifest.cpython-312.pyc
+|   |   |       |   |   |           markers.cpython-312.pyc
+|   |   |       |   |   |           metadata.cpython-312.pyc
+|   |   |       |   |   |           resources.cpython-312.pyc
+|   |   |       |   |   |           scripts.cpython-312.pyc
+|   |   |       |   |   |           util.cpython-312.pyc
+|   |   |       |   |   |           version.cpython-312.pyc
+|   |   |       |   |   |           wheel.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---distro
+|   |   |       |   |   |   |   distro.py
+|   |   |       |   |   |   |   py.typed
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   __main__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           distro.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           __main__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---idna
+|   |   |       |   |   |   |   codec.py
+|   |   |       |   |   |   |   compat.py
+|   |   |       |   |   |   |   core.py
+|   |   |       |   |   |   |   idnadata.py
+|   |   |       |   |   |   |   intranges.py
+|   |   |       |   |   |   |   package_data.py
+|   |   |       |   |   |   |   py.typed
+|   |   |       |   |   |   |   uts46data.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           codec.cpython-312.pyc
+|   |   |       |   |   |           compat.cpython-312.pyc
+|   |   |       |   |   |           core.cpython-312.pyc
+|   |   |       |   |   |           idnadata.cpython-312.pyc
+|   |   |       |   |   |           intranges.cpython-312.pyc
+|   |   |       |   |   |           package_data.cpython-312.pyc
+|   |   |       |   |   |           uts46data.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---msgpack
+|   |   |       |   |   |   |   exceptions.py
+|   |   |       |   |   |   |   ext.py
+|   |   |       |   |   |   |   fallback.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           exceptions.cpython-312.pyc
+|   |   |       |   |   |           ext.cpython-312.pyc
+|   |   |       |   |   |           fallback.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---packaging
+|   |   |       |   |   |   |   markers.py
+|   |   |       |   |   |   |   metadata.py
+|   |   |       |   |   |   |   py.typed
+|   |   |       |   |   |   |   requirements.py
+|   |   |       |   |   |   |   specifiers.py
+|   |   |       |   |   |   |   tags.py
+|   |   |       |   |   |   |   utils.py
+|   |   |       |   |   |   |   version.py
+|   |   |       |   |   |   |   _elffile.py
+|   |   |       |   |   |   |   _manylinux.py
+|   |   |       |   |   |   |   _musllinux.py
+|   |   |       |   |   |   |   _parser.py
+|   |   |       |   |   |   |   _structures.py
+|   |   |       |   |   |   |   _tokenizer.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           markers.cpython-312.pyc
+|   |   |       |   |   |           metadata.cpython-312.pyc
+|   |   |       |   |   |           requirements.cpython-312.pyc
+|   |   |       |   |   |           specifiers.cpython-312.pyc
+|   |   |       |   |   |           tags.cpython-312.pyc
+|   |   |       |   |   |           utils.cpython-312.pyc
+|   |   |       |   |   |           version.cpython-312.pyc
+|   |   |       |   |   |           _elffile.cpython-312.pyc
+|   |   |       |   |   |           _manylinux.cpython-312.pyc
+|   |   |       |   |   |           _musllinux.cpython-312.pyc
+|   |   |       |   |   |           _parser.cpython-312.pyc
+|   |   |       |   |   |           _structures.cpython-312.pyc
+|   |   |       |   |   |           _tokenizer.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---pkg_resources
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---platformdirs
+|   |   |       |   |   |   |   android.py
+|   |   |       |   |   |   |   api.py
+|   |   |       |   |   |   |   macos.py
+|   |   |       |   |   |   |   py.typed
+|   |   |       |   |   |   |   unix.py
+|   |   |       |   |   |   |   version.py
+|   |   |       |   |   |   |   windows.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   __main__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           android.cpython-312.pyc
+|   |   |       |   |   |           api.cpython-312.pyc
+|   |   |       |   |   |           macos.cpython-312.pyc
+|   |   |       |   |   |           unix.cpython-312.pyc
+|   |   |       |   |   |           version.cpython-312.pyc
+|   |   |       |   |   |           windows.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           __main__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---pygments
+|   |   |       |   |   |   |   cmdline.py
+|   |   |       |   |   |   |   console.py
+|   |   |       |   |   |   |   filter.py
+|   |   |       |   |   |   |   formatter.py
+|   |   |       |   |   |   |   lexer.py
+|   |   |       |   |   |   |   modeline.py
+|   |   |       |   |   |   |   plugin.py
+|   |   |       |   |   |   |   regexopt.py
+|   |   |       |   |   |   |   scanner.py
+|   |   |       |   |   |   |   sphinxext.py
+|   |   |       |   |   |   |   style.py
+|   |   |       |   |   |   |   token.py
+|   |   |       |   |   |   |   unistring.py
+|   |   |       |   |   |   |   util.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   __main__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---filters
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   +---formatters
+|   |   |       |   |   |   |   |   bbcode.py
+|   |   |       |   |   |   |   |   groff.py
+|   |   |       |   |   |   |   |   html.py
+|   |   |       |   |   |   |   |   img.py
+|   |   |       |   |   |   |   |   irc.py
+|   |   |       |   |   |   |   |   latex.py
+|   |   |       |   |   |   |   |   other.py
+|   |   |       |   |   |   |   |   pangomarkup.py
+|   |   |       |   |   |   |   |   rtf.py
+|   |   |       |   |   |   |   |   svg.py
+|   |   |       |   |   |   |   |   terminal.py
+|   |   |       |   |   |   |   |   terminal256.py
+|   |   |       |   |   |   |   |   _mapping.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           bbcode.cpython-312.pyc
+|   |   |       |   |   |   |           groff.cpython-312.pyc
+|   |   |       |   |   |   |           html.cpython-312.pyc
+|   |   |       |   |   |   |           img.cpython-312.pyc
+|   |   |       |   |   |   |           irc.cpython-312.pyc
+|   |   |       |   |   |   |           latex.cpython-312.pyc
+|   |   |       |   |   |   |           other.cpython-312.pyc
+|   |   |       |   |   |   |           pangomarkup.cpython-312.pyc
+|   |   |       |   |   |   |           rtf.cpython-312.pyc
+|   |   |       |   |   |   |           svg.cpython-312.pyc
+|   |   |       |   |   |   |           terminal.cpython-312.pyc
+|   |   |       |   |   |   |           terminal256.cpython-312.pyc
+|   |   |       |   |   |   |           _mapping.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   +---lexers
+|   |   |       |   |   |   |   |   python.py
+|   |   |       |   |   |   |   |   _mapping.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           python.cpython-312.pyc
+|   |   |       |   |   |   |           _mapping.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   +---styles
+|   |   |       |   |   |   |   |   _mapping.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           _mapping.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           cmdline.cpython-312.pyc
+|   |   |       |   |   |           console.cpython-312.pyc
+|   |   |       |   |   |           filter.cpython-312.pyc
+|   |   |       |   |   |           formatter.cpython-312.pyc
+|   |   |       |   |   |           lexer.cpython-312.pyc
+|   |   |       |   |   |           modeline.cpython-312.pyc
+|   |   |       |   |   |           plugin.cpython-312.pyc
+|   |   |       |   |   |           regexopt.cpython-312.pyc
+|   |   |       |   |   |           scanner.cpython-312.pyc
+|   |   |       |   |   |           sphinxext.cpython-312.pyc
+|   |   |       |   |   |           style.cpython-312.pyc
+|   |   |       |   |   |           token.cpython-312.pyc
+|   |   |       |   |   |           unistring.cpython-312.pyc
+|   |   |       |   |   |           util.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           __main__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---pyproject_hooks
+|   |   |       |   |   |   |   _compat.py
+|   |   |       |   |   |   |   _impl.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---_in_process
+|   |   |       |   |   |   |   |   _in_process.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           _in_process.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           _compat.cpython-312.pyc
+|   |   |       |   |   |           _impl.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---requests
+|   |   |       |   |   |   |   adapters.py
+|   |   |       |   |   |   |   api.py
+|   |   |       |   |   |   |   auth.py
+|   |   |       |   |   |   |   certs.py
+|   |   |       |   |   |   |   compat.py
+|   |   |       |   |   |   |   cookies.py
+|   |   |       |   |   |   |   exceptions.py
+|   |   |       |   |   |   |   help.py
+|   |   |       |   |   |   |   hooks.py
+|   |   |       |   |   |   |   models.py
+|   |   |       |   |   |   |   packages.py
+|   |   |       |   |   |   |   sessions.py
+|   |   |       |   |   |   |   status_codes.py
+|   |   |       |   |   |   |   structures.py
+|   |   |       |   |   |   |   utils.py
+|   |   |       |   |   |   |   _internal_utils.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   __version__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           adapters.cpython-312.pyc
+|   |   |       |   |   |           api.cpython-312.pyc
+|   |   |       |   |   |           auth.cpython-312.pyc
+|   |   |       |   |   |           certs.cpython-312.pyc
+|   |   |       |   |   |           compat.cpython-312.pyc
+|   |   |       |   |   |           cookies.cpython-312.pyc
+|   |   |       |   |   |           exceptions.cpython-312.pyc
+|   |   |       |   |   |           help.cpython-312.pyc
+|   |   |       |   |   |           hooks.cpython-312.pyc
+|   |   |       |   |   |           models.cpython-312.pyc
+|   |   |       |   |   |           packages.cpython-312.pyc
+|   |   |       |   |   |           sessions.cpython-312.pyc
+|   |   |       |   |   |           status_codes.cpython-312.pyc
+|   |   |       |   |   |           structures.cpython-312.pyc
+|   |   |       |   |   |           utils.cpython-312.pyc
+|   |   |       |   |   |           _internal_utils.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           __version__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---resolvelib
+|   |   |       |   |   |   |   providers.py
+|   |   |       |   |   |   |   py.typed
+|   |   |       |   |   |   |   reporters.py
+|   |   |       |   |   |   |   resolvers.py
+|   |   |       |   |   |   |   structs.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---compat
+|   |   |       |   |   |   |   |   collections_abc.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           collections_abc.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           providers.cpython-312.pyc
+|   |   |       |   |   |           reporters.cpython-312.pyc
+|   |   |       |   |   |           resolvers.cpython-312.pyc
+|   |   |       |   |   |           structs.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---rich
+|   |   |       |   |   |   |   abc.py
+|   |   |       |   |   |   |   align.py
+|   |   |       |   |   |   |   ansi.py
+|   |   |       |   |   |   |   bar.py
+|   |   |       |   |   |   |   box.py
+|   |   |       |   |   |   |   cells.py
+|   |   |       |   |   |   |   color.py
+|   |   |       |   |   |   |   color_triplet.py
+|   |   |       |   |   |   |   columns.py
+|   |   |       |   |   |   |   console.py
+|   |   |       |   |   |   |   constrain.py
+|   |   |       |   |   |   |   containers.py
+|   |   |       |   |   |   |   control.py
+|   |   |       |   |   |   |   default_styles.py
+|   |   |       |   |   |   |   diagnose.py
+|   |   |       |   |   |   |   emoji.py
+|   |   |       |   |   |   |   errors.py
+|   |   |       |   |   |   |   filesize.py
+|   |   |       |   |   |   |   file_proxy.py
+|   |   |       |   |   |   |   highlighter.py
+|   |   |       |   |   |   |   json.py
+|   |   |       |   |   |   |   jupyter.py
+|   |   |       |   |   |   |   layout.py
+|   |   |       |   |   |   |   live.py
+|   |   |       |   |   |   |   live_render.py
+|   |   |       |   |   |   |   logging.py
+|   |   |       |   |   |   |   markup.py
+|   |   |       |   |   |   |   measure.py
+|   |   |       |   |   |   |   padding.py
+|   |   |       |   |   |   |   pager.py
+|   |   |       |   |   |   |   palette.py
+|   |   |       |   |   |   |   panel.py
+|   |   |       |   |   |   |   pretty.py
+|   |   |       |   |   |   |   progress.py
+|   |   |       |   |   |   |   progress_bar.py
+|   |   |       |   |   |   |   prompt.py
+|   |   |       |   |   |   |   protocol.py
+|   |   |       |   |   |   |   py.typed
+|   |   |       |   |   |   |   region.py
+|   |   |       |   |   |   |   repr.py
+|   |   |       |   |   |   |   rule.py
+|   |   |       |   |   |   |   scope.py
+|   |   |       |   |   |   |   screen.py
+|   |   |       |   |   |   |   segment.py
+|   |   |       |   |   |   |   spinner.py
+|   |   |       |   |   |   |   status.py
+|   |   |       |   |   |   |   style.py
+|   |   |       |   |   |   |   styled.py
+|   |   |       |   |   |   |   syntax.py
+|   |   |       |   |   |   |   table.py
+|   |   |       |   |   |   |   terminal_theme.py
+|   |   |       |   |   |   |   text.py
+|   |   |       |   |   |   |   theme.py
+|   |   |       |   |   |   |   themes.py
+|   |   |       |   |   |   |   traceback.py
+|   |   |       |   |   |   |   tree.py
+|   |   |       |   |   |   |   _cell_widths.py
+|   |   |       |   |   |   |   _emoji_codes.py
+|   |   |       |   |   |   |   _emoji_replace.py
+|   |   |       |   |   |   |   _export_format.py
+|   |   |       |   |   |   |   _extension.py
+|   |   |       |   |   |   |   _fileno.py
+|   |   |       |   |   |   |   _inspect.py
+|   |   |       |   |   |   |   _log_render.py
+|   |   |       |   |   |   |   _loop.py
+|   |   |       |   |   |   |   _null_file.py
+|   |   |       |   |   |   |   _palettes.py
+|   |   |       |   |   |   |   _pick.py
+|   |   |       |   |   |   |   _ratio.py
+|   |   |       |   |   |   |   _spinners.py
+|   |   |       |   |   |   |   _stack.py
+|   |   |       |   |   |   |   _timer.py
+|   |   |       |   |   |   |   _win32_console.py
+|   |   |       |   |   |   |   _windows.py
+|   |   |       |   |   |   |   _windows_renderer.py
+|   |   |       |   |   |   |   _wrap.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   __main__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           abc.cpython-312.pyc
+|   |   |       |   |   |           align.cpython-312.pyc
+|   |   |       |   |   |           ansi.cpython-312.pyc
+|   |   |       |   |   |           bar.cpython-312.pyc
+|   |   |       |   |   |           box.cpython-312.pyc
+|   |   |       |   |   |           cells.cpython-312.pyc
+|   |   |       |   |   |           color.cpython-312.pyc
+|   |   |       |   |   |           color_triplet.cpython-312.pyc
+|   |   |       |   |   |           columns.cpython-312.pyc
+|   |   |       |   |   |           console.cpython-312.pyc
+|   |   |       |   |   |           constrain.cpython-312.pyc
+|   |   |       |   |   |           containers.cpython-312.pyc
+|   |   |       |   |   |           control.cpython-312.pyc
+|   |   |       |   |   |           default_styles.cpython-312.pyc
+|   |   |       |   |   |           diagnose.cpython-312.pyc
+|   |   |       |   |   |           emoji.cpython-312.pyc
+|   |   |       |   |   |           errors.cpython-312.pyc
+|   |   |       |   |   |           filesize.cpython-312.pyc
+|   |   |       |   |   |           file_proxy.cpython-312.pyc
+|   |   |       |   |   |           highlighter.cpython-312.pyc
+|   |   |       |   |   |           json.cpython-312.pyc
+|   |   |       |   |   |           jupyter.cpython-312.pyc
+|   |   |       |   |   |           layout.cpython-312.pyc
+|   |   |       |   |   |           live.cpython-312.pyc
+|   |   |       |   |   |           live_render.cpython-312.pyc
+|   |   |       |   |   |           logging.cpython-312.pyc
+|   |   |       |   |   |           markup.cpython-312.pyc
+|   |   |       |   |   |           measure.cpython-312.pyc
+|   |   |       |   |   |           padding.cpython-312.pyc
+|   |   |       |   |   |           pager.cpython-312.pyc
+|   |   |       |   |   |           palette.cpython-312.pyc
+|   |   |       |   |   |           panel.cpython-312.pyc
+|   |   |       |   |   |           pretty.cpython-312.pyc
+|   |   |       |   |   |           progress.cpython-312.pyc
+|   |   |       |   |   |           progress_bar.cpython-312.pyc
+|   |   |       |   |   |           prompt.cpython-312.pyc
+|   |   |       |   |   |           protocol.cpython-312.pyc
+|   |   |       |   |   |           region.cpython-312.pyc
+|   |   |       |   |   |           repr.cpython-312.pyc
+|   |   |       |   |   |           rule.cpython-312.pyc
+|   |   |       |   |   |           scope.cpython-312.pyc
+|   |   |       |   |   |           screen.cpython-312.pyc
+|   |   |       |   |   |           segment.cpython-312.pyc
+|   |   |       |   |   |           spinner.cpython-312.pyc
+|   |   |       |   |   |           status.cpython-312.pyc
+|   |   |       |   |   |           style.cpython-312.pyc
+|   |   |       |   |   |           styled.cpython-312.pyc
+|   |   |       |   |   |           syntax.cpython-312.pyc
+|   |   |       |   |   |           table.cpython-312.pyc
+|   |   |       |   |   |           terminal_theme.cpython-312.pyc
+|   |   |       |   |   |           text.cpython-312.pyc
+|   |   |       |   |   |           theme.cpython-312.pyc
+|   |   |       |   |   |           themes.cpython-312.pyc
+|   |   |       |   |   |           traceback.cpython-312.pyc
+|   |   |       |   |   |           tree.cpython-312.pyc
+|   |   |       |   |   |           _cell_widths.cpython-312.pyc
+|   |   |       |   |   |           _emoji_codes.cpython-312.pyc
+|   |   |       |   |   |           _emoji_replace.cpython-312.pyc
+|   |   |       |   |   |           _export_format.cpython-312.pyc
+|   |   |       |   |   |           _extension.cpython-312.pyc
+|   |   |       |   |   |           _fileno.cpython-312.pyc
+|   |   |       |   |   |           _inspect.cpython-312.pyc
+|   |   |       |   |   |           _log_render.cpython-312.pyc
+|   |   |       |   |   |           _loop.cpython-312.pyc
+|   |   |       |   |   |           _null_file.cpython-312.pyc
+|   |   |       |   |   |           _palettes.cpython-312.pyc
+|   |   |       |   |   |           _pick.cpython-312.pyc
+|   |   |       |   |   |           _ratio.cpython-312.pyc
+|   |   |       |   |   |           _spinners.cpython-312.pyc
+|   |   |       |   |   |           _stack.cpython-312.pyc
+|   |   |       |   |   |           _timer.cpython-312.pyc
+|   |   |       |   |   |           _win32_console.cpython-312.pyc
+|   |   |       |   |   |           _windows.cpython-312.pyc
+|   |   |       |   |   |           _windows_renderer.cpython-312.pyc
+|   |   |       |   |   |           _wrap.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           __main__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---tomli
+|   |   |       |   |   |   |   py.typed
+|   |   |       |   |   |   |   _parser.py
+|   |   |       |   |   |   |   _re.py
+|   |   |       |   |   |   |   _types.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           _parser.cpython-312.pyc
+|   |   |       |   |   |           _re.cpython-312.pyc
+|   |   |       |   |   |           _types.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---truststore
+|   |   |       |   |   |   |   py.typed
+|   |   |       |   |   |   |   _api.py
+|   |   |       |   |   |   |   _macos.py
+|   |   |       |   |   |   |   _openssl.py
+|   |   |       |   |   |   |   _ssl_constants.py
+|   |   |       |   |   |   |   _windows.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           _api.cpython-312.pyc
+|   |   |       |   |   |           _macos.cpython-312.pyc
+|   |   |       |   |   |           _openssl.cpython-312.pyc
+|   |   |       |   |   |           _ssl_constants.cpython-312.pyc
+|   |   |       |   |   |           _windows.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---urllib3
+|   |   |       |   |   |   |   connection.py
+|   |   |       |   |   |   |   connectionpool.py
+|   |   |       |   |   |   |   exceptions.py
+|   |   |       |   |   |   |   fields.py
+|   |   |       |   |   |   |   filepost.py
+|   |   |       |   |   |   |   poolmanager.py
+|   |   |       |   |   |   |   request.py
+|   |   |       |   |   |   |   response.py
+|   |   |       |   |   |   |   _collections.py
+|   |   |       |   |   |   |   _version.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   +---contrib
+|   |   |       |   |   |   |   |   appengine.py
+|   |   |       |   |   |   |   |   ntlmpool.py
+|   |   |       |   |   |   |   |   pyopenssl.py
+|   |   |       |   |   |   |   |   securetransport.py
+|   |   |       |   |   |   |   |   socks.py
+|   |   |       |   |   |   |   |   _appengine_environ.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   +---_securetransport
+|   |   |       |   |   |   |   |   |   bindings.py
+|   |   |       |   |   |   |   |   |   low_level.py
+|   |   |       |   |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   |   
+|   |   |       |   |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |   |           bindings.cpython-312.pyc
+|   |   |       |   |   |   |   |           low_level.cpython-312.pyc
+|   |   |       |   |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |   |           
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           appengine.cpython-312.pyc
+|   |   |       |   |   |   |           ntlmpool.cpython-312.pyc
+|   |   |       |   |   |   |           pyopenssl.cpython-312.pyc
+|   |   |       |   |   |   |           securetransport.cpython-312.pyc
+|   |   |       |   |   |   |           socks.cpython-312.pyc
+|   |   |       |   |   |   |           _appengine_environ.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   +---packages
+|   |   |       |   |   |   |   |   six.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   +---backports
+|   |   |       |   |   |   |   |   |   makefile.py
+|   |   |       |   |   |   |   |   |   weakref_finalize.py
+|   |   |       |   |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   |   
+|   |   |       |   |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |   |           makefile.cpython-312.pyc
+|   |   |       |   |   |   |   |           weakref_finalize.cpython-312.pyc
+|   |   |       |   |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |   |           
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           six.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   +---util
+|   |   |       |   |   |   |   |   connection.py
+|   |   |       |   |   |   |   |   proxy.py
+|   |   |       |   |   |   |   |   queue.py
+|   |   |       |   |   |   |   |   request.py
+|   |   |       |   |   |   |   |   response.py
+|   |   |       |   |   |   |   |   retry.py
+|   |   |       |   |   |   |   |   ssltransport.py
+|   |   |       |   |   |   |   |   ssl_.py
+|   |   |       |   |   |   |   |   ssl_match_hostname.py
+|   |   |       |   |   |   |   |   timeout.py
+|   |   |       |   |   |   |   |   url.py
+|   |   |       |   |   |   |   |   wait.py
+|   |   |       |   |   |   |   |   __init__.py
+|   |   |       |   |   |   |   |   
+|   |   |       |   |   |   |   \---__pycache__
+|   |   |       |   |   |   |           connection.cpython-312.pyc
+|   |   |       |   |   |   |           proxy.cpython-312.pyc
+|   |   |       |   |   |   |           queue.cpython-312.pyc
+|   |   |       |   |   |   |           request.cpython-312.pyc
+|   |   |       |   |   |   |           response.cpython-312.pyc
+|   |   |       |   |   |   |           retry.cpython-312.pyc
+|   |   |       |   |   |   |           ssltransport.cpython-312.pyc
+|   |   |       |   |   |   |           ssl_.cpython-312.pyc
+|   |   |       |   |   |   |           ssl_match_hostname.cpython-312.pyc
+|   |   |       |   |   |   |           timeout.cpython-312.pyc
+|   |   |       |   |   |   |           url.cpython-312.pyc
+|   |   |       |   |   |   |           wait.cpython-312.pyc
+|   |   |       |   |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |   |           
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           connection.cpython-312.pyc
+|   |   |       |   |   |           connectionpool.cpython-312.pyc
+|   |   |       |   |   |           exceptions.cpython-312.pyc
+|   |   |       |   |   |           fields.cpython-312.pyc
+|   |   |       |   |   |           filepost.cpython-312.pyc
+|   |   |       |   |   |           poolmanager.cpython-312.pyc
+|   |   |       |   |   |           request.cpython-312.pyc
+|   |   |       |   |   |           response.cpython-312.pyc
+|   |   |       |   |   |           _collections.cpython-312.pyc
+|   |   |       |   |   |           _version.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           typing_extensions.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   \---__pycache__
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           __main__.cpython-312.pyc
+|   |   |       |           __pip-runner__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---pip-24.2.dist-info
+|   |   |       |       AUTHORS.txt
+|   |   |       |       entry_points.txt
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE.txt
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       REQUESTED
+|   |   |       |       top_level.txt
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---prompt_toolkit
+|   |   |       |   |   auto_suggest.py
+|   |   |       |   |   buffer.py
+|   |   |       |   |   cache.py
+|   |   |       |   |   cursor_shapes.py
+|   |   |       |   |   data_structures.py
+|   |   |       |   |   document.py
+|   |   |       |   |   enums.py
+|   |   |       |   |   history.py
+|   |   |       |   |   keys.py
+|   |   |       |   |   log.py
+|   |   |       |   |   mouse_events.py
+|   |   |       |   |   patch_stdout.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   renderer.py
+|   |   |       |   |   search.py
+|   |   |       |   |   selection.py
+|   |   |       |   |   token.py
+|   |   |       |   |   utils.py
+|   |   |       |   |   validation.py
+|   |   |       |   |   win32_types.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   +---application
+|   |   |       |   |   |   application.py
+|   |   |       |   |   |   current.py
+|   |   |       |   |   |   dummy.py
+|   |   |       |   |   |   run_in_terminal.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           application.cpython-312.pyc
+|   |   |       |   |           current.cpython-312.pyc
+|   |   |       |   |           dummy.cpython-312.pyc
+|   |   |       |   |           run_in_terminal.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---clipboard
+|   |   |       |   |   |   base.py
+|   |   |       |   |   |   in_memory.py
+|   |   |       |   |   |   pyperclip.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           base.cpython-312.pyc
+|   |   |       |   |           in_memory.cpython-312.pyc
+|   |   |       |   |           pyperclip.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---completion
+|   |   |       |   |   |   base.py
+|   |   |       |   |   |   deduplicate.py
+|   |   |       |   |   |   filesystem.py
+|   |   |       |   |   |   fuzzy_completer.py
+|   |   |       |   |   |   nested.py
+|   |   |       |   |   |   word_completer.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           base.cpython-312.pyc
+|   |   |       |   |           deduplicate.cpython-312.pyc
+|   |   |       |   |           filesystem.cpython-312.pyc
+|   |   |       |   |           fuzzy_completer.cpython-312.pyc
+|   |   |       |   |           nested.cpython-312.pyc
+|   |   |       |   |           word_completer.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---contrib
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---completers
+|   |   |       |   |   |   |   system.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           system.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---regular_languages
+|   |   |       |   |   |   |   compiler.py
+|   |   |       |   |   |   |   completion.py
+|   |   |       |   |   |   |   lexer.py
+|   |   |       |   |   |   |   regex_parser.py
+|   |   |       |   |   |   |   validation.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           compiler.cpython-312.pyc
+|   |   |       |   |   |           completion.cpython-312.pyc
+|   |   |       |   |   |           lexer.cpython-312.pyc
+|   |   |       |   |   |           regex_parser.cpython-312.pyc
+|   |   |       |   |   |           validation.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---ssh
+|   |   |       |   |   |   |   server.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           server.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---telnet
+|   |   |       |   |   |   |   log.py
+|   |   |       |   |   |   |   protocol.py
+|   |   |       |   |   |   |   server.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           log.cpython-312.pyc
+|   |   |       |   |   |           protocol.cpython-312.pyc
+|   |   |       |   |   |           server.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---eventloop
+|   |   |       |   |   |   async_generator.py
+|   |   |       |   |   |   inputhook.py
+|   |   |       |   |   |   utils.py
+|   |   |       |   |   |   win32.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           async_generator.cpython-312.pyc
+|   |   |       |   |           inputhook.cpython-312.pyc
+|   |   |       |   |           utils.cpython-312.pyc
+|   |   |       |   |           win32.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---filters
+|   |   |       |   |   |   app.py
+|   |   |       |   |   |   base.py
+|   |   |       |   |   |   cli.py
+|   |   |       |   |   |   utils.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           app.cpython-312.pyc
+|   |   |       |   |           base.cpython-312.pyc
+|   |   |       |   |           cli.cpython-312.pyc
+|   |   |       |   |           utils.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---formatted_text
+|   |   |       |   |   |   ansi.py
+|   |   |       |   |   |   base.py
+|   |   |       |   |   |   html.py
+|   |   |       |   |   |   pygments.py
+|   |   |       |   |   |   utils.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           ansi.cpython-312.pyc
+|   |   |       |   |           base.cpython-312.pyc
+|   |   |       |   |           html.cpython-312.pyc
+|   |   |       |   |           pygments.cpython-312.pyc
+|   |   |       |   |           utils.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---input
+|   |   |       |   |   |   ansi_escape_sequences.py
+|   |   |       |   |   |   base.py
+|   |   |       |   |   |   defaults.py
+|   |   |       |   |   |   posix_pipe.py
+|   |   |       |   |   |   posix_utils.py
+|   |   |       |   |   |   typeahead.py
+|   |   |       |   |   |   vt100.py
+|   |   |       |   |   |   vt100_parser.py
+|   |   |       |   |   |   win32.py
+|   |   |       |   |   |   win32_pipe.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           ansi_escape_sequences.cpython-312.pyc
+|   |   |       |   |           base.cpython-312.pyc
+|   |   |       |   |           defaults.cpython-312.pyc
+|   |   |       |   |           posix_pipe.cpython-312.pyc
+|   |   |       |   |           posix_utils.cpython-312.pyc
+|   |   |       |   |           typeahead.cpython-312.pyc
+|   |   |       |   |           vt100.cpython-312.pyc
+|   |   |       |   |           vt100_parser.cpython-312.pyc
+|   |   |       |   |           win32.cpython-312.pyc
+|   |   |       |   |           win32_pipe.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---key_binding
+|   |   |       |   |   |   defaults.py
+|   |   |       |   |   |   digraphs.py
+|   |   |       |   |   |   emacs_state.py
+|   |   |       |   |   |   key_bindings.py
+|   |   |       |   |   |   key_processor.py
+|   |   |       |   |   |   vi_state.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---bindings
+|   |   |       |   |   |   |   auto_suggest.py
+|   |   |       |   |   |   |   basic.py
+|   |   |       |   |   |   |   completion.py
+|   |   |       |   |   |   |   cpr.py
+|   |   |       |   |   |   |   emacs.py
+|   |   |       |   |   |   |   focus.py
+|   |   |       |   |   |   |   mouse.py
+|   |   |       |   |   |   |   named_commands.py
+|   |   |       |   |   |   |   open_in_editor.py
+|   |   |       |   |   |   |   page_navigation.py
+|   |   |       |   |   |   |   scroll.py
+|   |   |       |   |   |   |   search.py
+|   |   |       |   |   |   |   vi.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           auto_suggest.cpython-312.pyc
+|   |   |       |   |   |           basic.cpython-312.pyc
+|   |   |       |   |   |           completion.cpython-312.pyc
+|   |   |       |   |   |           cpr.cpython-312.pyc
+|   |   |       |   |   |           emacs.cpython-312.pyc
+|   |   |       |   |   |           focus.cpython-312.pyc
+|   |   |       |   |   |           mouse.cpython-312.pyc
+|   |   |       |   |   |           named_commands.cpython-312.pyc
+|   |   |       |   |   |           open_in_editor.cpython-312.pyc
+|   |   |       |   |   |           page_navigation.cpython-312.pyc
+|   |   |       |   |   |           scroll.cpython-312.pyc
+|   |   |       |   |   |           search.cpython-312.pyc
+|   |   |       |   |   |           vi.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           defaults.cpython-312.pyc
+|   |   |       |   |           digraphs.cpython-312.pyc
+|   |   |       |   |           emacs_state.cpython-312.pyc
+|   |   |       |   |           key_bindings.cpython-312.pyc
+|   |   |       |   |           key_processor.cpython-312.pyc
+|   |   |       |   |           vi_state.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---layout
+|   |   |       |   |   |   containers.py
+|   |   |       |   |   |   controls.py
+|   |   |       |   |   |   dimension.py
+|   |   |       |   |   |   dummy.py
+|   |   |       |   |   |   layout.py
+|   |   |       |   |   |   margins.py
+|   |   |       |   |   |   menus.py
+|   |   |       |   |   |   mouse_handlers.py
+|   |   |       |   |   |   processors.py
+|   |   |       |   |   |   screen.py
+|   |   |       |   |   |   scrollable_pane.py
+|   |   |       |   |   |   utils.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           containers.cpython-312.pyc
+|   |   |       |   |           controls.cpython-312.pyc
+|   |   |       |   |           dimension.cpython-312.pyc
+|   |   |       |   |           dummy.cpython-312.pyc
+|   |   |       |   |           layout.cpython-312.pyc
+|   |   |       |   |           margins.cpython-312.pyc
+|   |   |       |   |           menus.cpython-312.pyc
+|   |   |       |   |           mouse_handlers.cpython-312.pyc
+|   |   |       |   |           processors.cpython-312.pyc
+|   |   |       |   |           screen.cpython-312.pyc
+|   |   |       |   |           scrollable_pane.cpython-312.pyc
+|   |   |       |   |           utils.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---lexers
+|   |   |       |   |   |   base.py
+|   |   |       |   |   |   pygments.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           base.cpython-312.pyc
+|   |   |       |   |           pygments.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---output
+|   |   |       |   |   |   base.py
+|   |   |       |   |   |   color_depth.py
+|   |   |       |   |   |   conemu.py
+|   |   |       |   |   |   defaults.py
+|   |   |       |   |   |   flush_stdout.py
+|   |   |       |   |   |   plain_text.py
+|   |   |       |   |   |   vt100.py
+|   |   |       |   |   |   win32.py
+|   |   |       |   |   |   windows10.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           base.cpython-312.pyc
+|   |   |       |   |           color_depth.cpython-312.pyc
+|   |   |       |   |           conemu.cpython-312.pyc
+|   |   |       |   |           defaults.cpython-312.pyc
+|   |   |       |   |           flush_stdout.cpython-312.pyc
+|   |   |       |   |           plain_text.cpython-312.pyc
+|   |   |       |   |           vt100.cpython-312.pyc
+|   |   |       |   |           win32.cpython-312.pyc
+|   |   |       |   |           windows10.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---shortcuts
+|   |   |       |   |   |   choice_input.py
+|   |   |       |   |   |   dialogs.py
+|   |   |       |   |   |   prompt.py
+|   |   |       |   |   |   utils.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---progress_bar
+|   |   |       |   |   |   |   base.py
+|   |   |       |   |   |   |   formatters.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           base.cpython-312.pyc
+|   |   |       |   |   |           formatters.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           choice_input.cpython-312.pyc
+|   |   |       |   |           dialogs.cpython-312.pyc
+|   |   |       |   |           prompt.cpython-312.pyc
+|   |   |       |   |           utils.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---styles
+|   |   |       |   |   |   base.py
+|   |   |       |   |   |   defaults.py
+|   |   |       |   |   |   named_colors.py
+|   |   |       |   |   |   pygments.py
+|   |   |       |   |   |   style.py
+|   |   |       |   |   |   style_transformation.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           base.cpython-312.pyc
+|   |   |       |   |           defaults.cpython-312.pyc
+|   |   |       |   |           named_colors.cpython-312.pyc
+|   |   |       |   |           pygments.cpython-312.pyc
+|   |   |       |   |           style.cpython-312.pyc
+|   |   |       |   |           style_transformation.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---widgets
+|   |   |       |   |   |   base.py
+|   |   |       |   |   |   dialogs.py
+|   |   |       |   |   |   menus.py
+|   |   |       |   |   |   toolbars.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           base.cpython-312.pyc
+|   |   |       |   |           dialogs.cpython-312.pyc
+|   |   |       |   |           menus.cpython-312.pyc
+|   |   |       |   |           toolbars.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   \---__pycache__
+|   |   |       |           auto_suggest.cpython-312.pyc
+|   |   |       |           buffer.cpython-312.pyc
+|   |   |       |           cache.cpython-312.pyc
+|   |   |       |           cursor_shapes.cpython-312.pyc
+|   |   |       |           data_structures.cpython-312.pyc
+|   |   |       |           document.cpython-312.pyc
+|   |   |       |           enums.cpython-312.pyc
+|   |   |       |           history.cpython-312.pyc
+|   |   |       |           keys.cpython-312.pyc
+|   |   |       |           log.cpython-312.pyc
+|   |   |       |           mouse_events.cpython-312.pyc
+|   |   |       |           patch_stdout.cpython-312.pyc
+|   |   |       |           renderer.cpython-312.pyc
+|   |   |       |           search.cpython-312.pyc
+|   |   |       |           selection.cpython-312.pyc
+|   |   |       |           token.cpython-312.pyc
+|   |   |       |           utils.cpython-312.pyc
+|   |   |       |           validation.cpython-312.pyc
+|   |   |       |           win32_types.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---prompt_toolkit-3.0.52.dist-info
+|   |   |       |   |   INSTALLER
+|   |   |       |   |   METADATA
+|   |   |       |   |   RECORD
+|   |   |       |   |   top_level.txt
+|   |   |       |   |   WHEEL
+|   |   |       |   |   
+|   |   |       |   \---licenses
+|   |   |       |           AUTHORS.rst
+|   |   |       |           LICENSE
+|   |   |       |           
+|   |   |       +---pure_eval
+|   |   |       |   |   core.py
+|   |   |       |   |   my_getattr_static.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   utils.py
+|   |   |       |   |   version.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   \---__pycache__
+|   |   |       |           core.cpython-312.pyc
+|   |   |       |           my_getattr_static.cpython-312.pyc
+|   |   |       |           utils.cpython-312.pyc
+|   |   |       |           version.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---pure_eval-0.2.3.dist-info
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE.txt
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       top_level.txt
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---pygments
+|   |   |       |   |   cmdline.py
+|   |   |       |   |   console.py
+|   |   |       |   |   filter.py
+|   |   |       |   |   formatter.py
+|   |   |       |   |   lexer.py
+|   |   |       |   |   modeline.py
+|   |   |       |   |   plugin.py
+|   |   |       |   |   regexopt.py
+|   |   |       |   |   scanner.py
+|   |   |       |   |   sphinxext.py
+|   |   |       |   |   style.py
+|   |   |       |   |   token.py
+|   |   |       |   |   unistring.py
+|   |   |       |   |   util.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   __main__.py
+|   |   |       |   |   
+|   |   |       |   +---filters
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---formatters
+|   |   |       |   |   |   bbcode.py
+|   |   |       |   |   |   groff.py
+|   |   |       |   |   |   html.py
+|   |   |       |   |   |   img.py
+|   |   |       |   |   |   irc.py
+|   |   |       |   |   |   latex.py
+|   |   |       |   |   |   other.py
+|   |   |       |   |   |   pangomarkup.py
+|   |   |       |   |   |   rtf.py
+|   |   |       |   |   |   svg.py
+|   |   |       |   |   |   terminal.py
+|   |   |       |   |   |   terminal256.py
+|   |   |       |   |   |   _mapping.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           bbcode.cpython-312.pyc
+|   |   |       |   |           groff.cpython-312.pyc
+|   |   |       |   |           html.cpython-312.pyc
+|   |   |       |   |           img.cpython-312.pyc
+|   |   |       |   |           irc.cpython-312.pyc
+|   |   |       |   |           latex.cpython-312.pyc
+|   |   |       |   |           other.cpython-312.pyc
+|   |   |       |   |           pangomarkup.cpython-312.pyc
+|   |   |       |   |           rtf.cpython-312.pyc
+|   |   |       |   |           svg.cpython-312.pyc
+|   |   |       |   |           terminal.cpython-312.pyc
+|   |   |       |   |           terminal256.cpython-312.pyc
+|   |   |       |   |           _mapping.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---lexers
+|   |   |       |   |   |   actionscript.py
+|   |   |       |   |   |   ada.py
+|   |   |       |   |   |   agile.py
+|   |   |       |   |   |   algebra.py
+|   |   |       |   |   |   ambient.py
+|   |   |       |   |   |   amdgpu.py
+|   |   |       |   |   |   ampl.py
+|   |   |       |   |   |   apdlexer.py
+|   |   |       |   |   |   apl.py
+|   |   |       |   |   |   archetype.py
+|   |   |       |   |   |   arrow.py
+|   |   |       |   |   |   arturo.py
+|   |   |       |   |   |   asc.py
+|   |   |       |   |   |   asm.py
+|   |   |       |   |   |   asn1.py
+|   |   |       |   |   |   automation.py
+|   |   |       |   |   |   bare.py
+|   |   |       |   |   |   basic.py
+|   |   |       |   |   |   bdd.py
+|   |   |       |   |   |   berry.py
+|   |   |       |   |   |   bibtex.py
+|   |   |       |   |   |   blueprint.py
+|   |   |       |   |   |   boa.py
+|   |   |       |   |   |   bqn.py
+|   |   |       |   |   |   business.py
+|   |   |       |   |   |   capnproto.py
+|   |   |       |   |   |   carbon.py
+|   |   |       |   |   |   cddl.py
+|   |   |       |   |   |   chapel.py
+|   |   |       |   |   |   clean.py
+|   |   |       |   |   |   codeql.py
+|   |   |       |   |   |   comal.py
+|   |   |       |   |   |   compiled.py
+|   |   |       |   |   |   configs.py
+|   |   |       |   |   |   console.py
+|   |   |       |   |   |   cplint.py
+|   |   |       |   |   |   crystal.py
+|   |   |       |   |   |   csound.py
+|   |   |       |   |   |   css.py
+|   |   |       |   |   |   c_cpp.py
+|   |   |       |   |   |   c_like.py
+|   |   |       |   |   |   d.py
+|   |   |       |   |   |   dalvik.py
+|   |   |       |   |   |   data.py
+|   |   |       |   |   |   dax.py
+|   |   |       |   |   |   devicetree.py
+|   |   |       |   |   |   diff.py
+|   |   |       |   |   |   dns.py
+|   |   |       |   |   |   dotnet.py
+|   |   |       |   |   |   dsls.py
+|   |   |       |   |   |   dylan.py
+|   |   |       |   |   |   ecl.py
+|   |   |       |   |   |   eiffel.py
+|   |   |       |   |   |   elm.py
+|   |   |       |   |   |   elpi.py
+|   |   |       |   |   |   email.py
+|   |   |       |   |   |   erlang.py
+|   |   |       |   |   |   esoteric.py
+|   |   |       |   |   |   ezhil.py
+|   |   |       |   |   |   factor.py
+|   |   |       |   |   |   fantom.py
+|   |   |       |   |   |   felix.py
+|   |   |       |   |   |   fift.py
+|   |   |       |   |   |   floscript.py
+|   |   |       |   |   |   forth.py
+|   |   |       |   |   |   fortran.py
+|   |   |       |   |   |   foxpro.py
+|   |   |       |   |   |   freefem.py
+|   |   |       |   |   |   func.py
+|   |   |       |   |   |   functional.py
+|   |   |       |   |   |   futhark.py
+|   |   |       |   |   |   gcodelexer.py
+|   |   |       |   |   |   gdscript.py
+|   |   |       |   |   |   gleam.py
+|   |   |       |   |   |   go.py
+|   |   |       |   |   |   grammar_notation.py
+|   |   |       |   |   |   graph.py
+|   |   |       |   |   |   graphics.py
+|   |   |       |   |   |   graphql.py
+|   |   |       |   |   |   graphviz.py
+|   |   |       |   |   |   gsql.py
+|   |   |       |   |   |   hare.py
+|   |   |       |   |   |   haskell.py
+|   |   |       |   |   |   haxe.py
+|   |   |       |   |   |   hdl.py
+|   |   |       |   |   |   hexdump.py
+|   |   |       |   |   |   html.py
+|   |   |       |   |   |   idl.py
+|   |   |       |   |   |   igor.py
+|   |   |       |   |   |   inferno.py
+|   |   |       |   |   |   installers.py
+|   |   |       |   |   |   int_fiction.py
+|   |   |       |   |   |   iolang.py
+|   |   |       |   |   |   j.py
+|   |   |       |   |   |   javascript.py
+|   |   |       |   |   |   jmespath.py
+|   |   |       |   |   |   jslt.py
+|   |   |       |   |   |   json5.py
+|   |   |       |   |   |   jsonnet.py
+|   |   |       |   |   |   jsx.py
+|   |   |       |   |   |   julia.py
+|   |   |       |   |   |   jvm.py
+|   |   |       |   |   |   kuin.py
+|   |   |       |   |   |   kusto.py
+|   |   |       |   |   |   ldap.py
+|   |   |       |   |   |   lean.py
+|   |   |       |   |   |   lilypond.py
+|   |   |       |   |   |   lisp.py
+|   |   |       |   |   |   macaulay2.py
+|   |   |       |   |   |   make.py
+|   |   |       |   |   |   maple.py
+|   |   |       |   |   |   markup.py
+|   |   |       |   |   |   math.py
+|   |   |       |   |   |   matlab.py
+|   |   |       |   |   |   maxima.py
+|   |   |       |   |   |   meson.py
+|   |   |       |   |   |   mime.py
+|   |   |       |   |   |   minecraft.py
+|   |   |       |   |   |   mips.py
+|   |   |       |   |   |   ml.py
+|   |   |       |   |   |   modeling.py
+|   |   |       |   |   |   modula2.py
+|   |   |       |   |   |   mojo.py
+|   |   |       |   |   |   monte.py
+|   |   |       |   |   |   mosel.py
+|   |   |       |   |   |   ncl.py
+|   |   |       |   |   |   nimrod.py
+|   |   |       |   |   |   nit.py
+|   |   |       |   |   |   nix.py
+|   |   |       |   |   |   numbair.py
+|   |   |       |   |   |   oberon.py
+|   |   |       |   |   |   objective.py
+|   |   |       |   |   |   ooc.py
+|   |   |       |   |   |   openscad.py
+|   |   |       |   |   |   other.py
+|   |   |       |   |   |   parasail.py
+|   |   |       |   |   |   parsers.py
+|   |   |       |   |   |   pascal.py
+|   |   |       |   |   |   pawn.py
+|   |   |       |   |   |   pddl.py
+|   |   |       |   |   |   perl.py
+|   |   |       |   |   |   phix.py
+|   |   |       |   |   |   php.py
+|   |   |       |   |   |   pointless.py
+|   |   |       |   |   |   pony.py
+|   |   |       |   |   |   praat.py
+|   |   |       |   |   |   procfile.py
+|   |   |       |   |   |   prolog.py
+|   |   |       |   |   |   promql.py
+|   |   |       |   |   |   prql.py
+|   |   |       |   |   |   ptx.py
+|   |   |       |   |   |   python.py
+|   |   |       |   |   |   q.py
+|   |   |       |   |   |   qlik.py
+|   |   |       |   |   |   qvt.py
+|   |   |       |   |   |   r.py
+|   |   |       |   |   |   rdf.py
+|   |   |       |   |   |   rebol.py
+|   |   |       |   |   |   rego.py
+|   |   |       |   |   |   resource.py
+|   |   |       |   |   |   ride.py
+|   |   |       |   |   |   rita.py
+|   |   |       |   |   |   rnc.py
+|   |   |       |   |   |   roboconf.py
+|   |   |       |   |   |   robotframework.py
+|   |   |       |   |   |   ruby.py
+|   |   |       |   |   |   rust.py
+|   |   |       |   |   |   sas.py
+|   |   |       |   |   |   savi.py
+|   |   |       |   |   |   scdoc.py
+|   |   |       |   |   |   scripting.py
+|   |   |       |   |   |   sgf.py
+|   |   |       |   |   |   shell.py
+|   |   |       |   |   |   sieve.py
+|   |   |       |   |   |   slash.py
+|   |   |       |   |   |   smalltalk.py
+|   |   |       |   |   |   smithy.py
+|   |   |       |   |   |   smv.py
+|   |   |       |   |   |   snobol.py
+|   |   |       |   |   |   solidity.py
+|   |   |       |   |   |   soong.py
+|   |   |       |   |   |   sophia.py
+|   |   |       |   |   |   special.py
+|   |   |       |   |   |   spice.py
+|   |   |       |   |   |   sql.py
+|   |   |       |   |   |   srcinfo.py
+|   |   |       |   |   |   stata.py
+|   |   |       |   |   |   supercollider.py
+|   |   |       |   |   |   tablegen.py
+|   |   |       |   |   |   tact.py
+|   |   |       |   |   |   tal.py
+|   |   |       |   |   |   tcl.py
+|   |   |       |   |   |   teal.py
+|   |   |       |   |   |   templates.py
+|   |   |       |   |   |   teraterm.py
+|   |   |       |   |   |   testing.py
+|   |   |       |   |   |   text.py
+|   |   |       |   |   |   textedit.py
+|   |   |       |   |   |   textfmts.py
+|   |   |       |   |   |   theorem.py
+|   |   |       |   |   |   thingsdb.py
+|   |   |       |   |   |   tlb.py
+|   |   |       |   |   |   tls.py
+|   |   |       |   |   |   tnt.py
+|   |   |       |   |   |   trafficscript.py
+|   |   |       |   |   |   typoscript.py
+|   |   |       |   |   |   typst.py
+|   |   |       |   |   |   ul4.py
+|   |   |       |   |   |   unicon.py
+|   |   |       |   |   |   urbi.py
+|   |   |       |   |   |   usd.py
+|   |   |       |   |   |   varnish.py
+|   |   |       |   |   |   verification.py
+|   |   |       |   |   |   verifpal.py
+|   |   |       |   |   |   vip.py
+|   |   |       |   |   |   vyper.py
+|   |   |       |   |   |   web.py
+|   |   |       |   |   |   webassembly.py
+|   |   |       |   |   |   webidl.py
+|   |   |       |   |   |   webmisc.py
+|   |   |       |   |   |   wgsl.py
+|   |   |       |   |   |   whiley.py
+|   |   |       |   |   |   wowtoc.py
+|   |   |       |   |   |   wren.py
+|   |   |       |   |   |   x10.py
+|   |   |       |   |   |   xorg.py
+|   |   |       |   |   |   yang.py
+|   |   |       |   |   |   yara.py
+|   |   |       |   |   |   zig.py
+|   |   |       |   |   |   _ada_builtins.py
+|   |   |       |   |   |   _asy_builtins.py
+|   |   |       |   |   |   _cl_builtins.py
+|   |   |       |   |   |   _cocoa_builtins.py
+|   |   |       |   |   |   _csound_builtins.py
+|   |   |       |   |   |   _css_builtins.py
+|   |   |       |   |   |   _googlesql_builtins.py
+|   |   |       |   |   |   _julia_builtins.py
+|   |   |       |   |   |   _lasso_builtins.py
+|   |   |       |   |   |   _lilypond_builtins.py
+|   |   |       |   |   |   _luau_builtins.py
+|   |   |       |   |   |   _lua_builtins.py
+|   |   |       |   |   |   _mapping.py
+|   |   |       |   |   |   _mql_builtins.py
+|   |   |       |   |   |   _mysql_builtins.py
+|   |   |       |   |   |   _openedge_builtins.py
+|   |   |       |   |   |   _php_builtins.py
+|   |   |       |   |   |   _postgres_builtins.py
+|   |   |       |   |   |   _qlik_builtins.py
+|   |   |       |   |   |   _scheme_builtins.py
+|   |   |       |   |   |   _scilab_builtins.py
+|   |   |       |   |   |   _sourcemod_builtins.py
+|   |   |       |   |   |   _sql_builtins.py
+|   |   |       |   |   |   _stan_builtins.py
+|   |   |       |   |   |   _stata_builtins.py
+|   |   |       |   |   |   _tsql_builtins.py
+|   |   |       |   |   |   _usd_builtins.py
+|   |   |       |   |   |   _vbscript_builtins.py
+|   |   |       |   |   |   _vim_builtins.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           actionscript.cpython-312.pyc
+|   |   |       |   |           ada.cpython-312.pyc
+|   |   |       |   |           agile.cpython-312.pyc
+|   |   |       |   |           algebra.cpython-312.pyc
+|   |   |       |   |           ambient.cpython-312.pyc
+|   |   |       |   |           amdgpu.cpython-312.pyc
+|   |   |       |   |           ampl.cpython-312.pyc
+|   |   |       |   |           apdlexer.cpython-312.pyc
+|   |   |       |   |           apl.cpython-312.pyc
+|   |   |       |   |           archetype.cpython-312.pyc
+|   |   |       |   |           arrow.cpython-312.pyc
+|   |   |       |   |           arturo.cpython-312.pyc
+|   |   |       |   |           asc.cpython-312.pyc
+|   |   |       |   |           asm.cpython-312.pyc
+|   |   |       |   |           asn1.cpython-312.pyc
+|   |   |       |   |           automation.cpython-312.pyc
+|   |   |       |   |           bare.cpython-312.pyc
+|   |   |       |   |           basic.cpython-312.pyc
+|   |   |       |   |           bdd.cpython-312.pyc
+|   |   |       |   |           berry.cpython-312.pyc
+|   |   |       |   |           bibtex.cpython-312.pyc
+|   |   |       |   |           blueprint.cpython-312.pyc
+|   |   |       |   |           boa.cpython-312.pyc
+|   |   |       |   |           bqn.cpython-312.pyc
+|   |   |       |   |           business.cpython-312.pyc
+|   |   |       |   |           capnproto.cpython-312.pyc
+|   |   |       |   |           carbon.cpython-312.pyc
+|   |   |       |   |           cddl.cpython-312.pyc
+|   |   |       |   |           chapel.cpython-312.pyc
+|   |   |       |   |           clean.cpython-312.pyc
+|   |   |       |   |           codeql.cpython-312.pyc
+|   |   |       |   |           comal.cpython-312.pyc
+|   |   |       |   |           compiled.cpython-312.pyc
+|   |   |       |   |           configs.cpython-312.pyc
+|   |   |       |   |           console.cpython-312.pyc
+|   |   |       |   |           cplint.cpython-312.pyc
+|   |   |       |   |           crystal.cpython-312.pyc
+|   |   |       |   |           csound.cpython-312.pyc
+|   |   |       |   |           css.cpython-312.pyc
+|   |   |       |   |           c_cpp.cpython-312.pyc
+|   |   |       |   |           c_like.cpython-312.pyc
+|   |   |       |   |           d.cpython-312.pyc
+|   |   |       |   |           dalvik.cpython-312.pyc
+|   |   |       |   |           data.cpython-312.pyc
+|   |   |       |   |           dax.cpython-312.pyc
+|   |   |       |   |           devicetree.cpython-312.pyc
+|   |   |       |   |           diff.cpython-312.pyc
+|   |   |       |   |           dns.cpython-312.pyc
+|   |   |       |   |           dotnet.cpython-312.pyc
+|   |   |       |   |           dsls.cpython-312.pyc
+|   |   |       |   |           dylan.cpython-312.pyc
+|   |   |       |   |           ecl.cpython-312.pyc
+|   |   |       |   |           eiffel.cpython-312.pyc
+|   |   |       |   |           elm.cpython-312.pyc
+|   |   |       |   |           elpi.cpython-312.pyc
+|   |   |       |   |           email.cpython-312.pyc
+|   |   |       |   |           erlang.cpython-312.pyc
+|   |   |       |   |           esoteric.cpython-312.pyc
+|   |   |       |   |           ezhil.cpython-312.pyc
+|   |   |       |   |           factor.cpython-312.pyc
+|   |   |       |   |           fantom.cpython-312.pyc
+|   |   |       |   |           felix.cpython-312.pyc
+|   |   |       |   |           fift.cpython-312.pyc
+|   |   |       |   |           floscript.cpython-312.pyc
+|   |   |       |   |           forth.cpython-312.pyc
+|   |   |       |   |           fortran.cpython-312.pyc
+|   |   |       |   |           foxpro.cpython-312.pyc
+|   |   |       |   |           freefem.cpython-312.pyc
+|   |   |       |   |           func.cpython-312.pyc
+|   |   |       |   |           functional.cpython-312.pyc
+|   |   |       |   |           futhark.cpython-312.pyc
+|   |   |       |   |           gcodelexer.cpython-312.pyc
+|   |   |       |   |           gdscript.cpython-312.pyc
+|   |   |       |   |           gleam.cpython-312.pyc
+|   |   |       |   |           go.cpython-312.pyc
+|   |   |       |   |           grammar_notation.cpython-312.pyc
+|   |   |       |   |           graph.cpython-312.pyc
+|   |   |       |   |           graphics.cpython-312.pyc
+|   |   |       |   |           graphql.cpython-312.pyc
+|   |   |       |   |           graphviz.cpython-312.pyc
+|   |   |       |   |           gsql.cpython-312.pyc
+|   |   |       |   |           hare.cpython-312.pyc
+|   |   |       |   |           haskell.cpython-312.pyc
+|   |   |       |   |           haxe.cpython-312.pyc
+|   |   |       |   |           hdl.cpython-312.pyc
+|   |   |       |   |           hexdump.cpython-312.pyc
+|   |   |       |   |           html.cpython-312.pyc
+|   |   |       |   |           idl.cpython-312.pyc
+|   |   |       |   |           igor.cpython-312.pyc
+|   |   |       |   |           inferno.cpython-312.pyc
+|   |   |       |   |           installers.cpython-312.pyc
+|   |   |       |   |           int_fiction.cpython-312.pyc
+|   |   |       |   |           iolang.cpython-312.pyc
+|   |   |       |   |           j.cpython-312.pyc
+|   |   |       |   |           javascript.cpython-312.pyc
+|   |   |       |   |           jmespath.cpython-312.pyc
+|   |   |       |   |           jslt.cpython-312.pyc
+|   |   |       |   |           json5.cpython-312.pyc
+|   |   |       |   |           jsonnet.cpython-312.pyc
+|   |   |       |   |           jsx.cpython-312.pyc
+|   |   |       |   |           julia.cpython-312.pyc
+|   |   |       |   |           jvm.cpython-312.pyc
+|   |   |       |   |           kuin.cpython-312.pyc
+|   |   |       |   |           kusto.cpython-312.pyc
+|   |   |       |   |           ldap.cpython-312.pyc
+|   |   |       |   |           lean.cpython-312.pyc
+|   |   |       |   |           lilypond.cpython-312.pyc
+|   |   |       |   |           lisp.cpython-312.pyc
+|   |   |       |   |           macaulay2.cpython-312.pyc
+|   |   |       |   |           make.cpython-312.pyc
+|   |   |       |   |           maple.cpython-312.pyc
+|   |   |       |   |           markup.cpython-312.pyc
+|   |   |       |   |           math.cpython-312.pyc
+|   |   |       |   |           matlab.cpython-312.pyc
+|   |   |       |   |           maxima.cpython-312.pyc
+|   |   |       |   |           meson.cpython-312.pyc
+|   |   |       |   |           mime.cpython-312.pyc
+|   |   |       |   |           minecraft.cpython-312.pyc
+|   |   |       |   |           mips.cpython-312.pyc
+|   |   |       |   |           ml.cpython-312.pyc
+|   |   |       |   |           modeling.cpython-312.pyc
+|   |   |       |   |           modula2.cpython-312.pyc
+|   |   |       |   |           mojo.cpython-312.pyc
+|   |   |       |   |           monte.cpython-312.pyc
+|   |   |       |   |           mosel.cpython-312.pyc
+|   |   |       |   |           ncl.cpython-312.pyc
+|   |   |       |   |           nimrod.cpython-312.pyc
+|   |   |       |   |           nit.cpython-312.pyc
+|   |   |       |   |           nix.cpython-312.pyc
+|   |   |       |   |           numbair.cpython-312.pyc
+|   |   |       |   |           oberon.cpython-312.pyc
+|   |   |       |   |           objective.cpython-312.pyc
+|   |   |       |   |           ooc.cpython-312.pyc
+|   |   |       |   |           openscad.cpython-312.pyc
+|   |   |       |   |           other.cpython-312.pyc
+|   |   |       |   |           parasail.cpython-312.pyc
+|   |   |       |   |           parsers.cpython-312.pyc
+|   |   |       |   |           pascal.cpython-312.pyc
+|   |   |       |   |           pawn.cpython-312.pyc
+|   |   |       |   |           pddl.cpython-312.pyc
+|   |   |       |   |           perl.cpython-312.pyc
+|   |   |       |   |           phix.cpython-312.pyc
+|   |   |       |   |           php.cpython-312.pyc
+|   |   |       |   |           pointless.cpython-312.pyc
+|   |   |       |   |           pony.cpython-312.pyc
+|   |   |       |   |           praat.cpython-312.pyc
+|   |   |       |   |           procfile.cpython-312.pyc
+|   |   |       |   |           prolog.cpython-312.pyc
+|   |   |       |   |           promql.cpython-312.pyc
+|   |   |       |   |           prql.cpython-312.pyc
+|   |   |       |   |           ptx.cpython-312.pyc
+|   |   |       |   |           python.cpython-312.pyc
+|   |   |       |   |           q.cpython-312.pyc
+|   |   |       |   |           qlik.cpython-312.pyc
+|   |   |       |   |           qvt.cpython-312.pyc
+|   |   |       |   |           r.cpython-312.pyc
+|   |   |       |   |           rdf.cpython-312.pyc
+|   |   |       |   |           rebol.cpython-312.pyc
+|   |   |       |   |           rego.cpython-312.pyc
+|   |   |       |   |           resource.cpython-312.pyc
+|   |   |       |   |           ride.cpython-312.pyc
+|   |   |       |   |           rita.cpython-312.pyc
+|   |   |       |   |           rnc.cpython-312.pyc
+|   |   |       |   |           roboconf.cpython-312.pyc
+|   |   |       |   |           robotframework.cpython-312.pyc
+|   |   |       |   |           ruby.cpython-312.pyc
+|   |   |       |   |           rust.cpython-312.pyc
+|   |   |       |   |           sas.cpython-312.pyc
+|   |   |       |   |           savi.cpython-312.pyc
+|   |   |       |   |           scdoc.cpython-312.pyc
+|   |   |       |   |           scripting.cpython-312.pyc
+|   |   |       |   |           sgf.cpython-312.pyc
+|   |   |       |   |           shell.cpython-312.pyc
+|   |   |       |   |           sieve.cpython-312.pyc
+|   |   |       |   |           slash.cpython-312.pyc
+|   |   |       |   |           smalltalk.cpython-312.pyc
+|   |   |       |   |           smithy.cpython-312.pyc
+|   |   |       |   |           smv.cpython-312.pyc
+|   |   |       |   |           snobol.cpython-312.pyc
+|   |   |       |   |           solidity.cpython-312.pyc
+|   |   |       |   |           soong.cpython-312.pyc
+|   |   |       |   |           sophia.cpython-312.pyc
+|   |   |       |   |           special.cpython-312.pyc
+|   |   |       |   |           spice.cpython-312.pyc
+|   |   |       |   |           sql.cpython-312.pyc
+|   |   |       |   |           srcinfo.cpython-312.pyc
+|   |   |       |   |           stata.cpython-312.pyc
+|   |   |       |   |           supercollider.cpython-312.pyc
+|   |   |       |   |           tablegen.cpython-312.pyc
+|   |   |       |   |           tact.cpython-312.pyc
+|   |   |       |   |           tal.cpython-312.pyc
+|   |   |       |   |           tcl.cpython-312.pyc
+|   |   |       |   |           teal.cpython-312.pyc
+|   |   |       |   |           templates.cpython-312.pyc
+|   |   |       |   |           teraterm.cpython-312.pyc
+|   |   |       |   |           testing.cpython-312.pyc
+|   |   |       |   |           text.cpython-312.pyc
+|   |   |       |   |           textedit.cpython-312.pyc
+|   |   |       |   |           textfmts.cpython-312.pyc
+|   |   |       |   |           theorem.cpython-312.pyc
+|   |   |       |   |           thingsdb.cpython-312.pyc
+|   |   |       |   |           tlb.cpython-312.pyc
+|   |   |       |   |           tls.cpython-312.pyc
+|   |   |       |   |           tnt.cpython-312.pyc
+|   |   |       |   |           trafficscript.cpython-312.pyc
+|   |   |       |   |           typoscript.cpython-312.pyc
+|   |   |       |   |           typst.cpython-312.pyc
+|   |   |       |   |           ul4.cpython-312.pyc
+|   |   |       |   |           unicon.cpython-312.pyc
+|   |   |       |   |           urbi.cpython-312.pyc
+|   |   |       |   |           usd.cpython-312.pyc
+|   |   |       |   |           varnish.cpython-312.pyc
+|   |   |       |   |           verification.cpython-312.pyc
+|   |   |       |   |           verifpal.cpython-312.pyc
+|   |   |       |   |           vip.cpython-312.pyc
+|   |   |       |   |           vyper.cpython-312.pyc
+|   |   |       |   |           web.cpython-312.pyc
+|   |   |       |   |           webassembly.cpython-312.pyc
+|   |   |       |   |           webidl.cpython-312.pyc
+|   |   |       |   |           webmisc.cpython-312.pyc
+|   |   |       |   |           wgsl.cpython-312.pyc
+|   |   |       |   |           whiley.cpython-312.pyc
+|   |   |       |   |           wowtoc.cpython-312.pyc
+|   |   |       |   |           wren.cpython-312.pyc
+|   |   |       |   |           x10.cpython-312.pyc
+|   |   |       |   |           xorg.cpython-312.pyc
+|   |   |       |   |           yang.cpython-312.pyc
+|   |   |       |   |           yara.cpython-312.pyc
+|   |   |       |   |           zig.cpython-312.pyc
+|   |   |       |   |           _ada_builtins.cpython-312.pyc
+|   |   |       |   |           _asy_builtins.cpython-312.pyc
+|   |   |       |   |           _cl_builtins.cpython-312.pyc
+|   |   |       |   |           _cocoa_builtins.cpython-312.pyc
+|   |   |       |   |           _csound_builtins.cpython-312.pyc
+|   |   |       |   |           _css_builtins.cpython-312.pyc
+|   |   |       |   |           _googlesql_builtins.cpython-312.pyc
+|   |   |       |   |           _julia_builtins.cpython-312.pyc
+|   |   |       |   |           _lasso_builtins.cpython-312.pyc
+|   |   |       |   |           _lilypond_builtins.cpython-312.pyc
+|   |   |       |   |           _luau_builtins.cpython-312.pyc
+|   |   |       |   |           _lua_builtins.cpython-312.pyc
+|   |   |       |   |           _mapping.cpython-312.pyc
+|   |   |       |   |           _mql_builtins.cpython-312.pyc
+|   |   |       |   |           _mysql_builtins.cpython-312.pyc
+|   |   |       |   |           _openedge_builtins.cpython-312.pyc
+|   |   |       |   |           _php_builtins.cpython-312.pyc
+|   |   |       |   |           _postgres_builtins.cpython-312.pyc
+|   |   |       |   |           _qlik_builtins.cpython-312.pyc
+|   |   |       |   |           _scheme_builtins.cpython-312.pyc
+|   |   |       |   |           _scilab_builtins.cpython-312.pyc
+|   |   |       |   |           _sourcemod_builtins.cpython-312.pyc
+|   |   |       |   |           _sql_builtins.cpython-312.pyc
+|   |   |       |   |           _stan_builtins.cpython-312.pyc
+|   |   |       |   |           _stata_builtins.cpython-312.pyc
+|   |   |       |   |           _tsql_builtins.cpython-312.pyc
+|   |   |       |   |           _usd_builtins.cpython-312.pyc
+|   |   |       |   |           _vbscript_builtins.cpython-312.pyc
+|   |   |       |   |           _vim_builtins.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---styles
+|   |   |       |   |   |   abap.py
+|   |   |       |   |   |   algol.py
+|   |   |       |   |   |   algol_nu.py
+|   |   |       |   |   |   arduino.py
+|   |   |       |   |   |   autumn.py
+|   |   |       |   |   |   borland.py
+|   |   |       |   |   |   bw.py
+|   |   |       |   |   |   coffee.py
+|   |   |       |   |   |   colorful.py
+|   |   |       |   |   |   default.py
+|   |   |       |   |   |   dracula.py
+|   |   |       |   |   |   emacs.py
+|   |   |       |   |   |   friendly.py
+|   |   |       |   |   |   friendly_grayscale.py
+|   |   |       |   |   |   fruity.py
+|   |   |       |   |   |   gh_dark.py
+|   |   |       |   |   |   gruvbox.py
+|   |   |       |   |   |   igor.py
+|   |   |       |   |   |   inkpot.py
+|   |   |       |   |   |   lightbulb.py
+|   |   |       |   |   |   lilypond.py
+|   |   |       |   |   |   lovelace.py
+|   |   |       |   |   |   manni.py
+|   |   |       |   |   |   material.py
+|   |   |       |   |   |   monokai.py
+|   |   |       |   |   |   murphy.py
+|   |   |       |   |   |   native.py
+|   |   |       |   |   |   nord.py
+|   |   |       |   |   |   onedark.py
+|   |   |       |   |   |   paraiso_dark.py
+|   |   |       |   |   |   paraiso_light.py
+|   |   |       |   |   |   pastie.py
+|   |   |       |   |   |   perldoc.py
+|   |   |       |   |   |   rainbow_dash.py
+|   |   |       |   |   |   rrt.py
+|   |   |       |   |   |   sas.py
+|   |   |       |   |   |   solarized.py
+|   |   |       |   |   |   staroffice.py
+|   |   |       |   |   |   stata_dark.py
+|   |   |       |   |   |   stata_light.py
+|   |   |       |   |   |   tango.py
+|   |   |       |   |   |   trac.py
+|   |   |       |   |   |   vim.py
+|   |   |       |   |   |   vs.py
+|   |   |       |   |   |   xcode.py
+|   |   |       |   |   |   zenburn.py
+|   |   |       |   |   |   _mapping.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           abap.cpython-312.pyc
+|   |   |       |   |           algol.cpython-312.pyc
+|   |   |       |   |           algol_nu.cpython-312.pyc
+|   |   |       |   |           arduino.cpython-312.pyc
+|   |   |       |   |           autumn.cpython-312.pyc
+|   |   |       |   |           borland.cpython-312.pyc
+|   |   |       |   |           bw.cpython-312.pyc
+|   |   |       |   |           coffee.cpython-312.pyc
+|   |   |       |   |           colorful.cpython-312.pyc
+|   |   |       |   |           default.cpython-312.pyc
+|   |   |       |   |           dracula.cpython-312.pyc
+|   |   |       |   |           emacs.cpython-312.pyc
+|   |   |       |   |           friendly.cpython-312.pyc
+|   |   |       |   |           friendly_grayscale.cpython-312.pyc
+|   |   |       |   |           fruity.cpython-312.pyc
+|   |   |       |   |           gh_dark.cpython-312.pyc
+|   |   |       |   |           gruvbox.cpython-312.pyc
+|   |   |       |   |           igor.cpython-312.pyc
+|   |   |       |   |           inkpot.cpython-312.pyc
+|   |   |       |   |           lightbulb.cpython-312.pyc
+|   |   |       |   |           lilypond.cpython-312.pyc
+|   |   |       |   |           lovelace.cpython-312.pyc
+|   |   |       |   |           manni.cpython-312.pyc
+|   |   |       |   |           material.cpython-312.pyc
+|   |   |       |   |           monokai.cpython-312.pyc
+|   |   |       |   |           murphy.cpython-312.pyc
+|   |   |       |   |           native.cpython-312.pyc
+|   |   |       |   |           nord.cpython-312.pyc
+|   |   |       |   |           onedark.cpython-312.pyc
+|   |   |       |   |           paraiso_dark.cpython-312.pyc
+|   |   |       |   |           paraiso_light.cpython-312.pyc
+|   |   |       |   |           pastie.cpython-312.pyc
+|   |   |       |   |           perldoc.cpython-312.pyc
+|   |   |       |   |           rainbow_dash.cpython-312.pyc
+|   |   |       |   |           rrt.cpython-312.pyc
+|   |   |       |   |           sas.cpython-312.pyc
+|   |   |       |   |           solarized.cpython-312.pyc
+|   |   |       |   |           staroffice.cpython-312.pyc
+|   |   |       |   |           stata_dark.cpython-312.pyc
+|   |   |       |   |           stata_light.cpython-312.pyc
+|   |   |       |   |           tango.cpython-312.pyc
+|   |   |       |   |           trac.cpython-312.pyc
+|   |   |       |   |           vim.cpython-312.pyc
+|   |   |       |   |           vs.cpython-312.pyc
+|   |   |       |   |           xcode.cpython-312.pyc
+|   |   |       |   |           zenburn.cpython-312.pyc
+|   |   |       |   |           _mapping.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   \---__pycache__
+|   |   |       |           cmdline.cpython-312.pyc
+|   |   |       |           console.cpython-312.pyc
+|   |   |       |           filter.cpython-312.pyc
+|   |   |       |           formatter.cpython-312.pyc
+|   |   |       |           lexer.cpython-312.pyc
+|   |   |       |           modeline.cpython-312.pyc
+|   |   |       |           plugin.cpython-312.pyc
+|   |   |       |           regexopt.cpython-312.pyc
+|   |   |       |           scanner.cpython-312.pyc
+|   |   |       |           sphinxext.cpython-312.pyc
+|   |   |       |           style.cpython-312.pyc
+|   |   |       |           token.cpython-312.pyc
+|   |   |       |           unistring.cpython-312.pyc
+|   |   |       |           util.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           __main__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---pygments-2.19.2.dist-info
+|   |   |       |   |   entry_points.txt
+|   |   |       |   |   INSTALLER
+|   |   |       |   |   METADATA
+|   |   |       |   |   RECORD
+|   |   |       |   |   WHEEL
+|   |   |       |   |   
+|   |   |       |   \---licenses
+|   |   |       |           AUTHORS
+|   |   |       |           LICENSE
+|   |   |       |           
+|   |   |       +---pyvis
+|   |   |       |   |   edge.py
+|   |   |       |   |   network.py
+|   |   |       |   |   node.py
+|   |   |       |   |   options.py
+|   |   |       |   |   physics.py
+|   |   |       |   |   utils.py
+|   |   |       |   |   _version.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   +---lib
+|   |   |       |   |   +---bindings
+|   |   |       |   |   |       utils.js
+|   |   |       |   |   |       
+|   |   |       |   |   +---tom-select
+|   |   |       |   |   |       tom-select.complete.min.js
+|   |   |       |   |   |       tom-select.css
+|   |   |       |   |   |       
+|   |   |       |   |   +---vis-9.0.4
+|   |   |       |   |   |       vis-network.css
+|   |   |       |   |   |       vis-network.min.js
+|   |   |       |   |   |       
+|   |   |       |   |   \---vis-9.1.2
+|   |   |       |   |           vis-network.css
+|   |   |       |   |           vis-network.min.js
+|   |   |       |   |           
+|   |   |       |   +---templates
+|   |   |       |   |   |   animation_template.html
+|   |   |       |   |   |   template.html
+|   |   |       |   |   |   
+|   |   |       |   |   \---lib
+|   |   |       |   |       +---bindings
+|   |   |       |   |       |       utils.js
+|   |   |       |   |       |       
+|   |   |       |   |       +---tom-select
+|   |   |       |   |       |       tom-select.complete.min.js
+|   |   |       |   |       |       tom-select.css
+|   |   |       |   |       |       
+|   |   |       |   |       +---vis-9.0.4
+|   |   |       |   |       |       vis-network.css
+|   |   |       |   |       |       vis-network.min.js
+|   |   |       |   |       |       
+|   |   |       |   |       \---vis-9.1.2
+|   |   |       |   |               vis-network.css
+|   |   |       |   |               vis-network.min.js
+|   |   |       |   |               
+|   |   |       |   +---tests
+|   |   |       |   |   |   test_graph.py
+|   |   |       |   |   |   test_html.py
+|   |   |       |   |   |   test_me.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           test_graph.cpython-312.pyc
+|   |   |       |   |           test_html.cpython-312.pyc
+|   |   |       |   |           test_me.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   \---__pycache__
+|   |   |       |           edge.cpython-312.pyc
+|   |   |       |           network.cpython-312.pyc
+|   |   |       |           node.cpython-312.pyc
+|   |   |       |           options.cpython-312.pyc
+|   |   |       |           physics.cpython-312.pyc
+|   |   |       |           utils.cpython-312.pyc
+|   |   |       |           _version.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---pyvis-0.3.2.dist-info
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE_BSD.txt
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       REQUESTED
+|   |   |       |       top_level.txt
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---sqlalchemy
+|   |   |       |   |   events.py
+|   |   |       |   |   exc.py
+|   |   |       |   |   inspection.py
+|   |   |       |   |   log.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   schema.py
+|   |   |       |   |   types.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   +---connectors
+|   |   |       |   |   |   aioodbc.py
+|   |   |       |   |   |   asyncio.py
+|   |   |       |   |   |   pyodbc.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           aioodbc.cpython-312.pyc
+|   |   |       |   |           asyncio.cpython-312.pyc
+|   |   |       |   |           pyodbc.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---cyextension
+|   |   |       |   |   |   collections.cp312-win_amd64.pyd
+|   |   |       |   |   |   collections.pyx
+|   |   |       |   |   |   immutabledict.cp312-win_amd64.pyd
+|   |   |       |   |   |   immutabledict.pxd
+|   |   |       |   |   |   immutabledict.pyx
+|   |   |       |   |   |   processors.cp312-win_amd64.pyd
+|   |   |       |   |   |   processors.pyx
+|   |   |       |   |   |   resultproxy.cp312-win_amd64.pyd
+|   |   |       |   |   |   resultproxy.pyx
+|   |   |       |   |   |   util.cp312-win_amd64.pyd
+|   |   |       |   |   |   util.pyx
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---dialects
+|   |   |       |   |   |   type_migration_guidelines.txt
+|   |   |       |   |   |   _typing.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---mssql
+|   |   |       |   |   |   |   aioodbc.py
+|   |   |       |   |   |   |   base.py
+|   |   |       |   |   |   |   information_schema.py
+|   |   |       |   |   |   |   json.py
+|   |   |       |   |   |   |   provision.py
+|   |   |       |   |   |   |   pymssql.py
+|   |   |       |   |   |   |   pyodbc.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           aioodbc.cpython-312.pyc
+|   |   |       |   |   |           base.cpython-312.pyc
+|   |   |       |   |   |           information_schema.cpython-312.pyc
+|   |   |       |   |   |           json.cpython-312.pyc
+|   |   |       |   |   |           provision.cpython-312.pyc
+|   |   |       |   |   |           pymssql.cpython-312.pyc
+|   |   |       |   |   |           pyodbc.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---mysql
+|   |   |       |   |   |   |   aiomysql.py
+|   |   |       |   |   |   |   asyncmy.py
+|   |   |       |   |   |   |   base.py
+|   |   |       |   |   |   |   cymysql.py
+|   |   |       |   |   |   |   dml.py
+|   |   |       |   |   |   |   enumerated.py
+|   |   |       |   |   |   |   expression.py
+|   |   |       |   |   |   |   json.py
+|   |   |       |   |   |   |   mariadb.py
+|   |   |       |   |   |   |   mariadbconnector.py
+|   |   |       |   |   |   |   mysqlconnector.py
+|   |   |       |   |   |   |   mysqldb.py
+|   |   |       |   |   |   |   provision.py
+|   |   |       |   |   |   |   pymysql.py
+|   |   |       |   |   |   |   pyodbc.py
+|   |   |       |   |   |   |   reflection.py
+|   |   |       |   |   |   |   reserved_words.py
+|   |   |       |   |   |   |   types.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           aiomysql.cpython-312.pyc
+|   |   |       |   |   |           asyncmy.cpython-312.pyc
+|   |   |       |   |   |           base.cpython-312.pyc
+|   |   |       |   |   |           cymysql.cpython-312.pyc
+|   |   |       |   |   |           dml.cpython-312.pyc
+|   |   |       |   |   |           enumerated.cpython-312.pyc
+|   |   |       |   |   |           expression.cpython-312.pyc
+|   |   |       |   |   |           json.cpython-312.pyc
+|   |   |       |   |   |           mariadb.cpython-312.pyc
+|   |   |       |   |   |           mariadbconnector.cpython-312.pyc
+|   |   |       |   |   |           mysqlconnector.cpython-312.pyc
+|   |   |       |   |   |           mysqldb.cpython-312.pyc
+|   |   |       |   |   |           provision.cpython-312.pyc
+|   |   |       |   |   |           pymysql.cpython-312.pyc
+|   |   |       |   |   |           pyodbc.cpython-312.pyc
+|   |   |       |   |   |           reflection.cpython-312.pyc
+|   |   |       |   |   |           reserved_words.cpython-312.pyc
+|   |   |       |   |   |           types.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---oracle
+|   |   |       |   |   |   |   base.py
+|   |   |       |   |   |   |   cx_oracle.py
+|   |   |       |   |   |   |   dictionary.py
+|   |   |       |   |   |   |   oracledb.py
+|   |   |       |   |   |   |   provision.py
+|   |   |       |   |   |   |   types.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           base.cpython-312.pyc
+|   |   |       |   |   |           cx_oracle.cpython-312.pyc
+|   |   |       |   |   |           dictionary.cpython-312.pyc
+|   |   |       |   |   |           oracledb.cpython-312.pyc
+|   |   |       |   |   |           provision.cpython-312.pyc
+|   |   |       |   |   |           types.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---postgresql
+|   |   |       |   |   |   |   array.py
+|   |   |       |   |   |   |   asyncpg.py
+|   |   |       |   |   |   |   base.py
+|   |   |       |   |   |   |   dml.py
+|   |   |       |   |   |   |   ext.py
+|   |   |       |   |   |   |   hstore.py
+|   |   |       |   |   |   |   json.py
+|   |   |       |   |   |   |   named_types.py
+|   |   |       |   |   |   |   operators.py
+|   |   |       |   |   |   |   pg8000.py
+|   |   |       |   |   |   |   pg_catalog.py
+|   |   |       |   |   |   |   provision.py
+|   |   |       |   |   |   |   psycopg.py
+|   |   |       |   |   |   |   psycopg2.py
+|   |   |       |   |   |   |   psycopg2cffi.py
+|   |   |       |   |   |   |   ranges.py
+|   |   |       |   |   |   |   types.py
+|   |   |       |   |   |   |   _psycopg_common.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           array.cpython-312.pyc
+|   |   |       |   |   |           asyncpg.cpython-312.pyc
+|   |   |       |   |   |           base.cpython-312.pyc
+|   |   |       |   |   |           dml.cpython-312.pyc
+|   |   |       |   |   |           ext.cpython-312.pyc
+|   |   |       |   |   |           hstore.cpython-312.pyc
+|   |   |       |   |   |           json.cpython-312.pyc
+|   |   |       |   |   |           named_types.cpython-312.pyc
+|   |   |       |   |   |           operators.cpython-312.pyc
+|   |   |       |   |   |           pg8000.cpython-312.pyc
+|   |   |       |   |   |           pg_catalog.cpython-312.pyc
+|   |   |       |   |   |           provision.cpython-312.pyc
+|   |   |       |   |   |           psycopg.cpython-312.pyc
+|   |   |       |   |   |           psycopg2.cpython-312.pyc
+|   |   |       |   |   |           psycopg2cffi.cpython-312.pyc
+|   |   |       |   |   |           ranges.cpython-312.pyc
+|   |   |       |   |   |           types.cpython-312.pyc
+|   |   |       |   |   |           _psycopg_common.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---sqlite
+|   |   |       |   |   |   |   aiosqlite.py
+|   |   |       |   |   |   |   base.py
+|   |   |       |   |   |   |   dml.py
+|   |   |       |   |   |   |   json.py
+|   |   |       |   |   |   |   provision.py
+|   |   |       |   |   |   |   pysqlcipher.py
+|   |   |       |   |   |   |   pysqlite.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           aiosqlite.cpython-312.pyc
+|   |   |       |   |   |           base.cpython-312.pyc
+|   |   |       |   |   |           dml.cpython-312.pyc
+|   |   |       |   |   |           json.cpython-312.pyc
+|   |   |       |   |   |           provision.cpython-312.pyc
+|   |   |       |   |   |           pysqlcipher.cpython-312.pyc
+|   |   |       |   |   |           pysqlite.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           _typing.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---engine
+|   |   |       |   |   |   base.py
+|   |   |       |   |   |   characteristics.py
+|   |   |       |   |   |   create.py
+|   |   |       |   |   |   cursor.py
+|   |   |       |   |   |   default.py
+|   |   |       |   |   |   events.py
+|   |   |       |   |   |   interfaces.py
+|   |   |       |   |   |   mock.py
+|   |   |       |   |   |   processors.py
+|   |   |       |   |   |   reflection.py
+|   |   |       |   |   |   result.py
+|   |   |       |   |   |   row.py
+|   |   |       |   |   |   strategies.py
+|   |   |       |   |   |   url.py
+|   |   |       |   |   |   util.py
+|   |   |       |   |   |   _py_processors.py
+|   |   |       |   |   |   _py_row.py
+|   |   |       |   |   |   _py_util.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           base.cpython-312.pyc
+|   |   |       |   |           characteristics.cpython-312.pyc
+|   |   |       |   |           create.cpython-312.pyc
+|   |   |       |   |           cursor.cpython-312.pyc
+|   |   |       |   |           default.cpython-312.pyc
+|   |   |       |   |           events.cpython-312.pyc
+|   |   |       |   |           interfaces.cpython-312.pyc
+|   |   |       |   |           mock.cpython-312.pyc
+|   |   |       |   |           processors.cpython-312.pyc
+|   |   |       |   |           reflection.cpython-312.pyc
+|   |   |       |   |           result.cpython-312.pyc
+|   |   |       |   |           row.cpython-312.pyc
+|   |   |       |   |           strategies.cpython-312.pyc
+|   |   |       |   |           url.cpython-312.pyc
+|   |   |       |   |           util.cpython-312.pyc
+|   |   |       |   |           _py_processors.cpython-312.pyc
+|   |   |       |   |           _py_row.cpython-312.pyc
+|   |   |       |   |           _py_util.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---event
+|   |   |       |   |   |   api.py
+|   |   |       |   |   |   attr.py
+|   |   |       |   |   |   base.py
+|   |   |       |   |   |   legacy.py
+|   |   |       |   |   |   registry.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           api.cpython-312.pyc
+|   |   |       |   |           attr.cpython-312.pyc
+|   |   |       |   |           base.cpython-312.pyc
+|   |   |       |   |           legacy.cpython-312.pyc
+|   |   |       |   |           registry.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---ext
+|   |   |       |   |   |   associationproxy.py
+|   |   |       |   |   |   automap.py
+|   |   |       |   |   |   baked.py
+|   |   |       |   |   |   compiler.py
+|   |   |       |   |   |   horizontal_shard.py
+|   |   |       |   |   |   hybrid.py
+|   |   |       |   |   |   indexable.py
+|   |   |       |   |   |   instrumentation.py
+|   |   |       |   |   |   mutable.py
+|   |   |       |   |   |   orderinglist.py
+|   |   |       |   |   |   serializer.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---asyncio
+|   |   |       |   |   |   |   base.py
+|   |   |       |   |   |   |   engine.py
+|   |   |       |   |   |   |   exc.py
+|   |   |       |   |   |   |   result.py
+|   |   |       |   |   |   |   scoping.py
+|   |   |       |   |   |   |   session.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           base.cpython-312.pyc
+|   |   |       |   |   |           engine.cpython-312.pyc
+|   |   |       |   |   |           exc.cpython-312.pyc
+|   |   |       |   |   |           result.cpython-312.pyc
+|   |   |       |   |   |           scoping.cpython-312.pyc
+|   |   |       |   |   |           session.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---declarative
+|   |   |       |   |   |   |   extensions.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           extensions.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---mypy
+|   |   |       |   |   |   |   apply.py
+|   |   |       |   |   |   |   decl_class.py
+|   |   |       |   |   |   |   infer.py
+|   |   |       |   |   |   |   names.py
+|   |   |       |   |   |   |   plugin.py
+|   |   |       |   |   |   |   util.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           apply.cpython-312.pyc
+|   |   |       |   |   |           decl_class.cpython-312.pyc
+|   |   |       |   |   |           infer.cpython-312.pyc
+|   |   |       |   |   |           names.cpython-312.pyc
+|   |   |       |   |   |           plugin.cpython-312.pyc
+|   |   |       |   |   |           util.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           associationproxy.cpython-312.pyc
+|   |   |       |   |           automap.cpython-312.pyc
+|   |   |       |   |           baked.cpython-312.pyc
+|   |   |       |   |           compiler.cpython-312.pyc
+|   |   |       |   |           horizontal_shard.cpython-312.pyc
+|   |   |       |   |           hybrid.cpython-312.pyc
+|   |   |       |   |           indexable.cpython-312.pyc
+|   |   |       |   |           instrumentation.cpython-312.pyc
+|   |   |       |   |           mutable.cpython-312.pyc
+|   |   |       |   |           orderinglist.cpython-312.pyc
+|   |   |       |   |           serializer.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---future
+|   |   |       |   |   |   engine.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           engine.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---orm
+|   |   |       |   |   |   attributes.py
+|   |   |       |   |   |   base.py
+|   |   |       |   |   |   bulk_persistence.py
+|   |   |       |   |   |   clsregistry.py
+|   |   |       |   |   |   collections.py
+|   |   |       |   |   |   context.py
+|   |   |       |   |   |   decl_api.py
+|   |   |       |   |   |   decl_base.py
+|   |   |       |   |   |   dependency.py
+|   |   |       |   |   |   descriptor_props.py
+|   |   |       |   |   |   dynamic.py
+|   |   |       |   |   |   evaluator.py
+|   |   |       |   |   |   events.py
+|   |   |       |   |   |   exc.py
+|   |   |       |   |   |   identity.py
+|   |   |       |   |   |   instrumentation.py
+|   |   |       |   |   |   interfaces.py
+|   |   |       |   |   |   loading.py
+|   |   |       |   |   |   mapped_collection.py
+|   |   |       |   |   |   mapper.py
+|   |   |       |   |   |   path_registry.py
+|   |   |       |   |   |   persistence.py
+|   |   |       |   |   |   properties.py
+|   |   |       |   |   |   query.py
+|   |   |       |   |   |   relationships.py
+|   |   |       |   |   |   scoping.py
+|   |   |       |   |   |   session.py
+|   |   |       |   |   |   state.py
+|   |   |       |   |   |   state_changes.py
+|   |   |       |   |   |   strategies.py
+|   |   |       |   |   |   strategy_options.py
+|   |   |       |   |   |   sync.py
+|   |   |       |   |   |   unitofwork.py
+|   |   |       |   |   |   util.py
+|   |   |       |   |   |   writeonly.py
+|   |   |       |   |   |   _orm_constructors.py
+|   |   |       |   |   |   _typing.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           attributes.cpython-312.pyc
+|   |   |       |   |           base.cpython-312.pyc
+|   |   |       |   |           bulk_persistence.cpython-312.pyc
+|   |   |       |   |           clsregistry.cpython-312.pyc
+|   |   |       |   |           collections.cpython-312.pyc
+|   |   |       |   |           context.cpython-312.pyc
+|   |   |       |   |           decl_api.cpython-312.pyc
+|   |   |       |   |           decl_base.cpython-312.pyc
+|   |   |       |   |           dependency.cpython-312.pyc
+|   |   |       |   |           descriptor_props.cpython-312.pyc
+|   |   |       |   |           dynamic.cpython-312.pyc
+|   |   |       |   |           evaluator.cpython-312.pyc
+|   |   |       |   |           events.cpython-312.pyc
+|   |   |       |   |           exc.cpython-312.pyc
+|   |   |       |   |           identity.cpython-312.pyc
+|   |   |       |   |           instrumentation.cpython-312.pyc
+|   |   |       |   |           interfaces.cpython-312.pyc
+|   |   |       |   |           loading.cpython-312.pyc
+|   |   |       |   |           mapped_collection.cpython-312.pyc
+|   |   |       |   |           mapper.cpython-312.pyc
+|   |   |       |   |           path_registry.cpython-312.pyc
+|   |   |       |   |           persistence.cpython-312.pyc
+|   |   |       |   |           properties.cpython-312.pyc
+|   |   |       |   |           query.cpython-312.pyc
+|   |   |       |   |           relationships.cpython-312.pyc
+|   |   |       |   |           scoping.cpython-312.pyc
+|   |   |       |   |           session.cpython-312.pyc
+|   |   |       |   |           state.cpython-312.pyc
+|   |   |       |   |           state_changes.cpython-312.pyc
+|   |   |       |   |           strategies.cpython-312.pyc
+|   |   |       |   |           strategy_options.cpython-312.pyc
+|   |   |       |   |           sync.cpython-312.pyc
+|   |   |       |   |           unitofwork.cpython-312.pyc
+|   |   |       |   |           util.cpython-312.pyc
+|   |   |       |   |           writeonly.cpython-312.pyc
+|   |   |       |   |           _orm_constructors.cpython-312.pyc
+|   |   |       |   |           _typing.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---pool
+|   |   |       |   |   |   base.py
+|   |   |       |   |   |   events.py
+|   |   |       |   |   |   impl.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           base.cpython-312.pyc
+|   |   |       |   |           events.cpython-312.pyc
+|   |   |       |   |           impl.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---sql
+|   |   |       |   |   |   annotation.py
+|   |   |       |   |   |   base.py
+|   |   |       |   |   |   cache_key.py
+|   |   |       |   |   |   coercions.py
+|   |   |       |   |   |   compiler.py
+|   |   |       |   |   |   crud.py
+|   |   |       |   |   |   ddl.py
+|   |   |       |   |   |   default_comparator.py
+|   |   |       |   |   |   dml.py
+|   |   |       |   |   |   elements.py
+|   |   |       |   |   |   events.py
+|   |   |       |   |   |   expression.py
+|   |   |       |   |   |   functions.py
+|   |   |       |   |   |   lambdas.py
+|   |   |       |   |   |   naming.py
+|   |   |       |   |   |   operators.py
+|   |   |       |   |   |   roles.py
+|   |   |       |   |   |   schema.py
+|   |   |       |   |   |   selectable.py
+|   |   |       |   |   |   sqltypes.py
+|   |   |       |   |   |   traversals.py
+|   |   |       |   |   |   type_api.py
+|   |   |       |   |   |   util.py
+|   |   |       |   |   |   visitors.py
+|   |   |       |   |   |   _dml_constructors.py
+|   |   |       |   |   |   _elements_constructors.py
+|   |   |       |   |   |   _orm_types.py
+|   |   |       |   |   |   _py_util.py
+|   |   |       |   |   |   _selectable_constructors.py
+|   |   |       |   |   |   _typing.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           annotation.cpython-312.pyc
+|   |   |       |   |           base.cpython-312.pyc
+|   |   |       |   |           cache_key.cpython-312.pyc
+|   |   |       |   |           coercions.cpython-312.pyc
+|   |   |       |   |           compiler.cpython-312.pyc
+|   |   |       |   |           crud.cpython-312.pyc
+|   |   |       |   |           ddl.cpython-312.pyc
+|   |   |       |   |           default_comparator.cpython-312.pyc
+|   |   |       |   |           dml.cpython-312.pyc
+|   |   |       |   |           elements.cpython-312.pyc
+|   |   |       |   |           events.cpython-312.pyc
+|   |   |       |   |           expression.cpython-312.pyc
+|   |   |       |   |           functions.cpython-312.pyc
+|   |   |       |   |           lambdas.cpython-312.pyc
+|   |   |       |   |           naming.cpython-312.pyc
+|   |   |       |   |           operators.cpython-312.pyc
+|   |   |       |   |           roles.cpython-312.pyc
+|   |   |       |   |           schema.cpython-312.pyc
+|   |   |       |   |           selectable.cpython-312.pyc
+|   |   |       |   |           sqltypes.cpython-312.pyc
+|   |   |       |   |           traversals.cpython-312.pyc
+|   |   |       |   |           type_api.cpython-312.pyc
+|   |   |       |   |           util.cpython-312.pyc
+|   |   |       |   |           visitors.cpython-312.pyc
+|   |   |       |   |           _dml_constructors.cpython-312.pyc
+|   |   |       |   |           _elements_constructors.cpython-312.pyc
+|   |   |       |   |           _orm_types.cpython-312.pyc
+|   |   |       |   |           _py_util.cpython-312.pyc
+|   |   |       |   |           _selectable_constructors.cpython-312.pyc
+|   |   |       |   |           _typing.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---testing
+|   |   |       |   |   |   assertions.py
+|   |   |       |   |   |   assertsql.py
+|   |   |       |   |   |   asyncio.py
+|   |   |       |   |   |   config.py
+|   |   |       |   |   |   engines.py
+|   |   |       |   |   |   entities.py
+|   |   |       |   |   |   exclusions.py
+|   |   |       |   |   |   pickleable.py
+|   |   |       |   |   |   profiling.py
+|   |   |       |   |   |   provision.py
+|   |   |       |   |   |   requirements.py
+|   |   |       |   |   |   schema.py
+|   |   |       |   |   |   util.py
+|   |   |       |   |   |   warnings.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---fixtures
+|   |   |       |   |   |   |   base.py
+|   |   |       |   |   |   |   mypy.py
+|   |   |       |   |   |   |   orm.py
+|   |   |       |   |   |   |   sql.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           base.cpython-312.pyc
+|   |   |       |   |   |           mypy.cpython-312.pyc
+|   |   |       |   |   |           orm.cpython-312.pyc
+|   |   |       |   |   |           sql.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---plugin
+|   |   |       |   |   |   |   bootstrap.py
+|   |   |       |   |   |   |   plugin_base.py
+|   |   |       |   |   |   |   pytestplugin.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           bootstrap.cpython-312.pyc
+|   |   |       |   |   |           plugin_base.cpython-312.pyc
+|   |   |       |   |   |           pytestplugin.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   +---suite
+|   |   |       |   |   |   |   test_cte.py
+|   |   |       |   |   |   |   test_ddl.py
+|   |   |       |   |   |   |   test_deprecations.py
+|   |   |       |   |   |   |   test_dialect.py
+|   |   |       |   |   |   |   test_insert.py
+|   |   |       |   |   |   |   test_reflection.py
+|   |   |       |   |   |   |   test_results.py
+|   |   |       |   |   |   |   test_rowcount.py
+|   |   |       |   |   |   |   test_select.py
+|   |   |       |   |   |   |   test_sequence.py
+|   |   |       |   |   |   |   test_types.py
+|   |   |       |   |   |   |   test_unicode_ddl.py
+|   |   |       |   |   |   |   test_update_delete.py
+|   |   |       |   |   |   |   __init__.py
+|   |   |       |   |   |   |   
+|   |   |       |   |   |   \---__pycache__
+|   |   |       |   |   |           test_cte.cpython-312.pyc
+|   |   |       |   |   |           test_ddl.cpython-312.pyc
+|   |   |       |   |   |           test_deprecations.cpython-312.pyc
+|   |   |       |   |   |           test_dialect.cpython-312.pyc
+|   |   |       |   |   |           test_insert.cpython-312.pyc
+|   |   |       |   |   |           test_reflection.cpython-312.pyc
+|   |   |       |   |   |           test_results.cpython-312.pyc
+|   |   |       |   |   |           test_rowcount.cpython-312.pyc
+|   |   |       |   |   |           test_select.cpython-312.pyc
+|   |   |       |   |   |           test_sequence.cpython-312.pyc
+|   |   |       |   |   |           test_types.cpython-312.pyc
+|   |   |       |   |   |           test_unicode_ddl.cpython-312.pyc
+|   |   |       |   |   |           test_update_delete.cpython-312.pyc
+|   |   |       |   |   |           __init__.cpython-312.pyc
+|   |   |       |   |   |           
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           assertions.cpython-312.pyc
+|   |   |       |   |           assertsql.cpython-312.pyc
+|   |   |       |   |           asyncio.cpython-312.pyc
+|   |   |       |   |           config.cpython-312.pyc
+|   |   |       |   |           engines.cpython-312.pyc
+|   |   |       |   |           entities.cpython-312.pyc
+|   |   |       |   |           exclusions.cpython-312.pyc
+|   |   |       |   |           pickleable.cpython-312.pyc
+|   |   |       |   |           profiling.cpython-312.pyc
+|   |   |       |   |           provision.cpython-312.pyc
+|   |   |       |   |           requirements.cpython-312.pyc
+|   |   |       |   |           schema.cpython-312.pyc
+|   |   |       |   |           util.cpython-312.pyc
+|   |   |       |   |           warnings.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---util
+|   |   |       |   |   |   compat.py
+|   |   |       |   |   |   concurrency.py
+|   |   |       |   |   |   deprecations.py
+|   |   |       |   |   |   langhelpers.py
+|   |   |       |   |   |   preloaded.py
+|   |   |       |   |   |   queue.py
+|   |   |       |   |   |   tool_support.py
+|   |   |       |   |   |   topological.py
+|   |   |       |   |   |   typing.py
+|   |   |       |   |   |   _collections.py
+|   |   |       |   |   |   _concurrency_py3k.py
+|   |   |       |   |   |   _has_cy.py
+|   |   |       |   |   |   _py_collections.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           compat.cpython-312.pyc
+|   |   |       |   |           concurrency.cpython-312.pyc
+|   |   |       |   |           deprecations.cpython-312.pyc
+|   |   |       |   |           langhelpers.cpython-312.pyc
+|   |   |       |   |           preloaded.cpython-312.pyc
+|   |   |       |   |           queue.cpython-312.pyc
+|   |   |       |   |           tool_support.cpython-312.pyc
+|   |   |       |   |           topological.cpython-312.pyc
+|   |   |       |   |           typing.cpython-312.pyc
+|   |   |       |   |           _collections.cpython-312.pyc
+|   |   |       |   |           _concurrency_py3k.cpython-312.pyc
+|   |   |       |   |           _has_cy.cpython-312.pyc
+|   |   |       |   |           _py_collections.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   \---__pycache__
+|   |   |       |           events.cpython-312.pyc
+|   |   |       |           exc.cpython-312.pyc
+|   |   |       |           inspection.cpython-312.pyc
+|   |   |       |           log.cpython-312.pyc
+|   |   |       |           schema.cpython-312.pyc
+|   |   |       |           types.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---SQLAlchemy-2.0.31.dist-info
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       REQUESTED
+|   |   |       |       top_level.txt
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---stack_data
+|   |   |       |   |   core.py
+|   |   |       |   |   formatting.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   serializing.py
+|   |   |       |   |   utils.py
+|   |   |       |   |   version.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   \---__pycache__
+|   |   |       |           core.cpython-312.pyc
+|   |   |       |           formatting.cpython-312.pyc
+|   |   |       |           serializing.cpython-312.pyc
+|   |   |       |           utils.cpython-312.pyc
+|   |   |       |           version.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---stack_data-0.6.3.dist-info
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE.txt
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       top_level.txt
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       +---traitlets
+|   |   |       |   |   log.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   traitlets.py
+|   |   |       |   |   _version.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   +---config
+|   |   |       |   |   |   application.py
+|   |   |       |   |   |   argcomplete_config.py
+|   |   |       |   |   |   configurable.py
+|   |   |       |   |   |   loader.py
+|   |   |       |   |   |   manager.py
+|   |   |       |   |   |   sphinxdoc.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           application.cpython-312.pyc
+|   |   |       |   |           argcomplete_config.cpython-312.pyc
+|   |   |       |   |           configurable.cpython-312.pyc
+|   |   |       |   |           loader.cpython-312.pyc
+|   |   |       |   |           manager.cpython-312.pyc
+|   |   |       |   |           sphinxdoc.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---tests
+|   |   |       |   |   |   test_traitlets.py
+|   |   |       |   |   |   utils.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           test_traitlets.cpython-312.pyc
+|   |   |       |   |           utils.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---utils
+|   |   |       |   |   |   bunch.py
+|   |   |       |   |   |   decorators.py
+|   |   |       |   |   |   descriptions.py
+|   |   |       |   |   |   getargspec.py
+|   |   |       |   |   |   importstring.py
+|   |   |       |   |   |   nested_update.py
+|   |   |       |   |   |   sentinel.py
+|   |   |       |   |   |   text.py
+|   |   |       |   |   |   warnings.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           bunch.cpython-312.pyc
+|   |   |       |   |           decorators.cpython-312.pyc
+|   |   |       |   |           descriptions.cpython-312.pyc
+|   |   |       |   |           getargspec.cpython-312.pyc
+|   |   |       |   |           importstring.cpython-312.pyc
+|   |   |       |   |           nested_update.cpython-312.pyc
+|   |   |       |   |           sentinel.cpython-312.pyc
+|   |   |       |   |           text.cpython-312.pyc
+|   |   |       |   |           warnings.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   \---__pycache__
+|   |   |       |           log.cpython-312.pyc
+|   |   |       |           traitlets.cpython-312.pyc
+|   |   |       |           _version.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---traitlets-5.14.3.dist-info
+|   |   |       |   |   INSTALLER
+|   |   |       |   |   METADATA
+|   |   |       |   |   RECORD
+|   |   |       |   |   WHEEL
+|   |   |       |   |   
+|   |   |       |   \---licenses
+|   |   |       |           LICENSE
+|   |   |       |           
+|   |   |       +---typing_extensions-4.15.0.dist-info
+|   |   |       |   |   INSTALLER
+|   |   |       |   |   METADATA
+|   |   |       |   |   RECORD
+|   |   |       |   |   WHEEL
+|   |   |       |   |   
+|   |   |       |   \---licenses
+|   |   |       |           LICENSE
+|   |   |       |           
+|   |   |       +---wcwidth
+|   |   |       |   |   table_vs15.py
+|   |   |       |   |   table_vs16.py
+|   |   |       |   |   table_wide.py
+|   |   |       |   |   table_zero.py
+|   |   |       |   |   unicode_versions.py
+|   |   |       |   |   wcwidth.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   \---__pycache__
+|   |   |       |           table_vs15.cpython-312.pyc
+|   |   |       |           table_vs16.cpython-312.pyc
+|   |   |       |           table_wide.cpython-312.pyc
+|   |   |       |           table_zero.cpython-312.pyc
+|   |   |       |           unicode_versions.cpython-312.pyc
+|   |   |       |           wcwidth.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---wcwidth-0.2.14.dist-info
+|   |   |       |   |   INSTALLER
+|   |   |       |   |   METADATA
+|   |   |       |   |   RECORD
+|   |   |       |   |   top_level.txt
+|   |   |       |   |   WHEEL
+|   |   |       |   |   zip-safe
+|   |   |       |   |   
+|   |   |       |   \---licenses
+|   |   |       |           LICENSE
+|   |   |       |           
+|   |   |       +---werkzeug
+|   |   |       |   |   exceptions.py
+|   |   |       |   |   formparser.py
+|   |   |       |   |   http.py
+|   |   |       |   |   local.py
+|   |   |       |   |   py.typed
+|   |   |       |   |   security.py
+|   |   |       |   |   serving.py
+|   |   |       |   |   test.py
+|   |   |       |   |   testapp.py
+|   |   |       |   |   urls.py
+|   |   |       |   |   user_agent.py
+|   |   |       |   |   utils.py
+|   |   |       |   |   wsgi.py
+|   |   |       |   |   _internal.py
+|   |   |       |   |   _reloader.py
+|   |   |       |   |   __init__.py
+|   |   |       |   |   
+|   |   |       |   +---datastructures
+|   |   |       |   |   |   accept.py
+|   |   |       |   |   |   auth.py
+|   |   |       |   |   |   cache_control.py
+|   |   |       |   |   |   csp.py
+|   |   |       |   |   |   etag.py
+|   |   |       |   |   |   file_storage.py
+|   |   |       |   |   |   headers.py
+|   |   |       |   |   |   mixins.py
+|   |   |       |   |   |   range.py
+|   |   |       |   |   |   structures.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           accept.cpython-312.pyc
+|   |   |       |   |           auth.cpython-312.pyc
+|   |   |       |   |           cache_control.cpython-312.pyc
+|   |   |       |   |           csp.cpython-312.pyc
+|   |   |       |   |           etag.cpython-312.pyc
+|   |   |       |   |           file_storage.cpython-312.pyc
+|   |   |       |   |           headers.cpython-312.pyc
+|   |   |       |   |           mixins.cpython-312.pyc
+|   |   |       |   |           range.cpython-312.pyc
+|   |   |       |   |           structures.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---debug
+|   |   |       |   |   |   console.py
+|   |   |       |   |   |   repr.py
+|   |   |       |   |   |   tbtools.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   +---shared
+|   |   |       |   |   |       console.png
+|   |   |       |   |   |       debugger.js
+|   |   |       |   |   |       ICON_LICENSE.md
+|   |   |       |   |   |       less.png
+|   |   |       |   |   |       more.png
+|   |   |       |   |   |       style.css
+|   |   |       |   |   |       
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           console.cpython-312.pyc
+|   |   |       |   |           repr.cpython-312.pyc
+|   |   |       |   |           tbtools.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---middleware
+|   |   |       |   |   |   dispatcher.py
+|   |   |       |   |   |   http_proxy.py
+|   |   |       |   |   |   lint.py
+|   |   |       |   |   |   profiler.py
+|   |   |       |   |   |   proxy_fix.py
+|   |   |       |   |   |   shared_data.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           dispatcher.cpython-312.pyc
+|   |   |       |   |           http_proxy.cpython-312.pyc
+|   |   |       |   |           lint.cpython-312.pyc
+|   |   |       |   |           profiler.cpython-312.pyc
+|   |   |       |   |           proxy_fix.cpython-312.pyc
+|   |   |       |   |           shared_data.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---routing
+|   |   |       |   |   |   converters.py
+|   |   |       |   |   |   exceptions.py
+|   |   |       |   |   |   map.py
+|   |   |       |   |   |   matcher.py
+|   |   |       |   |   |   rules.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           converters.cpython-312.pyc
+|   |   |       |   |           exceptions.cpython-312.pyc
+|   |   |       |   |           map.cpython-312.pyc
+|   |   |       |   |           matcher.cpython-312.pyc
+|   |   |       |   |           rules.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---sansio
+|   |   |       |   |   |   http.py
+|   |   |       |   |   |   multipart.py
+|   |   |       |   |   |   request.py
+|   |   |       |   |   |   response.py
+|   |   |       |   |   |   utils.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           http.cpython-312.pyc
+|   |   |       |   |           multipart.cpython-312.pyc
+|   |   |       |   |           request.cpython-312.pyc
+|   |   |       |   |           response.cpython-312.pyc
+|   |   |       |   |           utils.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   +---wrappers
+|   |   |       |   |   |   request.py
+|   |   |       |   |   |   response.py
+|   |   |       |   |   |   __init__.py
+|   |   |       |   |   |   
+|   |   |       |   |   \---__pycache__
+|   |   |       |   |           request.cpython-312.pyc
+|   |   |       |   |           response.cpython-312.pyc
+|   |   |       |   |           __init__.cpython-312.pyc
+|   |   |       |   |           
+|   |   |       |   \---__pycache__
+|   |   |       |           exceptions.cpython-312.pyc
+|   |   |       |           formparser.cpython-312.pyc
+|   |   |       |           http.cpython-312.pyc
+|   |   |       |           local.cpython-312.pyc
+|   |   |       |           security.cpython-312.pyc
+|   |   |       |           serving.cpython-312.pyc
+|   |   |       |           test.cpython-312.pyc
+|   |   |       |           testapp.cpython-312.pyc
+|   |   |       |           urls.cpython-312.pyc
+|   |   |       |           user_agent.cpython-312.pyc
+|   |   |       |           utils.cpython-312.pyc
+|   |   |       |           wsgi.cpython-312.pyc
+|   |   |       |           _internal.cpython-312.pyc
+|   |   |       |           _reloader.cpython-312.pyc
+|   |   |       |           __init__.cpython-312.pyc
+|   |   |       |           
+|   |   |       +---werkzeug-3.1.3.dist-info
+|   |   |       |       INSTALLER
+|   |   |       |       LICENSE.txt
+|   |   |       |       METADATA
+|   |   |       |       RECORD
+|   |   |       |       WHEEL
+|   |   |       |       
+|   |   |       \---__pycache__
+|   |   |               decorator.cpython-312.pyc
+|   |   |               ipython_pygments_lexers.cpython-312.pyc
+|   |   |               typing_extensions.cpython-312.pyc
+|   |   |               
+|   |   +---Scripts
+|   |   |       activate
+|   |   |       activate.bat
+|   |   |       Activate.ps1
+|   |   |       deactivate.bat
+|   |   |       flask.exe
+|   |   |       ipython.exe
+|   |   |       ipython3.exe
+|   |   |       pip.exe
+|   |   |       pip3.12.exe
+|   |   |       pip3.exe
+|   |   |       pygmentize.exe
+|   |   |       python.exe
+|   |   |       pythonw.exe
+|   |   |       
+|   |   \---share
+|   |       \---man
+|   |           \---man1
+|   |                   ipython.1
+|   |                   
+|   \---lib
+|       +---bindings
+|       |       utils.js
+|       |       
+|       +---tom-select
+|       |       tom-select.complete.min.js
+|       |       tom-select.css
+|       |       
+|       \---vis-9.1.2
+|               vis-network.css
+|               vis-network.min.js
 |               
 \---frontend
+    |   .env.local
     |   index.html
     |   package-lock.json
     |   package.json
@@ -8023,11 +13879,17 @@ C:.
         |   \---brand
         |           logo.png
         |           
+        +---components
+        |       CharacterWizard.jsx
+        |       GraphModal.jsx
+        |       RelationshipDrawer.jsx
+        |       
         +---layouts
         |       ProjectTabsLayout.jsx
         |       
         +---lib
         |       api.js
+        |       mentions.js
         |       
         +---pages
         |       Characters.jsx
@@ -8046,290 +13908,6 @@ C:.
 ## Dateien
 
 ### `.vs\roman-writing-mvp\v17\DocumentLayout.backup.json`
-```json
-{
-  "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\styles.css||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\styles.css||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\ProjectView.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\pages\\ProjectView.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\layout-2col.css||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\layout-2col.css||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\layouts\\ProjectTabsLayout.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\layouts\\ProjectTabsLayout.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\World.jsx||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\pages\\World.jsx||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\Characters.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\pages\\Characters.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\projectview.css||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\projectview.css||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\main.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\main.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\App.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\App.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\ui\\AppHeader.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\ui\\AppHeader.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\Preview.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\pages\\Preview.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\preview.css||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\preview.css||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\index.html||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\index.html||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\ui\\ProjectNav.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\ui\\ProjectNav.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\backend\\app.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\app.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\lib\\api.js||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\lib\\api.js||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    }
-  ],
-  "DocumentGroupContainers": [
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 9,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "layout-2col.css",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\layout-2col.css",
-              "RelativeDocumentMoniker": "frontend\\src\\layout-2col.css",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\layout-2col.css",
-              "RelativeToolTip": "frontend\\src\\layout-2col.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-05T09:41:49.626Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "projectview.css",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\projectview.css",
-              "RelativeDocumentMoniker": "frontend\\src\\projectview.css",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\projectview.css",
-              "RelativeToolTip": "frontend\\src\\projectview.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-05T09:38:06.842Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AppHeader.jsx",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\ui\\AppHeader.jsx",
-              "RelativeDocumentMoniker": "frontend\\src\\ui\\AppHeader.jsx",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\ui\\AppHeader.jsx",
-              "RelativeToolTip": "frontend\\src\\ui\\AppHeader.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-10-05T09:29:25.755Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "main.jsx",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\main.jsx",
-              "RelativeDocumentMoniker": "frontend\\src\\main.jsx",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\main.jsx",
-              "RelativeToolTip": "frontend\\src\\main.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-10-05T09:24:17.256Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProjectTabsLayout.jsx",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\layouts\\ProjectTabsLayout.jsx",
-              "RelativeDocumentMoniker": "frontend\\src\\layouts\\ProjectTabsLayout.jsx",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\layouts\\ProjectTabsLayout.jsx",
-              "RelativeToolTip": "frontend\\src\\layouts\\ProjectTabsLayout.jsx",
-              "ViewState": "AgIAADIAAAAAAAAAAAAiwGYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-10-05T09:19:41.849Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "preview.css",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\preview.css",
-              "RelativeDocumentMoniker": "frontend\\src\\preview.css",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\preview.css",
-              "RelativeToolTip": "frontend\\src\\preview.css",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAwDMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-04T22:28:28.176Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "App.jsx",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\App.jsx",
-              "RelativeDocumentMoniker": "frontend\\src\\App.jsx",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\App.jsx",
-              "RelativeToolTip": "frontend\\src\\App.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-10-04T22:05:23.988Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "World.jsx",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\World.jsx",
-              "RelativeDocumentMoniker": "frontend\\src\\pages\\World.jsx",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\World.jsx",
-              "RelativeToolTip": "frontend\\src\\pages\\World.jsx",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAiwIoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-10-04T22:04:55.292Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Characters.jsx",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\Characters.jsx",
-              "RelativeDocumentMoniker": "frontend\\src\\pages\\Characters.jsx",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\Characters.jsx",
-              "RelativeToolTip": "frontend\\src\\pages\\Characters.jsx",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAiwJEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-10-04T22:04:25.146Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "styles.css",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\styles.css",
-              "RelativeDocumentMoniker": "frontend\\src\\styles.css",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\styles.css",
-              "RelativeToolTip": "frontend\\src\\styles.css",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAiwLEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-04T21:49:52.179Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProjectView.jsx",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\ProjectView.jsx",
-              "RelativeDocumentMoniker": "frontend\\src\\pages\\ProjectView.jsx",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\ProjectView.jsx",
-              "RelativeToolTip": "frontend\\src\\pages\\ProjectView.jsx",
-              "ViewState": "AgIAAGwBAAAAAAAAAAAiwKABAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-10-04T17:59:01.023Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ProjectNav.jsx",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\ui\\ProjectNav.jsx",
-              "RelativeDocumentMoniker": "frontend\\src\\ui\\ProjectNav.jsx",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\ui\\ProjectNav.jsx",
-              "RelativeToolTip": "frontend\\src\\ui\\ProjectNav.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-10-04T22:04:01.252Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "api.js",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\lib\\api.js",
-              "RelativeDocumentMoniker": "frontend\\src\\lib\\api.js",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\lib\\api.js",
-              "RelativeToolTip": "frontend\\src\\lib\\api.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-10-04T18:18:54.008Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "app.py",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\backend\\app.py",
-              "RelativeDocumentMoniker": "backend\\app.py",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\backend\\app.py",
-              "RelativeToolTip": "backend\\app.py",
-              "ViewState": "AgIAAFcBAAAAAAAAAAAiwGsBAAAAAAAAAAAAAA==",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHfSURBVDhPpZCxaxNhGMZ/9zVJaUuDUlq1FBWLZBFTCXo4BFyU1qGKi4OkIHhkzF/g0KF00M2lR9YUdDDQQVAcJILoQUd1UNRmkhoRm8RL777v7nOoCZd4AcEH3uF5nvd73vd74X\u002BgtTai3LIsHeWDEEJct217a1DvwbIs7bpubFUqFW3b9naxWLwWfSOipAvHcfqqi0KhkMtms3cty1rsaomeG4FpmoMSANVqlXQ6nQMWgacMC4hOBchduEj\u002ByjKjScGh8SS1Wq3nxQZEN3j1eY/Vrfe8rTeQvsf89ARLS1cz5XIZ/uUGXxptQiVRUhJIybudXaZn52a7vbEBpmkyNb/A69YM9W8tDEJOTI2hpI\u002BSkvOZH2f13sNAB\u002B07sV9wHIdH9Unquz9RvoeUPtL3UFISKkky\u002BAT7HwTi6FpsgGma3N9\u002Bg5I\u002BKaFZyU8wOpJChwHnjiuE9wKCXyC/zsQGOI7DeELjtiUPbgky6Wd/HA3KBelC4AIpNfQGl88cQ0mfI5PugRhKkM2DUk0INYwtPI/dAGAlf4rbl06T6DyBVgeCABJzYPhwcm0V8ICNvwJKpVIf37h3IxSyKVAuBMDIYQAMw1jvaxwGrYNl3Xq5o79vat3Y3Nedj4\u002B11je7/m\u002BXOuyzFtDhUgAAAABJRU5ErkJggg==",
-              "WhenOpened": "2025-10-04T18:08:50.334Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\index.html",
-              "RelativeDocumentMoniker": "frontend\\index.html",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\index.html",
-              "RelativeToolTip": "frontend\\index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-10-04T22:28:44.643Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Preview.jsx",
-              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\Preview.jsx",
-              "RelativeDocumentMoniker": "frontend\\src\\pages\\Preview.jsx",
-              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\Preview.jsx",
-              "RelativeToolTip": "frontend\\src\\pages\\Preview.jsx",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAswKMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-10-04T22:29:28.717Z"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-### `.vs\roman-writing-mvp\v17\DocumentLayout.json`
 ```json
 {
   "Version": 1,
@@ -8404,6 +13982,438 @@ C:.
 }
 ```
 
+### `.vs\roman-writing-mvp\v17\DocumentLayout.json`
+```json
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\lib\\api.js||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\lib\\api.js||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\backend\\app.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\app.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\.env.local||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\.env.local||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\package.json||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\package.json||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\backend\\Dockerfile||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\Dockerfile||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\backend\\requirements.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\requirements.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\.dockerignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.dockerignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\Dockerfile||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Dockerfile||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\World.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\pages\\World.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\components\\GraphModal.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\GraphModal.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\projectview.css||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\projectview.css||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\Characters.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\pages\\Characters.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\components\\RelationshipDrawer.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\RelationshipDrawer.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\layouts\\ProjectTabsLayout.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\layouts\\ProjectTabsLayout.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\lib\\mentions.js||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\lib\\mentions.js||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\components\\CharacterWizard.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\CharacterWizard.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\ProjectView.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\pages\\ProjectView.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\dashboard.css||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\dashboard.css||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\Dashboard.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\pages\\Dashboard.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\main.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\main.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\App.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\App.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\ui\\AppHeader.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\ui\\AppHeader.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\ui\\Editor.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\ui\\Editor.jsx||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": ".env.local",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\.env.local",
+              "RelativeDocumentMoniker": "frontend\\.env.local",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\.env.local",
+              "RelativeToolTip": "frontend\\.env.local",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-06T22:06:23.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "package.json",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\package.json",
+              "RelativeDocumentMoniker": "frontend\\package.json",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\package.json",
+              "RelativeToolTip": "frontend\\package.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-06T20:58:04.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\backend\\Dockerfile",
+              "RelativeDocumentMoniker": "backend\\Dockerfile",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\backend\\Dockerfile",
+              "RelativeToolTip": "backend\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-06T20:31:11.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-06T19:58:44.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": ".dockerignore",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\.dockerignore",
+              "RelativeDocumentMoniker": ".dockerignore",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\.dockerignore",
+              "RelativeToolTip": ".dockerignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-06T17:38:37.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\Dockerfile",
+              "RelativeDocumentMoniker": "Dockerfile",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\Dockerfile",
+              "RelativeToolTip": "Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-06T17:34:09.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "requirements.txt",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\backend\\requirements.txt",
+              "RelativeDocumentMoniker": "backend\\requirements.txt",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\backend\\requirements.txt",
+              "RelativeToolTip": "backend\\requirements.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-10-06T17:33:29.862Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "app.py",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\backend\\app.py",
+              "RelativeDocumentMoniker": "backend\\app.py",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\backend\\app.py",
+              "RelativeToolTip": "backend\\app.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHfSURBVDhPpZCxaxNhGMZ/9zVJaUuDUlq1FBWLZBFTCXo4BFyU1qGKi4OkIHhkzF/g0KF00M2lR9YUdDDQQVAcJILoQUd1UNRmkhoRm8RL777v7nOoCZd4AcEH3uF5nvd73vd74X\u002BgtTai3LIsHeWDEEJct217a1DvwbIs7bpubFUqFW3b9naxWLwWfSOipAvHcfqqi0KhkMtms3cty1rsaomeG4FpmoMSANVqlXQ6nQMWgacMC4hOBchduEj\u002ByjKjScGh8SS1Wq3nxQZEN3j1eY/Vrfe8rTeQvsf89ARLS1cz5XIZ/uUGXxptQiVRUhJIybudXaZn52a7vbEBpmkyNb/A69YM9W8tDEJOTI2hpI\u002BSkvOZH2f13sNAB\u002B07sV9wHIdH9Unquz9RvoeUPtL3UFISKkky\u002BAT7HwTi6FpsgGma3N9\u002Bg5I\u002BKaFZyU8wOpJChwHnjiuE9wKCXyC/zsQGOI7DeELjtiUPbgky6Wd/HA3KBelC4AIpNfQGl88cQ0mfI5PugRhKkM2DUk0INYwtPI/dAGAlf4rbl06T6DyBVgeCABJzYPhwcm0V8ICNvwJKpVIf37h3IxSyKVAuBMDIYQAMw1jvaxwGrYNl3Xq5o79vat3Y3Nedj4\u002B11je7/m\u002BXOuyzFtDhUgAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-10-06T11:53:32.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "World.jsx",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\World.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\pages\\World.jsx",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\World.jsx",
+              "RelativeToolTip": "frontend\\src\\pages\\World.jsx",
+              "ViewState": "AgIAANAAAAAAAAAAAAAAwPMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-06T14:32:17.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "api.js",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\lib\\api.js",
+              "RelativeDocumentMoniker": "frontend\\src\\lib\\api.js",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\lib\\api.js",
+              "RelativeToolTip": "frontend\\src\\lib\\api.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-10-06T14:30:03.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GraphModal.jsx",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\components\\GraphModal.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\GraphModal.jsx",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\components\\GraphModal.jsx",
+              "RelativeToolTip": "frontend\\src\\components\\GraphModal.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-06T12:29:22.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "mentions.js",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\lib\\mentions.js",
+              "RelativeDocumentMoniker": "frontend\\src\\lib\\mentions.js",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\lib\\mentions.js",
+              "RelativeToolTip": "frontend\\src\\lib\\mentions.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-10-06T11:25:13.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RelationshipDrawer.jsx",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\components\\RelationshipDrawer.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\RelationshipDrawer.jsx",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\components\\RelationshipDrawer.jsx",
+              "RelativeToolTip": "frontend\\src\\components\\RelationshipDrawer.jsx",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAwFQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-06T11:24:54.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CharacterWizard.jsx",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\components\\CharacterWizard.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\CharacterWizard.jsx",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\components\\CharacterWizard.jsx",
+              "RelativeToolTip": "frontend\\src\\components\\CharacterWizard.jsx",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAiwIwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-06T11:24:37.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Characters.jsx",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\Characters.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\pages\\Characters.jsx",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\Characters.jsx",
+              "RelativeToolTip": "frontend\\src\\pages\\Characters.jsx",
+              "ViewState": "AgIAAMwBAAAAAAAAAAAAwP4BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-06T10:52:33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "main.jsx",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\main.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\main.jsx",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\main.jsx",
+              "RelativeToolTip": "frontend\\src\\main.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-06T10:08:38.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Dashboard.jsx",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\Dashboard.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\pages\\Dashboard.jsx",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\Dashboard.jsx",
+              "RelativeToolTip": "frontend\\src\\pages\\Dashboard.jsx",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAiwK8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-06T09:59:15.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "dashboard.css",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\dashboard.css",
+              "RelativeDocumentMoniker": "frontend\\src\\dashboard.css",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\dashboard.css",
+              "RelativeToolTip": "frontend\\src\\dashboard.css",
+              "ViewState": "AgIAABUAAAAAAAAAAAAiwDQAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-06T09:58:59.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "projectview.css",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\projectview.css",
+              "RelativeDocumentMoniker": "frontend\\src\\projectview.css",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\projectview.css",
+              "RelativeToolTip": "frontend\\src\\projectview.css",
+              "ViewState": "AgIAALIBAAAAAAAAAAAAwNYBAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-05T20:57:40.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "App.jsx",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\App.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\App.jsx",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\App.jsx",
+              "RelativeToolTip": "frontend\\src\\App.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-06T10:04:57.983Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ProjectTabsLayout.jsx",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\layouts\\ProjectTabsLayout.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\layouts\\ProjectTabsLayout.jsx",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\layouts\\ProjectTabsLayout.jsx",
+              "RelativeToolTip": "frontend\\src\\layouts\\ProjectTabsLayout.jsx",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-06T09:10:20.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AppHeader.jsx",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\ui\\AppHeader.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\ui\\AppHeader.jsx",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\ui\\AppHeader.jsx",
+              "RelativeToolTip": "frontend\\src\\ui\\AppHeader.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-06T09:04:20.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Editor.jsx",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\ui\\Editor.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\ui\\Editor.jsx",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\ui\\Editor.jsx",
+              "RelativeToolTip": "frontend\\src\\ui\\Editor.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-05T20:33:49.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ProjectView.jsx",
+              "DocumentMoniker": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\ProjectView.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\pages\\ProjectView.jsx",
+              "ToolTip": "C:\\Users\\anton\\source\\repos\\roman-writing-mvp\\frontend\\src\\pages\\ProjectView.jsx",
+              "RelativeToolTip": "frontend\\src\\pages\\ProjectView.jsx",
+              "ViewState": "AgIAAI0BAAAAAAAAAAAiwKEBAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-05T20:33:19.182Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
 ### `.vs\VSWorkspaceState.json`
 ```json
 {
@@ -8412,39 +14422,54 @@ C:.
     "\\backend",
     "\\frontend",
     "\\frontend\\src",
-    "\\frontend\\src\\layouts",
-    "\\frontend\\src\\lib",
-    "\\frontend\\src\\pages",
-    "\\frontend\\src\\ui"
+    "\\frontend\\src\\lib"
   ],
-  "SelectedNode": "\\frontend\\src\\styles.css",
+  "SelectedNode": "\\backend\\app.py",
   "PreviewInSolutionExplorer": false
 }
 ```
 
+### `backend\__init__.py`
+```python
+
+
+```
+
 ### `backend\app.py`
 ```python
-from flask import Flask, request, jsonify, abort
+from flask import Flask, request, jsonify, abort, Response
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import func
 from sqlalchemy.orm import selectinload
 from datetime import datetime
-import os
+import os, json, tempfile
+
+# Optional: PyVis
+try:
+    from pyvis.network import Network
+    HAS_PYVIS = True
+except Exception:
+    HAS_PYVIS = False
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-# SQLite config
-db_path = os.path.join(os.path.dirname(__file__), "app.db")
-app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{db_path}"
+# ⬇ ersetzt deinen SQLite-Block
+db_url = os.getenv("DATABASE_URL")
+
+if db_url:
+    app.config["SQLALCHEMY_DATABASE_URI"] = db_url
+else:
+    is_aws = bool(os.getenv("AWS_EXECUTION_ENV"))
+    db_path = "/tmp/app.db" if is_aws else os.path.join(os.path.dirname(__file__), "app.db")
+    app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{db_path}"
+    app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {"connect_args": {"check_same_thread": False}}
+
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
 
-# -----------------
-# Models
-# -----------------
+# ----------------- Models -----------------
 class Project(db.Model):
     __tablename__ = "projects"
     id = db.Column(db.Integer, primary_key=True)
@@ -8453,31 +14478,19 @@ class Project(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-    chapters = db.relationship(
-        "Chapter", backref="project", cascade="all, delete-orphan", lazy="selectin"
-    )
-    characters = db.relationship(
-        "Character", backref="project", cascade="all, delete-orphan", lazy="selectin"
-    )
-    locations = db.relationship(
-        "Location", backref="project", cascade="all, delete-orphan", lazy="selectin"
-    )
+    chapters = db.relationship("Chapter", backref="project", cascade="all, delete-orphan", lazy="selectin")
+    characters = db.relationship("Character", backref="project", cascade="all, delete-orphan", lazy="selectin")
+    locations = db.relationship("Location", backref="project", cascade="all, delete-orphan", lazy="selectin")  # legacy
+    world_items = db.relationship("WorldItem", backref="project", cascade="all, delete-orphan", lazy="selectin")
 
     def to_dict(self):
-        return {
-            "id": self.id,
-            "title": self.title,
-            "description": self.description,
-            "created_at": self.created_at.isoformat() if self.created_at else None,
-            "updated_at": self.updated_at.isoformat() if self.updated_at else None,
-        }
-
+        return {"id": self.id, "title": self.title, "description": self.description,
+                "created_at": self.created_at.isoformat() if self.created_at else None,
+                "updated_at": self.updated_at.isoformat() if self.updated_at else None}
 
 class Chapter(db.Model):
     __tablename__ = "chapters"
-    __table_args__ = (
-        db.Index("ix_chapter_project_order", "project_id", "order_index"),
-    )
+    __table_args__ = (db.Index("ix_chapter_project_order", "project_id", "order_index"),)
     id = db.Column(db.Integer, primary_key=True)
     project_id = db.Column(db.Integer, db.ForeignKey("projects.id"), nullable=False)
     title = db.Column(db.String(255), nullable=False, default="Neues Kapitel")
@@ -8485,26 +14498,16 @@ class Chapter(db.Model):
     content = db.Column(db.Text, default="")
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-    scenes = db.relationship(
-        "Scene", backref="chapter", cascade="all, delete-orphan", lazy="selectin"
-    )
+    scenes = db.relationship("Scene", backref="chapter", cascade="all, delete-orphan", lazy="selectin")
 
     def to_dict(self):
-        return {
-            "id": self.id,
-            "project_id": self.project_id,
-            "title": self.title,
-            "order_index": self.order_index,
-            "content": self.content,
-            "updated_at": self.updated_at.isoformat() if self.updated_at else None,
-        }
-
+        return {"id": self.id, "project_id": self.project_id, "title": self.title,
+                "order_index": self.order_index, "content": self.content,
+                "updated_at": self.updated_at.isoformat() if self.updated_at else None}
 
 class Scene(db.Model):
     __tablename__ = "scenes"
-    __table_args__ = (
-        db.Index("ix_scene_chapter_order", "chapter_id", "order_index"),
-    )
+    __table_args__ = (db.Index("ix_scene_chapter_order", "chapter_id", "order_index"),)
     id = db.Column(db.Integer, primary_key=True)
     chapter_id = db.Column(db.Integer, db.ForeignKey("chapters.id"), nullable=False)
     title = db.Column(db.String(255), nullable=False, default="Neue Szene")
@@ -8513,15 +14516,9 @@ class Scene(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     def to_dict(self):
-        return {
-            "id": self.id,
-            "chapter_id": self.chapter_id,
-            "title": self.title,
-            "order_index": self.order_index,
-            "content": self.content,
-            "updated_at": self.updated_at.isoformat() if self.updated_at else None,
-        }
-
+        return {"id": self.id, "chapter_id": self.chapter_id, "title": self.title,
+                "order_index": self.order_index, "content": self.content,
+                "updated_at": self.updated_at.isoformat() if self.updated_at else None}
 
 class Character(db.Model):
     __tablename__ = "characters"
@@ -8529,20 +14526,18 @@ class Character(db.Model):
     project_id = db.Column(db.Integer, db.ForeignKey("projects.id"), nullable=False)
     name = db.Column(db.String(255), nullable=False)
     role = db.Column(db.String(255), default="")
-    age = db.Column(db.String(50), default="")  # flexibles Textfeld
+    age = db.Column(db.String(50), default="")
     description = db.Column(db.Text, default="")
+    relations = db.Column(db.Text, default="[]")   # JSON-Array
+    profile = db.Column(db.Text, default="{}")     # JSON
 
     def to_dict(self):
-        return {
-            "id": self.id,
-            "project_id": self.project_id,
-            "name": self.name,
-            "role": self.role,
-            "age": self.age,
-            "description": self.description,
-        }
+        return {"id": self.id, "project_id": self.project_id, "name": self.name,
+                "role": self.role, "age": self.age, "description": self.description,
+                "relations": _parse_relations(self.relations),
+                "profile": _parse_profile(self.profile)}
 
-
+# Legacy "locations" bleibt kompatibel (kannst du später entfernen)
 class Location(db.Model):
     __tablename__ = "locations"
     id = db.Column(db.Integer, primary_key=True)
@@ -8550,294 +14545,1404 @@ class Location(db.Model):
     name = db.Column(db.String(255), nullable=False)
     region = db.Column(db.String(255), default="")
     description = db.Column(db.Text, default="")
+    def to_dict(self):
+        return {"id": self.id, "project_id": self.project_id,
+                "name": self.name, "region": self.region, "description": self.description}
+
+# ✅ Neue generische Welt-Elemente
+class WorldItem(db.Model):
+    __tablename__ = "world_items"
+    id = db.Column(db.Integer, primary_key=True)
+    project_id = db.Column(db.Integer, db.ForeignKey("projects.id"), nullable=False)
+    name = db.Column(db.String(255), nullable=False)     # z. B. "Eldoria"
+    kind = db.Column(db.String(120), default="Allgemein")# z. B. "Königreich", "Organisation", "Beruf", "Stadt" …
+    description = db.Column(db.Text, default="")
+    props = db.Column(db.Text, default="{}")             # freie Attribute (JSON)
+    relations = db.Column(db.Text, default="[]")         # JSON-Array zu anderen WorldItems
 
     def to_dict(self):
-        return {
-            "id": self.id,
-            "project_id": self.project_id,
-            "name": self.name,
-            "region": self.region,
-            "description": self.description,
-        }
+        return {"id": self.id, "project_id": self.project_id, "name": self.name,
+                "kind": self.kind, "description": self.description,
+                "props": _parse_props(self.props),
+                "relations": _parse_relations(self.relations)}
 
-
-# -----------------
-# Error & helpers
-# -----------------
-@app.errorhandler(404)
-def _404(e):
-    return jsonify({"error": str(e)}), 404
-
-@app.errorhandler(400)
-def _400(e):
-    return jsonify({"error": "Bad Request", "detail": str(e)}), 400
-
+# ----------------- Helpers -----------------
 def get_or_404(model, id_):
     item = db.session.get(model, id_)
-    if not item:
-        abort(404, description=f"{model.__name__} not found")
+    if not item: abort(404, f"{model.__name__} {id_} not found")
     return item
 
-def next_order_index_for(model, **filters):
-    """Gibt den nächsten order_index für eine Gruppe zurück (Kapitel im Projekt / Szenen im Kapitel)."""
-    q = db.session.query(func.coalesce(func.max(model.order_index), -1))
-    for k, v in filters.items():
-        q = q.filter(getattr(model, k) == v)
-    return q.scalar() + 1
+def get_or_none(model, id_): return db.session.get(model, id_)
 
+def ensure_column(table, column, ddl):
+    insp = db.inspect(db.engine)
+    cols = [c["name"] for c in insp.get_columns(table)]
+    if column not in cols:
+        with db.engine.begin() as conn:
+            conn.exec_driver_sql(f"ALTER TABLE {table} ADD COLUMN {column} {ddl}")
 
-# -----------------
-# API
-# -----------------
-@app.route("/api/health", methods=["GET"])
-def health():
-    return {"status": "ok", "time": datetime.utcnow().isoformat()}
+def ensure_relations_column():
+    ensure_column("characters", "relations", "TEXT DEFAULT '[]'")
+
+def ensure_profile_column():
+    ensure_column("characters", "profile", "TEXT DEFAULT '{}'")
+
+def _parse_relations(text):
+    try:
+        data = json.loads(text or "[]")
+        if not isinstance(data, list): return []
+        out = []
+        for r in data:
+            if not isinstance(r, dict): continue
+            toId = r.get("toId")
+            if not isinstance(toId, int): continue
+            typ = r.get("type") or "Verbunden"
+            strength = r.get("strength", 3)
+            try: strength = int(strength)
+            except: strength = 3
+            notes = r.get("notes", "")
+            out.append({"toId": toId, "type": typ, "strength": strength, "notes": notes})
+        return out
+    except: return []
+
+_PROFILE_DEFAULT = {
+    "avatarUrl": "", "pitch": "", "goal": "", "conflict": "",
+    "affiliations": [], "strengths": [], "weaknesses": [],
+    "voice": "", "traits": "", "secret": "",
+    "birthplace": "", "residence": "", "occupation": "",
+    "appearance": "", "height": "", "hairColor": "", "eyeColor": "",
+    "skills": [], "backstory": ""
+}
+def _parse_profile(text):
+    try:
+        raw = json.loads(text or "{}")
+        if not isinstance(raw, dict): raw = {}
+    except: raw = {}
+    prof = {**_PROFILE_DEFAULT, **raw}
+    for k in ["affiliations","strengths","weaknesses","skills"]:
+        v = prof.get(k)
+        if isinstance(v, str): prof[k] = [x.strip() for x in v.split(",") if x.strip()]
+        elif not isinstance(v, list): prof[k] = []
+    return prof
+
+def _parse_props(text):
+    try:
+        raw = json.loads(text or "{}")
+        if not isinstance(raw, dict): raw = {}
+    except: raw = {}
+    return raw
+
+# Character inverse mapping
+_RECIPROCAL = {"Freund":"Freund","Feind":"Feind","Familie":"Familie","Liebe":"Liebe",
+               "Kollege":"Kollege","Kennt":"Kennt","Mentor":"Schüler","Schüler":"Mentor"}
+def _reciprocal_type(t): return _RECIPROCAL.get(t, t)
+
+# World inverse mapping
+_WORLD_RECIPROCAL = {
+    "Teil von":"Hat Teil",
+    "Hat Teil":"Teil von",
+    "Ort in":"Beherbergt",
+    "Beherbergt":"Ort in",
+    "Regiert":"Wird regiert von",
+    "Wird regiert von":"Regiert",
+    "Hauptstadt von":"Hat Hauptstadt",
+    "Hat Hauptstadt":"Hauptstadt von",
+    "Mitglied von":"Hat Mitglied",
+    "Hat Mitglied":"Mitglied von",
+    "Übergeordnet":"Untergeordnet",
+    "Untergeordnet":"Übergeordnet",
+    "Verbündet":"Verbündet",
+    "Konkurriert":"Konkurriert",
+    "Handelt mit":"Handelt mit",
+}
+def _world_inv(t): return _WORLD_RECIPROCAL.get(t, t)
+
+def _sync_bidirectional_relations(source_char, new_relations, old_relations=None):
+    new_rel = _parse_relations(json.dumps(new_relations, ensure_ascii=False))
+    if old_relations is None:
+        old_rel = _parse_relations(source_char.relations)
+    else:
+        old_rel = _parse_relations(json.dumps(old_relations, ensure_ascii=False)) if isinstance(old_relations, list) else _parse_relations(old_relations)
+    old_targets = {r["toId"] for r in old_rel}
+    new_targets = {r["toId"] for r in new_rel}
+
+    for r in new_rel:
+        tid = r["toId"]
+        if tid == source_char.id: continue
+        tgt = get_or_none(Character, tid)
+        if not tgt or tgt.project_id != source_char.project_id: continue
+        t_rel = _parse_relations(tgt.relations)
+        idx = next((i for i,x in enumerate(t_rel) if x.get("toId")==source_char.id), None)
+        inv = _reciprocal_type(r.get("type"))
+        if idx is None:
+            t_rel.append({"toId": source_char.id, "type": inv, "strength": r.get("strength",3), "notes": ""})
+        else:
+            t_rel[idx]["type"] = inv
+            t_rel[idx]["strength"] = r.get("strength", t_rel[idx].get("strength",3))
+        tgt.relations = json.dumps(t_rel, ensure_ascii=False)
+
+    removed = old_targets - new_targets
+    for tid in removed:
+        tgt = get_or_none(Character, tid)
+        if not tgt or tgt.project_id != source_char.project_id: continue
+        t_rel = _parse_relations(tgt.relations)
+        t_rel = [x for x in t_rel if x.get("toId") != source_char.id]
+        tgt.relations = json.dumps(t_rel, ensure_ascii=False)
+
+def _sync_world_relations(src, new_relations, old_relations=None):
+    new_rel = _parse_relations(json.dumps(new_relations, ensure_ascii=False))
+    if old_relations is None:
+        old_rel = _parse_relations(src.relations)
+    else:
+        old_rel = _parse_relations(json.dumps(old_relations, ensure_ascii=False)) if isinstance(old_relations, list) else _parse_relations(old_relations)
+
+    old_targets = {r["toId"] for r in old_rel}
+    new_targets = {r["toId"] for r in new_rel}
+
+    for r in new_rel:
+        tid = r["toId"]
+        if tid == src.id: continue
+        tgt = get_or_none(WorldItem, tid)
+        if not tgt or tgt.project_id != src.project_id: continue
+        t_rel = _parse_relations(tgt.relations)
+        idx = next((i for i,x in enumerate(t_rel) if x.get("toId")==src.id), None)
+        inv = _world_inv(r.get("type"))
+        if idx is None:
+            t_rel.append({"toId": src.id, "type": inv, "strength": r.get("strength",3), "notes": ""})
+        else:
+            t_rel[idx]["type"] = inv
+            t_rel[idx]["strength"] = r.get("strength", t_rel[idx].get("strength",3))
+        tgt.relations = json.dumps(t_rel, ensure_ascii=False)
+
+    removed = old_targets - new_targets
+    for tid in removed:
+        tgt = get_or_none(WorldItem, tid)
+        if not tgt or tgt.project_id != src.project_id: continue
+        t_rel = _parse_relations(tgt.relations)
+        t_rel = [x for x in t_rel if x.get("toId") != src.id]
+        tgt.relations = json.dumps(t_rel, ensure_ascii=False)
+
+# ----------------- Routes -----------------
+@app.errorhandler(404)
+def _404(e): return jsonify({"error": str(e)}), 404
+
+@app.errorhandler(400)
+def _400(e): return jsonify({"error":"Bad Request","detail":str(e)}), 400
 
 # Projects
-@app.route("/api/projects", methods=["GET", "POST"])
+@app.route("/api/projects", methods=["GET","POST"])
 def projects():
     if request.method == "POST":
         data = request.get_json() or {}
-        p = Project(
-            title=data.get("title", "Neues Projekt"),
-            description=data.get("description", ""),
-        )
-        db.session.add(p)
-        db.session.commit()
+        p = Project(title=data.get("title","Neues Projekt"), description=data.get("description",""))
+        db.session.add(p); db.session.commit()
         return jsonify(p.to_dict()), 201
+    return jsonify([x.to_dict() for x in Project.query.all()])
 
-    items = Project.query.order_by(Project.updated_at.desc()).all()
-    return jsonify([x.to_dict() for x in items])
+from sqlalchemy import func
+import traceback
+from flask import current_app
 
 @app.route("/api/projects/<int:pid>", methods=["GET", "PUT", "DELETE"])
 def project_detail(pid):
     p = get_or_404(Project, pid)
 
     if request.method == "GET":
-        data = p.to_dict()
-        chapters = (
-            Chapter.query.filter_by(project_id=pid)
-            .order_by(Chapter.order_index.asc(), Chapter.id.asc())
-            .all()
-        )
-        data["chapters"] = [
-            {"id": c.id, "title": c.title, "order_index": c.order_index} for c in chapters
-        ]
-        return jsonify(data)
+        try:
+            data = p.to_dict()
+            # defensiv, ohne order_index sortieren (nur nach id)
+            chs = (
+                Chapter.query
+                .filter_by(project_id=pid)
+                .order_by(Chapter.id.asc())
+                .all()
+            )
+            data["chapters"] = [
+                {"id": c.id, "title": c.title, "order_index": (c.order_index or 0)}
+                for c in chs
+            ]
+            return jsonify(data)
+        except Exception as ex:
+            # Log für dich im Terminal und eine klare 500-Antwort
+            current_app.logger.exception("GET /api/projects/<pid> failed")
+            return jsonify({"error": "internal", "detail": str(ex)}), 500
 
-    if request.method == "PUT":
+    elif request.method == "PUT":
         data = request.get_json() or {}
         p.title = data.get("title", p.title)
         p.description = data.get("description", p.description)
         db.session.commit()
         return jsonify(p.to_dict())
 
-    # DELETE
-    db.session.delete(p)
-    db.session.commit()
-    return jsonify({"ok": True})
+    else:  # DELETE
+        db.session.delete(p)
+        db.session.commit()
+        return jsonify({"ok": True})
 
-# Chapters
-@app.route("/api/projects/<int:pid>/chapters", methods=["GET", "POST"])
+
+
+# Chapters / Scenes (unchanged)
+@app.route("/api/projects/<int:pid>/chapters", methods=["GET","POST"])
 def project_chapters(pid):
-    get_or_404(Project, pid)  # existiert?
-
+    get_or_404(Project, pid)
     if request.method == "POST":
         data = request.get_json() or {}
-        c = Chapter(
-            project_id=pid,
-            title=data.get("title", "Neues Kapitel"),
-            order_index=data.get("order_index", next_order_index_for(Chapter, project_id=pid)),
-            content=data.get("content", ""),
-        )
-        db.session.add(c)
-        db.session.commit()
-        return jsonify(c.to_dict()), 201
-
-    items = (
-        Chapter.query.filter_by(project_id=pid)
-        .order_by(Chapter.order_index.asc(), Chapter.id.asc())
-        .all()
-    )
+        ch = Chapter(project_id=pid, title=data.get("title","Neues Kapitel"),
+                     order_index=data.get("order_index",0), content=data.get("content",""))
+        db.session.add(ch); db.session.commit(); return jsonify(ch.to_dict()), 201
+    items = Chapter.query.filter_by(project_id=pid).order_by(Chapter.order_index.asc(), Chapter.id.asc()).all()
     return jsonify([x.to_dict() for x in items])
 
-@app.route("/api/chapters/<int:cid>", methods=["GET", "PUT", "DELETE"])
+@app.route("/api/chapters/<int:cid>", methods=["GET","PUT","DELETE"])
 def chapter_detail(cid):
     c = get_or_404(Chapter, cid)
-
-    if request.method == "GET":
-        return jsonify(c.to_dict())
-
+    if request.method == "GET": return jsonify(c.to_dict())
     if request.method == "PUT":
         data = request.get_json() or {}
         c.title = data.get("title", c.title)
         c.order_index = data.get("order_index", c.order_index)
         c.content = data.get("content", c.content)
-        db.session.commit()
-        return jsonify(c.to_dict())
+        db.session.commit(); return jsonify(c.to_dict())
+    db.session.delete(c); db.session.commit(); return jsonify({"ok":True})
 
-    db.session.delete(c)
-    db.session.commit()
-    return jsonify({"ok": True})
-
-# Scenes
-@app.route("/api/chapters/<int:cid>/scenes", methods=["GET", "POST"])
+@app.route("/api/chapters/<int:cid>/scenes", methods=["GET","POST"])
 def chapter_scenes(cid):
     get_or_404(Chapter, cid)
-
     if request.method == "POST":
         data = request.get_json() or {}
-        sc = Scene(
-            chapter_id=cid,
-            title=data.get("title", "Neue Szene"),
-            order_index=data.get("order_index", next_order_index_for(Scene, chapter_id=cid)),
-            content=data.get("content", ""),
-        )
-        db.session.add(sc)
-        db.session.commit()
-        return jsonify(sc.to_dict()), 201
-
-    items = (
-        Scene.query.filter_by(chapter_id=cid)
-        .order_by(Scene.order_index.asc(), Scene.id.asc())
-        .all()
-    )
+        sc = Scene(chapter_id=cid, title=data.get("title","Neue Szene"),
+                   order_index=data.get("order_index",0), content=data.get("content",""))
+        db.session.add(sc); db.session.commit(); return jsonify(sc.to_dict()), 201
+    items = Scene.query.filter_by(chapter_id=cid).order_by(Scene.order_index.asc(), Scene.id.asc()).all()
     return jsonify([x.to_dict() for x in items])
 
-@app.route("/api/scenes/<int:sid>", methods=["GET", "PUT", "DELETE"])
+@app.route("/api/scenes/<int:sid>", methods=["GET","PUT","DELETE"])
 def scene_detail(sid):
     sc = get_or_404(Scene, sid)
-
-    if request.method == "GET":
-        return jsonify(sc.to_dict())
-
+    if request.method == "GET": return jsonify(sc.to_dict())
     if request.method == "PUT":
         data = request.get_json() or {}
         sc.title = data.get("title", sc.title)
         sc.order_index = data.get("order_index", sc.order_index)
         sc.content = data.get("content", sc.content)
-        db.session.commit()
-        return jsonify(sc.to_dict())
+        db.session.commit(); return jsonify(sc.to_dict())
+    db.session.delete(sc); db.session.commit(); return jsonify({"ok":True})
 
-    db.session.delete(sc)
-    db.session.commit()
-    return jsonify({"ok": True})
-
-# Characters
-@app.route("/api/projects/<int:pid>/characters", methods=["GET", "POST"])
+# Characters (mit bidirektionaler Relation)
+@app.route("/api/projects/<int:pid>/characters", methods=["GET","POST"])
 def project_characters(pid):
     get_or_404(Project, pid)
-
     if request.method == "POST":
         data = request.get_json() or {}
         ch = Character(
             project_id=pid,
-            name=data.get("name", "Neue Figur"),
-            role=data.get("role", ""),
-            age=data.get("age", ""),
-            description=data.get("description", ""),
+            name=data.get("name","Neue Figur"),
+            role=data.get("role",""),
+            age=str(data.get("age","")) if data.get("age","") is not None else "",
+            description=data.get("description",""),
+            relations=json.dumps(_parse_relations(json.dumps(data.get("relations",[]))), ensure_ascii=False),
+            profile=json.dumps(_parse_profile(json.dumps(data.get("profile",{}))), ensure_ascii=False),
         )
-        db.session.add(ch)
+        db.session.add(ch); db.session.commit()
+        _sync_bidirectional_relations(ch, _parse_relations(ch.relations))
         db.session.commit()
         return jsonify(ch.to_dict()), 201
-
     items = Character.query.filter_by(project_id=pid).all()
     return jsonify([x.to_dict() for x in items])
 
-@app.route("/api/characters/<int:cid>", methods=["GET", "PUT", "DELETE"])
+@app.route("/api/characters/<int:cid>", methods=["GET","PUT","DELETE"])
 def character_detail(cid):
     ch = get_or_404(Character, cid)
-
-    if request.method == "GET":
-        return jsonify(ch.to_dict())
-
+    if request.method == "GET": return jsonify(ch.to_dict())
     if request.method == "PUT":
         data = request.get_json() or {}
         ch.name = data.get("name", ch.name)
         ch.role = data.get("role", ch.role)
-        ch.age = data.get("age", ch.age)
+        age_val = data.get("age", ch.age)
+        ch.age = "" if age_val is None else str(age_val)
         ch.description = data.get("description", ch.description)
-        db.session.commit()
-        return jsonify(ch.to_dict())
+        if "relations" in data:
+            old_rel = _parse_relations(ch.relations)
+            new_rel = _parse_relations(json.dumps(data.get("relations") or []))
+            ch.relations = json.dumps(new_rel, ensure_ascii=False)
+            _sync_bidirectional_relations(ch, new_rel, old_rel)
+        if "profile" in data:
+            prof = _parse_profile(json.dumps(data.get("profile") or {}))
+            ch.profile = json.dumps(prof, ensure_ascii=False)
+        db.session.commit(); return jsonify(ch.to_dict())
+    # Delete: remove inverse
+    others = Character.query.filter(Character.project_id==ch.project_id, Character.id!=ch.id).all()
+    for o in others:
+        rels = _parse_relations(o.relations)
+        o.relations = json.dumps([r for r in rels if r.get("toId") != ch.id], ensure_ascii=False)
+    db.session.delete(ch); db.session.commit(); return jsonify({"ok":True})
 
-    db.session.delete(ch)
-    db.session.commit()
-    return jsonify({"ok": True})
-
-# Locations
-@app.route("/api/projects/<int:pid>/locations", methods=["GET", "POST"])
-def project_locations(pid):
+# ---------- ✅ WorldItems (Welt-Elemente) ----------
+@app.route("/api/projects/<int:pid>/world-items", methods=["GET","POST"])
+def project_world_items(pid):
     get_or_404(Project, pid)
-
     if request.method == "POST":
         data = request.get_json() or {}
-        loc = Location(
+        wi = WorldItem(
             project_id=pid,
-            name=data.get("name", "Neuer Ort"),
-            region=data.get("region", ""),
-            description=data.get("description", ""),
+            name=data.get("name","Neues Element"),
+            kind=data.get("kind","Allgemein"),
+            description=data.get("description",""),
+            props=json.dumps(_parse_props(json.dumps(data.get("props",{}))), ensure_ascii=False),
+            relations=json.dumps(_parse_relations(json.dumps(data.get("relations",[]))), ensure_ascii=False),
         )
-        db.session.add(loc)
+        db.session.add(wi); db.session.commit()
+        _sync_world_relations(wi, _parse_relations(wi.relations))
         db.session.commit()
-        return jsonify(loc.to_dict()), 201
-
-    items = Location.query.filter_by(project_id=pid).all()
+        return jsonify(wi.to_dict()), 201
+    items = WorldItem.query.filter_by(project_id=pid).order_by(WorldItem.id.asc()).all()
     return jsonify([x.to_dict() for x in items])
 
-@app.route("/api/locations/<int:lid>", methods=["GET", "PUT", "DELETE"])
-def location_detail(lid):
-    loc = get_or_404(Location, lid)
-
+@app.route("/api/world-items/<int:w_id>", methods=["GET","PUT","DELETE"])
+def world_item_detail(w_id):
+    wi = get_or_404(WorldItem, w_id)
     if request.method == "GET":
-        return jsonify(loc.to_dict())
-
+        return jsonify(wi.to_dict())
     if request.method == "PUT":
         data = request.get_json() or {}
-        loc.name = data.get("name", loc.name)
-        loc.region = data.get("region", loc.region)
-        loc.description = data.get("description", loc.description)
+        wi.name = data.get("name", wi.name)
+        wi.kind = data.get("kind", wi.kind)
+        wi.description = data.get("description", wi.description)
+        if "props" in data:
+            wi.props = json.dumps(_parse_props(json.dumps(data.get("props") or {})), ensure_ascii=False)
+        if "relations" in data:
+            old_rel = _parse_relations(wi.relations)
+            new_rel = _parse_relations(json.dumps(data.get("relations") or []))
+            wi.relations = json.dumps(new_rel, ensure_ascii=False)
+            _sync_world_relations(wi, new_rel, old_rel)
         db.session.commit()
-        return jsonify(loc.to_dict())
+        return jsonify(wi.to_dict())
+    # DELETE: inverse entfernen
+    others = WorldItem.query.filter(WorldItem.project_id==wi.project_id, WorldItem.id!=wi.id).all()
+    for o in others:
+        rels = _parse_relations(o.relations)
+        o.relations = json.dumps([r for r in rels if r.get("toId") != wi.id], ensure_ascii=False)
+    db.session.delete(wi); db.session.commit(); return jsonify({"ok":True})
 
-    db.session.delete(loc)
-    db.session.commit()
-    return jsonify({"ok": True})
+# ---------- Graphen ----------
+@app.route("/api/projects/<int:pid>/relations-graph", methods=["GET"])
+def project_relations_graph(pid):
+    # Characters-Graph (unverändert, Labels etc.)
+    if not HAS_PYVIS: abort(500, "PyVis nicht installiert (pip install pyvis).")
+    get_or_404(Project, pid)
+    chars = Character.query.filter_by(project_id=pid).all()
+    net = Network(height="100%", width="100%", bgcolor="#ffffff", font_color="#222"); net.barnes_hut()
+    for c in chars:
+        label = c.name or f"#{c.id}"
+        title = f"<b>{label}</b><br>Rolle: {c.role or '-'}<br>Alter: {c.age or '-'}"
+        color = "#60a5fa" if (c.role or "").lower().startswith("protagon") else "#c084fc" if (c.role or "").lower().startswith("antagon") else "#94a3b8"
+        net.add_node(c.id, label=label, title=title, shape='dot', size=16, color=color)
+    pairs = {}
+    for c in chars:
+        for r in _parse_relations(c.relations):
+            tid = r["toId"]; 
+            if tid == c.id: continue
+            a,b = (c.id, tid) if c.id < tid else (tid, c.id)
+            e = pairs.setdefault((a,b), {"a":None,"b":None})
+            if a == c.id: e["a"] = r
+            else: e["b"] = r
+    for (a,b), e in pairs.items():
+        t1 = (e["a"] or {}).get("type"); t2 = (e["b"] or {}).get("type")
+        s1 = int((e["a"] or {}).get("strength",3)) if str((e["a"] or {}).get("strength","")).isdigit() else 3
+        s2 = int((e["b"] or {}).get("strength",3)) if str((e["b"] or {}).get("strength","")).isdigit() else 3
+        weight = int(round((s1 + s2)/2))
+        label = t1 if (t1 and t1==t2) else (f"{t1} ↔ {t2}" if (t1 and t2) else (t1 or t2 or "Beziehung"))
+        net.add_edge(a,b, title=label, value=weight, label=label)
+    net.set_options('{"physics":{"barnesHut":{"gravitationalConstant":-8000,"springLength":220,"springConstant":0.04},"stabilization":{"iterations":250}},"edges":{"smooth":{"type":"dynamic"},"color":{"inherit":true},"font":{"size":12,"background":"rgba(255,255,255,0.85)","align":"top"}},"nodes":{"scaling":{"min":10,"max":24}}}')
+    tmp = os.path.join(tempfile.gettempdir(), f"relations_{pid}.html"); net.write_html(tmp, notebook=False)
+    with open(tmp, "r", encoding="utf-8") as f: html = f.read()
+    inject = "<style>html,body,#mynetwork{height:100vh!important;width:100%!important;margin:0;padding:0;}</style>"
+    return Response(html.replace("</head>", f"{inject}</head>"), mimetype="text/html")
 
-# Buchstruktur: Projekt > Kapitel > Szenen (alles sortiert, ohne N+1)
+@app.route("/api/projects/<int:pid>/world-graph", methods=["GET"])
+def project_world_graph(pid):
+    if not HAS_PYVIS: abort(500, "PyVis nicht installiert (pip install pyvis).")
+    get_or_404(Project, pid)
+    items = WorldItem.query.filter_by(project_id=pid).all()
+    net = Network(height="100%", width="100%", bgcolor="#ffffff", font_color="#222"); net.barnes_hut()
+    # simple Farbpalette je Kind
+    def color_for(kind):
+        k = (kind or "").lower()
+        if "könig" in k: return "#f59e0b"
+        if "land" in k or "region" in k: return "#22c55e"
+        if "stadt" in k or "ort" in k: return "#38bdf8"
+        if "organisation" in k or "kirche" in k or "gilde" in k: return "#a78bfa"
+        if "beruf" in k: return "#ef4444"
+        return "#94a3b8"
+    for it in items:
+        label = it.name or f"#{it.id}"
+        title = f"<b>{label}</b><br>Typ: {it.kind or '-'}"
+        net.add_node(it.id, label=label, title=title, shape='dot', size=15, color=color_for(it.kind))
+    pairs = {}
+    for it in items:
+        for r in _parse_relations(it.relations):
+            tid = r["toId"]; 
+            if tid == it.id: continue
+            a,b = (it.id, tid) if it.id < tid else (tid, it.id)
+            e = pairs.setdefault((a,b), {"a":None,"b":None})
+            if a == it.id: e["a"] = r
+            else: e["b"] = r
+    for (a,b), e in pairs.items():
+        t1 = (e["a"] or {}).get("type"); t2 = (e["b"] or {}).get("type")
+        label = t1 if (t1 and t1==t2) else (f"{t1} ↔ {t2}" if (t1 and t2) else (t1 or t2 or "Beziehung"))
+        net.add_edge(a,b, title=label, value=2, label=label)
+    net.set_options('{"physics":{"barnesHut":{"gravitationalConstant":-9000,"springLength":220,"springConstant":0.05},"stabilization":{"iterations":250}},"edges":{"smooth":{"type":"dynamic"},"font":{"size":12,"background":"rgba(255,255,255,0.85)","align":"top"}}}')
+    tmp = os.path.join(tempfile.gettempdir(), f"world_{pid}.html"); net.write_html(tmp, notebook=False)
+    with open(tmp, "r", encoding="utf-8") as f: html = f.read()
+    inject = "<style>html,body,#mynetwork{height:100vh!important;width:100%!important;margin:0;padding:0;}</style>"
+    return Response(html.replace("</head>", f"{inject}</head>"), mimetype="text/html")
+
+# Book export
 @app.route("/api/projects/<int:pid>/book", methods=["GET"])
 def project_book(pid):
     p = get_or_404(Project, pid)
-    chapters = (
-        Chapter.query.options(selectinload(Chapter.scenes))
-        .filter_by(project_id=pid)
-        .order_by(Chapter.order_index.asc(), Chapter.id.asc())
-        .all()
-    )
-    data = [
-        {
-            "id": c.id,
-            "title": c.title,
-            "order_index": c.order_index,
-            "scenes": [
-                {
-                    "id": s.id,
-                    "title": s.title,
-                    "order_index": s.order_index,
-                    "content": s.content or "",
-                }
-                for s in sorted(c.scenes, key=lambda s: (s.order_index, s.id))
-            ],
-        }
-        for c in chapters
-    ]
+    chapters = (Chapter.query.options(selectinload(Chapter.scenes))
+                .filter_by(project_id=pid)
+                .order_by(Chapter.order_index.asc(), Chapter.id.asc()).all())
+    data = [{
+        "id": c.id, "title": c.title, "order_index": c.order_index,
+        "scenes": [{"id": s.id, "title": s.title, "order_index": s.order_index, "content": s.content or ""} 
+                   for s in sorted(c.scenes, key=lambda s: (s.order_index, s.id))]
+    } for c in chapters]
     return jsonify({"project": p.to_dict(), "chapters": data})
 
+def ensure_project_columns():
+    ensure_column("projects", "description", "TEXT DEFAULT ''")
+    ensure_column("projects", "updated_at", "DATETIME")
+
+def ensure_chapter_columns():
+    ensure_column("chapters", "order_index", "INTEGER DEFAULT 0")
+    ensure_column("chapters", "content", "TEXT DEFAULT ''")
+    ensure_column("chapters", "updated_at", "DATETIME")
+
+def ensure_scene_columns():
+    ensure_column("scenes", "order_index", "INTEGER DEFAULT 0")
+    ensure_column("scenes", "content", "TEXT DEFAULT ''")
+    ensure_column("scenes", "updated_at", "DATETIME")
+
+
+# ✅ Einmalige Initialisierung – läuft bei jedem Start (Gunicorn, flask run, python app.py)
+with app.app_context():
+    db.create_all()
+    ensure_project_columns()
+    ensure_chapter_columns()
+    ensure_scene_columns()
+    ensure_relations_column()
+    ensure_profile_column()
+
+
+@app.route("/healthz")
+def health():
+    return {"ok": True}
+
+
+# Optional für lokalen Start per `python app.py`
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=8000, debug=True)
+```
+
+### `backend\lib\bindings\utils.js`
+```javascript
+function neighbourhoodHighlight(params) {
+  // console.log("in nieghbourhoodhighlight");
+  allNodes = nodes.get({ returnType: "Object" });
+  // originalNodes = JSON.parse(JSON.stringify(allNodes));
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    highlightActive = true;
+    var i, j;
+    var selectedNode = params.nodes[0];
+    var degrees = 2;
+
+    // mark all nodes as hard to read.
+    for (let nodeId in allNodes) {
+      // nodeColors[nodeId] = allNodes[nodeId].color;
+      allNodes[nodeId].color = "rgba(200,200,200,0.5)";
+      if (allNodes[nodeId].hiddenLabel === undefined) {
+        allNodes[nodeId].hiddenLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+    var connectedNodes = network.getConnectedNodes(selectedNode);
+    var allConnectedNodes = [];
+
+    // get the second degree nodes
+    for (i = 1; i < degrees; i++) {
+      for (j = 0; j < connectedNodes.length; j++) {
+        allConnectedNodes = allConnectedNodes.concat(
+          network.getConnectedNodes(connectedNodes[j])
+        );
+      }
+    }
+
+    // all second degree nodes get a different color and their label back
+    for (i = 0; i < allConnectedNodes.length; i++) {
+      // allNodes[allConnectedNodes[i]].color = "pink";
+      allNodes[allConnectedNodes[i]].color = "rgba(150,150,150,0.75)";
+      if (allNodes[allConnectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[allConnectedNodes[i]].label =
+          allNodes[allConnectedNodes[i]].hiddenLabel;
+        allNodes[allConnectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // all first degree nodes get their own color and their label back
+    for (i = 0; i < connectedNodes.length; i++) {
+      // allNodes[connectedNodes[i]].color = undefined;
+      allNodes[connectedNodes[i]].color = nodeColors[connectedNodes[i]];
+      if (allNodes[connectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[connectedNodes[i]].label =
+          allNodes[connectedNodes[i]].hiddenLabel;
+        allNodes[connectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // the main node gets its own color and its label back.
+    // allNodes[selectedNode].color = undefined;
+    allNodes[selectedNode].color = nodeColors[selectedNode];
+    if (allNodes[selectedNode].hiddenLabel !== undefined) {
+      allNodes[selectedNode].label = allNodes[selectedNode].hiddenLabel;
+      allNodes[selectedNode].hiddenLabel = undefined;
+    }
+  } else if (highlightActive === true) {
+    // console.log("highlightActive was true");
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      // allNodes[nodeId].color = "purple";
+      allNodes[nodeId].color = nodeColors[nodeId];
+      // delete allNodes[nodeId].color;
+      if (allNodes[nodeId].hiddenLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].hiddenLabel;
+        allNodes[nodeId].hiddenLabel = undefined;
+      }
+    }
+    highlightActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    // console.log("Nothing was selected");
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        // allNodes[nodeId].color = {};
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function filterHighlight(params) {
+  allNodes = nodes.get({ returnType: "Object" });
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    filterActive = true;
+    let selectedNodes = params.nodes;
+
+    // hiding all nodes and saving the label
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = true;
+      if (allNodes[nodeId].savedLabel === undefined) {
+        allNodes[nodeId].savedLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+
+    for (let i=0; i < selectedNodes.length; i++) {
+      allNodes[selectedNodes[i]].hidden = false;
+      if (allNodes[selectedNodes[i]].savedLabel !== undefined) {
+        allNodes[selectedNodes[i]].label = allNodes[selectedNodes[i]].savedLabel;
+        allNodes[selectedNodes[i]].savedLabel = undefined;
+      }
+    }
+
+  } else if (filterActive === true) {
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = false;
+      if (allNodes[nodeId].savedLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].savedLabel;
+        allNodes[nodeId].savedLabel = undefined;
+      }
+    }
+    filterActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function selectNode(nodes) {
+  network.selectNodes(nodes);
+  neighbourhoodHighlight({ nodes: nodes });
+  return nodes;
+}
+
+function selectNodes(nodes) {
+  network.selectNodes(nodes);
+  filterHighlight({nodes: nodes});
+  return nodes;
+}
+
+function highlightFilter(filter) {
+  let selectedNodes = []
+  let selectedProp = filter['property']
+  if (filter['item'] === 'node') {
+    let allNodes = nodes.get({ returnType: "Object" });
+    for (let nodeId in allNodes) {
+      if (allNodes[nodeId][selectedProp] && filter['value'].includes((allNodes[nodeId][selectedProp]).toString())) {
+        selectedNodes.push(nodeId)
+      }
+    }
+  }
+  else if (filter['item'] === 'edge'){
+    let allEdges = edges.get({returnType: 'object'});
+    // check if the selected property exists for selected edge and select the nodes connected to the edge
+    for (let edge in allEdges) {
+      if (allEdges[edge][selectedProp] && filter['value'].includes((allEdges[edge][selectedProp]).toString())) {
+        selectedNodes.push(allEdges[edge]['from'])
+        selectedNodes.push(allEdges[edge]['to'])
+      }
+    }
+  }
+  selectNodes(selectedNodes)
+}
+```
+
+### `backend\lib\tom-select\tom-select.complete.min.js`
+```javascript
+/**
+* Tom Select v2.0.0-rc.4
+* Licensed under the Apache License, Version 2.0 (the "License");
+*/
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(e="undefined"!=typeof globalThis?globalThis:e||self).TomSelect=t()}(this,(function(){"use strict"
+function e(e,t){e.split(/\s+/).forEach((e=>{t(e)}))}class t{constructor(){this._events={}}on(t,i){e(t,(e=>{this._events[e]=this._events[e]||[],this._events[e].push(i)}))}off(t,i){var s=arguments.length
+0!==s?e(t,(e=>{if(1===s)return delete this._events[e]
+e in this._events!=!1&&this._events[e].splice(this._events[e].indexOf(i),1)})):this._events={}}trigger(t,...i){var s=this
+e(t,(e=>{if(e in s._events!=!1)for(let t of s._events[e])t.apply(s,i)}))}}var i
+const s="[̀-ͯ·ʾ]",n=new RegExp(s,"g")
+var o
+const r={"æ":"ae","ⱥ":"a","ø":"o"},l=new RegExp(Object.keys(r).join("|"),"g"),a=[[67,67],[160,160],[192,438],[452,652],[961,961],[1019,1019],[1083,1083],[1281,1289],[1984,1984],[5095,5095],[7429,7441],[7545,7549],[7680,7935],[8580,8580],[9398,9449],[11360,11391],[42792,42793],[42802,42851],[42873,42897],[42912,42922],[64256,64260],[65313,65338],[65345,65370]],c=e=>e.normalize("NFKD").replace(n,"").toLowerCase().replace(l,(function(e){return r[e]})),d=(e,t="|")=>{if(1==e.length)return e[0]
+var i=1
+return e.forEach((e=>{i=Math.max(i,e.length)})),1==i?"["+e.join("")+"]":"(?:"+e.join(t)+")"},p=e=>{if(1===e.length)return[[e]]
+var t=[]
+return p(e.substring(1)).forEach((function(i){var s=i.slice(0)
+s[0]=e.charAt(0)+s[0],t.push(s),(s=i.slice(0)).unshift(e.charAt(0)),t.push(s)})),t},u=e=>{void 0===o&&(o=(()=>{var e={}
+a.forEach((t=>{for(let s=t[0];s<=t[1];s++){let t=String.fromCharCode(s),n=c(t)
+if(n!=t.toLowerCase()){n in e||(e[n]=[n])
+var i=new RegExp(d(e[n]),"iu")
+t.match(i)||e[n].push(t)}}}))
+var t=Object.keys(e)
+t=t.sort(((e,t)=>t.length-e.length)),i=new RegExp("("+d(t)+"[̀-ͯ·ʾ]*)","g")
+var s={}
+return t.sort(((e,t)=>e.length-t.length)).forEach((t=>{var i=p(t).map((t=>(t=t.map((t=>e.hasOwnProperty(t)?d(e[t]):t)),d(t,""))))
+s[t]=d(i)})),s})())
+return e.normalize("NFKD").toLowerCase().split(i).map((e=>{if(""==e)return""
+const t=c(e)
+if(o.hasOwnProperty(t))return o[t]
+const i=e.normalize("NFC")
+return i!=e?d([e,i]):e})).join("")},h=(e,t)=>{if(e)return e[t]},g=(e,t)=>{if(e){for(var i,s=t.split(".");(i=s.shift())&&(e=e[i]););return e}},f=(e,t,i)=>{var s,n
+return e?-1===(n=(e+="").search(t.regex))?0:(s=t.string.length/e.length,0===n&&(s+=.5),s*i):0},v=e=>(e+"").replace(/([\$\(-\+\.\?\[-\^\{-\}])/g,"\\$1"),m=(e,t)=>{var i=e[t]
+if("function"==typeof i)return i
+i&&!Array.isArray(i)&&(e[t]=[i])},y=(e,t)=>{if(Array.isArray(e))e.forEach(t)
+else for(var i in e)e.hasOwnProperty(i)&&t(e[i],i)},O=(e,t)=>"number"==typeof e&&"number"==typeof t?e>t?1:e<t?-1:0:(e=c(e+"").toLowerCase())>(t=c(t+"").toLowerCase())?1:t>e?-1:0
+class b{constructor(e,t){this.items=e,this.settings=t||{diacritics:!0}}tokenize(e,t,i){if(!e||!e.length)return[]
+const s=[],n=e.split(/\s+/)
+var o
+return i&&(o=new RegExp("^("+Object.keys(i).map(v).join("|")+"):(.*)$")),n.forEach((e=>{let i,n=null,r=null
+o&&(i=e.match(o))&&(n=i[1],e=i[2]),e.length>0&&(r=v(e),this.settings.diacritics&&(r=u(r)),t&&(r="\\b"+r)),s.push({string:e,regex:r?new RegExp(r,"iu"):null,field:n})})),s}getScoreFunction(e,t){var i=this.prepareSearch(e,t)
+return this._getScoreFunction(i)}_getScoreFunction(e){const t=e.tokens,i=t.length
+if(!i)return function(){return 0}
+const s=e.options.fields,n=e.weights,o=s.length,r=e.getAttrFn
+if(!o)return function(){return 1}
+const l=1===o?function(e,t){const i=s[0].field
+return f(r(t,i),e,n[i])}:function(e,t){var i=0
+if(e.field){const s=r(t,e.field)
+!e.regex&&s?i+=1/o:i+=f(s,e,1)}else y(n,((s,n)=>{i+=f(r(t,n),e,s)}))
+return i/o}
+return 1===i?function(e){return l(t[0],e)}:"and"===e.options.conjunction?function(e){for(var s,n=0,o=0;n<i;n++){if((s=l(t[n],e))<=0)return 0
+o+=s}return o/i}:function(e){var s=0
+return y(t,(t=>{s+=l(t,e)})),s/i}}getSortFunction(e,t){var i=this.prepareSearch(e,t)
+return this._getSortFunction(i)}_getSortFunction(e){var t,i,s
+const n=this,o=e.options,r=!e.query&&o.sort_empty?o.sort_empty:o.sort,l=[],a=[]
+if("function"==typeof r)return r.bind(this)
+const c=function(t,i){return"$score"===t?i.score:e.getAttrFn(n.items[i.id],t)}
+if(r)for(t=0,i=r.length;t<i;t++)(e.query||"$score"!==r[t].field)&&l.push(r[t])
+if(e.query){for(s=!0,t=0,i=l.length;t<i;t++)if("$score"===l[t].field){s=!1
+break}s&&l.unshift({field:"$score",direction:"desc"})}else for(t=0,i=l.length;t<i;t++)if("$score"===l[t].field){l.splice(t,1)
+break}for(t=0,i=l.length;t<i;t++)a.push("desc"===l[t].direction?-1:1)
+const d=l.length
+if(d){if(1===d){const e=l[0].field,t=a[0]
+return function(i,s){return t*O(c(e,i),c(e,s))}}return function(e,t){var i,s,n
+for(i=0;i<d;i++)if(n=l[i].field,s=a[i]*O(c(n,e),c(n,t)))return s
+return 0}}return null}prepareSearch(e,t){const i={}
+var s=Object.assign({},t)
+if(m(s,"sort"),m(s,"sort_empty"),s.fields){m(s,"fields")
+const e=[]
+s.fields.forEach((t=>{"string"==typeof t&&(t={field:t,weight:1}),e.push(t),i[t.field]="weight"in t?t.weight:1})),s.fields=e}return{options:s,query:e.toLowerCase().trim(),tokens:this.tokenize(e,s.respect_word_boundaries,i),total:0,items:[],weights:i,getAttrFn:s.nesting?g:h}}search(e,t){var i,s,n=this
+s=this.prepareSearch(e,t),t=s.options,e=s.query
+const o=t.score||n._getScoreFunction(s)
+e.length?y(n.items,((e,n)=>{i=o(e),(!1===t.filter||i>0)&&s.items.push({score:i,id:n})})):y(n.items,((e,t)=>{s.items.push({score:1,id:t})}))
+const r=n._getSortFunction(s)
+return r&&s.items.sort(r),s.total=s.items.length,"number"==typeof t.limit&&(s.items=s.items.slice(0,t.limit)),s}}const w=e=>{if(e.jquery)return e[0]
+if(e instanceof HTMLElement)return e
+if(e.indexOf("<")>-1){let t=document.createElement("div")
+return t.innerHTML=e.trim(),t.firstChild}return document.querySelector(e)},_=(e,t)=>{var i=document.createEvent("HTMLEvents")
+i.initEvent(t,!0,!1),e.dispatchEvent(i)},I=(e,t)=>{Object.assign(e.style,t)},C=(e,...t)=>{var i=A(t);(e=x(e)).map((e=>{i.map((t=>{e.classList.add(t)}))}))},S=(e,...t)=>{var i=A(t);(e=x(e)).map((e=>{i.map((t=>{e.classList.remove(t)}))}))},A=e=>{var t=[]
+return y(e,(e=>{"string"==typeof e&&(e=e.trim().split(/[\11\12\14\15\40]/)),Array.isArray(e)&&(t=t.concat(e))})),t.filter(Boolean)},x=e=>(Array.isArray(e)||(e=[e]),e),k=(e,t,i)=>{if(!i||i.contains(e))for(;e&&e.matches;){if(e.matches(t))return e
+e=e.parentNode}},F=(e,t=0)=>t>0?e[e.length-1]:e[0],L=(e,t)=>{if(!e)return-1
+t=t||e.nodeName
+for(var i=0;e=e.previousElementSibling;)e.matches(t)&&i++
+return i},P=(e,t)=>{y(t,((t,i)=>{null==t?e.removeAttribute(i):e.setAttribute(i,""+t)}))},E=(e,t)=>{e.parentNode&&e.parentNode.replaceChild(t,e)},T=(e,t)=>{if(null===t)return
+if("string"==typeof t){if(!t.length)return
+t=new RegExp(t,"i")}const i=e=>3===e.nodeType?(e=>{var i=e.data.match(t)
+if(i&&e.data.length>0){var s=document.createElement("span")
+s.className="highlight"
+var n=e.splitText(i.index)
+n.splitText(i[0].length)
+var o=n.cloneNode(!0)
+return s.appendChild(o),E(n,s),1}return 0})(e):((e=>{if(1===e.nodeType&&e.childNodes&&!/(script|style)/i.test(e.tagName)&&("highlight"!==e.className||"SPAN"!==e.tagName))for(var t=0;t<e.childNodes.length;++t)t+=i(e.childNodes[t])})(e),0)
+i(e)},V="undefined"!=typeof navigator&&/Mac/.test(navigator.userAgent)?"metaKey":"ctrlKey"
+var j={options:[],optgroups:[],plugins:[],delimiter:",",splitOn:null,persist:!0,diacritics:!0,create:null,createOnBlur:!1,createFilter:null,highlight:!0,openOnFocus:!0,shouldOpen:null,maxOptions:50,maxItems:null,hideSelected:null,duplicates:!1,addPrecedence:!1,selectOnTab:!1,preload:null,allowEmptyOption:!1,loadThrottle:300,loadingClass:"loading",dataAttr:null,optgroupField:"optgroup",valueField:"value",labelField:"text",disabledField:"disabled",optgroupLabelField:"label",optgroupValueField:"value",lockOptgroupOrder:!1,sortField:"$order",searchField:["text"],searchConjunction:"and",mode:null,wrapperClass:"ts-wrapper",controlClass:"ts-control",dropdownClass:"ts-dropdown",dropdownContentClass:"ts-dropdown-content",itemClass:"item",optionClass:"option",dropdownParent:null,copyClassesToDropdown:!1,placeholder:null,hidePlaceholder:null,shouldLoad:function(e){return e.length>0},render:{}}
+const q=e=>null==e?null:D(e),D=e=>"boolean"==typeof e?e?"1":"0":e+"",N=e=>(e+"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"),z=(e,t)=>{var i
+return function(s,n){var o=this
+i&&(o.loading=Math.max(o.loading-1,0),clearTimeout(i)),i=setTimeout((function(){i=null,o.loadedSearches[s]=!0,e.call(o,s,n)}),t)}},R=(e,t,i)=>{var s,n=e.trigger,o={}
+for(s in e.trigger=function(){var i=arguments[0]
+if(-1===t.indexOf(i))return n.apply(e,arguments)
+o[i]=arguments},i.apply(e,[]),e.trigger=n,o)n.apply(e,o[s])},H=(e,t=!1)=>{e&&(e.preventDefault(),t&&e.stopPropagation())},B=(e,t,i,s)=>{e.addEventListener(t,i,s)},K=(e,t)=>!!t&&(!!t[e]&&1===(t.altKey?1:0)+(t.ctrlKey?1:0)+(t.shiftKey?1:0)+(t.metaKey?1:0)),M=(e,t)=>{const i=e.getAttribute("id")
+return i||(e.setAttribute("id",t),t)},Q=e=>e.replace(/[\\"']/g,"\\$&"),G=(e,t)=>{t&&e.append(t)}
+function U(e,t){var i=Object.assign({},j,t),s=i.dataAttr,n=i.labelField,o=i.valueField,r=i.disabledField,l=i.optgroupField,a=i.optgroupLabelField,c=i.optgroupValueField,d=e.tagName.toLowerCase(),p=e.getAttribute("placeholder")||e.getAttribute("data-placeholder")
+if(!p&&!i.allowEmptyOption){let t=e.querySelector('option[value=""]')
+t&&(p=t.textContent)}var u,h,g,f,v,m,O={placeholder:p,options:[],optgroups:[],items:[],maxItems:null}
+return"select"===d?(h=O.options,g={},f=1,v=e=>{var t=Object.assign({},e.dataset),i=s&&t[s]
+return"string"==typeof i&&i.length&&(t=Object.assign(t,JSON.parse(i))),t},m=(e,t)=>{var s=q(e.value)
+if(null!=s&&(s||i.allowEmptyOption)){if(g.hasOwnProperty(s)){if(t){var a=g[s][l]
+a?Array.isArray(a)?a.push(t):g[s][l]=[a,t]:g[s][l]=t}}else{var c=v(e)
+c[n]=c[n]||e.textContent,c[o]=c[o]||s,c[r]=c[r]||e.disabled,c[l]=c[l]||t,c.$option=e,g[s]=c,h.push(c)}e.selected&&O.items.push(s)}},O.maxItems=e.hasAttribute("multiple")?null:1,y(e.children,(e=>{var t,i,s
+"optgroup"===(u=e.tagName.toLowerCase())?((s=v(t=e))[a]=s[a]||t.getAttribute("label")||"",s[c]=s[c]||f++,s[r]=s[r]||t.disabled,O.optgroups.push(s),i=s[c],y(t.children,(e=>{m(e,i)}))):"option"===u&&m(e)}))):(()=>{const t=e.getAttribute(s)
+if(t)O.options=JSON.parse(t),y(O.options,(e=>{O.items.push(e[o])}))
+else{var r=e.value.trim()||""
+if(!i.allowEmptyOption&&!r.length)return
+const t=r.split(i.delimiter)
+y(t,(e=>{const t={}
+t[n]=e,t[o]=e,O.options.push(t)})),O.items=t}})(),Object.assign({},j,O,t)}var W=0
+class J extends(function(e){return e.plugins={},class extends e{constructor(...e){super(...e),this.plugins={names:[],settings:{},requested:{},loaded:{}}}static define(t,i){e.plugins[t]={name:t,fn:i}}initializePlugins(e){var t,i
+const s=this,n=[]
+if(Array.isArray(e))e.forEach((e=>{"string"==typeof e?n.push(e):(s.plugins.settings[e.name]=e.options,n.push(e.name))}))
+else if(e)for(t in e)e.hasOwnProperty(t)&&(s.plugins.settings[t]=e[t],n.push(t))
+for(;i=n.shift();)s.require(i)}loadPlugin(t){var i=this,s=i.plugins,n=e.plugins[t]
+if(!e.plugins.hasOwnProperty(t))throw new Error('Unable to find "'+t+'" plugin')
+s.requested[t]=!0,s.loaded[t]=n.fn.apply(i,[i.plugins.settings[t]||{}]),s.names.push(t)}require(e){var t=this,i=t.plugins
+if(!t.plugins.loaded.hasOwnProperty(e)){if(i.requested[e])throw new Error('Plugin has circular dependency ("'+e+'")')
+t.loadPlugin(e)}return i.loaded[e]}}}(t)){constructor(e,t){var i
+super(),this.order=0,this.isOpen=!1,this.isDisabled=!1,this.isInvalid=!1,this.isValid=!0,this.isLocked=!1,this.isFocused=!1,this.isInputHidden=!1,this.isSetup=!1,this.ignoreFocus=!1,this.hasOptions=!1,this.lastValue="",this.caretPos=0,this.loading=0,this.loadedSearches={},this.activeOption=null,this.activeItems=[],this.optgroups={},this.options={},this.userOptions={},this.items=[],W++
+var s=w(e)
+if(s.tomselect)throw new Error("Tom Select already initialized on this element")
+s.tomselect=this,i=(window.getComputedStyle&&window.getComputedStyle(s,null)).getPropertyValue("direction")
+const n=U(s,t)
+this.settings=n,this.input=s,this.tabIndex=s.tabIndex||0,this.is_select_tag="select"===s.tagName.toLowerCase(),this.rtl=/rtl/i.test(i),this.inputId=M(s,"tomselect-"+W),this.isRequired=s.required,this.sifter=new b(this.options,{diacritics:n.diacritics}),n.mode=n.mode||(1===n.maxItems?"single":"multi"),"boolean"!=typeof n.hideSelected&&(n.hideSelected="multi"===n.mode),"boolean"!=typeof n.hidePlaceholder&&(n.hidePlaceholder="multi"!==n.mode)
+var o=n.createFilter
+"function"!=typeof o&&("string"==typeof o&&(o=new RegExp(o)),o instanceof RegExp?n.createFilter=e=>o.test(e):n.createFilter=()=>!0),this.initializePlugins(n.plugins),this.setupCallbacks(),this.setupTemplates()
+const r=w("<div>"),l=w("<div>"),a=this._render("dropdown"),c=w('<div role="listbox" tabindex="-1">'),d=this.input.getAttribute("class")||"",p=n.mode
+var u
+if(C(r,n.wrapperClass,d,p),C(l,n.controlClass),G(r,l),C(a,n.dropdownClass,p),n.copyClassesToDropdown&&C(a,d),C(c,n.dropdownContentClass),G(a,c),w(n.dropdownParent||r).appendChild(a),n.hasOwnProperty("controlInput"))n.controlInput?(u=w(n.controlInput),this.focus_node=u):(u=w("<input/>"),this.focus_node=l)
+else{u=w('<input type="text" autocomplete="off" size="1" />')
+y(["autocorrect","autocapitalize","autocomplete"],(e=>{s.getAttribute(e)&&P(u,{[e]:s.getAttribute(e)})})),u.tabIndex=-1,l.appendChild(u),this.focus_node=u}this.wrapper=r,this.dropdown=a,this.dropdown_content=c,this.control=l,this.control_input=u,this.setup()}setup(){const e=this,t=e.settings,i=e.control_input,s=e.dropdown,n=e.dropdown_content,o=e.wrapper,r=e.control,l=e.input,a=e.focus_node,c={passive:!0},d=e.inputId+"-ts-dropdown"
+P(n,{id:d}),P(a,{role:"combobox","aria-haspopup":"listbox","aria-expanded":"false","aria-controls":d})
+const p=M(a,e.inputId+"-ts-control"),u="label[for='"+(e=>e.replace(/['"\\]/g,"\\$&"))(e.inputId)+"']",h=document.querySelector(u),g=e.focus.bind(e)
+if(h){B(h,"click",g),P(h,{for:p})
+const t=M(h,e.inputId+"-ts-label")
+P(a,{"aria-labelledby":t}),P(n,{"aria-labelledby":t})}if(o.style.width=l.style.width,e.plugins.names.length){const t="plugin-"+e.plugins.names.join(" plugin-")
+C([o,s],t)}(null===t.maxItems||t.maxItems>1)&&e.is_select_tag&&P(l,{multiple:"multiple"}),e.settings.placeholder&&P(i,{placeholder:t.placeholder}),!e.settings.splitOn&&e.settings.delimiter&&(e.settings.splitOn=new RegExp("\\s*"+v(e.settings.delimiter)+"+\\s*")),t.load&&t.loadThrottle&&(t.load=z(t.load,t.loadThrottle)),e.control_input.type=l.type,B(s,"click",(t=>{const i=k(t.target,"[data-selectable]")
+i&&(e.onOptionSelect(t,i),H(t,!0))})),B(r,"click",(t=>{var s=k(t.target,"[data-ts-item]",r)
+s&&e.onItemSelect(t,s)?H(t,!0):""==i.value&&(e.onClick(),H(t,!0))})),B(i,"mousedown",(e=>{""!==i.value&&e.stopPropagation()})),B(a,"keydown",(t=>e.onKeyDown(t))),B(i,"keypress",(t=>e.onKeyPress(t))),B(i,"input",(t=>e.onInput(t))),B(a,"resize",(()=>e.positionDropdown()),c),B(a,"blur",(t=>e.onBlur(t))),B(a,"focus",(t=>e.onFocus(t))),B(a,"paste",(t=>e.onPaste(t)))
+const f=t=>{const i=t.composedPath()[0]
+if(!o.contains(i)&&!s.contains(i))return e.isFocused&&e.blur(),void e.inputState()
+H(t,!0)}
+var m=()=>{e.isOpen&&e.positionDropdown()}
+B(document,"mousedown",f),B(window,"scroll",m,c),B(window,"resize",m,c),this._destroy=()=>{document.removeEventListener("mousedown",f),window.removeEventListener("sroll",m),window.removeEventListener("resize",m),h&&h.removeEventListener("click",g)},this.revertSettings={innerHTML:l.innerHTML,tabIndex:l.tabIndex},l.tabIndex=-1,l.insertAdjacentElement("afterend",e.wrapper),e.sync(!1),t.items=[],delete t.optgroups,delete t.options,B(l,"invalid",(t=>{e.isValid&&(e.isValid=!1,e.isInvalid=!0,e.refreshState())})),e.updateOriginalInput(),e.refreshItems(),e.close(!1),e.inputState(),e.isSetup=!0,l.disabled?e.disable():e.enable(),e.on("change",this.onChange),C(l,"tomselected","ts-hidden-accessible"),e.trigger("initialize"),!0===t.preload&&e.preload()}setupOptions(e=[],t=[]){this.addOptions(e),y(t,(e=>{this.registerOptionGroup(e)}))}setupTemplates(){var e=this,t=e.settings.labelField,i=e.settings.optgroupLabelField,s={optgroup:e=>{let t=document.createElement("div")
+return t.className="optgroup",t.appendChild(e.options),t},optgroup_header:(e,t)=>'<div class="optgroup-header">'+t(e[i])+"</div>",option:(e,i)=>"<div>"+i(e[t])+"</div>",item:(e,i)=>"<div>"+i(e[t])+"</div>",option_create:(e,t)=>'<div class="create">Add <strong>'+t(e.input)+"</strong>&hellip;</div>",no_results:()=>'<div class="no-results">No results found</div>',loading:()=>'<div class="spinner"></div>',not_loading:()=>{},dropdown:()=>"<div></div>"}
+e.settings.render=Object.assign({},s,e.settings.render)}setupCallbacks(){var e,t,i={initialize:"onInitialize",change:"onChange",item_add:"onItemAdd",item_remove:"onItemRemove",item_select:"onItemSelect",clear:"onClear",option_add:"onOptionAdd",option_remove:"onOptionRemove",option_clear:"onOptionClear",optgroup_add:"onOptionGroupAdd",optgroup_remove:"onOptionGroupRemove",optgroup_clear:"onOptionGroupClear",dropdown_open:"onDropdownOpen",dropdown_close:"onDropdownClose",type:"onType",load:"onLoad",focus:"onFocus",blur:"onBlur"}
+for(e in i)(t=this.settings[i[e]])&&this.on(e,t)}sync(e=!0){const t=this,i=e?U(t.input,{delimiter:t.settings.delimiter}):t.settings
+t.setupOptions(i.options,i.optgroups),t.setValue(i.items,!0),t.lastQuery=null}onClick(){var e=this
+if(e.activeItems.length>0)return e.clearActiveItems(),void e.focus()
+e.isFocused&&e.isOpen?e.blur():e.focus()}onMouseDown(){}onChange(){_(this.input,"input"),_(this.input,"change")}onPaste(e){var t=this
+t.isFull()||t.isInputHidden||t.isLocked?H(e):t.settings.splitOn&&setTimeout((()=>{var e=t.inputValue()
+if(e.match(t.settings.splitOn)){var i=e.trim().split(t.settings.splitOn)
+y(i,(e=>{t.createItem(e)}))}}),0)}onKeyPress(e){var t=this
+if(!t.isLocked){var i=String.fromCharCode(e.keyCode||e.which)
+return t.settings.create&&"multi"===t.settings.mode&&i===t.settings.delimiter?(t.createItem(),void H(e)):void 0}H(e)}onKeyDown(e){var t=this
+if(t.isLocked)9!==e.keyCode&&H(e)
+else{switch(e.keyCode){case 65:if(K(V,e))return H(e),void t.selectAll()
+break
+case 27:return t.isOpen&&(H(e,!0),t.close()),void t.clearActiveItems()
+case 40:if(!t.isOpen&&t.hasOptions)t.open()
+else if(t.activeOption){let e=t.getAdjacent(t.activeOption,1)
+e&&t.setActiveOption(e)}return void H(e)
+case 38:if(t.activeOption){let e=t.getAdjacent(t.activeOption,-1)
+e&&t.setActiveOption(e)}return void H(e)
+case 13:return void(t.isOpen&&t.activeOption?(t.onOptionSelect(e,t.activeOption),H(e)):t.settings.create&&t.createItem()&&H(e))
+case 37:return void t.advanceSelection(-1,e)
+case 39:return void t.advanceSelection(1,e)
+case 9:return void(t.settings.selectOnTab&&(t.isOpen&&t.activeOption&&(t.onOptionSelect(e,t.activeOption),H(e)),t.settings.create&&t.createItem()&&H(e)))
+case 8:case 46:return void t.deleteSelection(e)}t.isInputHidden&&!K(V,e)&&H(e)}}onInput(e){var t=this
+if(!t.isLocked){var i=t.inputValue()
+t.lastValue!==i&&(t.lastValue=i,t.settings.shouldLoad.call(t,i)&&t.load(i),t.refreshOptions(),t.trigger("type",i))}}onFocus(e){var t=this,i=t.isFocused
+if(t.isDisabled)return t.blur(),void H(e)
+t.ignoreFocus||(t.isFocused=!0,"focus"===t.settings.preload&&t.preload(),i||t.trigger("focus"),t.activeItems.length||(t.showInput(),t.refreshOptions(!!t.settings.openOnFocus)),t.refreshState())}onBlur(e){if(!1!==document.hasFocus()){var t=this
+if(t.isFocused){t.isFocused=!1,t.ignoreFocus=!1
+var i=()=>{t.close(),t.setActiveItem(),t.setCaret(t.items.length),t.trigger("blur")}
+t.settings.create&&t.settings.createOnBlur?t.createItem(null,!1,i):i()}}}onOptionSelect(e,t){var i,s=this
+t&&(t.parentElement&&t.parentElement.matches("[data-disabled]")||(t.classList.contains("create")?s.createItem(null,!0,(()=>{s.settings.closeAfterSelect&&s.close()})):void 0!==(i=t.dataset.value)&&(s.lastQuery=null,s.addItem(i),s.settings.closeAfterSelect&&s.close(),!s.settings.hideSelected&&e.type&&/click/.test(e.type)&&s.setActiveOption(t))))}onItemSelect(e,t){var i=this
+return!i.isLocked&&"multi"===i.settings.mode&&(H(e),i.setActiveItem(t,e),!0)}canLoad(e){return!!this.settings.load&&!this.loadedSearches.hasOwnProperty(e)}load(e){const t=this
+if(!t.canLoad(e))return
+C(t.wrapper,t.settings.loadingClass),t.loading++
+const i=t.loadCallback.bind(t)
+t.settings.load.call(t,e,i)}loadCallback(e,t){const i=this
+i.loading=Math.max(i.loading-1,0),i.lastQuery=null,i.clearActiveOption(),i.setupOptions(e,t),i.refreshOptions(i.isFocused&&!i.isInputHidden),i.loading||S(i.wrapper,i.settings.loadingClass),i.trigger("load",e,t)}preload(){var e=this.wrapper.classList
+e.contains("preloaded")||(e.add("preloaded"),this.load(""))}setTextboxValue(e=""){var t=this.control_input
+t.value!==e&&(t.value=e,_(t,"update"),this.lastValue=e)}getValue(){return this.is_select_tag&&this.input.hasAttribute("multiple")?this.items:this.items.join(this.settings.delimiter)}setValue(e,t){R(this,t?[]:["change"],(()=>{this.clear(t),this.addItems(e,t)}))}setMaxItems(e){0===e&&(e=null),this.settings.maxItems=e,this.refreshState()}setActiveItem(e,t){var i,s,n,o,r,l,a=this
+if("single"!==a.settings.mode){if(!e)return a.clearActiveItems(),void(a.isFocused&&a.showInput())
+if("click"===(i=t&&t.type.toLowerCase())&&K("shiftKey",t)&&a.activeItems.length){for(l=a.getLastActive(),(n=Array.prototype.indexOf.call(a.control.children,l))>(o=Array.prototype.indexOf.call(a.control.children,e))&&(r=n,n=o,o=r),s=n;s<=o;s++)e=a.control.children[s],-1===a.activeItems.indexOf(e)&&a.setActiveItemClass(e)
+H(t)}else"click"===i&&K(V,t)||"keydown"===i&&K("shiftKey",t)?e.classList.contains("active")?a.removeActiveItem(e):a.setActiveItemClass(e):(a.clearActiveItems(),a.setActiveItemClass(e))
+a.hideInput(),a.isFocused||a.focus()}}setActiveItemClass(e){const t=this,i=t.control.querySelector(".last-active")
+i&&S(i,"last-active"),C(e,"active last-active"),t.trigger("item_select",e),-1==t.activeItems.indexOf(e)&&t.activeItems.push(e)}removeActiveItem(e){var t=this.activeItems.indexOf(e)
+this.activeItems.splice(t,1),S(e,"active")}clearActiveItems(){S(this.activeItems,"active"),this.activeItems=[]}setActiveOption(e){e!==this.activeOption&&(this.clearActiveOption(),e&&(this.activeOption=e,P(this.focus_node,{"aria-activedescendant":e.getAttribute("id")}),P(e,{"aria-selected":"true"}),C(e,"active"),this.scrollToOption(e)))}scrollToOption(e,t){if(!e)return
+const i=this.dropdown_content,s=i.clientHeight,n=i.scrollTop||0,o=e.offsetHeight,r=e.getBoundingClientRect().top-i.getBoundingClientRect().top+n
+r+o>s+n?this.scroll(r-s+o,t):r<n&&this.scroll(r,t)}scroll(e,t){const i=this.dropdown_content
+t&&(i.style.scrollBehavior=t),i.scrollTop=e,i.style.scrollBehavior=""}clearActiveOption(){this.activeOption&&(S(this.activeOption,"active"),P(this.activeOption,{"aria-selected":null})),this.activeOption=null,P(this.focus_node,{"aria-activedescendant":null})}selectAll(){if("single"===this.settings.mode)return
+const e=this.controlChildren()
+e.length&&(this.hideInput(),this.close(),this.activeItems=e,C(e,"active"))}inputState(){var e=this
+e.control.contains(e.control_input)&&(P(e.control_input,{placeholder:e.settings.placeholder}),e.activeItems.length>0||!e.isFocused&&e.settings.hidePlaceholder&&e.items.length>0?(e.setTextboxValue(),e.isInputHidden=!0):(e.settings.hidePlaceholder&&e.items.length>0&&P(e.control_input,{placeholder:""}),e.isInputHidden=!1),e.wrapper.classList.toggle("input-hidden",e.isInputHidden))}hideInput(){this.inputState()}showInput(){this.inputState()}inputValue(){return this.control_input.value.trim()}focus(){var e=this
+e.isDisabled||(e.ignoreFocus=!0,e.control_input.offsetWidth?e.control_input.focus():e.focus_node.focus(),setTimeout((()=>{e.ignoreFocus=!1,e.onFocus()}),0))}blur(){this.focus_node.blur(),this.onBlur()}getScoreFunction(e){return this.sifter.getScoreFunction(e,this.getSearchOptions())}getSearchOptions(){var e=this.settings,t=e.sortField
+return"string"==typeof e.sortField&&(t=[{field:e.sortField}]),{fields:e.searchField,conjunction:e.searchConjunction,sort:t,nesting:e.nesting}}search(e){var t,i,s,n=this,o=this.getSearchOptions()
+if(n.settings.score&&"function"!=typeof(s=n.settings.score.call(n,e)))throw new Error('Tom Select "score" setting must be a function that returns a function')
+if(e!==n.lastQuery?(n.lastQuery=e,i=n.sifter.search(e,Object.assign(o,{score:s})),n.currentResults=i):i=Object.assign({},n.currentResults),n.settings.hideSelected)for(t=i.items.length-1;t>=0;t--){let e=q(i.items[t].id)
+e&&-1!==n.items.indexOf(e)&&i.items.splice(t,1)}return i}refreshOptions(e=!0){var t,i,s,n,o,r,l,a,c,d,p
+const u={},h=[]
+var g,f=this,v=f.inputValue(),m=f.search(v),O=f.activeOption,b=f.settings.shouldOpen||!1,w=f.dropdown_content
+for(O&&(c=O.dataset.value,d=O.closest("[data-group]")),n=m.items.length,"number"==typeof f.settings.maxOptions&&(n=Math.min(n,f.settings.maxOptions)),n>0&&(b=!0),t=0;t<n;t++){let e=m.items[t].id,n=f.options[e],l=f.getOption(e,!0)
+for(f.settings.hideSelected||l.classList.toggle("selected",f.items.includes(e)),o=n[f.settings.optgroupField]||"",i=0,s=(r=Array.isArray(o)?o:[o])&&r.length;i<s;i++)o=r[i],f.optgroups.hasOwnProperty(o)||(o=""),u.hasOwnProperty(o)||(u[o]=document.createDocumentFragment(),h.push(o)),i>0&&(l=l.cloneNode(!0),P(l,{id:n.$id+"-clone-"+i,"aria-selected":null}),l.classList.add("ts-cloned"),S(l,"active")),c==e&&d&&d.dataset.group===o&&(O=l),u[o].appendChild(l)}this.settings.lockOptgroupOrder&&h.sort(((e,t)=>(f.optgroups[e]&&f.optgroups[e].$order||0)-(f.optgroups[t]&&f.optgroups[t].$order||0))),l=document.createDocumentFragment(),y(h,(e=>{if(f.optgroups.hasOwnProperty(e)&&u[e].children.length){let t=document.createDocumentFragment(),i=f.render("optgroup_header",f.optgroups[e])
+G(t,i),G(t,u[e])
+let s=f.render("optgroup",{group:f.optgroups[e],options:t})
+G(l,s)}else G(l,u[e])})),w.innerHTML="",G(w,l),f.settings.highlight&&(g=w.querySelectorAll("span.highlight"),Array.prototype.forEach.call(g,(function(e){var t=e.parentNode
+t.replaceChild(e.firstChild,e),t.normalize()})),m.query.length&&m.tokens.length&&y(m.tokens,(e=>{T(w,e.regex)})))
+var _=e=>{let t=f.render(e,{input:v})
+return t&&(b=!0,w.insertBefore(t,w.firstChild)),t}
+if(f.loading?_("loading"):f.settings.shouldLoad.call(f,v)?0===m.items.length&&_("no_results"):_("not_loading"),(a=f.canCreate(v))&&(p=_("option_create")),f.hasOptions=m.items.length>0||a,b){if(m.items.length>0){if(!w.contains(O)&&"single"===f.settings.mode&&f.items.length&&(O=f.getOption(f.items[0])),!w.contains(O)){let e=0
+p&&!f.settings.addPrecedence&&(e=1),O=f.selectable()[e]}}else p&&(O=p)
+e&&!f.isOpen&&(f.open(),f.scrollToOption(O,"auto")),f.setActiveOption(O)}else f.clearActiveOption(),e&&f.isOpen&&f.close(!1)}selectable(){return this.dropdown_content.querySelectorAll("[data-selectable]")}addOption(e,t=!1){const i=this
+if(Array.isArray(e))return i.addOptions(e,t),!1
+const s=q(e[i.settings.valueField])
+return null!==s&&!i.options.hasOwnProperty(s)&&(e.$order=e.$order||++i.order,e.$id=i.inputId+"-opt-"+e.$order,i.options[s]=e,i.lastQuery=null,t&&(i.userOptions[s]=t,i.trigger("option_add",s,e)),s)}addOptions(e,t=!1){y(e,(e=>{this.addOption(e,t)}))}registerOption(e){return this.addOption(e)}registerOptionGroup(e){var t=q(e[this.settings.optgroupValueField])
+return null!==t&&(e.$order=e.$order||++this.order,this.optgroups[t]=e,t)}addOptionGroup(e,t){var i
+t[this.settings.optgroupValueField]=e,(i=this.registerOptionGroup(t))&&this.trigger("optgroup_add",i,t)}removeOptionGroup(e){this.optgroups.hasOwnProperty(e)&&(delete this.optgroups[e],this.clearCache(),this.trigger("optgroup_remove",e))}clearOptionGroups(){this.optgroups={},this.clearCache(),this.trigger("optgroup_clear")}updateOption(e,t){const i=this
+var s,n
+const o=q(e),r=q(t[i.settings.valueField])
+if(null===o)return
+if(!i.options.hasOwnProperty(o))return
+if("string"!=typeof r)throw new Error("Value must be set in option data")
+const l=i.getOption(o),a=i.getItem(o)
+if(t.$order=t.$order||i.options[o].$order,delete i.options[o],i.uncacheValue(r),i.options[r]=t,l){if(i.dropdown_content.contains(l)){const e=i._render("option",t)
+E(l,e),i.activeOption===l&&i.setActiveOption(e)}l.remove()}a&&(-1!==(n=i.items.indexOf(o))&&i.items.splice(n,1,r),s=i._render("item",t),a.classList.contains("active")&&C(s,"active"),E(a,s)),i.lastQuery=null}removeOption(e,t){const i=this
+e=D(e),i.uncacheValue(e),delete i.userOptions[e],delete i.options[e],i.lastQuery=null,i.trigger("option_remove",e),i.removeItem(e,t)}clearOptions(){this.loadedSearches={},this.userOptions={},this.clearCache()
+var e={}
+y(this.options,((t,i)=>{this.items.indexOf(i)>=0&&(e[i]=this.options[i])})),this.options=this.sifter.items=e,this.lastQuery=null,this.trigger("option_clear")}getOption(e,t=!1){const i=q(e)
+if(null!==i&&this.options.hasOwnProperty(i)){const e=this.options[i]
+if(e.$div)return e.$div
+if(t)return this._render("option",e)}return null}getAdjacent(e,t,i="option"){var s
+if(!e)return null
+s="item"==i?this.controlChildren():this.dropdown_content.querySelectorAll("[data-selectable]")
+for(let i=0;i<s.length;i++)if(s[i]==e)return t>0?s[i+1]:s[i-1]
+return null}getItem(e){if("object"==typeof e)return e
+var t=q(e)
+return null!==t?this.control.querySelector(`[data-value="${Q(t)}"]`):null}addItems(e,t){var i=this,s=Array.isArray(e)?e:[e]
+for(let e=0,n=(s=s.filter((e=>-1===i.items.indexOf(e)))).length;e<n;e++)i.isPending=e<n-1,i.addItem(s[e],t)}addItem(e,t){R(this,t?[]:["change"],(()=>{var i,s
+const n=this,o=n.settings.mode,r=q(e)
+if((!r||-1===n.items.indexOf(r)||("single"===o&&n.close(),"single"!==o&&n.settings.duplicates))&&null!==r&&n.options.hasOwnProperty(r)&&("single"===o&&n.clear(t),"multi"!==o||!n.isFull())){if(i=n._render("item",n.options[r]),n.control.contains(i)&&(i=i.cloneNode(!0)),s=n.isFull(),n.items.splice(n.caretPos,0,r),n.insertAtCaret(i),n.isSetup){if(!n.isPending&&n.settings.hideSelected){let e=n.getOption(r),t=n.getAdjacent(e,1)
+t&&n.setActiveOption(t)}n.isPending||n.refreshOptions(n.isFocused&&"single"!==o),0!=n.settings.closeAfterSelect&&n.isFull()?n.close():n.isPending||n.positionDropdown(),n.trigger("item_add",r,i),n.isPending||n.updateOriginalInput({silent:t})}(!n.isPending||!s&&n.isFull())&&(n.inputState(),n.refreshState())}}))}removeItem(e=null,t){const i=this
+if(!(e=i.getItem(e)))return
+var s,n
+const o=e.dataset.value
+s=L(e),e.remove(),e.classList.contains("active")&&(n=i.activeItems.indexOf(e),i.activeItems.splice(n,1),S(e,"active")),i.items.splice(s,1),i.lastQuery=null,!i.settings.persist&&i.userOptions.hasOwnProperty(o)&&i.removeOption(o,t),s<i.caretPos&&i.setCaret(i.caretPos-1),i.updateOriginalInput({silent:t}),i.refreshState(),i.positionDropdown(),i.trigger("item_remove",o,e)}createItem(e=null,t=!0,i=(()=>{})){var s,n=this,o=n.caretPos
+if(e=e||n.inputValue(),!n.canCreate(e))return i(),!1
+n.lock()
+var r=!1,l=e=>{if(n.unlock(),!e||"object"!=typeof e)return i()
+var s=q(e[n.settings.valueField])
+if("string"!=typeof s)return i()
+n.setTextboxValue(),n.addOption(e,!0),n.setCaret(o),n.addItem(s),n.refreshOptions(t&&"single"!==n.settings.mode),i(e),r=!0}
+return s="function"==typeof n.settings.create?n.settings.create.call(this,e,l):{[n.settings.labelField]:e,[n.settings.valueField]:e},r||l(s),!0}refreshItems(){var e=this
+e.lastQuery=null,e.isSetup&&e.addItems(e.items),e.updateOriginalInput(),e.refreshState()}refreshState(){const e=this
+e.refreshValidityState()
+const t=e.isFull(),i=e.isLocked
+e.wrapper.classList.toggle("rtl",e.rtl)
+const s=e.wrapper.classList
+var n
+s.toggle("focus",e.isFocused),s.toggle("disabled",e.isDisabled),s.toggle("required",e.isRequired),s.toggle("invalid",!e.isValid),s.toggle("locked",i),s.toggle("full",t),s.toggle("input-active",e.isFocused&&!e.isInputHidden),s.toggle("dropdown-active",e.isOpen),s.toggle("has-options",(n=e.options,0===Object.keys(n).length)),s.toggle("has-items",e.items.length>0)}refreshValidityState(){var e=this
+e.input.checkValidity&&(e.isValid=e.input.checkValidity(),e.isInvalid=!e.isValid)}isFull(){return null!==this.settings.maxItems&&this.items.length>=this.settings.maxItems}updateOriginalInput(e={}){const t=this
+var i,s
+const n=t.input.querySelector('option[value=""]')
+if(t.is_select_tag){const e=[]
+function o(i,s,o){return i||(i=w('<option value="'+N(s)+'">'+N(o)+"</option>")),i!=n&&t.input.append(i),e.push(i),i.selected=!0,i}t.input.querySelectorAll("option:checked").forEach((e=>{e.selected=!1})),0==t.items.length&&"single"==t.settings.mode?o(n,"",""):t.items.forEach((n=>{if(i=t.options[n],s=i[t.settings.labelField]||"",e.includes(i.$option)){o(t.input.querySelector(`option[value="${Q(n)}"]:not(:checked)`),n,s)}else i.$option=o(i.$option,n,s)}))}else t.input.value=t.getValue()
+t.isSetup&&(e.silent||t.trigger("change",t.getValue()))}open(){var e=this
+e.isLocked||e.isOpen||"multi"===e.settings.mode&&e.isFull()||(e.isOpen=!0,P(e.focus_node,{"aria-expanded":"true"}),e.refreshState(),I(e.dropdown,{visibility:"hidden",display:"block"}),e.positionDropdown(),I(e.dropdown,{visibility:"visible",display:"block"}),e.focus(),e.trigger("dropdown_open",e.dropdown))}close(e=!0){var t=this,i=t.isOpen
+e&&(t.setTextboxValue(),"single"===t.settings.mode&&t.items.length&&t.hideInput()),t.isOpen=!1,P(t.focus_node,{"aria-expanded":"false"}),I(t.dropdown,{display:"none"}),t.settings.hideSelected&&t.clearActiveOption(),t.refreshState(),i&&t.trigger("dropdown_close",t.dropdown)}positionDropdown(){if("body"===this.settings.dropdownParent){var e=this.control,t=e.getBoundingClientRect(),i=e.offsetHeight+t.top+window.scrollY,s=t.left+window.scrollX
+I(this.dropdown,{width:t.width+"px",top:i+"px",left:s+"px"})}}clear(e){var t=this
+if(t.items.length){var i=t.controlChildren()
+y(i,(e=>{t.removeItem(e,!0)})),t.showInput(),e||t.updateOriginalInput(),t.trigger("clear")}}insertAtCaret(e){const t=this,i=t.caretPos,s=t.control
+s.insertBefore(e,s.children[i]),t.setCaret(i+1)}deleteSelection(e){var t,i,s,n,o,r=this
+t=e&&8===e.keyCode?-1:1,i={start:(o=r.control_input).selectionStart||0,length:(o.selectionEnd||0)-(o.selectionStart||0)}
+const l=[]
+if(r.activeItems.length)n=F(r.activeItems,t),s=L(n),t>0&&s++,y(r.activeItems,(e=>l.push(e)))
+else if((r.isFocused||"single"===r.settings.mode)&&r.items.length){const e=r.controlChildren()
+t<0&&0===i.start&&0===i.length?l.push(e[r.caretPos-1]):t>0&&i.start===r.inputValue().length&&l.push(e[r.caretPos])}const a=l.map((e=>e.dataset.value))
+if(!a.length||"function"==typeof r.settings.onDelete&&!1===r.settings.onDelete.call(r,a,e))return!1
+for(H(e,!0),void 0!==s&&r.setCaret(s);l.length;)r.removeItem(l.pop())
+return r.showInput(),r.positionDropdown(),r.refreshOptions(!1),!0}advanceSelection(e,t){var i,s,n=this
+n.rtl&&(e*=-1),n.inputValue().length||(K(V,t)||K("shiftKey",t)?(s=(i=n.getLastActive(e))?i.classList.contains("active")?n.getAdjacent(i,e,"item"):i:e>0?n.control_input.nextElementSibling:n.control_input.previousElementSibling)&&(s.classList.contains("active")&&n.removeActiveItem(i),n.setActiveItemClass(s)):n.moveCaret(e))}moveCaret(e){}getLastActive(e){let t=this.control.querySelector(".last-active")
+if(t)return t
+var i=this.control.querySelectorAll(".active")
+return i?F(i,e):void 0}setCaret(e){this.caretPos=this.items.length}controlChildren(){return Array.from(this.control.querySelectorAll("[data-ts-item]"))}lock(){this.close(),this.isLocked=!0,this.refreshState()}unlock(){this.isLocked=!1,this.refreshState()}disable(){var e=this
+e.input.disabled=!0,e.control_input.disabled=!0,e.focus_node.tabIndex=-1,e.isDisabled=!0,e.lock()}enable(){var e=this
+e.input.disabled=!1,e.control_input.disabled=!1,e.focus_node.tabIndex=e.tabIndex,e.isDisabled=!1,e.unlock()}destroy(){var e=this,t=e.revertSettings
+e.trigger("destroy"),e.off(),e.wrapper.remove(),e.dropdown.remove(),e.input.innerHTML=t.innerHTML,e.input.tabIndex=t.tabIndex,S(e.input,"tomselected","ts-hidden-accessible"),e._destroy(),delete e.input.tomselect}render(e,t){return"function"!=typeof this.settings.render[e]?null:this._render(e,t)}_render(e,t){var i,s,n=""
+const o=this
+return"option"!==e&&"item"!=e||(n=D(t[o.settings.valueField])),null==(s=o.settings.render[e].call(this,t,N))||(s=w(s),"option"===e||"option_create"===e?t[o.settings.disabledField]?P(s,{"aria-disabled":"true"}):P(s,{"data-selectable":""}):"optgroup"===e&&(i=t.group[o.settings.optgroupValueField],P(s,{"data-group":i}),t.group[o.settings.disabledField]&&P(s,{"data-disabled":""})),"option"!==e&&"item"!==e||(P(s,{"data-value":n}),"item"===e?(C(s,o.settings.itemClass),P(s,{"data-ts-item":""})):(C(s,o.settings.optionClass),P(s,{role:"option",id:t.$id}),o.options[n].$div=s))),s}clearCache(){y(this.options,((e,t)=>{e.$div&&(e.$div.remove(),delete e.$div)}))}uncacheValue(e){const t=this.getOption(e)
+t&&t.remove()}canCreate(e){return this.settings.create&&e.length>0&&this.settings.createFilter.call(this,e)}hook(e,t,i){var s=this,n=s[t]
+s[t]=function(){var t,o
+return"after"===e&&(t=n.apply(s,arguments)),o=i.apply(s,arguments),"instead"===e?o:("before"===e&&(t=n.apply(s,arguments)),t)}}}return J.define("change_listener",(function(){B(this.input,"change",(()=>{this.sync()}))})),J.define("checkbox_options",(function(){var e=this,t=e.onOptionSelect
+e.settings.hideSelected=!1
+var i=function(e){setTimeout((()=>{var t=e.querySelector("input")
+e.classList.contains("selected")?t.checked=!0:t.checked=!1}),1)}
+e.hook("after","setupTemplates",(()=>{var t=e.settings.render.option
+e.settings.render.option=(i,s)=>{var n=w(t.call(e,i,s)),o=document.createElement("input")
+o.addEventListener("click",(function(e){H(e)})),o.type="checkbox"
+const r=q(i[e.settings.valueField])
+return r&&e.items.indexOf(r)>-1&&(o.checked=!0),n.prepend(o),n}})),e.on("item_remove",(t=>{var s=e.getOption(t)
+s&&(s.classList.remove("selected"),i(s))})),e.hook("instead","onOptionSelect",((s,n)=>{if(n.classList.contains("selected"))return n.classList.remove("selected"),e.removeItem(n.dataset.value),e.refreshOptions(),void H(s,!0)
+t.call(e,s,n),i(n)}))})),J.define("clear_button",(function(e){const t=this,i=Object.assign({className:"clear-button",title:"Clear All",html:e=>`<div class="${e.className}" title="${e.title}">&times;</div>`},e)
+t.on("initialize",(()=>{var e=w(i.html(i))
+e.addEventListener("click",(e=>{t.clear(),"single"===t.settings.mode&&t.settings.allowEmptyOption&&t.addItem(""),e.preventDefault(),e.stopPropagation()})),t.control.appendChild(e)}))})),J.define("drag_drop",(function(){var e=this
+if(!$.fn.sortable)throw new Error('The "drag_drop" plugin requires jQuery UI "sortable".')
+if("multi"===e.settings.mode){var t=e.lock,i=e.unlock
+e.hook("instead","lock",(()=>{var i=$(e.control).data("sortable")
+return i&&i.disable(),t.call(e)})),e.hook("instead","unlock",(()=>{var t=$(e.control).data("sortable")
+return t&&t.enable(),i.call(e)})),e.on("initialize",(()=>{var t=$(e.control).sortable({items:"[data-value]",forcePlaceholderSize:!0,disabled:e.isLocked,start:(e,i)=>{i.placeholder.css("width",i.helper.css("width")),t.css({overflow:"visible"})},stop:()=>{t.css({overflow:"hidden"})
+var i=[]
+t.children("[data-value]").each((function(){this.dataset.value&&i.push(this.dataset.value)})),e.setValue(i)}})}))}})),J.define("dropdown_header",(function(e){const t=this,i=Object.assign({title:"Untitled",headerClass:"dropdown-header",titleRowClass:"dropdown-header-title",labelClass:"dropdown-header-label",closeClass:"dropdown-header-close",html:e=>'<div class="'+e.headerClass+'"><div class="'+e.titleRowClass+'"><span class="'+e.labelClass+'">'+e.title+'</span><a class="'+e.closeClass+'">&times;</a></div></div>'},e)
+t.on("initialize",(()=>{var e=w(i.html(i)),s=e.querySelector("."+i.closeClass)
+s&&s.addEventListener("click",(e=>{H(e,!0),t.close()})),t.dropdown.insertBefore(e,t.dropdown.firstChild)}))})),J.define("caret_position",(function(){var e=this
+e.hook("instead","setCaret",(t=>{"single"!==e.settings.mode&&e.control.contains(e.control_input)?(t=Math.max(0,Math.min(e.items.length,t)))==e.caretPos||e.isPending||e.controlChildren().forEach(((i,s)=>{s<t?e.control_input.insertAdjacentElement("beforebegin",i):e.control.appendChild(i)})):t=e.items.length,e.caretPos=t})),e.hook("instead","moveCaret",(t=>{if(!e.isFocused)return
+const i=e.getLastActive(t)
+if(i){const s=L(i)
+e.setCaret(t>0?s+1:s),e.setActiveItem()}else e.setCaret(e.caretPos+t)}))})),J.define("dropdown_input",(function(){var e=this
+e.settings.shouldOpen=!0,e.hook("before","setup",(()=>{e.focus_node=e.control,C(e.control_input,"dropdown-input")
+const t=w('<div class="dropdown-input-wrap">')
+t.append(e.control_input),e.dropdown.insertBefore(t,e.dropdown.firstChild)})),e.on("initialize",(()=>{e.control_input.addEventListener("keydown",(t=>{switch(t.keyCode){case 27:return e.isOpen&&(H(t,!0),e.close()),void e.clearActiveItems()
+case 9:e.focus_node.tabIndex=-1}return e.onKeyDown.call(e,t)})),e.on("blur",(()=>{e.focus_node.tabIndex=e.isDisabled?-1:e.tabIndex})),e.on("dropdown_open",(()=>{e.control_input.focus()}))
+const t=e.onBlur
+e.hook("instead","onBlur",(i=>{if(!i||i.relatedTarget!=e.control_input)return t.call(e)})),B(e.control_input,"blur",(()=>e.onBlur())),e.hook("before","close",(()=>{e.isOpen&&e.focus_node.focus()}))}))})),J.define("input_autogrow",(function(){var e=this
+e.on("initialize",(()=>{var t=document.createElement("span"),i=e.control_input
+t.style.cssText="position:absolute; top:-99999px; left:-99999px; width:auto; padding:0; white-space:pre; ",e.wrapper.appendChild(t)
+for(const e of["letterSpacing","fontSize","fontFamily","fontWeight","textTransform"])t.style[e]=i.style[e]
+var s=()=>{e.items.length>0?(t.textContent=i.value,i.style.width=t.clientWidth+"px"):i.style.width=""}
+s(),e.on("update item_add item_remove",s),B(i,"input",s),B(i,"keyup",s),B(i,"blur",s),B(i,"update",s)}))})),J.define("no_backspace_delete",(function(){var e=this,t=e.deleteSelection
+this.hook("instead","deleteSelection",(i=>!!e.activeItems.length&&t.call(e,i)))})),J.define("no_active_items",(function(){this.hook("instead","setActiveItem",(()=>{})),this.hook("instead","selectAll",(()=>{}))})),J.define("optgroup_columns",(function(){var e=this,t=e.onKeyDown
+e.hook("instead","onKeyDown",(i=>{var s,n,o,r
+if(!e.isOpen||37!==i.keyCode&&39!==i.keyCode)return t.call(e,i)
+r=k(e.activeOption,"[data-group]"),s=L(e.activeOption,"[data-selectable]"),r&&(r=37===i.keyCode?r.previousSibling:r.nextSibling)&&(n=(o=r.querySelectorAll("[data-selectable]"))[Math.min(o.length-1,s)])&&e.setActiveOption(n)}))})),J.define("remove_button",(function(e){const t=Object.assign({label:"&times;",title:"Remove",className:"remove",append:!0},e)
+var i=this
+if(t.append){var s='<a href="javascript:void(0)" class="'+t.className+'" tabindex="-1" title="'+N(t.title)+'">'+t.label+"</a>"
+i.hook("after","setupTemplates",(()=>{var e=i.settings.render.item
+i.settings.render.item=(t,n)=>{var o=w(e.call(i,t,n)),r=w(s)
+return o.appendChild(r),B(r,"mousedown",(e=>{H(e,!0)})),B(r,"click",(e=>{if(H(e,!0),!i.isLocked){var t=o.dataset.value
+i.removeItem(t),i.refreshOptions(!1)}})),o}}))}})),J.define("restore_on_backspace",(function(e){const t=this,i=Object.assign({text:e=>e[t.settings.labelField]},e)
+t.on("item_remove",(function(e){if(""===t.control_input.value.trim()){var s=t.options[e]
+s&&t.setTextboxValue(i.text.call(t,s))}}))})),J.define("virtual_scroll",(function(){const e=this,t=e.canLoad,i=e.clearActiveOption,s=e.loadCallback
+var n,o={},r=!1
+if(!e.settings.firstUrl)throw"virtual_scroll plugin requires a firstUrl() method"
+function l(t){return!("number"==typeof e.settings.maxOptions&&n.children.length>=e.settings.maxOptions)&&!(!(t in o)||!o[t])}e.settings.sortField=[{field:"$order"},{field:"$score"}],e.setNextUrl=function(e,t){o[e]=t},e.getUrl=function(t){if(t in o){const e=o[t]
+return o[t]=!1,e}return o={},e.settings.firstUrl(t)},e.hook("instead","clearActiveOption",(()=>{if(!r)return i.call(e)})),e.hook("instead","canLoad",(i=>i in o?l(i):t.call(e,i))),e.hook("instead","loadCallback",((t,i)=>{r||e.clearOptions(),s.call(e,t,i),r=!1})),e.hook("after","refreshOptions",(()=>{const t=e.lastValue
+var i
+l(t)?(i=e.render("loading_more",{query:t}))&&i.setAttribute("data-selectable",""):t in o&&!n.querySelector(".no-results")&&(i=e.render("no_more_results",{query:t})),i&&(C(i,e.settings.optionClass),n.append(i))})),e.on("initialize",(()=>{n=e.dropdown_content,e.settings.render=Object.assign({},{loading_more:function(){return'<div class="loading-more-results">Loading more results ... </div>'},no_more_results:function(){return'<div class="no-more-results">No more results</div>'}},e.settings.render),n.addEventListener("scroll",(function(){n.clientHeight/(n.scrollHeight-n.scrollTop)<.95||l(e.lastValue)&&(r||(r=!0,e.load.call(e,e.lastValue)))}))}))})),J}))
+var tomSelect=function(e,t){return new TomSelect(e,t)}
+//# sourceMappingURL=tom-select.complete.min.js.map
 
 ```
+
+### `backend\lib\tom-select\tom-select.css`
+```css
+/**
+ * tom-select.css (v2.0.0-rc.4)
+ * Copyright (c) contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+ * file except in compliance with the License. You may obtain a copy of the License at:
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+ * ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ *
+ */
+.ts-wrapper.plugin-drag_drop.multi > .ts-control > div.ui-sortable-placeholder {
+  visibility: visible !important;
+  background: #f2f2f2 !important;
+  background: rgba(0, 0, 0, 0.06) !important;
+  border: 0 none !important;
+  box-shadow: inset 0 0 12px 4px #fff; }
+
+.ts-wrapper.plugin-drag_drop .ui-sortable-placeholder::after {
+  content: '!';
+  visibility: hidden; }
+
+.ts-wrapper.plugin-drag_drop .ui-sortable-helper {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+
+.plugin-checkbox_options .option input {
+  margin-right: 0.5rem; }
+
+.plugin-clear_button .ts-control {
+  padding-right: calc( 1em + (3 * 6px)) !important; }
+
+.plugin-clear_button .clear-button {
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  right: calc(8px - 6px);
+  margin-right: 0 !important;
+  background: transparent !important;
+  transition: opacity 0.5s;
+  cursor: pointer; }
+
+.plugin-clear_button.single .clear-button {
+  right: calc(8px - 6px +  2rem); }
+
+.plugin-clear_button.focus.has-items .clear-button,
+.plugin-clear_button:hover.has-items .clear-button {
+  opacity: 1; }
+
+.ts-wrapper .dropdown-header {
+  position: relative;
+  padding: 10px 8px;
+  border-bottom: 1px solid #d0d0d0;
+  background: #f8f8f8;
+  border-radius: 3px 3px 0 0; }
+
+.ts-wrapper .dropdown-header-close {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  color: #303030;
+  opacity: 0.4;
+  margin-top: -12px;
+  line-height: 20px;
+  font-size: 20px !important; }
+
+.ts-wrapper .dropdown-header-close:hover {
+  color: black; }
+
+.plugin-dropdown_input.focus.dropdown-active .ts-control {
+  box-shadow: none;
+  border: 1px solid #d0d0d0; }
+
+.plugin-dropdown_input .dropdown-input {
+  border: 1px solid #d0d0d0;
+  border-width: 0 0 1px 0;
+  display: block;
+  padding: 8px 8px;
+  box-shadow: none;
+  width: 100%;
+  background: transparent; }
+
+.ts-wrapper.plugin-input_autogrow.has-items .ts-control > input {
+  min-width: 0; }
+
+.ts-wrapper.plugin-input_autogrow.has-items.focus .ts-control > input {
+  flex: none;
+  min-width: 4px; }
+  .ts-wrapper.plugin-input_autogrow.has-items.focus .ts-control > input::-webkit-input-placeholder {
+    color: transparent; }
+  .ts-wrapper.plugin-input_autogrow.has-items.focus .ts-control > input::-ms-input-placeholder {
+    color: transparent; }
+  .ts-wrapper.plugin-input_autogrow.has-items.focus .ts-control > input::placeholder {
+    color: transparent; }
+
+.ts-dropdown.plugin-optgroup_columns .ts-dropdown-content {
+  display: flex; }
+
+.ts-dropdown.plugin-optgroup_columns .optgroup {
+  border-right: 1px solid #f2f2f2;
+  border-top: 0 none;
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0; }
+
+.ts-dropdown.plugin-optgroup_columns .optgroup:last-child {
+  border-right: 0 none; }
+
+.ts-dropdown.plugin-optgroup_columns .optgroup:before {
+  display: none; }
+
+.ts-dropdown.plugin-optgroup_columns .optgroup-header {
+  border-top: 0 none; }
+
+.ts-wrapper.plugin-remove_button .item {
+  display: inline-flex;
+  align-items: center;
+  padding-right: 0 !important; }
+
+.ts-wrapper.plugin-remove_button .item .remove {
+  color: inherit;
+  text-decoration: none;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 2px 6px;
+  border-left: 1px solid #d0d0d0;
+  border-radius: 0 2px 2px 0;
+  box-sizing: border-box;
+  margin-left: 6px; }
+
+.ts-wrapper.plugin-remove_button .item .remove:hover {
+  background: rgba(0, 0, 0, 0.05); }
+
+.ts-wrapper.plugin-remove_button .item.active .remove {
+  border-left-color: #cacaca; }
+
+.ts-wrapper.plugin-remove_button.disabled .item .remove:hover {
+  background: none; }
+
+.ts-wrapper.plugin-remove_button.disabled .item .remove {
+  border-left-color: white; }
+
+.ts-wrapper.plugin-remove_button .remove-single {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 23px; }
+
+.ts-wrapper {
+  position: relative; }
+
+.ts-dropdown,
+.ts-control,
+.ts-control input {
+  color: #303030;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 18px;
+  font-smoothing: inherit; }
+
+.ts-control,
+.ts-wrapper.single.input-active .ts-control {
+  background: #fff;
+  cursor: text; }
+
+.ts-control {
+  border: 1px solid #d0d0d0;
+  padding: 8px 8px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  box-shadow: none;
+  border-radius: 3px;
+  display: flex;
+  flex-wrap: wrap; }
+  .ts-wrapper.multi.has-items .ts-control {
+    padding: calc( 8px - 2px - 0) 8px calc( 8px - 2px - 3px - 0); }
+  .full .ts-control {
+    background-color: #fff; }
+  .disabled .ts-control,
+  .disabled .ts-control * {
+    cursor: default !important; }
+  .focus .ts-control {
+    box-shadow: none; }
+  .ts-control > * {
+    vertical-align: baseline;
+    display: inline-block; }
+  .ts-wrapper.multi .ts-control > div {
+    cursor: pointer;
+    margin: 0 3px 3px 0;
+    padding: 2px 6px;
+    background: #f2f2f2;
+    color: #303030;
+    border: 0 solid #d0d0d0; }
+    .ts-wrapper.multi .ts-control > div.active {
+      background: #e8e8e8;
+      color: #303030;
+      border: 0 solid #cacaca; }
+  .ts-wrapper.multi.disabled .ts-control > div, .ts-wrapper.multi.disabled .ts-control > div.active {
+    color: #7d7c7c;
+    background: white;
+    border: 0 solid white; }
+  .ts-control > input {
+    flex: 1 1 auto;
+    min-width: 7rem;
+    display: inline-block !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    text-indent: 0 !important;
+    border: 0 none !important;
+    background: none !important;
+    line-height: inherit !important;
+    -webkit-user-select: auto !important;
+       -moz-user-select: auto !important;
+        -ms-user-select: auto !important;
+            user-select: auto !important;
+    box-shadow: none !important; }
+    .ts-control > input::-ms-clear {
+      display: none; }
+    .ts-control > input:focus {
+      outline: none !important; }
+  .has-items .ts-control > input {
+    margin: 0 4px !important; }
+  .ts-control.rtl {
+    text-align: right; }
+    .ts-control.rtl.single .ts-control:after {
+      left: 15px;
+      right: auto; }
+    .ts-control.rtl .ts-control > input {
+      margin: 0 4px 0 -2px !important; }
+  .disabled .ts-control {
+    opacity: 0.5;
+    background-color: #fafafa; }
+  .input-hidden .ts-control > input {
+    opacity: 0;
+    position: absolute;
+    left: -10000px; }
+
+.ts-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  border: 1px solid #d0d0d0;
+  background: #fff;
+  margin: 0.25rem 0 0 0;
+  border-top: 0 none;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 3px 3px; }
+  .ts-dropdown [data-selectable] {
+    cursor: pointer;
+    overflow: hidden; }
+    .ts-dropdown [data-selectable] .highlight {
+      background: rgba(125, 168, 208, 0.2);
+      border-radius: 1px; }
+  .ts-dropdown .option,
+  .ts-dropdown .optgroup-header,
+  .ts-dropdown .no-results,
+  .ts-dropdown .create {
+    padding: 5px 8px; }
+  .ts-dropdown .option, .ts-dropdown [data-disabled], .ts-dropdown [data-disabled] [data-selectable].option {
+    cursor: inherit;
+    opacity: 0.5; }
+  .ts-dropdown [data-selectable].option {
+    opacity: 1;
+    cursor: pointer; }
+  .ts-dropdown .optgroup:first-child .optgroup-header {
+    border-top: 0 none; }
+  .ts-dropdown .optgroup-header {
+    color: #303030;
+    background: #fff;
+    cursor: default; }
+  .ts-dropdown .create:hover,
+  .ts-dropdown .option:hover,
+  .ts-dropdown .active {
+    background-color: #f5fafd;
+    color: #495c68; }
+    .ts-dropdown .create:hover.create,
+    .ts-dropdown .option:hover.create,
+    .ts-dropdown .active.create {
+      color: #495c68; }
+  .ts-dropdown .create {
+    color: rgba(48, 48, 48, 0.5); }
+  .ts-dropdown .spinner {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 5px 8px; }
+    .ts-dropdown .spinner:after {
+      content: " ";
+      display: block;
+      width: 24px;
+      height: 24px;
+      margin: 3px;
+      border-radius: 50%;
+      border: 5px solid #d0d0d0;
+      border-color: #d0d0d0 transparent #d0d0d0 transparent;
+      animation: lds-dual-ring 1.2s linear infinite; }
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+.ts-dropdown-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 200px;
+  overflow-scrolling: touch;
+  scroll-behavior: smooth; }
+
+.ts-hidden-accessible {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  -webkit-clip-path: inset(50%) !important;
+          clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important; }
+
+/*# sourceMappingURL=tom-select.css.map */
+```
+
+### `backend\lib\vis-9.1.2\vis-network.css`
+_Datei groesser als 200 KB, ausgelassen._
+
+### `backend\lib\vis-9.1.2\vis-network.min.js`
+_Datei groesser als 200 KB, ausgelassen._
 
 ### `backend\README.md`
 ```markdown
@@ -8869,11 +15974,11 @@ python app.py
 
 ### `backend\requirements.txt`
 ```text
-flask==3.0.3
-flask-cors==4.0.1
-flask-sqlalchemy==3.1.1
-sqlalchemy==2.0.31
-
+flask
+flask-cors
+flask-sqlalchemy
+sqlalchemy
+gunicorn
 ```
 
 ### `code-snapshot.md`
@@ -8984,6 +16089,291 @@ export default function App() {
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
+}
+
+```
+
+### `frontend\src\components\CharacterWizard.jsx`
+```jsx
+import React, { useState } from 'react'
+import { createCharacter, updateCharacter } from '../lib/api.js'
+
+/**
+ * 3-Schritt-Wizard zum Anlegen eines Charakters.
+ * Speichert am Ende via createCharacter + updateCharacter.
+ * Props:
+ *  - projectId: number
+ *  - onDone: (character) => void
+ *  - onClose: () => void
+ */
+export default function CharacterWizard({ projectId, onDone, onClose }) {
+  const [step, setStep] = useState(1)
+  const [saving, setSaving] = useState(false)
+
+  const [name, setName] = useState('')
+  const [role, setRole] = useState('Protagonist')
+  const [pitch, setPitch] = useState('')
+  const [goal, setGoal] = useState('')
+  const [conflict, setConflict] = useState('')
+
+  const [age, setAge] = useState('')
+  const [factions, setFactions] = useState('')
+  const [strengths, setStrengths] = useState('')
+  const [weaknesses, setWeaknesses] = useState('')
+
+  const [secret, setSecret] = useState('')
+  const [voice, setVoice] = useState('')
+  const [notes, setNotes] = useState('')
+
+  const canNext1 = name.trim().length > 0 && pitch.trim().length > 0 && goal.trim().length > 0 && conflict.trim().length > 0
+  const canFinish = canNext1
+
+  async function finish() {
+    try {
+      setSaving(true)
+      const c = await createCharacter(projectId, {
+        name: name.trim(),
+        role,
+        age: age === '' ? null : Number(age),
+        description: '',
+      })
+      const meta = {
+        completeness: 60,
+        relationships: [], // Drawer speichert hier
+      }
+      await updateCharacter(c.id, {
+        name: name.trim(),
+        role,
+        age: age === '' ? null : Number(age),
+        description: buildDescription({ pitch, goal, conflict, factions, strengths, weaknesses, secret, voice, notes }),
+        meta,
+      })
+      onDone?.({ ...c, role, age: age === '' ? null : Number(age), meta })
+      onClose?.()
+    } catch (e) {
+      console.error(e)
+      alert('Speichern fehlgeschlagen.')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  return (
+    <div className="modal-backdrop" onClick={onClose}>
+      <div className="modal" onClick={e => e.stopPropagation()}>
+        <div className="modal-head">
+          <h3 style={{margin:0}}>Neuen Charakter anlegen</h3>
+          <button className="icon-btn" onClick={onClose}>✕</button>
+        </div>
+
+        <div className="steps">
+          <div className={'step ' + (step===1?'active':'')}>Kern</div>
+          <div className={'step ' + (step===2?'active':'')}>Rolle & Tags</div>
+          <div className={'step ' + (step===3?'active':'')}>Details</div>
+        </div>
+
+        <div className="modal-body">
+          {step === 1 && (
+            <div className="vstack" style={{gap:10}}>
+              <div className="row" style={{gap:8}}>
+                <input className="input" placeholder="Name" value={name} onChange={e=>setName(e.target.value)} />
+                <select className="input" value={role} onChange={e=>setRole(e.target.value)}>
+                  <option>Protagonist</option>
+                  <option>Antagonist</option>
+                  <option>Nebenfigur</option>
+                </select>
+                <input className="input" placeholder="Alter" value={age} onChange={e=>setAge(e.target.value.replace(/[^\d]/g,''))} style={{width:120}} />
+              </div>
+              <textarea className="editor sm" placeholder="Kurzpitch (1–2 Sätze)" maxLength={280} value={pitch} onChange={e=>setPitch(e.target.value)} />
+              <div className="row" style={{gap:8}}>
+                <input className="input" placeholder="Ziel (1 Satz)" value={goal} onChange={e=>setGoal(e.target.value)} />
+                <input className="input" placeholder="Konflikt (1 Satz)" value={conflict} onChange={e=>setConflict(e.target.value)} />
+              </div>
+            </div>
+          )}
+
+          {step === 2 && (
+            <div className="vstack" style={{gap:10}}>
+              <input className="input" placeholder="Fraktionen/Berufe (Tags, komma-getrennt)" value={factions} onChange={e=>setFactions(e.target.value)} />
+              <input className="input" placeholder="Stärken (Tags, komma-getrennt)" value={strengths} onChange={e=>setStrengths(e.target.value)} />
+              <input className="input" placeholder="Schwächen (Tags, komma-getrennt)" value={weaknesses} onChange={e=>setWeaknesses(e.target.value)} />
+            </div>
+          )}
+
+          {step === 3 && (
+            <div className="vstack" style={{gap:10}}>
+              <textarea className="editor sm" placeholder="Geheimnis / Wunde (privat)" value={secret} onChange={e=>setSecret(e.target.value)} />
+              <input className="input" placeholder="Stimme & Stil (3 Stichwörter)" value={voice} onChange={e=>setVoice(e.target.value)} />
+              <textarea className="editor sm" placeholder="Notizen" value={notes} onChange={e=>setNotes(e.target.value)} />
+            </div>
+          )}
+        </div>
+
+        <div className="modal-foot">
+          {step>1 ? <button className="btn ghost" onClick={()=>setStep(step-1)}>Zurück</button> : <span />}
+          {step<3 ? (
+            <button className="btn" disabled={step===1 && !canNext1} onClick={()=>setStep(step+1)}>Weiter</button>
+          ) : (
+            <button className="btn" disabled={!canFinish || saving} onClick={finish}>{saving?'Speichere…':'Fertig & Anlegen'}</button>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function buildDescription({ pitch, goal, conflict, factions, strengths, weaknesses, secret, voice, notes }) {
+  const lines = []
+  if (pitch) lines.push(`Pitch: ${pitch}`)
+  if (goal) lines.push(`Ziel: ${goal}`)
+  if (conflict) lines.push(`Konflikt: ${conflict}`)
+  if (factions) lines.push(`Zugehörigkeit: ${factions}`)
+  if (strengths) lines.push(`Stärken: ${strengths}`)
+  if (weaknesses) lines.push(`Schwächen: ${weaknesses}`)
+  if (secret) lines.push(`Geheimnis: ${secret}`)
+  if (voice) lines.push(`Stimme: ${voice}`)
+  if (notes) lines.push(`Notizen: ${notes}`)
+  return lines.join('\n')
+}
+
+```
+
+### `frontend\src\components\GraphModal.jsx`
+```jsx
+import React, { useEffect, useRef } from 'react'
+
+export default function GraphModal({ projectId, onClose, path = 'relations-graph' }) {
+  const iframeRef = useRef(null)
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose?.() }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [onClose])
+
+  const srcUrl = `/api/projects/${projectId}/${path}`
+
+  function reload() {
+    const el = iframeRef.current
+    if (!el) return
+    el.src = `${srcUrl}?t=${Date.now()}`
+  }
+
+  return (
+    <div className="modal-backdrop" onClick={onClose}>
+      <div className="modal graph-modal" onClick={e => e.stopPropagation()}>
+        <div className="modal-head">
+          <h3 style={{margin:0}}>Graph</h3>
+          <div className="row" style={{gap:8, alignItems:'center'}}>
+            <button className="btn sm ghost" onClick={reload}>Neu laden</button>
+            <button className="icon-btn" onClick={onClose} title="Schließen">✕</button>
+          </div>
+        </div>
+        <div className="modal-body graph-body">
+          <iframe
+            ref={iframeRef}
+            className="graph-frame"
+            title="Graph"
+            src={srcUrl}
+            sandbox="allow-scripts allow-same-origin"
+          />
+        </div>
+        <div className="modal-foot">
+          <span className="muted">Zieh &amp; zoome frei – Layout stabilisiert sich automatisch.</span>
+          <button className="btn" onClick={onClose}>Schließen</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+```
+
+### `frontend\src\components\RelationshipDrawer.jsx`
+```jsx
+import React, { useEffect, useMemo, useState } from 'react'
+import { updateCharacter } from '../lib/api.js'
+
+export default function RelationshipDrawer({ character, allCharacters, onClose, onSaved }) {
+  const [items, setItems] = useState([])
+
+  useEffect(() => {
+    const start = Array.isArray(character?.relations) ? character.relations : []
+    setItems(start.map(r => ({...r})))
+  }, [character])
+
+  const candidates = useMemo(
+    () => allCharacters.filter(c => c.id !== character.id),
+    [allCharacters, character?.id]
+  )
+
+  function addItem() {
+    const firstOther = candidates[0]?.id || null
+    setItems(prev => [...prev, { toId: firstOther, type: 'Freund', strength: 3, notes: '' }])
+  }
+  function removeIndex(i) { setItems(prev => prev.filter((_, idx) => idx !== i)) }
+  function edit(i, patch) { setItems(prev => prev.map((x, idx) => idx === i ? { ...x, ...patch } : x)) }
+
+  async function save() {
+    try {
+      const updated = await updateCharacter(character.id, { relations: items })
+      onSaved?.(updated)
+      onClose?.()
+    } catch (e) {
+      console.error(e)
+      alert('Speichern fehlgeschlagen.')
+    }
+  }
+
+  return (
+    <div className="drawer-backdrop" onClick={onClose}>
+      <div className="drawer" onClick={e=>e.stopPropagation()}>
+        <div className="drawer-head">
+          <strong>Beziehungen – {character?.name || 'Unbenannt'}</strong>
+          <button className="icon-btn" onClick={onClose}>✕</button>
+        </div>
+
+        <div className="drawer-body vstack" style={{gap:10}}>
+          <p className="muted" style={{marginTop:0}}>
+            Hinweise: Beziehungen werden automatisch <b>beidseitig</b> synchronisiert.
+            Z.&nbsp;B. „Mentor“ erzeugt auf der Gegenseite „Schützling“.
+          </p>
+
+          {items.length === 0 && <p className="muted">Noch keine Beziehungen.</p>}
+
+          {items.map((r, i) => (
+            <div key={i} className="rel-row">
+              <select className="input" value={r.toId ?? ''} onChange={e=>edit(i, { toId: Number(e.target.value)||null })}>
+                {candidates.length===0 && <option value="">(keine weiteren Charaktere)</option>}
+                {candidates.map(c => <option key={c.id} value={c.id}>{c.name || `#${c.id}`}</option>)}
+              </select>
+              <select className="input" value={r.type} onChange={e=>edit(i, { type: e.target.value })}>
+                <option>Freund</option><option>Feind</option><option>Familie</option>
+                <option>Liebe</option><option>Kollege</option><option>Kennt</option>
+                <option>Mentor</option><option>Schützling</option>
+              </select>
+              <input className="input" style={{width:90}}
+                     value={String(r.strength ?? 3)} onChange={e=>edit(i,{ strength: clampInt(e.target.value,1,5) })} />
+              <input className="input" placeholder="Notizen" value={r.notes||''} onChange={e=>edit(i, { notes: e.target.value })} />
+              <button className="icon-btn" title="Entfernen" onClick={()=>removeIndex(i)}>🗑</button>
+            </div>
+          ))}
+
+          <button className="btn ghost" onClick={addItem}>+ Beziehung hinzufügen</button>
+        </div>
+
+        <div className="drawer-foot">
+          <span />
+          <button className="btn" onClick={save}>Speichern</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function clampInt(v, min, max){
+  const n = Number(String(v).replace(/[^\d]/g,'')) || min
+  return Math.max(min, Math.min(max, n))
 }
 
 ```
@@ -9131,7 +16521,7 @@ export default function ProjectTabsLayout() {
               <img
                 src={logo}
                 alt="Roman"
-                style={{ height:22, width:'auto', display:'block', borderRadius:0 }}
+                style={{ height:45, width:'auto', display:'block', borderRadius:0 }}
               />
             </Link>
 
@@ -9161,58 +16551,102 @@ export default function ProjectTabsLayout() {
 
 ### `frontend\src\lib\api.js`
 ```javascript
-import axios from 'axios'
+const API_BASE =
+  import.meta.env.VITE_API_BASE   // Prod/Dev über Env
+  || '';                          // wenn Vite-Proxy benutzt wird
 
-const api = axios.create({
-  baseURL: '/api',
-  headers: { 'Content-Type': 'application/json' }
-})
+const JSON_HEADERS = { 'Content-Type': 'application/json' };
 
-// Optional: schlichtes Error-Logging zentral
-api.interceptors.response.use(
-  r => r,
-  err => {
-    console.error('API error:', err?.response?.status, err?.response?.data)
-    return Promise.reject(err)
+async function req(method, url, body) {
+  const res = await fetch(`${API_BASE}${url}`, {
+    method,
+    headers: JSON_HEADERS,
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  if (!res.ok) throw new Error(`${method} ${url} -> ${res.status}`);
+  return res.status === 204 ? null : res.json();
+}
+
+
+
+/* Projects */
+export const getProject = (id) => req('GET', `/api/projects/${id}`);
+export const listProjects = () => req('GET', `/api/projects`);
+export const createProject = (payload) => req('POST', `/api/projects`, payload);
+export const updateProject = (id, payload) => req('PUT', `/api/projects/${id}`, payload);
+export const deleteProject = (id) => req('DELETE', `/api/projects/${id}`);
+
+/* Chapters & Scenes */
+export const listChapters = (pid) =>   req('GET', `/api/projects/${pid}/chapters`);
+export const createChapter = (pid, payload) =>  req('POST', `/api/projects/${pid}/chapters`, payload);
+export const updateChapter = (id, payload) =>  req('PUT', `/api/chapters/${id}`, payload);
+export const deleteChapter = (id) =>  req('DELETE', `/api/chapters/${id}`);
+
+/* ✅ Szenen */
+export const listScenes = (cid) =>  req('GET', `/api/chapters/${cid}/scenes`);
+export const createScene = (cid, payload) =>  req('POST', `/api/chapters/${cid}/scenes`, payload);
+export const updateScene = (id, payload) =>  req('PUT', `/api/scenes/${id}`, payload);
+export const deleteScene = (id) =>  req('DELETE', `/api/scenes/${id}`);
+
+/* Characters */
+export const listCharacters = (pid) => req('GET', `/api/projects/${pid}/characters`);
+export const createCharacter = (pid, payload) => req('POST', `/api/projects/${pid}/characters`, payload);
+export const updateCharacter = (id, payload) => req('PUT', `/api/characters/${id}`, payload);
+export const deleteCharacter = (id) => req('DELETE', `/api/characters/${id}`);
+
+/* World Items */
+export const listWorldItems = (pid) => req('GET', `/api/projects/${pid}/world-items`);
+export const createWorldItem = (pid, payload) => req('POST', `/api/projects/${pid}/world-items`, payload);
+export const updateWorldItem = (id, payload) => req('PUT', `/api/world-items/${id}`, payload);
+export const deleteWorldItem = (id) => req('DELETE', `/api/world-items/${id}`);
+
+```
+
+### `frontend\src\lib\mentions.js`
+```javascript
+// Utility: z�hlt Erw�hnungen eines Namens in Szenentexten.
+// Erwartet, dass deine API mindestens eine der Funktionen bietet:
+//   - listScenesByProject(projectId) -> [{ id, title, text, chapterId }]
+//   - oder listChapters(projectId) + listScenes(chapterId)
+// F�llt sonst sanft auf 0 Erw�hnungen zur�ck.
+
+export async function scanMentions(projectId, name, api) {
+  const needle = (name || '').trim()
+  if (!needle) return { total: 0, byChapter: {} }
+
+  let scenes = []
+  try {
+    if (typeof api.listScenesByProject === 'function') {
+      scenes = await api.listScenesByProject(projectId)
+    } else if (typeof api.listChapters === 'function' && typeof api.listScenes === 'function') {
+      const chapters = await api.listChapters(projectId)
+      for (const ch of chapters) {
+        const sc = await api.listScenes(ch.id)
+        scenes.push(...sc.map(s => ({...s, chapterId: ch.id})))
+      }
+    }
+  } catch (e) {
+    console.warn('scanMentions: Konnte Szenen nicht laden:', e)
+    return { total: 0, byChapter: {} }
   }
-)
 
-// Projects
-export const listProjects   = () => api.get('/projects').then(r => r.data)
-export const createProject  = (payload) => api.post('/projects', payload).then(r => r.data)
-export const getProject     = (id) => api.get(`/projects/${id}`).then(r => r.data)
-export const updateProject  = (id, payload) => api.put(`/projects/${id}`, payload).then(r => r.data)
-export const deleteProject  = (id) => api.delete(`/projects/${id}`).then(r => r.data)
+  const byChapter = {}
+  let total = 0
+  const rx = new RegExp(`\\b${escapeRegExp(needle)}\\b`, 'gi')
 
-// Chapters
-export const listChapters   = (pid) => api.get(`/projects/${pid}/chapters`).then(r => r.data)
-export const createChapter  = (pid, payload) => api.post(`/projects/${pid}/chapters`, payload).then(r => r.data)
-export const getChapter     = (id) => api.get(`/chapters/${id}`).then(r => r.data)
-export const updateChapter  = (id, payload) => api.put(`/chapters/${id}`, payload).then(r => r.data)
-export const deleteChapter  = (id) => api.delete(`/chapters/${id}`).then(r => r.data)
+  for (const s of scenes) {
+    const text = (s.text || s.body || s.content || '')
+    const hits = (text.match(rx) || []).length
+    if (hits > 0) {
+      total += hits
+      const key = s.chapterId ?? s.chapter_id ?? 'unknown'
+      byChapter[key] = (byChapter[key] || 0) + hits
+    }
+  }
+  return { total, byChapter }
+}
 
-// Scenes
-export const listScenes     = (chapterId) => api.get(`/chapters/${chapterId}/scenes`).then(r => r.data)
-export const createScene    = (chapterId, payload) => api.post(`/chapters/${chapterId}/scenes`, payload).then(r => r.data)
-export const getScene       = (id) => api.get(`/scenes/${id}`).then(r => r.data)
-export const updateScene    = (id, payload) => api.put(`/scenes/${id}`, payload).then(r => r.data)
-export const deleteScene    = (id) => api.delete(`/scenes/${id}`).then(r => r.data)
-
-// Characters
-export const listCharacters = (pid) => api.get(`/projects/${pid}/characters`).then(r => r.data)
-export const createCharacter= (pid, payload) => api.post(`/projects/${pid}/characters`, payload).then(r => r.data)
-export const getCharacter   = (id) => api.get(`/characters/${id}`).then(r => r.data)
-export const updateCharacter= (id, payload) => api.put(`/characters/${id}`, payload).then(r => r.data)
-export const deleteCharacter= (id) => api.delete(`/characters/${id}`).then(r => r.data)
-
-// Locations
-export const listLocations  = (pid) => api.get(`/projects/${pid}/locations`).then(r => r.data)
-export const createLocation = (pid, payload) => api.post(`/projects/${pid}/locations`, payload).then(r => r.data)
-export const getLocation    = (id) => api.get(`/locations/${id}`).then(r => r.data)
-export const updateLocation = (id, payload) => api.put(`/locations/${id}`, payload).then(r => r.data)
-export const deleteLocation = (id) => api.delete(`/locations/${id}`).then(r => r.data)
-
-export default api
+function escapeRegExp(str){ return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') }
 
 ```
 
@@ -9237,32 +16671,53 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 ```jsx
 import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
-import { getProject, listCharacters, createCharacter, updateCharacter, deleteCharacter } from '../lib/api.js'
+import {
+  getProject, listCharacters, createCharacter, updateCharacter, deleteCharacter
+} from '../lib/api.js'
+import GraphModal from '../components/GraphModal.jsx'
+import '../projectview.css'
 import '../layout-2col.css'
 
 export default function Characters() {
   const { id } = useParams()
   const pid = Number(id)
 
-  const [project, setProject]   = useState(null)
-  const [list, setList]         = useState([])
-  const [loading, setLoading]   = useState(true)
-  const [error, setError]       = useState('')
-
+  const [project, setProject] = useState(null)
+  const [list, setList] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
   const [activeId, setActiveId] = useState(null)
 
-  const [name, setName]             = useState('')
-  const [role, setRole]             = useState('')
-  const [age, setAge]               = useState('')
-  const [description, setDesc]      = useState('')
+  // basic
+  const [name, setName] = useState('')
+  const [role, setRole] = useState('')
+  const [age, setAge] = useState('')
+  const [description, setDesc] = useState('')
+
+  // profile (Steckbrief)
+  const [profile, setProfile] = useState({
+    avatarUrl: '', pitch: '', goal: '', conflict: '',
+    affiliations: [], strengths: [], weaknesses: [],
+    voice: '', traits: '', secret: '',
+    birthplace: '', residence: '', occupation: '',
+    appearance: '', height: '', hairColor: '', eyeColor: '',
+    skills: [], backstory: ''
+  })
+
+  // relations (Tab)
+  const [relItems, setRelItems] = useState([])
+  const [relSaving, setRelSaving] = useState(false)
+
+  const [tab, setTab] = useState('general') // general | personality | background | skills | relations | notes
+  const [showGraph, setShowGraph] = useState(false)
 
   const saveRef = useRef(null)
-  const debounce = useCallback((fn, ms = 600) => {
-    clearTimeout(saveRef.current)
-    saveRef.current = setTimeout(fn, ms)
-  }, [])
-
+  const debounce = useCallback((fn, ms = 600) => { clearTimeout(saveRef.current); saveRef.current = setTimeout(fn, ms) }, [])
   const active = useMemo(() => list.find(c => c.id === activeId) || null, [list, activeId])
+
+  // Autosave Guards für Beziehungen
+  const relSaveRef = useRef(null)
+  const relSkipNextSave = useRef(false)
 
   useEffect(() => {
     (async () => {
@@ -9270,40 +16725,62 @@ export default function Characters() {
       try {
         const p = await getProject(pid)
         setProject({ id: p.id, title: p.title })
-        const data = await listCharacters(pid) // [{id,name,role,age,description}]
+        const data = await listCharacters(pid)
         setList(data)
         if (data[0]) {
-          const first = data[0]
-          setActiveId(first.id)
-          setName(first.name || '')
-          setRole(first.role || '')
-          setAge(String(first.age ?? ''))
-          setDesc(first.description || '')
+          setActiveId(data[0].id)
+          hydrateForm(data[0])
         }
       } catch (e) {
         console.error(e); setError('Charaktere konnten nicht geladen werden.')
-      } finally {
-        setLoading(false)
-      }
+      } finally { setLoading(false) }
     })()
   }, [pid])
 
-  useEffect(() => {
-    if (!active) return
-    setName(active.name || '')
-    setRole(active.role || '')
-    setAge(String(active.age ?? ''))
-    setDesc(active.description || '')
-  }, [activeId]) // eslint-disable-line
+  useEffect(() => { if (active) hydrateForm(active) }, [activeId]) // eslint-disable-line
+
+  function hydrateForm(c) {
+    setName(c.name || '')
+    setRole(c.role || '')
+    setAge(c.age != null && c.age !== '' ? String(c.age) : '')
+    setDesc(c.description || '')
+
+    const prof = c.profile || {}
+    setProfile({
+      avatarUrl: prof.avatarUrl || '',
+      pitch: prof.pitch || '',
+      goal: prof.goal || '',
+      conflict: prof.conflict || '',
+      affiliations: Array.isArray(prof.affiliations) ? prof.affiliations : [],
+      strengths: Array.isArray(prof.strengths) ? prof.strengths : [],
+      weaknesses: Array.isArray(prof.weaknesses) ? prof.weaknesses : [],
+      voice: prof.voice || '',
+      traits: prof.traits || '',
+      secret: prof.secret || '',
+      birthplace: prof.birthplace || '',
+      residence: prof.residence || '',
+      occupation: prof.occupation || '',
+      appearance: prof.appearance || '',
+      height: prof.height || '',
+      hairColor: prof.hairColor || '',
+      eyeColor: prof.eyeColor || '',
+      skills: Array.isArray(prof.skills) ? prof.skills : [],
+      backstory: prof.backstory || ''
+    })
+
+    // Beziehungen hydratisieren (ohne Autosave auszulösen)
+    relSkipNextSave.current = true
+    setRelItems(Array.isArray(c.relations) ? c.relations.map(r => ({ ...r })) : [])
+  }
 
   async function addCharacter() {
     try {
-      const c = await createCharacter(pid, { name:'Neuer Charakter', role:'', age:null, description:'' })
-      setList(prev => [...prev, c])
-      setActiveId(c.id)
-    } catch (e) {
-      alert('Anlegen fehlgeschlagen.')
-    }
+      const c = await createCharacter(pid, {
+        name: 'Neuer Charakter', role: '', age: '', description: '',
+        relations: [], profile: {}
+      })
+      setList(prev => [...prev, c]); setActiveId(c.id)
+    } catch { alert('Anlegen fehlgeschlagen.') }
   }
 
   async function removeCharacter(cid) {
@@ -9315,90 +16792,391 @@ export default function Characters() {
         const first = list.find(c => c.id !== cid)
         setActiveId(first?.id || null)
       }
-    } catch (e) {
-      alert('Löschen fehlgeschlagen.')
-    }
+    } catch { alert('Löschen fehlgeschlagen.') }
   }
 
   function onChangeField(field, value) {
-    if (field === 'name')        setName(value)
-    if (field === 'role')        setRole(value)
-    if (field === 'age')         setAge(value)
+    if (!activeId) return
+    if (field === 'name') setName(value)
+    if (field === 'role') setRole(value)
+    if (field === 'age') setAge(value)
     if (field === 'description') setDesc(value)
 
-    setList(prev => prev.map(c =>
-      c.id === activeId ? { ...c, [field]: field==='age' ? Number(value || 0) : value } : c
-    ))
+    setList(prev => prev.map(c => c.id === activeId
+      ? { ...c, [field]: field === 'age' ? (value === '' ? '' : Number(value)) : value }
+      : c))
 
     debounce(async () => {
       try {
         await updateCharacter(activeId, {
-          name, role, age: Number(age || 0), description,
-          [field]: field==='age' ? Number(value || 0) : value
+          name, role, age: (age === '' ? '' : Number(age)), description,
+          ...(field === 'age' ? { age: (value === '' ? '' : Number(value)) } : { [field]: value })
         })
-      } catch (e) {
-        console.error(e)
-      }
+      } catch (e) { console.error(e) }
     })
   }
 
+  function onChangeProfile(key, val) {
+    if (!activeId) return
+    const next = { ...profile, [key]: val }
+    setProfile(next)
+    setList(prev => prev.map(c => c.id === activeId ? { ...c, profile: next } : c))
+    debounce(async () => {
+      try { await updateCharacter(activeId, { profile: { ...next } }) } catch (e) { console.error(e) }
+    })
+  }
+
+  // helpers for arrays (weiterhin für andere Felder genutzt)
+  function arrayToInput(arr){ return (arr || []).join(', ') }
+  function inputToArray(str){ return (str||'').split(',').map(s=>s.trim()).filter(Boolean) }
+
+  // ---------- Beziehungen (im Tab) ----------
+  const candidateChars = useMemo(
+    () => list.filter(c => c.id !== activeId),
+    [list, activeId]
+  )
+
+  function addRelationRow(){
+    setRelItems(prev => [...prev, {
+      toId: candidateChars[0]?.id ?? null,
+      type: 'Freund',
+      strength: 3,
+      notes: ''
+    }])
+  }
+  function editRelRow(i, patch){ setRelItems(prev => prev.map((x, idx) => idx === i ? { ...x, ...patch } : x)) }
+  function removeRelRow(i){ setRelItems(prev => prev.filter((_, idx) => idx !== i)) }
+
+  // ✅ AUTOSAVE bei Änderungen an relItems (debounced)
+  useEffect(() => {
+    if (!activeId) return
+    if (relSkipNextSave.current) { relSkipNextSave.current = false; return }
+    const canSave = relItems.every(r => typeof r.toId === 'number' && !Number.isNaN(r.toId))
+    if (!canSave) return
+    setRelSaving(true)
+    clearTimeout(relSaveRef.current)
+    relSaveRef.current = setTimeout(async () => {
+      try {
+        const updated = await updateCharacter(activeId, { relations: relItems })
+        setList(prev => prev.map(c => c.id === updated.id ? updated : c))
+        const data = await listCharacters(pid)   // Gegenseite direkt aktualisieren
+        setList(data)
+      } catch (e) {
+        console.error(e)
+      } finally {
+        setRelSaving(false)
+      }
+    }, 700)
+  }, [relItems, activeId, pid])
+
+  function openGraph(){ setShowGraph(true) }
+
   if (loading) return <main className="content"><p>Lade…</p></main>
+
   return (
     <main className="content">
-      {error && <p style={{color:'crimson', marginTop:0}}>{error}</p>}
+      <div className="page-head">
+        <div className="page-crumbs">
+          <span className="crumb strong">{project?.title || 'Projekt'}</span>
+          <span className="sep">·</span>
+          <span className="crumb">Charaktere</span>
+        </div>
+        <div className="page-meta">
+          <span className="chip">{list.length} Einträge</span>
+          <button className="btn sm ghost" style={{marginLeft:8}} onClick={openGraph}>Graph</button>
+        </div>
+      </div>
 
-      <div className="two-col">
-        {/* LEFT: Liste */}
+      {error && <p style={{ color:'crimson', marginTop:0 }}>{error}</p>}
+
+      <div className="two-col equalize">
+        {/* Sidebar */}
         <aside className="two-col__sidebar">
-          <div className="panel">
+          <div className="panel fill">
             <div className="panel-title row">
               <span>Charaktere</span>
               <button className="btn sm" onClick={addCharacter}>+ Neu</button>
             </div>
 
-            <ul className="klist">
-              {list.map(c => (
-                <li key={c.id} className="kitem">
-                  <div
-                    className={'krow ' + (activeId === c.id ? 'active' : '')}
-                    onClick={() => setActiveId(c.id)}
-                  >
-                    <input
-                      className="kinput"
-                      value={c.name || ''}
-                      onChange={e => onChangeField('name', e.target.value)}
-                    />
-                    <div className="kactions">
-                      <button className="icon-btn" title="Löschen"
-                              onClick={(ev)=>{ev.stopPropagation(); removeCharacter(c.id)}}>🗑</button>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            {list.length === 0 ? (
+              <div className="empty">
+                <p className="muted">Du hast noch keinen Charakter.</p>
+                <button className="btn" onClick={addCharacter}>+ Ersten Charakter erstellen</button>
+              </div>
+            ) : (
+              <ul className="klist slim">
+                {list.map((c, idx) => {
+                  const isActive = activeId === c.id
+                  const relCount = Array.isArray(c.relations) ? c.relations.length : 0
+                  return (
+                    <li key={c.id} className={'kitem tile ' + (isActive ? 'active' : '')}>
+                      <div className="krow tile-head" onClick={() => setActiveId(c.id)} role="button" tabIndex={0}>
+                        <span className="ordinal">{String(idx + 1).padStart(2, '0')}</span>
+                        <span className="ktitle" title={c.name || 'Unbenannt'}>{c.name?.trim() || 'Unbenannt'}</span>
+                        <span className="bubble muted small" title="Beziehungen">{relCount}</span>
+                        <div className="kactions">
+                          <button className="icon-btn" title="Löschen" onClick={(ev)=>{ev.stopPropagation(); removeCharacter(c.id)}}>🗑</button>
+                        </div>
+                      </div>
+                      {isActive && (
+                        <div className="tile-body subtle">
+                          <div className="dot-row"><span className="dot" /><span className="muted">{(c.role||'–')}</span></div>
+                          <div className="dot-row"><span className="dot" /><span className="muted">
+                            {c.age !== '' && c.age != null && isFinite(Number(c.age)) ? `${c.age} Jahre` : '–'}
+                          </span></div>
+                        </div>
+                      )}
+                    </li>
+                  )
+                })}
+              </ul>
+            )}
           </div>
         </aside>
 
-        {/* RIGHT: Details */}
+        {/* Main */}
         <section className="two-col__main">
-          <h3 style={{margin:'4px 0 8px 0'}}>{project?.title}</h3>
+          {list.length === 0 || !active ? (
+            <div className="panel grow empty center">
+              <h3 style={{ margin: 0 }}>Du hast noch keinen Charakter</h3>
+              <p className="muted" style={{ marginTop: 4 }}>Lege deinen ersten Charakter an, um Details zu bearbeiten.</p>
+              <button className="btn" onClick={addCharacter}>+ Ersten Charakter erstellen</button>
+            </div>
+          ) : (
+            <div className="panel grow">
+              {/* Header-Zeile */}
+              <div className="row" style={{ gap: 8, marginBottom: 10, alignItems:'center' }}>
+                <input className="input" style={{ flex: 1 }} placeholder="Name" value={name} onChange={e => onChangeField('name', e.target.value)} />
+                <input className="input" style={{ flex: 1 }} placeholder="Rolle (z.B. Protagonist)" value={role} onChange={e => onChangeField('role', e.target.value)} />
+                <input className="input" style={{ width: 120 }} placeholder="Alter" value={age} onChange={e => onChangeField('age', e.target.value.replace(/[^\d]/g,''))} />
+              </div>
 
-          <div className="row" style={{gap:8}}>
-            <input className="input" style={{flex:1}} placeholder="Name"
-                   value={name} onChange={e=>onChangeField('name', e.target.value)} />
-            <input className="input" style={{flex:1}} placeholder="Rolle (z.B. Protagonist)"
-                   value={role} onChange={e=>onChangeField('role', e.target.value)} />
-            <input className="input" style={{width:120}} placeholder="Alter"
-                   value={age} onChange={e=>onChangeField('age', e.target.value)} />
-          </div>
+              {/* Tabs */}
+              <div className="tabs">
+                <button className={'tab-btn ' + (tab==='general'?'active':'')} onClick={()=>setTab('general')}>Allgemein</button>
+                <button className={'tab-btn ' + (tab==='personality'?'active':'')} onClick={()=>setTab('personality')}>Persönlichkeit</button>
+                <button className={'tab-btn ' + (tab==='background'?'active':'')} onClick={()=>setTab('background')}>Hintergrund</button>
+                <button className={'tab-btn ' + (tab==='skills'?'active':'')} onClick={()=>setTab('skills')}>Fähigkeiten</button>
+                <button className={'tab-btn ' + (tab==='relations'?'active':'')} onClick={()=>setTab('relations')}>Beziehungen</button>
+                <button className={'tab-btn ' + (tab==='notes'?'active':'')} onClick={()=>setTab('notes')}>Notizen</button>
+              </div>
 
-          <div className="panel" style={{marginTop:8}}>
-            <textarea className="editor" placeholder="Beschreibung / Hintergrund …"
-                      value={description} onChange={e=>onChangeField('description', e.target.value)} />
-          </div>
+              {/* Tab Inhalte */}
+              {tab === 'general' && (
+                <div className="tab-body">
+                  <div className="grid two gap16">
+                    <div>
+                      <textarea className="editor sm" placeholder="Kurzpitch (1–2 Sätze)" value={profile.pitch} onChange={e=>onChangeProfile('pitch', e.target.value)} />
+                      <div className="row" style={{gap:8, marginTop:8}}>
+                        <input className="input" placeholder="Ziel (1 Satz)" value={profile.goal} onChange={e=>onChangeProfile('goal', e.target.value)} />
+                        <input className="input" placeholder="Konflikt (1 Satz)" value={profile.conflict} onChange={e=>onChangeProfile('conflict', e.target.value)} />
+                      </div>
+                      <input className="input" style={{marginTop:8}} placeholder="Zugehörigkeiten/Fraktionen (kommasepariert)"
+                        value={arrayToInput(profile.affiliations)} onChange={e=>onChangeProfile('affiliations', inputToArray(e.target.value))} />
+                    </div>
+                    <div className="avatar-box">
+                      {profile.avatarUrl ? (
+                        <img src={profile.avatarUrl} alt="Avatar" className="avatar-img" onError={(e)=>{e.currentTarget.style.display='none'}} />
+                      ) : (
+                        <div className="avatar-ph">{(name||'?').substring(0,1).toUpperCase()}</div>
+                      )}
+                      <input className="input" placeholder="Bild-URL einfügen…" value={profile.avatarUrl} onChange={e=>onChangeProfile('avatarUrl', e.target.value)} />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {tab === 'personality' && (
+                <div className="tab-body">
+                  <div className="grid two gap16">
+                    <div>
+                      <input className="input" placeholder="Stärken (kommasepariert)" value={arrayToInput(profile.strengths)} onChange={e=>onChangeProfile('strengths', inputToArray(e.target.value))} />
+                      <input className="input" style={{marginTop:8}} placeholder="Schwächen (kommasepariert)" value={arrayToInput(profile.weaknesses)} onChange={e=>onChangeProfile('weaknesses', inputToArray(e.target.value))} />
+                      <input className="input" style={{marginTop:8}} placeholder="Stimme & Stil (3 Stichwörter)" value={profile.voice} onChange={e=>onChangeProfile('voice', e.target.value)} />
+                    </div>
+                    <div>
+                      <input className="input" placeholder="Persönlichkeitsmerkmale (frei)" value={profile.traits} onChange={e=>onChangeProfile('traits', e.target.value)} />
+                      <textarea className="editor sm" style={{marginTop:8}} placeholder="Geheimnis / Wunde (privat)" value={profile.secret} onChange={e=>onChangeProfile('secret', e.target.value)} />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {tab === 'background' && (
+                <div className="tab-body">
+                  <div className="grid two gap16">
+                    <div>
+                      <input className="input" placeholder="Geburtsort" value={profile.birthplace} onChange={e=>onChangeProfile('birthplace', e.target.value)} />
+                      <input className="input" style={{marginTop:8}} placeholder="Wohnort" value={profile.residence} onChange={e=>onChangeProfile('residence', e.target.value)} />
+                      <input className="input" style={{marginTop:8}} placeholder="Beruf/Zugehörigkeit" value={profile.occupation} onChange={e=>onChangeProfile('occupation', e.target.value)} />
+                    </div>
+                    <div>
+                      <div className="row" style={{gap:8}}>
+                        <input className="input" placeholder="Größe/Größe" value={profile.height} onChange={e=>onChangeProfile('height', e.target.value)} />
+                        <input className="input" placeholder="Haarfarbe" value={profile.hairColor} onChange={e=>onChangeProfile('hairColor', e.target.value)} />
+                        <input className="input" placeholder="Augenfarbe" value={profile.eyeColor} onChange={e=>onChangeProfile('eyeColor', e.target.value)} />
+                      </div>
+                      <textarea className="editor sm" style={{marginTop:8}} placeholder="Aussehen (Silhouette, Merkmale …)" value={profile.appearance} onChange={e=>onChangeProfile('appearance', e.target.value)} />
+                    </div>
+                  </div>
+                  <textarea className="editor" style={{marginTop:12}} placeholder="Biografie / Hintergrund" value={profile.backstory} onChange={e=>onChangeProfile('backstory', e.target.value)} />
+                </div>
+              )}
+
+              {tab === 'skills' && (
+                <div className="tab-body">
+                  <TagInput
+                    placeholder="Fähigkeit eingeben und Enter/Komma drücken …"
+                    value={profile.skills}
+                    onChange={(arr)=>onChangeProfile('skills', arr)}
+                  />
+                </div>
+              )}
+
+              {tab === 'relations' && (
+                <div className="tab-body">
+                  <div className="row" style={{justifyContent:'space-between', alignItems:'center', marginBottom:8}}>
+                    <h4 style={{margin:0}}>Beziehungen</h4>
+                    <div className="row" style={{gap:8, alignItems:'center'}}>
+                      <span className="muted" style={{fontSize:12}}>
+                        {relSaving ? 'Speichert…' : 'Alle Änderungen gespeichert'}
+                      </span>
+                      <button className="btn sm ghost" onClick={addRelationRow}>+ Beziehung hinzufügen</button>
+                    </div>
+                  </div>
+
+                  {candidateChars.length === 0 && (
+                    <p className="muted">Es gibt noch keine weiteren Charaktere. Lege zuerst weitere Figuren an.</p>
+                  )}
+
+                  {relItems.length === 0 ? (
+                    <p className="muted">Noch keine Beziehungen. Füge oben eine hinzu.</p>
+                  ) : (
+                    <div className="rel-table">
+                      <div className="rel-header">
+                        <span>Ziel</span><span>Typ</span><span>Stärke</span><span>Notizen</span><span />
+                      </div>
+                      {relItems.map((r, i) => (
+                        <div className="rel-row" key={i}>
+                          <select className="input" value={r.toId ?? ''} onChange={e=>editRelRow(i, { toId: Number(e.target.value)||null })}>
+                            {candidateChars.length===0 && <option value="">(keine weiteren Charaktere)</option>}
+                            {candidateChars.map(c => <option key={c.id} value={c.id}>{c.name || `#${c.id}`}</option>)}
+                          </select>
+
+                          <select className="input" value={r.type} onChange={e=>editRelRow(i, { type: e.target.value })}>
+                            <option>Freund</option><option>Feind</option><option>Familie</option>
+                            <option>Mentor</option><option>Schüler</option>
+                            <option>Liebe</option><option>Kollege</option><option>Kennt</option>
+                          </select>
+
+                          <input className="input" value={String(r.strength ?? 3)} onChange={e=>editRelRow(i,{ strength: clampInt(e.target.value,1,5) })} />
+
+                          <input className="input" placeholder="Notizen" value={r.notes||''} onChange={e=>editRelRow(i, { notes: e.target.value })} />
+
+                          <button className="icon-btn" title="Entfernen" onClick={()=>removeRelRow(i)}>🗑</button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {tab === 'notes' && (
+                <div className="tab-body">
+                  <textarea className="editor" placeholder="Freie Notizen …" value={description} onChange={e => onChangeField('description', e.target.value)} />
+                </div>
+              )}
+            </div>
+          )}
         </section>
       </div>
+
+      {showGraph && (
+        <GraphModal projectId={pid} onClose={()=>setShowGraph(false)} />
+      )}
     </main>
+  )
+}
+
+// utils
+function clampInt(v, min, max){
+  const n = Number(String(v).replace(/[^\d]/g,'')) || min
+  return Math.max(min, Math.min(max, n))
+}
+
+/* ---------- Kleine, eigenständige Tag-Input Komponente ---------- */
+function TagInput({ value = [], onChange, placeholder }) {
+  const [text, setText] = useState('')
+
+  function emit(arr){
+    // Duplikate (case-insensitive) entfernen, leere ignorieren
+    const norm = []
+    const seen = new Set()
+    for (const raw of arr) {
+      const t = String(raw || '').trim()
+      if (!t) continue
+      const key = t.toLowerCase()
+      if (seen.has(key)) continue
+      seen.add(key); norm.push(t)
+    }
+    onChange?.(norm)
+  }
+
+  function addFromString(str){
+    const parts = String(str).split(/[,\n;]+/).map(s=>s.trim()).filter(Boolean)
+    if (parts.length === 0) return
+    emit([...(value || []), ...parts])
+    setText('')
+  }
+
+  function onKeyDown(e){
+    if (e.key === 'Enter' || e.key === ',') {
+      e.preventDefault()
+      addFromString(text)
+    } else if (e.key === 'Backspace' && text === '' && value.length > 0) {
+      // letzte Kachel löschen, wenn Feld leer
+      const next = value.slice(0, -1)
+      emit(next)
+    }
+  }
+
+  function onPaste(e){
+    const s = e.clipboardData?.getData('text') || ''
+    if (/[,\n;]/.test(s)) {
+      e.preventDefault()
+      addFromString(s)
+    }
+  }
+
+  function removeAt(i){
+    const next = (value || []).filter((_, idx) => idx !== i)
+    emit(next)
+  }
+
+  function onBlur(){
+    if (text.trim()) addFromString(text)
+  }
+
+  return (
+    <div className="tag-input">
+      <input
+        className="input"
+        value={text}
+        onChange={e=>setText(e.target.value)}
+        onKeyDown={onKeyDown}
+        onPaste={onPaste}
+        onBlur={onBlur}
+        placeholder={placeholder}
+      />
+      <div className="tags">
+        {(value || []).map((t, i) => (
+          <span className="tag" key={`${t}-${i}`}>
+            {t}
+            <button className="tag-x" aria-label={`„${t}“ entfernen`} onClick={()=>removeAt(i)}>×</button>
+          </span>
+        ))}
+      </div>
+    </div>
   )
 }
 
@@ -10229,143 +18007,263 @@ function SaveChip({ state, time }) {
 
 ### `frontend\src\pages\World.jsx`
 ```jsx
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { getProject, listWorldItems, createWorldItem, updateWorldItem, deleteWorldItem } from '../lib/api.js'
+import GraphModal from '../components/GraphModal.jsx'
+import '../projectview.css'
 import '../layout-2col.css'
 
-export default function World() {
+const REL_TYPES = [
+  'Teil von','Hat Teil','Ort in','Beherbergt','Regiert','Wird regiert von',
+  'Hauptstadt von','Hat Hauptstadt','Mitglied von','Hat Mitglied',
+  'Übergeordnet','Untergeordnet','Verbündet','Konkurriert','Handelt mit'
+]
+const KINDS = ['Allgemein','Organisation','Kirche','Gilde','Beruf','Königreich','Land','Region','Stadt','Ort','Rang/Titel']
+
+export default function World(){
   const { id } = useParams()
   const pid = Number(id)
 
   const [project, setProject] = useState(null)
-  const [places, setPlaces]   = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError]     = useState('')
-
+  const [list, setList] = useState([])
   const [activeId, setActiveId] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
+  const [showGraph, setShowGraph] = useState(false)
 
-  const [name, setName]     = useState('')
-  const [region, setRegion] = useState('')
-  const [desc, setDesc]     = useState('')
+  // Tabs
+  const [tab, setTab] = useState('general') // 'general' | 'relations'
 
-  const saveTimer = useRef(null)
-  const debounce = (fn) => { clearTimeout(saveTimer.current); saveTimer.current = setTimeout(fn, 500) }
+  // form
+  const [name, setName] = useState('')
+  const [kind, setKind] = useState('Allgemein')
+  const [description, setDescription] = useState('')
+  const [relations, setRelations] = useState([])
+  const [relSaving, setRelSaving] = useState(false)
 
-  const active = useMemo(() => places.find(p => p.id === activeId) || null, [places, activeId])
+  const active = useMemo(()=>list.find(x => x.id === activeId) || null,[list,activeId])
 
-  useEffect(() => {
-    (async () => {
+  const debounceRef = useRef(null)
+  const debounce = useCallback((fn, ms=600) => { clearTimeout(debounceRef.current); debounceRef.current = setTimeout(fn, ms) }, [])
+  const relSkipNextSave = useRef(false)
+  const relDeb = useRef(null)
+
+  useEffect(()=>{
+    (async ()=>{
       setLoading(true); setError('')
-      try {
-        const p = await (await fetch(`/api/projects/${pid}`)).json()
-        setProject({ id: p.id, title: p.title })
-
-        const res = await fetch(`/api/projects/${pid}/locations`)
-        if (!res.ok) throw new Error('HTTP ' + res.status)
-        const data = await res.json()  // [{id,name,region,description}]
-        setPlaces(data)
-        const first = data[0]
-        if (first) {
-          setActiveId(first.id)
-          setName(first.name || '')
-          setRegion(first.region || '')
-          setDesc(first.description || '')
-        }
-      } catch (e) { console.error(e); setError('Orte konnten nicht geladen werden.') }
-      finally { setLoading(false) }
+      try{
+        const p = await getProject(pid); setProject(p)
+        const items = await listWorldItems(pid); setList(items)
+        if(items[0]){ setActiveId(items[0].id); hydrate(items[0]) }
+      }catch(e){ console.error(e); setError('Elemente konnten nicht geladen werden.') }
+      finally{ setLoading(false) }
     })()
-  }, [pid])
+  },[pid])
 
-  useEffect(() => {
-    if (!active) return
-    setName(active.name || '')
-    setRegion(active.region || '')
-    setDesc(active.description || '')
-  }, [activeId]) // eslint-disable-line
+  useEffect(()=>{ if(active) hydrate(active) },[activeId]) // eslint-disable-line
 
-  const postJSON = (url, body) => fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body||{}) })
-  const putJSON  = (url, body) => fetch(url, { method:'PUT',  headers:{'Content-Type':'application/json'}, body: JSON.stringify(body||{}) })
-  const del      = (url)      => fetch(url, { method:'DELETE' })
-
-  async function addPlace() {
-    const res = await postJSON(`/api/projects/${pid}/locations`, { name:'Neuer Ort', region:'', description:'' })
-    if (!res.ok) return alert('Anlegen fehlgeschlagen.')
-    const p = await res.json()
-    setPlaces(prev => [...prev, p])
-    setActiveId(p.id)
+  function hydrate(it){
+    setName(it.name || '')
+    setKind(it.kind || 'Allgemein')
+    setDescription(it.description || '')
+    // Beziehungen hydratisieren, ohne sofort zu speichern
+    relSkipNextSave.current = true
+    setRelations(Array.isArray(it.relations)? it.relations.map(r=>({...r})) : [])
   }
 
-  async function removePlace(id) {
-    if (!confirm('Ort wirklich löschen?')) return
-    const res = await del(`/api/locations/${id}`)
-    if (!res.ok) return alert('Löschen fehlgeschlagen.')
-    setPlaces(prev => prev.filter(x => x.id !== id))
-    if (activeId === id) {
-      const first = places.find(x => x.id !== id)
-      setActiveId(first?.id || null)
-    }
+  async function addItem(){
+    try{
+      const created = await createWorldItem(pid,{ name:'Neues Element', kind:'Allgemein', description:'', relations:[], props:{} })
+      setList(prev => [...prev, created]); setActiveId(created.id)
+    }catch{ alert('Anlegen fehlgeschlagen.') }
   }
 
-  function onChangeField(field, value) {
-    if (field === 'name')     setName(value)
-    if (field === 'region')   setRegion(value)
-    if (field === 'desc')     setDesc(value)
-    setPlaces(prev => prev.map(p => p.id === activeId ? { ...p, [field === 'desc' ? 'description' : field]: value } : p))
-    debounce(async () => {
-      await putJSON(`/api/locations/${activeId}`, {
-        name, region, description: desc, [field === 'desc' ? 'description' : field]: value
-      })
+  async function removeItem(id){
+    if(!confirm('Welt-Element wirklich löschen?')) return
+    try{
+      await deleteWorldItem(id)
+      setList(prev => prev.filter(x => x.id !== id))
+      if(activeId === id){
+        const first = list.find(x => x.id !== id)
+        setActiveId(first?.id || null)
+      }
+    }catch{ alert('Löschen fehlgeschlagen.') }
+  }
+
+  function onField(field, value){
+    if(!activeId) return
+    if(field==='name') setName(value)
+    if(field==='kind') setKind(value)
+    if(field==='description') setDescription(value)
+
+    setList(prev => prev.map(x => x.id === activeId ? { ...x, [field]: value } : x))
+
+    debounce(async ()=>{
+      try{ await updateWorldItem(activeId, { name, kind, description, [field]: value }) }
+      catch(e){ console.error(e) }
     })
   }
 
-  if (loading) return <main className="content"><p>Lade…</p></main>
-  if (error)   return <main className="content"><p>{error}</p></main>
+  // ----- Beziehungen (Autosave) -----
+  const candidates = useMemo(()=> list.filter(x => x.id !== activeId), [list,activeId])
+
+  function addRel(){
+    setRelations(prev => [...prev, {
+      toId: candidates[0]?.id ?? null,
+      type: 'Teil von',
+      strength: 3,
+      notes: ''
+    }])
+  }
+  function editRel(i, patch){ setRelations(prev => prev.map((r,idx)=> idx===i ? { ...r, ...patch } : r)) }
+  function delRel(i){ setRelations(prev => prev.filter((_,idx)=> idx!==i)) }
+
+  useEffect(()=>{
+    if(!activeId) return
+    if(relSkipNextSave.current){ relSkipNextSave.current = false; return }
+    const canSave = relations.every(r => typeof r.toId === 'number' && !Number.isNaN(r.toId))
+    if(!canSave) return
+    setRelSaving(true)
+    clearTimeout(relDeb.current)
+    relDeb.current = setTimeout(async ()=>{
+      try{
+        const updated = await updateWorldItem(activeId, { relations })
+        setList(prev => prev.map(x => x.id === updated.id ? updated : x))
+        // Gegenseite direkt aktualisieren
+        const fresh = await listWorldItems(pid)
+        setList(fresh)
+      }catch(e){ console.error(e) }
+      finally{ setRelSaving(false) }
+    }, 700)
+  },[relations, activeId, pid])
 
   return (
     <main className="content">
-      <div className="two-col">
-        {/* LEFT: Orte-Liste */}
-        <aside className="two-col__sidebar">
-          <div className="panel">
-            <div className="panel-title row">
-              <span>Welt (Orte)</span>
-              <button className="btn sm" onClick={addPlace}>+ Neu</button>
-            </div>
+      <div className="page-head">
+        <div className="page-crumbs">
+          <span className="crumb strong">{project?.title || 'Projekt'}</span>
+          <span className="sep">·</span>
+          <span className="crumb">Welt</span>
+        </div>
+        <div className="page-meta">
+          <span className="chip">{list.length} Einträge</span>
+          <button className="btn sm ghost" style={{marginLeft:8}} onClick={()=>setShowGraph(true)}>Graph</button>
+        </div>
+      </div>
 
-            <ul className="klist">
-              {places.map(p => (
-                <li key={p.id} className="kitem">
-                  <div
-                    className={'krow ' + (activeId === p.id ? 'active' : '')}
-                    onClick={() => setActiveId(p.id)}
-                  >
-                    <input className="kinput" value={p.name || ''} onChange={e => onChangeField('name', e.target.value)} />
-                    <div className="kactions">
-                      <button className="icon-btn" title="Löschen" onClick={(ev)=>{ev.stopPropagation(); removePlace(p.id)}}>🗑</button>
+      {error && <p style={{color:'crimson', marginTop:0}}>{error}</p>}
+
+      <div className="two-col equalize">
+        <aside className="two-col__sidebar">
+          <div className="panel fill">
+            <div className="panel-title row">
+              <span>Welt-Elemente</span>
+              <button className="btn sm" onClick={addItem}>+ Neu</button>
+            </div>
+            {loading ? (
+              <div className="empty"><p className="muted">Lade…</p></div>
+            ) : list.length===0 ? (
+              <div className="empty">
+                <p className="muted">Du hast noch keine Welt-Elemente.</p>
+                <button className="btn" onClick={addItem}>+ Erstes Element anlegen</button>
+              </div>
+            ) : (
+              <ul className="klist slim">
+                {list.map((it, idx)=>(
+                  <li key={it.id} className={'kitem tile '+(activeId===it.id?'active':'')}>
+                    <div className="krow tile-head" onClick={()=>setActiveId(it.id)} role="button" tabIndex={0}>
+                      <span className="ordinal">{String(idx+1).padStart(2,'0')}</span>
+                      <span className="ktitle" title={it.name || 'Unbenannt'}>{it.name?.trim() || 'Unbenannt'}</span>
+                      <div className="kactions">
+                        <button className="icon-btn" title="Löschen" onClick={(ev)=>{ev.stopPropagation(); removeItem(it.id)}}>🗑</button>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+                    {activeId===it.id && (
+                      <div className="tile-body subtle">
+                        <div className="dot-row"><span className="dot"/><span className="muted">{it.kind || '–'}</span></div>
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </aside>
 
-        {/* RIGHT: Details */}
         <section className="two-col__main">
-          <h3 style={{margin:'4px 0 8px 0'}}>{project?.title}</h3>
+          {list.length===0 || !active ? (
+            <div className="panel grow empty center">
+              <h3 style={{margin:0}}>Kein Element ausgewählt</h3>
+              <p className="muted" style={{marginTop:4}}>Lege links ein Element an oder wähle eines aus.</p>
+            </div>
+          ) : (
+            <div className="panel grow">
+              <div className="row" style={{gap:8, marginBottom:10, alignItems:'center'}}>
+                <input className="input" style={{flex:1}} placeholder="Name" value={name} onChange={e=>onField('name', e.target.value)} />
+                <select className="input" style={{width:220}} value={kind} onChange={e=>onField('kind', e.target.value)}>
+                  {KINDS.map(k => <option key={k} value={k}>{k}</option>)}
+                </select>
+              </div>
 
-          <div className="row" style={{gap:8}}>
-            <input className="input" style={{flex:1}} placeholder="Ort" value={name} onChange={e=>onChangeField('name', e.target.value)} />
-            <input className="input" style={{flex:1}} placeholder="Region/Land" value={region} onChange={e=>onChangeField('region', e.target.value)} />
-          </div>
+              <div className="tabs">
+                <button className={'tab-btn ' + (tab==='general'?'active':'')} onClick={()=>setTab('general')}>Allgemein</button>
+                <button className={'tab-btn ' + (tab==='relations'?'active':'')} onClick={()=>setTab('relations')}>Beziehungen</button>
+              </div>
 
-          <div className="panel" style={{marginTop:8}}>
-            <textarea className="editor" placeholder="Beschreibung, Geschichte, Kultur…" value={desc} onChange={e=>onChangeField('desc', e.target.value)} />
-          </div>
+              {tab === 'general' && (
+                <div className="tab-body">
+                  <textarea className="editor" placeholder="Beschreibung …" value={description} onChange={e=>onField('description', e.target.value)} />
+                </div>
+              )}
+
+              {tab === 'relations' && (
+                <div className="tab-body">
+                  <div className="row" style={{justifyContent:'space-between', alignItems:'center', marginBottom:8}}>
+                    <h4 style={{margin:0}}>Beziehungen</h4>
+                    <div className="row" style={{gap:8, alignItems:'center'}}>
+                      <span className="muted" style={{fontSize:12}}>{relSaving ? 'Speichert…' : 'Alle Änderungen gespeichert'}</span>
+                      <button className="btn sm ghost" onClick={addRel}>+ Beziehung hinzufügen</button>
+                    </div>
+                  </div>
+
+                  {relations.length===0 ? (
+                    <p className="muted">Noch keine Beziehungen.</p>
+                  ) : (
+                    <div className="rel-table">
+                      <div className="rel-header">
+                        <span>Ziel</span><span>Typ</span><span>Stärke</span><span>Notizen</span><span/>
+                      </div>
+                      {relations.map((r,i)=>(
+                        <div className="rel-row" key={i}>
+                          <select className="input" value={r.toId ?? ''} onChange={e=>editRel(i, { toId:Number(e.target.value)||null })}>
+                            {candidates.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+                          </select>
+                          <select className="input" value={r.type} onChange={e=>editRel(i, { type:e.target.value })}>
+                            {REL_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
+                          </select>
+                          <input className="input" value={String(r.strength ?? 3)} onChange={e=>editRel(i, { strength: clamp(e.target.value,1,5) })} />
+                          <input className="input" placeholder="Notizen" value={r.notes||''} onChange={e=>editRel(i, { notes:e.target.value })} />
+                          <button className="icon-btn" title="Entfernen" onClick={()=>delRel(i)}>🗑</button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
         </section>
       </div>
+
+      {showGraph && <GraphModal projectId={pid} path="world-graph" onClose={()=>setShowGraph(false)} />}
     </main>
   )
+}
+
+function clamp(v,min,max){
+  const n = Number(String(v).replace(/[^\d]/g,'')) || min
+  return Math.max(min, Math.min(max, n))
 }
 
 ```
@@ -10568,6 +18466,350 @@ export default function World() {
 
 /* 10) Fokus sichtbar aber weich */
 :focus-visible { outline: 2px solid #7aa2ff; outline-offset: 2px; border-radius: 8px; }
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 240px;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+.muted {
+  color: #8a94a6;
+}
+/* --- Sidebar-Kacheln im Charakter-Menü wie Kapitel --- */
+
+.klist.slim { gap: 10px; }
+
+.kitem.tile {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 0 rgba(16,24,40,.04), 0 1px 2px rgba(16,24,40,.08);
+  padding: 6px;
+  transition: box-shadow .2s, border-color .2s;
+  border: 1px solid rgba(16,24,40,.06);
+}
+
+.kitem.tile.active {
+  box-shadow: 0 0 0 3px rgba(31, 136, 255, .12), 0 1px 0 rgba(16,24,40,.04);
+  border-color: rgba(31, 136, 255, .35);
+}
+
+.krow.tile-head {
+  display: grid;
+  grid-template-columns: 34px 1fr auto auto;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.ordinal {
+  display: inline-flex;
+  width: 34px;
+  height: 28px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  font-weight: 600;
+  font-size: 12px;
+  color: #334155;
+}
+
+.title-input {
+  background: #f8fafc;
+  border: 1px solid transparent;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.title-input:focus {
+  background: #fff;
+  border-color: rgba(31,136,255,.35);
+  outline: none;
+}
+
+.bubble.small {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f1f5f9;
+}
+
+.tile-body.subtle {
+  padding: 6px 8px 8px 42px; /* eingerückt unter der Ordinal */
+}
+
+.dot-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #94a3b8;
+  display: inline-block;
+}
+
+.kactions .icon-btn {
+  opacity: .75;
+}
+.krow:hover .kactions .icon-btn { opacity: 1; }
+
+/* Empty-State */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 240px;
+  text-align: center;
+}
+.center { text-align: center; }
+.muted { color: #8a94a6; }
+
+/* Sidebar-Kacheln wie Kapitel */
+.klist.slim { gap: 10px; }
+
+.kitem.tile {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 0 rgba(16,24,40,.04), 0 1px 2px rgba(16,24,40,.08);
+  padding: 6px;
+  transition: box-shadow .2s, border-color .2s;
+  border: 1px solid rgba(16,24,40,.06);
+}
+.kitem.tile.active {
+  box-shadow: 0 0 0 3px rgba(31,136,255,.12), 0 1px 0 rgba(16,24,40,.04);
+  border-color: rgba(31,136,255,.35);
+}
+
+.krow.tile-head {
+  display: grid;
+  grid-template-columns: 34px 1fr auto auto;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.ordinal {
+  display: inline-flex;
+  width: 34px;
+  height: 28px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  font-weight: 600;
+  font-size: 12px;
+  color: #334155;
+}
+
+/* Nur Anzeige, kein Input */
+.ktitle {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 8px 4px;
+}
+
+.bubble.small {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f1f5f9;
+}
+
+.tile-body.subtle {
+  padding: 6px 8px 8px 42px;
+}
+
+.dot-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+.dot {
+  width: 8px; height: 8px; border-radius: 999px; background: #94a3b8; display: inline-block;
+}
+
+.kactions .icon-btn { opacity: .75; }
+.krow:hover .kactions .icon-btn { opacity: 1; }
+
+/* Empty-State */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 240px;
+  text-align: center;
+}
+.center { text-align: center; }
+.muted { color: #8a94a6; }
+/* Modal */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(15,23,42,.45);
+  display: flex; align-items: center; justify-content: center; z-index: 60;
+}
+.modal {
+  width: min(860px, 92vw); background: #fff; border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.25); overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.modal-head, .modal-foot {
+  padding: 12px 16px; display:flex; align-items:center; justify-content: space-between;
+  border-bottom: 1px solid rgba(16,24,40,.06);
+}
+.modal-foot { border-top: 1px solid rgba(16,24,40,.06); border-bottom: none; }
+.modal-body { padding: 16px; max-height: 70vh; overflow: auto; }
+.editor.sm { min-height: 90px; }
+
+/* Wizard steps */
+.steps { display:flex; gap:8px; padding: 8px 16px; border-bottom:1px solid rgba(16,24,40,.06); }
+.step {
+  padding:6px 10px; border-radius:999px; background:#f1f5f9; font-size:12px; font-weight:600; color:#334155;
+}
+.step.active { background:#dbeafe; color:#1e40af; }
+
+/* Drawer */
+.drawer-backdrop { position: fixed; inset:0; background: rgba(15,23,42,.35); z-index: 50; }
+.drawer {
+  position: absolute; right:0; top:0; height:100%; width: min(520px, 96vw); background:#fff;
+  box-shadow: -10px 0 30px rgba(0,0,0,.15); display:flex; flex-direction:column;
+}
+.drawer-head, .drawer-foot { padding:12px 16px; display:flex; align-items:center; justify-content: space-between; border-bottom:1px solid rgba(16,24,40,.06); }
+.drawer-foot { border-top:1px solid rgba(16,24,40,.06); border-bottom:none; margin-top:auto; }
+.drawer-body { padding: 12px 16px; overflow:auto; }
+.rel-row { display:grid; grid-template-columns: 1fr 1fr 90px 1fr auto; gap:8px; align-items:center; }
+
+/* Utilities */
+.vstack { display:flex; flex-direction:column; }
+.btn.ghost { background:#f1f5f9; }
+
+/* Graph im Modal */
+/* ---- Graph Modal nutzt die verfügbare Fläche besser ---- */
+.modal.graph-modal {
+  width: min(1200px, 96vw);
+  height: 88vh;             /* mehr Höhe */
+  display: flex;
+  flex-direction: column;
+}
+
+.graph-body {
+  padding: 0;               /* Rahmenloser Canvas */
+  flex: 1 1 auto;
+  overflow: hidden;         /* kein Scroll im Body */
+}
+
+.graph-frame {
+  width: 100%;
+  height: 100%;             /* füllt den gesamten Body */
+  border: 0;
+  display: block;
+  background: #fff;
+}
+
+/* Tabs */
+.tabs { display:flex; gap:6px; border-bottom:1px solid rgba(16,24,40,.08); margin-bottom:10px; }
+.tab-btn { padding:8px 12px; border-radius:10px 10px 0 0; background:#f1f5f9; color:#334155; font-weight:600; border:none; cursor:pointer; }
+.tab-btn.active { background:#e2e8f0; color:#0f172a; }
+.tab-body { padding-top:6px; }
+
+/* Grid helpers */
+.grid { display:grid; }
+.grid.two { grid-template-columns: 1fr 1fr; }
+.gap16 { gap:16px; }
+
+/* Avatar placeholder box (rechts oben im Tab "Allgemein") */
+.avatar-box { display:flex; flex-direction:column; gap:8px; align-items:center; justify-content:flex-start; }
+.avatar-img, .avatar-ph {
+  width: 140px; height: 140px; border-radius: 12px; object-fit: cover; background:#e2e8f0;
+  display:flex; align-items:center; justify-content:center; font-size:48px; color:#64748b; font-weight:700;
+}
+
+/* Existing graph modal sizing */
+.modal.graph-modal { width: min(1200px, 96vw); height: 88vh; display:flex; flex-direction:column; }
+.graph-body { padding: 0; flex: 1 1 auto; overflow: hidden; }
+.graph-frame { width:100%; height:100%; border:0; display:block; background:#fff; }
+
+/* Small helpers */
+.editor.sm { min-height: 90px; }
+.bullets { padding-left: 18px; }
+
+/* Beziehungen-Tab */
+.rel-table { display: grid; gap: 8px; }
+.rel-header {
+  display: grid;
+  grid-template-columns: 1fr 180px 100px 1fr 32px;
+  gap: 8px;
+  font-weight: 600;
+  color: #334155;
+}
+.rel-row {
+  display: grid;
+  grid-template-columns: 1fr 180px 100px 1fr 32px;
+  gap: 8px;
+  align-items: center;
+}
+.rel-row .icon-btn { justify-self: end; }
+
+/* Graph Modal (bereits vorhanden; hier der Vollständigkeit halber) */
+.modal.graph-modal { width: min(1200px, 96vw); height: 88vh; display:flex; flex-direction:column; }
+.graph-body { padding: 0; flex: 1 1 auto; overflow: hidden; }
+.graph-frame { width:100%; height:100%; border:0; background:#fff; }
+
+/* Avatar (Allgemein-Tab) */
+.avatar-box { display:flex; flex-direction:column; gap:8px; align-items:center; justify-content:flex-start; }
+.avatar-img, .avatar-ph {
+  width: 140px; height: 140px; border-radius: 12px; object-fit: cover; background:#e2e8f0;
+  display:flex; align-items:center; justify-content:center; font-size:48px; color:#64748b; font-weight:700;
+}
+/* ----- Tag Input / Chips für Fähigkeiten ----- */
+.tag-input { display: flex; flex-direction: column; gap: 10px; }
+.tag-input .input { width: 100%; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  font-weight: 600;
+  color: #0f172a;
+}
+.tag-x {
+  appearance: none;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  color: #475569;
+}
+.tag-x:hover { color: #0f172a; }
 
 ```
 

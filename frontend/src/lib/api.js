@@ -1,23 +1,11 @@
-﻿// frontend/src/lib/api.js
+﻿const API_BASE =
+  import.meta.env.VITE_API_BASE   // Prod/Dev über Env
+  || '';                          // wenn Vite-Proxy benutzt wird
+
 const JSON_HEADERS = { 'Content-Type': 'application/json' };
 
-// liest die Base-URL aus der Build-Umgebung
-// entfernt evtl. Slash am Ende, damit wir sauber anhängen
-const API_BASE_RAW = import.meta.env.VITE_API_BASE || '';
-const API_BASE = API_BASE_RAW.replace(/\/$/, '');
-
-// Optionaler Dev-Fallback (nur wenn wirklich lokal entwickelt wird)
-const DEV_FALLBACK =
-  window.location.hostname === 'localhost' ? 'http://localhost:8000' : '';
-
-const BASE = API_BASE || DEV_FALLBACK;
-
-async function req(method, path, body) {
-  if (!BASE) {
-    throw new Error('API base URL missing. Set VITE_API_BASE in Amplify.');
-  }
-  const url = `${BASE}${path}`;
-  const res = await fetch(url, {
+async function req(method, url, body) {
+  const res = await fetch(`${API_BASE}${url}`, {
     method,
     headers: JSON_HEADERS,
     body: body ? JSON.stringify(body) : undefined,
@@ -25,6 +13,8 @@ async function req(method, path, body) {
   if (!res.ok) throw new Error(`${method} ${url} -> ${res.status}`);
   return res.status === 204 ? null : res.json();
 }
+
+
 
 /* Projects */
 export const getProject = (id) => req('GET', `/api/projects/${id}`);
@@ -34,10 +24,16 @@ export const updateProject = (id, payload) => req('PUT', `/api/projects/${id}`, 
 export const deleteProject = (id) => req('DELETE', `/api/projects/${id}`);
 
 /* Chapters & Scenes */
-export const listChapters = (pid) => req('GET', `/api/projects/${pid}/chapters`);
-export const createChapter = (pid, payload) => req('POST', `/api/projects/${pid}/chapters`, payload);
-export const updateChapter = (id, payload) => req('PUT', `/api/chapters/${id}`, payload);
-export const deleteChapter = (id) => req('DELETE', `/api/chapters/${id}`);
+export const listChapters = (pid) =>   req('GET', `/api/projects/${pid}/chapters`);
+export const createChapter = (pid, payload) =>  req('POST', `/api/projects/${pid}/chapters`, payload);
+export const updateChapter = (id, payload) =>  req('PUT', `/api/chapters/${id}`, payload);
+export const deleteChapter = (id) =>  req('DELETE', `/api/chapters/${id}`);
+
+/* ✅ Szenen */
+export const listScenes = (cid) =>  req('GET', `/api/chapters/${cid}/scenes`);
+export const createScene = (cid, payload) =>  req('POST', `/api/chapters/${cid}/scenes`, payload);
+export const updateScene = (id, payload) =>  req('PUT', `/api/scenes/${id}`, payload);
+export const deleteScene = (id) =>  req('DELETE', `/api/scenes/${id}`);
 
 /* Characters */
 export const listCharacters = (pid) => req('GET', `/api/projects/${pid}/characters`);
