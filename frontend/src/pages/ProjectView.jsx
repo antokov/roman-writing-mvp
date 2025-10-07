@@ -3,10 +3,12 @@ import { useParams } from 'react-router-dom'
 import '../layout-2col.css'
 import '../projectview.css'
 
-// Dev => immer Proxy '/api'; Prod => ENV oder '/api'
 const API_BASE = import.meta.env.DEV
   ? '/api'
-  : (import.meta.env.VITE_API_BASE || '/api');
+  : (() => {
+      const raw = (import.meta.env.VITE_API_BASE || '').replace(/\/+$/, '');
+      return raw.endsWith('/api') ? raw : `${raw}/api`;
+    })();
 
 const api      = (p) => `${API_BASE}${p}`;
 const get      = (p, init) => fetch(api(p), init);
