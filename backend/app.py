@@ -2,6 +2,10 @@ from flask import Flask, request, jsonify, abort, Response
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import selectinload
+from sqlalchemy import text
+from sqlalchemy.exc import SQLAlchemyError
+from .db import engine, get_session, Base
+from .models import Project, Chapter, Scene, Character, WorldNode
 from datetime import datetime
 import os, json, tempfile
 
@@ -597,10 +601,25 @@ with app.app_context():
     ensure_profile_column()
 
 
-@app.route("/healthz")
-def health():
-    return {"ok": True}
+@app.get("/healthz")
+def healthz():
+    # einfacher Lebenscheck – KEIN DB-Zugriff
+    return {"ok": True}, 200
 
+@app.get("/api/healthz/db")
+def healthz_db():
+    try:
+        with engine.connect() as con:
+            con.execute(text("select 1"))
+        return {"ok": True}, 200
+    except Exception as e:
+        app.logger.exception("DB health failed")
+        return {"ok": False, "error": str(e)}, 500
+
+try:
+    Base.metadata.create_all(bind=engine)
+except SQLAlchemyError as e:
+    app.logger.exception("DB init skipped: %s", e)
 
 # Optional für lokalen Start per `python app.py`
 if __name__ == "__main__":
